@@ -24,10 +24,13 @@ namespace GuestRegistrationDesktopUI
             _container.Instance(_container);
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>()
-                .Singleton<IScanDocument, ScanDocument>();
-                //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                //.Singleton<IAPIHelper, APIHelper>();
+                .Singleton<IEventAggregator, EventAggregator>();
+                //.Singleton<IScanDocument, ScanDocument>();
+            //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
+            //.Singleton<IAPIHelper, APIHelper>();
+
+            _container
+                .PerRequest<IScanDocument, ScanDocument>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
