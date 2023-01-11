@@ -115,6 +115,10 @@
       <Project>{2B421EC9-5081-458A-BF11-BA799DD764F4}</Project>
       <Name>Fi800ScanLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OCRLibrary\OCRLibrary.csproj">
+      <Project>{CEFEE9DF-6E15-4EF6-BB6F-33F99BAAC42B}</Project>
+      <Name>OCRLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

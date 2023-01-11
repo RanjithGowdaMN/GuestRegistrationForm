@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Fi800ScanLibrary.Scanner;
 using GuestRegistrationDesktopUI.ViewModels;
+using OCRLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,9 @@ namespace GuestRegistrationDesktopUI
             _container.Instance(_container);
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
-                //.Singleton<IScanDocument, ScanDocument>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<IExtractTextFromImage, ExtractTextFromImage>();
+            //.Singleton<IScanDocument, ScanDocument>();
             //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
             //.Singleton<IAPIHelper, APIHelper>();
 
