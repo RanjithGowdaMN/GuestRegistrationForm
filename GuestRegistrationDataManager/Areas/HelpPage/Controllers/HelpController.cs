@@ -1,8 +1,8 @@
+using GuestRegistrationDataManager.Areas.HelpPage.ModelDescriptions;
+using GuestRegistrationDataManager.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using GuestRegistrationDataManager.Areas.HelpPage.ModelDescriptions;
-using GuestRegistrationDataManager.Areas.HelpPage.Models;
 
 namespace GuestRegistrationDataManager.Areas.HelpPage.Controllers
 {

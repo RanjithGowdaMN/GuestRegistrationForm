@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fi800ScanLibrary.Scanner
+﻿namespace Fi800ScanLibrary.Scanner
 {
     public interface IScanDocument
     {

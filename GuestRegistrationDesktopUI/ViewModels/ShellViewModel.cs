@@ -1,20 +1,20 @@
 ﻿using Fi800ScanLibrary.Scanner;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OCRLibrary;
 
 namespace GuestRegistrationDesktopUI.ViewModels
 {
     public class ShellViewModel
     {
         private IScanDocument _scanDocument;
-        public ShellViewModel(IScanDocument scanDocument)
+        private IExtractTextFromImage _extractTextFromImage;
+        public ShellViewModel(IScanDocument scanDocument, IExtractTextFromImage extractTextFromImage)
         {
             _scanDocument = scanDocument;
             scanDocument.OpenScanner();
             scanDocument.StartScan();
+
+            _extractTextFromImage = extractTextFromImage;
+            extractTextFromImage.ReadImageBasic("");
         }
 
 

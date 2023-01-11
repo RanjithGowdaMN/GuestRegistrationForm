@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using GuestRegistrationDataManager.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using GuestRegistrationDataManager.Models;
 
 namespace GuestRegistrationDataManager
 {

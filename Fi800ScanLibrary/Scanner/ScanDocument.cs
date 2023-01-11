@@ -110,13 +110,13 @@ namespace Fi800ScanLibrary.Scanner
             //}
             //if (this.MenuItemOutputResult.Checked)
             //{
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(ModuleScan.strOutputResult, true);
-                sw.WriteLine("AutoProfileSelection Event");
-                sw.WriteLine("DistResult             : " + e.distResult);
-                sw.WriteLine("FormName               : " + e.formName);
-                sw.WriteLine("ProfileName            : " + e.profileName);
-                sw.WriteLine("");
-                sw.Close();
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(ModuleScan.strOutputResult, true);
+            sw.WriteLine("AutoProfileSelection Event");
+            sw.WriteLine("DistResult             : " + e.distResult);
+            sw.WriteLine("FormName               : " + e.formName);
+            sw.WriteLine("ProfileName            : " + e.profileName);
+            sw.WriteLine("");
+            sw.Close();
             //}
         }
 
