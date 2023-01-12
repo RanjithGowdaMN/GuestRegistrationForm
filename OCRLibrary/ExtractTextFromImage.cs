@@ -14,6 +14,7 @@ namespace OCRLibrary
         {
             AutoOcr Ocr = new AutoOcr() { ReadBarCodes = false };
             var Results = Ocr.Read(path);
+            SaveToText("C:\\Users\\Ranji\\Downloads\\test\\sample.txt", Results.Text);
             return true;
         }
 
@@ -65,6 +66,8 @@ namespace OCRLibrary
             {
                 Language = IronOcr.Languages.Arabic.OcrLanguagePack
             };
+            var Results = Ocr.Read(path);
+            SaveToText("C:\\Users\\Ranji\\Downloads\\test\\sample.txt", Results.Text);
             return true;
         }
 
