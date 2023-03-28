@@ -415,7 +415,7 @@ namespace Fi800ScanLibrary
         public static int intOrientation;                       //Orientation
         public static int intReport;                            //Report
         public static string strReportFile;                     //ReportFile
-        public static string strOutputResult;                   //OutputResult
+        public static string strOutputResult = "D:\\fiScannOutputReport";                   //OutputResult
         public static int intCarrierSheetClippingMode;          //CarrierSheetClippingMode
 
         public static bool blnIsExistsFB;                       //IsExistFB

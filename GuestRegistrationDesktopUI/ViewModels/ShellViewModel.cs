@@ -9,13 +9,13 @@ namespace GuestRegistrationDesktopUI.ViewModels
         private IExtractTextFromImage _extractTextFromImage;
         public ShellViewModel(IScanDocument scanDocument, IExtractTextFromImage extractTextFromImage)
         {
-            //_scanDocument = scanDocument;
-            //scanDocument.OpenScanner();
-            //scanDocument.StartScan();
+            _scanDocument = scanDocument;
+            scanDocument.OpenScanner();
+            scanDocument.StartScan();
 
-            _extractTextFromImage = extractTextFromImage;
-            string imPath = string.Empty;
-            extractTextFromImage.ReadImageBasic("C:\\Users\\Ranji\\Downloads\\test\\test001.tif");
+            //_extractTextFromImage = extractTextFromImage;
+            //string imPath = string.Empty;
+            //extractTextFromImage.ReadImageBasic("C:\\Users\\Ranji\\Downloads\\test\\test001.tif");
             //extractTextFromImage.ReadImageForArabic("C:\\Users\\Ranji\\Downloads\\test\\test001.tif");
         }
 
