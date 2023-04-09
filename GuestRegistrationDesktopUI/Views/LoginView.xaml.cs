@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace GuestRegistrationDesktopUI.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class ShellView : Window
+    public partial class LoginView : Window
     {
-        public ShellView()
+        public LoginView()
         {
             InitializeComponent();
         }

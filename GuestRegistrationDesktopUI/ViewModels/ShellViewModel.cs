@@ -5,13 +5,16 @@ namespace GuestRegistrationDesktopUI.ViewModels
 {
     public class ShellViewModel
     {
-        private IScanDocument _scanDocument;
-        private IExtractTextFromImage _extractTextFromImage;
-        public ShellViewModel(IScanDocument scanDocument, IExtractTextFromImage extractTextFromImage)
+        //private IScanDocument _scanDocument;
+        private ScanDocument ScanDocument;
+        //private IExtractTextFromImage _extractTextFromImage;
+        public ShellViewModel(ScanDocument scanDocument, IExtractTextFromImage extractTextFromImage)
         {
-            _scanDocument = scanDocument;
-            scanDocument.OpenScanner();
-            scanDocument.StartScan();
+            scanDocument = ScanDocument;
+            
+            //_scanDocument = scanDocument;
+            //scanDocument.OpenScanner();
+            //scanDocument.StartScan();
 
             //_extractTextFromImage = extractTextFromImage;
             //string imPath = string.Empty;
