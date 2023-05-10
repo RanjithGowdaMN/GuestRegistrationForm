@@ -30,4 +30,3 @@ namespace GuestRegistration.App_Start
         }
     }
 }
-}
