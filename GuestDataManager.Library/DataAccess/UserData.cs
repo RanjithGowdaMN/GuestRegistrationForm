@@ -16,7 +16,7 @@ namespace GuestDataManager.Library.DataAccess
 
             var p = new { Id = Id };
 
-            var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "TRMData");
+            var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "GuestData");
 
             return output;
         }
