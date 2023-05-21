@@ -61,13 +61,11 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="Publish Locations" />
-    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\GuestData.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
-    <None Include="dbo\Stored Procedures\spUserLookup.sql" />
   </ItemGroup>
 </Project>

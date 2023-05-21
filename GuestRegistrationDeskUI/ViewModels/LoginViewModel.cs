@@ -1,6 +1,5 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.Api;
-using GuestRegistrationDesktopUI.Library.EventsModel;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Helpers;
 using System;
@@ -16,9 +15,10 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _userName;
         private string _password;
         private IAPIconnector _apiHelper;
+        private SimpleContainer _container;
         private IEventAggregator _events;
 
-        //private ILoggedInUserModel _loggedInUserModel;
+        private ILoggedInUserModel _loggedInUserModel;
 
         public bool IsErrorVisible
         {
@@ -46,9 +46,13 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-        public LoginViewModel(IAPIconnector apiHelper, SimpleContainer container, IEventAggregator events)
+        public LoginViewModel(IAPIconnector apiHelper, SimpleContainer container, IEventAggregator events, ILoggedInUserModel loggedInUserModel)
         {
-            _apiHelper = apiHelper;           
+            _apiHelper = apiHelper;
+            _loggedInUserModel = loggedInUserModel;
+            //APIHelper aPIHelper = new APIHelper(_loggedInUserModel);
+            //_apiHelper = aPIHelper;
+             
             _events = events;
         }
         public string UserName
@@ -98,7 +102,6 @@ namespace GuestRegistrationDeskUI.ViewModels
                 //capture more information about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
-                await _events.PublishOnUIThreadAsync(new LogonOnEvent());
             }
             catch (Exception ex)
             {

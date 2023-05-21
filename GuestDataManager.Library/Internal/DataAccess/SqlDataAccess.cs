@@ -14,7 +14,6 @@ namespace GuestDataManager.Library.Internal.DataAccess
     {
         public string GetConnectionString(string name)
         {
-            name = "GuestData";
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
