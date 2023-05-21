@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>GuestData</Name>
+    <Name>GuestRegistredData</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{b4d9c701-d683-405c-b09d-3aae60d9b1d0}</ProjectGuid>
+    <ProjectGuid>{5c6daeb8-c3d2-4984-a4f2-01811c48ef61}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>GuestData</RootNamespace>
-    <AssemblyName>GuestData</AssemblyName>
+    <RootNamespace>GuestRegistredData</RootNamespace>
+    <AssemblyName>GuestRegistredData</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -59,15 +59,10 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Views" />
-    <Folder Include="dbo\Stored Procedures" />
-    <Folder Include="Publish Locations" />
-    <Folder Include="Stored Procedures" />
+    <Folder Include="dbo\Stored Procedure" />
+    <Folder Include="PublishLocation" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Publish Locations\GuestData.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="dbo\Tables\User.sql" />
-    <None Include="dbo\Stored Procedures\spUserLookup.sql" />
+    <None Include="PublishLocation\GuestRegistredData.publish.xml" />
   </ItemGroup>
 </Project>
