@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDeskUI.EventModel;
 using GuestRegistrationDeskUI.Helpers;
 using System;
 using System.Collections.Generic;
@@ -98,9 +99,11 @@ namespace GuestRegistrationDeskUI.ViewModels
                 
                 var result = await _apiHelper.Authenticate(UserName, Password);
 
-                var res =_events.GetHashCode();
+                //var res =_events.GetHashCode();
                 //capture more information about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+                await _events.PublishOnUIThreadAsync(new LogOnEvent());
 
             }
             catch (Exception ex)
