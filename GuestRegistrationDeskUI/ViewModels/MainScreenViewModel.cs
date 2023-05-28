@@ -13,5 +13,10 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
 
         }
+
+        public void ScanIDCard()
+        {
+
+        }
     }
 }

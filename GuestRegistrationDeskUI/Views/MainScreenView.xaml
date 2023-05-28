@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <Button Grid.Row="1" Grid.Column="0"
-                HorizontalAlignment="Center" x:Name="ScanIDCard" Padding="20 5" Width="92" Margin="22,10,19,10" Click="ScanIDCard_Click">
+                HorizontalAlignment="Center" x:Name="ScanIDCard" Padding="20 5" Width="92" Margin="22,10,19,10" >
             Scan
         </Button>
 
