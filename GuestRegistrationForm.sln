@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestDataManager.Library", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FargoEncodingPrinting.Library", "FargoEncodingPrinting.Library\FargoEncodingPrinting.Library.csproj", "{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScanTest", "C:\Program Files (x86)\FiScnSDK23\Sample\ScanTest\VCS 2012\fiScanTest.csproj", "{995ECF12-C2DC-4F55-8598-2BB636B65305}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScanTest", "FI800Scan\fiScanTest.csproj", "{995ECF12-C2DC-4F55-8598-2BB636B65305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScanTest", "fiScanTest.csproj", "{995ECF12-C2DC-4F55-8598-2BB636B65305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|x64.ActiveCfg = Debug|x64
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|x64.Build.0 = Debug|x64
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|x64.ActiveCfg = Release|x64
+		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

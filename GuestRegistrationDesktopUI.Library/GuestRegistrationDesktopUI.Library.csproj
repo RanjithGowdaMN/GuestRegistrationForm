@@ -94,7 +94,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Program Files %28x86%29\FiScnSDK23\Sample\ScanTest\VCS 2012\fiScanTest.csproj">
+    <ProjectReference Include="..\FI800Scan\fiScanTest.csproj">
       <Project>{995ECF12-C2DC-4F55-8598-2BB636B65305}</Project>
       <Name>fiScanTest</Name>
     </ProjectReference>
