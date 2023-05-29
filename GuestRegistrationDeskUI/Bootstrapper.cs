@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.Api;
+using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Helpers;
 using GuestRegistrationDeskUI.ViewModels;
@@ -35,7 +36,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IAPIconnector, APIconnector>()
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
-                .Singleton<ILoggedInUserModel, LoggedInUserModel>();
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IFiScan, FiScan>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

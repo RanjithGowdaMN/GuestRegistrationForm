@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using GuestRegistrationDesktopUI.Library.FiScanner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,15 @@ namespace GuestRegistrationDeskUI.ViewModels
 {
     public class MainScreenViewModel : Screen
     {
-        public MainScreenViewModel()
+        public IFiScan _fiScan;
+        public MainScreenViewModel(IFiScan fiScan)
         {
-
+            _fiScan = fiScan;
         }
 
         public void ScanIDCard()
         {
-
+            _fiScan.LoadScanner();
         }
     }
 }
