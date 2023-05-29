@@ -15,6 +15,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             _fiScanHelper.FormScan_Load();
             _fiScanHelper.OpenScanner();
             _fiScanHelper.InitialFileRead();
+            _fiScanHelper.cboFileType_SelectedIndexChanged();
         }
 
         ~FiScan()
