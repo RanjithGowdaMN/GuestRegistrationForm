@@ -8,7 +8,8 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
     public class FiScan : IFiScan
     {
-        public FiScanHelper _fiScanHelper;
+        
+        private FiScanHelper _fiScanHelper;
         public FiScan()
         {
             _fiScanHelper = new FiScanHelper();
@@ -24,7 +25,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             _fiScanHelper.Dispose();
         }
 
-        public void LoadScanner()
+        public void StartScanning()
         {
             _fiScanHelper.StartScan();
         }

@@ -10,7 +10,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 {
     public class MainScreenViewModel : Screen
     {
-        public IFiScan _fiScan;
+        private IFiScan _fiScan;
         public MainScreenViewModel(IFiScan fiScan)
         {
             _fiScan = fiScan;
@@ -18,7 +18,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public void ScanIDCard()
         {
-            _fiScan.LoadScanner();
+            _fiScan.StartScanning();
         }
     }
 }

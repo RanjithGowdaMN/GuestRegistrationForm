@@ -73,6 +73,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tesseract.Library">
+      <HintPath>..\Tesseract.ConsoleDemo\bin\Debug\netcoreapp3.0\Tesseract.Library.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +101,9 @@
       <Project>{995ECF12-C2DC-4F55-8598-2BB636B65305}</Project>
       <Name>fiScanTest</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OCR\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
