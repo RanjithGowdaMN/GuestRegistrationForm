@@ -8,15 +8,20 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
     public class FiScan : IFiScan
     {
-        
         private FiScanHelper _fiScanHelper;
+        private string ImageDir = "D:\\Images\\";
+       
         public FiScan()
         {
+            
             _fiScanHelper = new FiScanHelper();
+            //_fiScanHelper.FormScan_Load(ScannedImageDir: ImageDir);
             _fiScanHelper.FormScan_Load();
             _fiScanHelper.OpenScanner();
             _fiScanHelper.InitialFileRead();
             _fiScanHelper.cboFileType_SelectedIndexChanged();
+
+
         }
 
         ~FiScan()
@@ -28,6 +33,11 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
         public void StartScanning()
         {
             _fiScanHelper.StartScan();
+        }
+
+        public void OnScanCompleted()
+        {
+
         }
 
     }

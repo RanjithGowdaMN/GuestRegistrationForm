@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Tesseract.Library
 {
-    public class TesseractLib
+    public class TesseractLib : ITesseractLib
     {
         public string ExtractTextFromImage(string imagePath)
         {

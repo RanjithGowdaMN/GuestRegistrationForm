@@ -19,6 +19,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         public void ScanIDCard()
         {
             _fiScan.StartScanning();
+            
         }
     }
 }
