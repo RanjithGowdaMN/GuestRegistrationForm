@@ -26,7 +26,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
         ~FiScan()
         {
             _fiScanHelper.FormScan_Closed();
-            _fiScanHelper.Dispose();
+            //_fiScanHelper.Dispose();
         }
 
         public void StartScanning()
@@ -37,7 +37,6 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public static void OnScanCompleted(object source, EventArgs e)
         {
-            //var formScanInstance = FiScanHelper.GetSingleton;
             
 
         }
