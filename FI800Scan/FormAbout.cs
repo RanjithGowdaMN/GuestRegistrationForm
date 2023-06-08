@@ -52,7 +52,16 @@ namespace fiScanTest
             {
                 if(components != null)
                 {
-                    components.Dispose();
+                    try
+                    {
+                        components.Dispose();
+                    }
+                    catch (Exception)
+                    {
+
+                        components = null;
+                    }
+                    
                 }
             }
             base.Dispose( disposing );

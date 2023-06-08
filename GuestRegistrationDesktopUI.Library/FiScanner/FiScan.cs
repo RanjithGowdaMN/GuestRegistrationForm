@@ -20,6 +20,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             _fiScanHelper.OpenScanner();
             _fiScanHelper.InitialFileRead();
             _fiScanHelper.cboFileType_SelectedIndexChanged();
+            
         }
 
         ~FiScan()
@@ -30,7 +31,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public void StartScanning()
         {
-
+            _fiScanHelper.ScanModeSet(GetImageFileName());
             _fiScanHelper.StartScan();
         }
 
@@ -49,7 +50,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             if (!Directory.Exists(ImageDir))
             {
                 Directory.CreateDirectory(ImageDir);
-                return "Image_00001";
+                return "00001";
             }
 
             // Get all files in the directory
@@ -58,7 +59,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             if (files.Length == 0)
             {
                 Console.WriteLine("No files found in the directory.");
-                return "Image_00001";
+                return "00001";
             }
 
             // Initialize variables to store the last modified file information
@@ -75,6 +76,11 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
                     lastModifiedTime = fileInfo.LastWriteTime;
                     lastModifiedFileName = fileInfo.Name;
                 }
+            }
+            int lastModifiedFileCounter = 0;
+            if (int.TryParse(lastModifiedFileName.Replace("image", string.Empty).Split('.')[0], out lastModifiedFileCounter))
+            {
+                return (lastModifiedFileCounter + 1).ToString();
             }
             return lastModifiedFileName;
         }
