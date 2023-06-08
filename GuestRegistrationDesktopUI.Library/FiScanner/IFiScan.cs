@@ -6,6 +6,6 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
     {
         void StartScanning();
 
-        void OnScanCompleted();
+        //void OnScanCompleted();
     }
 }

@@ -7,12 +7,27 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
-    public class FiScanHelper : FormScan
+    public sealed class FiScanHelper : FormScan
     {
-        public FiScanHelper()
+
+        private static FiScanHelper fiScanHelper = null;
+
+        public static FiScanHelper GetFormInstance
+        {
+            get
+            {
+                if (fiScanHelper == null)
+                {
+                    return new FiScanHelper();
+                }
+                return fiScanHelper;
+
+            }
+        }
+        private FiScanHelper()
         {
 
         }
-        
+
     }
 }

@@ -77,6 +77,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -166,6 +167,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FI800Scan\fiScanTest.csproj">
+      <Project>{995ecf12-c2dc-4f55-8598-2bb636b65305}</Project>
+      <Name>fiScanTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>
       <Name>GuestRegistrationDesktopUI.Library</Name>
