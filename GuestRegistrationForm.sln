@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScan", "FI800Scan\fiScan.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesseract.OCRLibrary", "Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj", "{A50EC795-E457-4AAF-81EF-CD54880CFFA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronOCR.Library", "IronOCR.Library\IronOCR.Library.csproj", "{D21BBB0A-CA79-4D71-8731-72DD9531A330}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,14 @@ Global
 		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x64.ActiveCfg = Release|Any CPU
 		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x64.Build.0 = Release|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|x64.Build.0 = Debug|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Release|x64.ActiveCfg = Release|Any CPU
+		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

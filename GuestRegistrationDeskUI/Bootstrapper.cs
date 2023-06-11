@@ -5,6 +5,7 @@ using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationDeskUI.Helpers;
 using GuestRegistrationDeskUI.ViewModels;
+using IronOCR.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IFiScan, FiScan>()
                 .Singleton<IOCRhelper, OCRhelper>()
-                .Singleton<ITesseractLib, TesseractLib>();
+                .Singleton<ITesseractLib, TesseractLib>()
+                .Singleton<IIronOCR, TessereactIronOCR>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

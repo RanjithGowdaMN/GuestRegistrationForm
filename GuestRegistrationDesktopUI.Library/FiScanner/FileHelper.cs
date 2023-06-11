@@ -21,7 +21,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             }
 
             // Get all files in the directory
-            string[] files = Directory.GetFiles(ImageDir);
+            string[] files = Directory.GetFiles(ImageDir, "*.jpg");
 
             if (files.Length == 0)
             {

@@ -175,6 +175,10 @@
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>
       <Name>GuestRegistrationDesktopUI.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IronOCR.Library\IronOCR.Library.csproj">
+      <Project>{d21bbb0a-ca79-4d71-8731-72dd9531a330}</Project>
+      <Name>IronOCR.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj">
       <Project>{a50ec795-e457-4aaf-81ef-cd54880cffa3}</Project>
       <Name>Tesseract.OCRLibrary</Name>
