@@ -8,13 +8,13 @@ namespace Tesseract.Library
         public string ExtractTextFromImage(string imagePath)
         {
             string extractedText = string.Empty;
-            var testImagePath = "C:\\Users\\Ranji\\source\\repos\\tesseract-samples\\src\\Tesseract.ConsoleDemo\\image00001.jpg";
+            //var testImagePath = "C:\\Users\\Ranji\\source\\repos\\tesseract-samples\\src\\Tesseract.ConsoleDemo\\image00001.jpg";
 
             try
             {
                 using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
-                    using (var img = Pix.LoadFromFile(testImagePath))
+                    using (var img = Pix.LoadFromFile(imagePath))
                     {
                         using (var page = engine.Process(img))
                         {
@@ -70,7 +70,7 @@ namespace Tesseract.Library
                 Console.WriteLine(e.ToString());
             }
             Console.Write("Press any key to continue . . . ");
-            Console.ReadKey(true);
+            //Console.ReadKey(true);
             return extractedText;
         }
     }

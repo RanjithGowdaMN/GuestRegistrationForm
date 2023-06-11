@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
+    <Compile Include="FiScanner\FileHelper.cs" />
     <Compile Include="FiScanner\FiScan.cs" />
     <Compile Include="FiScanner\FiScanHelper.cs">
       <SubType>Form</SubType>
@@ -100,9 +101,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FI800Scan\fiScanTest.csproj">
+    <ProjectReference Include="..\FI800Scan\fiScan.csproj">
       <Project>{995ECF12-C2DC-4F55-8598-2BB636B65305}</Project>
-      <Name>fiScanTest</Name>
+      <Name>fiScan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj">
+      <Project>{a50ec795-e457-4aaf-81ef-cd54880cffa3}</Project>
+      <Name>Tesseract.OCRLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

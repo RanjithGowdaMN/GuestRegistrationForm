@@ -167,13 +167,17 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FI800Scan\fiScanTest.csproj">
+    <ProjectReference Include="..\FI800Scan\fiScan.csproj">
       <Project>{995ecf12-c2dc-4f55-8598-2bb636b65305}</Project>
-      <Name>fiScanTest</Name>
+      <Name>fiScan</Name>
     </ProjectReference>
     <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>
       <Name>GuestRegistrationDesktopUI.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj">
+      <Project>{a50ec795-e457-4aaf-81ef-cd54880cffa3}</Project>
+      <Name>Tesseract.OCRLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

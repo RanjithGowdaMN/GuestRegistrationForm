@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Tesseract.Library</AssemblyName>
-    <RootNamespace>Tesseract.ConsoleApp</RootNamespace>
+    <RootNamespace>Tesseract.Library</RootNamespace>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>

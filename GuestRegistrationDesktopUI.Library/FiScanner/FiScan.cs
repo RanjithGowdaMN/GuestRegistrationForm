@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuestRegistrationDesktopUI.Library.OCR;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,16 +12,20 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
     {
         private FiScanHelper _fiScanHelper;
         private string ImageDir = "D:\\Images\\";
-       
-        public FiScan()
+        private IOCRhelper _iOCRhelper;
+
+
+        public FiScan(IOCRhelper iOCRhelper)
         {
             _fiScanHelper = FiScanHelper.GetFormInstance;
-            _fiScanHelper.ScanCompleted += FiScan.OnScanCompleted;
+            _fiScanHelper.ScanCompleted += OnScanCompleted;
             _fiScanHelper.FormScan_Load();
             _fiScanHelper.OpenScanner();
             _fiScanHelper.InitialFileRead();
             _fiScanHelper.cboFileType_SelectedIndexChanged();
-            
+            _iOCRhelper = iOCRhelper;
+
+
         }
 
         ~FiScan()
@@ -31,57 +36,14 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public void StartScanning()
         {
-            _fiScanHelper.ScanModeSet(GetImageFileName());
+            _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
-        }
-
-        public static void OnScanCompleted(object source, EventArgs e)
-        {
-            
 
         }
 
-        public string GetImageFileName()
+        public void OnScanCompleted(object source, EventArgs e, string fileName)
         {
-            //string directoryPath = "C:\\path\\to\\directory";
-
-            // Check if the directory exists, and create it if it doesn't
-            if (!Directory.Exists(ImageDir))
-            {
-                Directory.CreateDirectory(ImageDir);
-                return "00001";
-            }
-
-            // Get all files in the directory
-            string[] files = Directory.GetFiles(ImageDir);
-
-            if (files.Length == 0)
-            {
-                Console.WriteLine("No files found in the directory.");
-                return "00001";
-            }
-
-            // Initialize variables to store the last modified file information
-            string lastModifiedFileName = string.Empty;
-            DateTime lastModifiedTime = DateTime.MinValue;
-
-            // Iterate through each file and compare the modified time
-            foreach (string file in files)
-            {
-                FileInfo fileInfo = new FileInfo(file);
-
-                if (fileInfo.LastWriteTime > lastModifiedTime)
-                {
-                    lastModifiedTime = fileInfo.LastWriteTime;
-                    lastModifiedFileName = fileInfo.Name;
-                }
-            }
-            int lastModifiedFileCounter = 0;
-            if (int.TryParse(lastModifiedFileName.Replace("image", string.Empty).Split('.')[0], out lastModifiedFileCounter))
-            {
-                return (lastModifiedFileCounter + 1).ToString();
-            }
-            return lastModifiedFileName;
+            var result = _iOCRhelper.ExtractTextFromImage(fileName);
         }
     }
 }

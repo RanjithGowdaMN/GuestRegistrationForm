@@ -2,6 +2,7 @@
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationDeskUI.Helpers;
 using GuestRegistrationDeskUI.ViewModels;
 using System;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Tesseract.Library;
 
 namespace GuestRegistrationDeskUI
 {
@@ -37,7 +39,9 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                .Singleton<IFiScan, FiScan>();
+                .Singleton<IFiScan, FiScan>()
+                .Singleton<IOCRhelper, OCRhelper>()
+                .Singleton<ITesseractLib, TesseractLib>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
