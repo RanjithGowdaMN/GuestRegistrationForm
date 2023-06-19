@@ -2,9 +2,11 @@
 using IronOCR.Library;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.FiScanner
@@ -15,6 +17,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
         private string ImageDir = "D:\\Images\\";
         private IOCRhelper _iOCRhelper;
         private IIronOCR _ironOCR;
+        public string scannedData = string.Empty;
 
         public FiScan(IOCRhelper iOCRhelper, IIronOCR ironOCR)
         {
@@ -34,16 +37,26 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             //_fiScanHelper.Dispose();
         }
 
-        public void StartScanning()
+        public string StartScanning()
         {
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
 
+            while(scannedData == string.Empty)
+            {
+                Thread.Sleep(100);
+
+            }
+            return scannedData;
+
         }
 
-        public void OnScanCompleted(object source, EventArgs e, string fileName)
+
+
+        public void OnScanCompleted(EventArgs e, string fileName)
         {
-            var result = _iOCRhelper.ExtractTextFromImage(fileName);
+            scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+
             //var Result = _ironOCR.GetTextFromImage(fileName);
             //File.WriteAllText("D:\\Images\\Extracted.txt", result);
         }

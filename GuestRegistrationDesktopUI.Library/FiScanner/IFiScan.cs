@@ -4,7 +4,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
     public interface IFiScan
     {
-        void StartScanning();
+        string StartScanning();
 
         //void OnScanCompleted();
     }

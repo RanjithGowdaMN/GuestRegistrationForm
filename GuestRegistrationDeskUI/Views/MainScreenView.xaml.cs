@@ -25,9 +25,5 @@ namespace GuestRegistrationDeskUI.Views
             InitializeComponent();
         }
 
-        private void ScanIDCard_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
