@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestRegistrationDesktopUI.Library.Models
+namespace GuestRegistrationDeskUI.Models
 {
-    public class VisitorDataModel
+    public class VisitorData
     {
         public string Name { get; set; }
         public string IDno { get; set; }
         public string DateOfBirth { get; set; }
         public string Expiry { get; set; }
         public string Nationality { get; set; }
-
-        //TBD
     }
 }

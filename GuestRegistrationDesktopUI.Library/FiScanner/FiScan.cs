@@ -1,10 +1,13 @@
-﻿using GuestRegistrationDesktopUI.Library.OCR;
+﻿using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDesktopUI.Library.OCR;
+using GuestRegistrationDesktopUI.Library.TextProcessing;
 using IronOCR.Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +20,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
         private string ImageDir = "D:\\Images\\";
         private IOCRhelper _iOCRhelper;
         private IIronOCR _ironOCR;
-        public string scannedData = string.Empty;
+        private VisitorDataModel vistorData;
 
         public FiScan(IOCRhelper iOCRhelper, IIronOCR ironOCR)
         {
@@ -29,6 +32,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             _fiScanHelper.cboFileType_SelectedIndexChanged();
             _iOCRhelper = iOCRhelper;
             _ironOCR = ironOCR;
+            
         }
 
         ~FiScan()
@@ -37,17 +41,18 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             //_fiScanHelper.Dispose();
         }
 
-        public string StartScanning()
+        public VisitorDataModel StartScanning()
         {
+            
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
 
-            while(scannedData == string.Empty)
+            while(vistorData is null)
             {
                 Thread.Sleep(100);
 
             }
-            return scannedData;
+            return vistorData;
 
         }
 
@@ -55,8 +60,33 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+            ProcessImageAgain:
+            vistorData = new VisitorDataModel();
+            //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+            ProcessTextData processText = new ProcessTextData();
+            
+            vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+            //Type type = vistorData.GetType();
+            //foreach (var field in type.GetFields())
+            //{
+            //    if (field.GetValue(vistorData) == null)
+            //    {
+            //        //vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+            //        goto ProcessImageAgain;
+            //    }
+            //}
 
+            //foreach (PropertyInfo pi in vistorData.GetType().GetProperties())
+            //{
+            //    if (pi.PropertyType == typeof(string))
+            //    {
+            //        string value = (string)pi.GetValue(vistorData);
+            //        if (string.IsNullOrEmpty(value))
+            //        {
+            //            goto ProcessImageAgain;
+            //        }
+            //    }
+            //}
             //var Result = _ironOCR.GetTextFromImage(fileName);
             //File.WriteAllText("D:\\Images\\Extracted.txt", result);
         }

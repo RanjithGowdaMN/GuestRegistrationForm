@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GuestRegistrationDesktopUI.Library.Models;
+using System;
 
 namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
     public interface IFiScan
     {
-        string StartScanning();
+        VisitorDataModel StartScanning();
 
         //void OnScanCompleted();
     }

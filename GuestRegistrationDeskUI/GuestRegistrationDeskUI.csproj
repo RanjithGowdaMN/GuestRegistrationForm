@@ -99,6 +99,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EventModel\LogOnEvent.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="Models\VisitorDataModel.cs" />
     <Compile Include="ViewModels\EncodingAndPrintingViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainScreenViewModel.cs" />
@@ -163,9 +164,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FI800Scan\fiScan.csproj">
       <Project>{995ecf12-c2dc-4f55-8598-2bb636b65305}</Project>

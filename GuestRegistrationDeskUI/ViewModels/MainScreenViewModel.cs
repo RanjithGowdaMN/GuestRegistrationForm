@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.FiScanner;
+using GuestRegistrationDeskUI.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,32 +15,99 @@ namespace GuestRegistrationDeskUI.ViewModels
     {
         private IFiScan _fiScan;
         public string visitorDetails = "Scanned Information: ";
+        public VisitorData visitorData;
 
         public MainScreenViewModel(IFiScan fiScan)
         {
             _fiScan = fiScan;
-            VisitorDetailsValue = "Scanned Data: ...";
+            //VisitorDetailsValue = "Scanned Data: ...";
+            visitorName = "test Data...";
         }
 
         public void ScanIDCard()
         {
+
             //_fiScan.StartScanning();
-            string result = _fiScan.StartScanning();
-            VisitorDetailsValue = "Scanned Data: " + result;
+            var result = _fiScan.StartScanning();
+            //VisitorDetailsValue = "Scanned Data: " + result.ToString();
+            visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
+            visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
+            visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
+            visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
+            visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
         }
 
+        private string _visitorName;
 
-        private string _visitorDetails;
-
-        public string VisitorDetailsValue
+        public string visitorName
         {
-            get { return _visitorDetails; }
+            get { return _visitorName; }
             set
             {
-                if (_visitorDetails != value)
+                if (_visitorName != value)
                 {
-                    _visitorDetails = value;
-                    OnPropertyChanged(nameof(VisitorDetailsValue));
+                    _visitorName = value;
+                    OnPropertyChanged(nameof(visitorName));
+                }
+            }
+        }
+
+        private string _visitorIDNo;
+
+        public string visitorIDNo
+        {
+            get { return _visitorIDNo; }
+            set
+            {
+                if (_visitorIDNo != value)
+                {
+                    _visitorIDNo = value;
+                    OnPropertyChanged(nameof(visitorIDNo));
+                }
+            }
+        }
+
+        private string _visitorDOB;
+
+        public string visitorDOB
+        {
+            get { return _visitorDOB; }
+            set
+            {
+                if (_visitorDOB != value)
+                {
+                    _visitorDOB = value;
+                    OnPropertyChanged(nameof(visitorDOB));
+                }
+            }
+        }
+
+        private string _visitorIDExpiry;
+
+        public string visitorIDExpiry
+        {
+            get { return _visitorIDExpiry; }
+            set
+            {
+                if (_visitorIDExpiry != value)
+                {
+                    _visitorIDExpiry = value;
+                    OnPropertyChanged(nameof(visitorIDExpiry));
+                }
+            }
+        }
+
+        private string _visitorNationality;
+
+        public string visitorNationality
+        {
+            get { return _visitorNationality; }
+            set
+            {
+                if (_visitorNationality != value)
+                {
+                    _visitorNationality = value;
+                    OnPropertyChanged(nameof(visitorNationality));
                 }
             }
         }

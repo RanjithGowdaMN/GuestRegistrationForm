@@ -95,6 +95,7 @@
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextProcessing\ProcessTextData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

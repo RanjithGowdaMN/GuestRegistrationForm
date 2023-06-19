@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Tesseract.Library
 {
@@ -15,7 +17,11 @@ namespace Tesseract.Library
                 using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
                     using (var img = Pix.LoadFromFile(imagePath))
+                    //using (var image = Image.FromFile(imagePath))
                     {
+                        //var processedImage = PreprocessImage(image);
+
+                        //using (var page = engine.Process(processedImage))
                         using (var page = engine.Process(img))
                         {
                             var text = page.GetText();
@@ -72,6 +78,70 @@ namespace Tesseract.Library
             Console.Write("Press any key to continue . . . ");
             //Console.ReadKey(true);
             return extractedText;
+        }
+
+        private Bitmap PreprocessImage(Image image)
+        {
+            // Convert the image to grayscale
+            var grayscaleImage = ConvertToGrayscale(image);
+
+            // Apply additional noise reduction techniques
+            var denoisedImage = ApplyDenoisingFilters(grayscaleImage);
+
+            // Apply binarization to convert to black and white
+            var binarizedImage = ApplyBinarization(denoisedImage);
+
+            return binarizedImage;
+        }
+
+        private Bitmap ConvertToGrayscale(Image image)
+        {
+            var grayscaleImage = new Bitmap(image.Width, image.Height);
+
+            using (var g = Graphics.FromImage(grayscaleImage))
+            {
+                var grayscaleMatrix = new ColorMatrix(new float[][]
+                {
+                new float[] {0.299f, 0.299f, 0.299f, 0, 0},
+                new float[] {0.587f, 0.587f, 0.587f, 0, 0},
+                new float[] {0.114f, 0.114f, 0.114f, 0, 0},
+                new float[] {0, 0, 0, 1, 0},
+                new float[] {0, 0, 0, 0, 1}
+                });
+
+                var attributes = new ImageAttributes();
+                attributes.SetColorMatrix(grayscaleMatrix);
+
+                g.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, attributes);
+            }
+
+            return grayscaleImage;
+        }
+
+        private Bitmap ApplyDenoisingFilters(Bitmap image)
+        {
+            // Apply denoising filters such as Gaussian blur, median filter, etc.
+            // You can use libraries like AForge.NET or OpenCvSharp for these operations.
+
+            // Example: Apply Gaussian blur
+            var denoisedImage = new Bitmap(image);
+            AForge.Imaging.Filters.GaussianBlur filter = new AForge.Imaging.Filters.GaussianBlur();
+            filter.ApplyInPlace(denoisedImage);
+
+            return denoisedImage;
+        }
+
+        private Bitmap ApplyBinarization(Bitmap image)
+        {
+            // Apply binarization techniques to convert the image to black and white.
+            // You can experiment with different thresholding methods.
+
+            // Example: Apply Simple Thresholding
+            var binarizedImage = new Bitmap(image);
+            AForge.Imaging.Filters.Threshold filter = new AForge.Imaging.Filters.Threshold(128);
+            filter.ApplyInPlace(binarizedImage);
+
+            return binarizedImage;
         }
     }
 }

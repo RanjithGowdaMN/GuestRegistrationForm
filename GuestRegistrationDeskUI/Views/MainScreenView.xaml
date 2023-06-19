@@ -47,7 +47,11 @@
                 HorizontalAlignment="Center" x:Name="RFU4" Margin="56,22,52,10" Width="92">
             Other
         </Button>
-        <TextBlock x:Name="VisitorDetails" Text="{Binding VisitorDetailsValue, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Margin="55,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="509" Grid.RowSpan="6" Width="512"/>
+        <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490"/>
+        <TextBox x:Name="IDNo" Text="{Binding visitorIDNo, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        <TextBox x:Name="DOB" Text="{Binding visitorDOB, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
 
     </Grid>
 </UserControl>
