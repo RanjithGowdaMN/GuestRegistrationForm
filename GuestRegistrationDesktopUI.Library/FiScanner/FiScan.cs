@@ -60,22 +60,14 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            ProcessImageAgain:
+            //ProcessImageAgain:
             vistorData = new VisitorDataModel();
             //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
             ProcessTextData processText = new ProcessTextData();
             
             vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
-            //Type type = vistorData.GetType();
-            //foreach (var field in type.GetFields())
-            //{
-            //    if (field.GetValue(vistorData) == null)
-            //    {
-            //        //vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
-            //        goto ProcessImageAgain;
-            //    }
-            //}
 
+            //check for null values in fields
             //foreach (PropertyInfo pi in vistorData.GetType().GetProperties())
             //{
             //    if (pi.PropertyType == typeof(string))
@@ -87,6 +79,9 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             //        }
             //    }
             //}
+            
+            
+            
             //var Result = _ironOCR.GetTextFromImage(fileName);
             //File.WriteAllText("D:\\Images\\Extracted.txt", result);
         }

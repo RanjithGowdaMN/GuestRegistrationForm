@@ -7,28 +7,39 @@ namespace Tesseract.Library
 {
     public class TesseractLib : ITesseractLib
     {
+
+        //public static void Main()
+        //{
+        //    TesseractLib tesseractLib = new TesseractLib();
+        //    tesseractLib.ExtractTextFromImage("D:\\Images\\image00108_Processed.jpg");
+        //}
+
         public string ExtractTextFromImage(string imagePath)
         {
             string extractedText = string.Empty;
-            //var testImagePath = "C:\\Users\\Ranji\\source\\repos\\tesseract-samples\\src\\Tesseract.ConsoleDemo\\image00001.jpg";
+            //var imagePath = "C:\\Users\\Ranji\\source\\repos\\tesseract-samples\\src\\Tesseract.ConsoleDemo\\image00001.jpg";
 
             try
             {
                 using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
                     using (var img = Pix.LoadFromFile(imagePath))
-                    //using (var image = Image.FromFile(imagePath))
                     {
-                        //var processedImage = PreprocessImage(image);
+                        // Do not change this value
+                        img.BinarizeOtsuAdaptiveThreshold(50, 75, 75, 75, 0.5f);
+                        
 
-                        //using (var page = engine.Process(processedImage))
+                        //var processedImage = PreprocessImage(image);
+                        //img.BinarizeOtsuAdaptiveThreshold(0, 0, 75, 75, 0.5f);
                         using (var page = engine.Process(img))
                         {
                             var text = page.GetText();
                             extractedText = text;
+                            
                             Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
 
                             Console.WriteLine("Text (GetText): \r\n{0}", text);
+                            
                             Console.WriteLine("Text (iterator):");
                             //using (var iter = page.GetIterator())
                             //{

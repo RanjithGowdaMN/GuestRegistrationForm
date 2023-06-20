@@ -17,6 +17,7 @@ namespace IronOCR.Library
             using (var Input = new OcrInput())
             {
                 Input.AddImage(imagePath);
+                
                 var Result = Ocr.Read(Input);
                 return Result.Text;
                 //Console.WriteLine(Result.Text);

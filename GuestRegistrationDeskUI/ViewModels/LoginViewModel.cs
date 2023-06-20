@@ -62,8 +62,8 @@ namespace GuestRegistrationDeskUI.ViewModels
             set
             {
                 _userName = value;
-                NotifyOfPropertyChange(() => UserName);
-                NotifyOfPropertyChange(() => CanLogIn);
+                //NotifyOfPropertyChange(() => UserName);
+                //NotifyOfPropertyChange(() => CanLogIn);
             }
         }
 
@@ -73,8 +73,8 @@ namespace GuestRegistrationDeskUI.ViewModels
             set
             {
                 _password = value;
-                NotifyOfPropertyChange(() => Password);
-                NotifyOfPropertyChange(() => CanLogIn);
+                //NotifyOfPropertyChange(() => Password);
+                //NotifyOfPropertyChange(() => CanLogIn);
             }
         }
 
@@ -82,7 +82,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             get
             {
-                bool output = false;
+                //bool output = false;
+                bool output = true;
                 if (UserName?.Length > 0 && Password?.Length > 0)
                 {
                     output = true;
@@ -97,11 +98,10 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 ErrorMessage = string.Empty;
                 
-                var result = await _apiHelper.Authenticate(UserName, Password);
+                //var result = await _apiHelper.Authenticate(UserName, Password);
 
-                //var res =_events.GetHashCode();
                 //capture more information about the user
-                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                //await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
                 await _events.PublishOnUIThreadAsync(new LogOnEvent());
 
