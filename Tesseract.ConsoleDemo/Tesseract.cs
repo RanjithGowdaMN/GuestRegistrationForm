@@ -22,17 +22,12 @@ namespace Tesseract.Library
             string extractedText = string.Empty;
 
             imagePath = PythonHelper.ApplyImageThreshold(imagePath, 100).Trim();
-
-
             try
             {
                 using (var OCRengine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
                     using (var img = Pix.LoadFromFile(imagePath))
                     {
-
-                        //img.BinarizeOtsuAdaptiveThreshold(50, 50, 70, 70, 0.75f);
-
                         Bitmap image = new Bitmap(imagePath);
                         using (var page = OCRengine.Process(image))
                         {
@@ -40,13 +35,9 @@ namespace Tesseract.Library
                             extractedText = text;
 
                             //PageIterator.PageIterators(page);
-
-                            Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
-
-                            Console.WriteLine("Text (GetText): \r\n{0}", text);
-                            
-                            Console.WriteLine("Text (iterator):");
-                            
+                            //Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
+                            //Console.WriteLine("Text (GetText): \r\n{0}", text);
+                            //Console.WriteLine("Text (iterator):");
                         }
                     }
                 }
@@ -54,45 +45,12 @@ namespace Tesseract.Library
             catch (Exception e)
             {
                 Trace.TraceError(e.ToString());
-                Console.WriteLine("Unexpected Error: " + e.Message);
-                Console.WriteLine("Details: ");
-                Console.WriteLine(e.ToString());
+                Debug.WriteLine("Unexpected Error: " + e.Message);
+                Debug.WriteLine("Details: ");
+                Debug.WriteLine(e.ToString());
             }
-            Console.Write("Press any key to continue . . . ");
-            //Console.ReadKey(true);
+            //Debug.Write("Press any key to continue . . . ");
             return extractedText;
-        }
-
-        private Bitmap ThresholdImage(Bitmap image, int threshold)
-        {
-            image = CreateNonIndexedImage(image);
-            for (int x = 0; x < image.Width; x++)
-            {
-                for (int y = 0; y < image.Height; y++)
-                {
-                    Color pixelColor = image.GetPixel(x, y);
-                    int grayValue = pixelColor.R; // Assuming the image is already grayscale
-                    Color newColor = grayValue > threshold ? Color.White : Color.Black;
-
-
-                    image.SetPixel(x, y, newColor);
-                }
-
-            }
-            image.Save("D:\\Images\\Processed_image00123.jpg");
-            return image;
-        }
-
-        public Bitmap CreateNonIndexedImage(Bitmap src)
-        {
-            Bitmap newBmp = new Bitmap(src.Width, src.Height, PixelFormat.Format32bppArgb);
-
-            using (Graphics gfx = Graphics.FromImage(newBmp))
-            {
-                gfx.DrawImage(src, 0, 0);
-            }
-
-            return newBmp;
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Tesseract.Library
 {
     public static class PythonHelper
     {
-        //string imagePath, int threshold
         public static string ApplyImageThreshold(string imagePath, int threshold)
         {
             string pythonScriptPath = "D:\\Images\\ProcessedImage\\Testscript.py";
@@ -26,18 +25,11 @@ namespace Tesseract.Library
 
             // Read the output of the Python script
             string output = process.StandardOutput.ReadToEnd();
-            
-
-
             process.WaitForExit();
 
             // Display the output
             Console.WriteLine(output);
             return output;
-            
-
-            //Console.ReadLine();
-
         }
 
     }
