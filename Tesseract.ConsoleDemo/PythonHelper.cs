@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
+﻿using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.IO;
 
 namespace Tesseract.Library
 {
@@ -13,7 +8,12 @@ namespace Tesseract.Library
     {
         public static string ApplyImageThreshold(string imagePath, int threshold)
         {
+            //string json = File.ReadAllText("./ApplicationSettings.json.json");
+            //JObject config = JObject.Parse(json);
+
             string pythonScriptPath = "D:\\Images\\ProcessedImage\\Testscript.py";
+            //string pythonScriptPath = (string)config["PyScriptSource"];
+
 
             // Create a new process to run the Python script
             Process process = new Process();
@@ -29,6 +29,5 @@ namespace Tesseract.Library
 
             return output;
         }
-
     }
 }
