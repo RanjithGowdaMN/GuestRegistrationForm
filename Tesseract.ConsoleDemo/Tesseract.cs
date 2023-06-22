@@ -1,80 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-
+using System.IO;
+using AForge.Imaging.Filters;
+using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
 namespace Tesseract.Library
 {
     public class TesseractLib : ITesseractLib
     {
-
         //public static void Main()
         //{
         //    TesseractLib tesseractLib = new TesseractLib();
-        //    tesseractLib.ExtractTextFromImage("D:\\Images\\image00108_Processed.jpg");
+        //    tesseractLib.ExtractTextFromImage("D:\\Images\\image00123.jpg");
         //}
 
         public string ExtractTextFromImage(string imagePath)
         {
             string extractedText = string.Empty;
-            //var imagePath = "C:\\Users\\Ranji\\source\\repos\\tesseract-samples\\src\\Tesseract.ConsoleDemo\\image00001.jpg";
+
+            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 100).Trim();
+
 
             try
             {
-                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+                using (var OCRengine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
                     using (var img = Pix.LoadFromFile(imagePath))
                     {
-                        // Do not change this value
-                        img.BinarizeOtsuAdaptiveThreshold(50, 75, 75, 75, 0.5f);
-                        
 
-                        //var processedImage = PreprocessImage(image);
-                        //img.BinarizeOtsuAdaptiveThreshold(0, 0, 75, 75, 0.5f);
-                        using (var page = engine.Process(img))
+                        //img.BinarizeOtsuAdaptiveThreshold(50, 50, 70, 70, 0.75f);
+
+                        Bitmap image = new Bitmap(imagePath);
+                        using (var page = OCRengine.Process(image))
                         {
                             var text = page.GetText();
                             extractedText = text;
-                            
+
+                            //PageIterator.PageIterators(page);
+
                             Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
 
                             Console.WriteLine("Text (GetText): \r\n{0}", text);
                             
                             Console.WriteLine("Text (iterator):");
-                            //using (var iter = page.GetIterator())
-                            //{
-                            //    iter.Begin();
-
-                            //    do
-                            //    {
-                            //        do
-                            //        {
-                            //            do
-                            //            {
-                            //                do
-                            //                {
-                            //                    if (iter.IsAtBeginningOf(PageIteratorLevel.Block))
-                            //                    {
-                            //                        Console.WriteLine("<BLOCK>");
-                            //                    }
-
-                            //                    Console.Write(iter.GetText(PageIteratorLevel.Word));
-                            //                    Console.Write(" ");
-
-                            //                    if (iter.IsAtFinalOf(PageIteratorLevel.TextLine, PageIteratorLevel.Word))
-                            //                    {
-                            //                        Console.WriteLine();
-                            //                    }
-                            //                } while (iter.Next(PageIteratorLevel.TextLine, PageIteratorLevel.Word));
-
-                            //                if (iter.IsAtFinalOf(PageIteratorLevel.Para, PageIteratorLevel.TextLine))
-                            //                {
-                            //                    Console.WriteLine();
-                            //                }
-                            //            } while (iter.Next(PageIteratorLevel.Para, PageIteratorLevel.TextLine));
-                            //        } while (iter.Next(PageIteratorLevel.Block, PageIteratorLevel.Para));
-                            //    } while (iter.Next(PageIteratorLevel.Block));
-                            //}
+                            
                         }
                     }
                 }
@@ -91,68 +63,36 @@ namespace Tesseract.Library
             return extractedText;
         }
 
-        private Bitmap PreprocessImage(Image image)
+        private Bitmap ThresholdImage(Bitmap image, int threshold)
         {
-            // Convert the image to grayscale
-            var grayscaleImage = ConvertToGrayscale(image);
+            image = CreateNonIndexedImage(image);
+            for (int x = 0; x < image.Width; x++)
+            {
+                for (int y = 0; y < image.Height; y++)
+                {
+                    Color pixelColor = image.GetPixel(x, y);
+                    int grayValue = pixelColor.R; // Assuming the image is already grayscale
+                    Color newColor = grayValue > threshold ? Color.White : Color.Black;
 
-            // Apply additional noise reduction techniques
-            var denoisedImage = ApplyDenoisingFilters(grayscaleImage);
 
-            // Apply binarization to convert to black and white
-            var binarizedImage = ApplyBinarization(denoisedImage);
+                    image.SetPixel(x, y, newColor);
+                }
 
-            return binarizedImage;
+            }
+            image.Save("D:\\Images\\Processed_image00123.jpg");
+            return image;
         }
 
-        private Bitmap ConvertToGrayscale(Image image)
+        public Bitmap CreateNonIndexedImage(Bitmap src)
         {
-            var grayscaleImage = new Bitmap(image.Width, image.Height);
+            Bitmap newBmp = new Bitmap(src.Width, src.Height, PixelFormat.Format32bppArgb);
 
-            using (var g = Graphics.FromImage(grayscaleImage))
+            using (Graphics gfx = Graphics.FromImage(newBmp))
             {
-                var grayscaleMatrix = new ColorMatrix(new float[][]
-                {
-                new float[] {0.299f, 0.299f, 0.299f, 0, 0},
-                new float[] {0.587f, 0.587f, 0.587f, 0, 0},
-                new float[] {0.114f, 0.114f, 0.114f, 0, 0},
-                new float[] {0, 0, 0, 1, 0},
-                new float[] {0, 0, 0, 0, 1}
-                });
-
-                var attributes = new ImageAttributes();
-                attributes.SetColorMatrix(grayscaleMatrix);
-
-                g.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, attributes);
+                gfx.DrawImage(src, 0, 0);
             }
 
-            return grayscaleImage;
-        }
-
-        private Bitmap ApplyDenoisingFilters(Bitmap image)
-        {
-            // Apply denoising filters such as Gaussian blur, median filter, etc.
-            // You can use libraries like AForge.NET or OpenCvSharp for these operations.
-
-            // Example: Apply Gaussian blur
-            var denoisedImage = new Bitmap(image);
-            AForge.Imaging.Filters.GaussianBlur filter = new AForge.Imaging.Filters.GaussianBlur();
-            filter.ApplyInPlace(denoisedImage);
-
-            return denoisedImage;
-        }
-
-        private Bitmap ApplyBinarization(Bitmap image)
-        {
-            // Apply binarization techniques to convert the image to black and white.
-            // You can experiment with different thresholding methods.
-
-            // Example: Apply Simple Thresholding
-            var binarizedImage = new Bitmap(image);
-            AForge.Imaging.Filters.Threshold filter = new AForge.Imaging.Filters.Threshold(128);
-            filter.ApplyInPlace(binarizedImage);
-
-            return binarizedImage;
+            return newBmp;
         }
     }
 }

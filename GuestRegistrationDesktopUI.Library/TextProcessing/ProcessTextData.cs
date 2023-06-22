@@ -15,14 +15,39 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         {
             VisitorDataModel visitorData = new VisitorDataModel();
 
-            bool isQatarId = InputText.Contains("State Of Qatar") || InputText.Contains("Residency Permit");
+            bool isQatarId = InputText.Contains("State Of Qatar") || InputText.Contains("Residency Permit") || InputText.Contains("Permit"); 
 
             if (isQatarId)
             {
                 return ProcessQatarIdImage(InputText);
             }
+            else
+            {
+                return ProcessPassPortImage(InputText);
+            }
 
-            return visitorData;
+            //return visitorData;
+        }
+
+        private VisitorDataModel ProcessPassPortImage(string inputText)
+        {
+            //throw new NotImplementedException();
+            List<string> data = new List<string>();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            using (StringReader reader = new StringReader(inputText))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string text = line.TrimStart().TrimEnd();
+                    if (text != null && text != string.Empty && text != "")
+                    {
+                        data.Add(text);
+                    }
+
+                }
+            }
+            return visitorDataModel;
         }
 
         private VisitorDataModel ProcessQatarIdImage(string inputText)
@@ -48,21 +73,23 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             {
                 if (line.Contains("ID"))
                 {
-                    visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
+                    //visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
+                    visitorDataModel.IDno = SelectNumberOnly(line);
                 } 
-                else if(line.Contains("D.O.B") || line.Contains("D.0.B"))
+                else if(line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O."))
                 {
-                    visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
+                    //visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
+                    visitorDataModel.DateOfBirth = ExtractDate(line);
                 }
                 else if (line.Contains("Expiry"))
                 {
-                    visitorDataModel.Expiry = line.Substring(line.IndexOf(":") + 1, 11);
+                    visitorDataModel.Expiry = ExtractDate(line);
                 }
                 else if (line.Contains("Nationality"))
                 {
                     visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
                 }
-                else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|"))
+                else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
                 {
                     visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
                 }
@@ -73,6 +100,23 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
             }
             return visitorDataModel;
+        }
+
+        private string ExtractDate(string InputText)
+        {
+            string ddmmyyyy = string.Empty;
+            bool foundFWslash = InputText.Contains("/");
+            if (foundFWslash)
+            {
+                int firstIdx = InputText.IndexOf("/");
+                int secondIdx = InputText.IndexOf("/", firstIdx+1);
+                if (secondIdx-firstIdx == 3)
+                {
+                    ddmmyyyy = InputText.Substring(firstIdx - 2, secondIdx-2);
+                    return ddmmyyyy;
+                }
+            }
+            return "Error/ Please rescan or enter manually";
         }
 
         public string RemoveLowerCase(string InputText)
@@ -90,15 +134,33 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             return sb.ToString();
         }
 
-        public string SelectUpperCase(string input)
+        public string SelectUpperCase(string InputText)
         {
-            string pattern = "[A-Z]";
-            string upperCaseLetters = string.Concat(Regex.Matches(input, pattern));
-            return upperCaseLetters;
+            StringBuilder sb = new StringBuilder();
 
+            foreach (char c in InputText)
+            {
+                if (char.IsUpper(c))
+                {
+                    sb.Append(c);
+                }
+            }
 
-            //string upperCaseLetters = new string(input.Where(char.IsUpper).ToArray());
-            //return upperCaseLetters;
+            return sb.ToString();
+        }
+
+        public string SelectNumberOnly(string InputText)
+        {
+            string pattern = @"\d+";
+            MatchCollection matches = Regex.Matches(InputText, pattern);
+            string result = string.Empty;
+
+            foreach (Match match in matches)
+            {
+                result += match.Value;
+            }
+
+            return result;
         }
     }
 }
