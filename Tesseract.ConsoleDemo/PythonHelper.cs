@@ -27,8 +27,6 @@ namespace Tesseract.Library
             string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
 
-            // Display the output
-            Console.WriteLine(output);
             return output;
         }
 
