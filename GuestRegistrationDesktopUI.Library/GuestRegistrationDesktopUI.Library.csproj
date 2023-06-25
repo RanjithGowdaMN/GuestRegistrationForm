@@ -81,8 +81,8 @@
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
-    <Compile Include="FiScanner\FileHelper.cs" />
-    <Compile Include="FiScanner\FiScan.cs" />
+    <Compile Include="FileHandler\FileHelper.cs" />
+    <Compile Include="CentralHub\CentralHub.cs" />
     <Compile Include="FiScanner\FiScanHelper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +116,8 @@
       <Name>Tesseract.OCRLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PhotoHandler\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

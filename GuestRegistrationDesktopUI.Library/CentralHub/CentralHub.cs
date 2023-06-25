@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.Models;
+﻿using GuestRegistrationDesktopUI.Library.FiScanner;
+using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationDesktopUI.Library.TextProcessing;
 using IronOCR.Library;
@@ -12,9 +13,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GuestRegistrationDesktopUI.Library.FiScanner
+namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
-    public class FiScan : IFiScan
+    public class CentralHub : IFiScan
     {
         private FiScanHelper _fiScanHelper;
         private string ImageDir = "D:\\Images\\";
@@ -22,7 +23,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
         private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
 
-        public FiScan(IOCRhelper iOCRhelper, IIronOCR ironOCR)
+        public CentralHub(IOCRhelper iOCRhelper, IIronOCR ironOCR)
         {
             _fiScanHelper = FiScanHelper.GetFormInstance;
             _fiScanHelper.ScanCompleted += OnScanCompleted;
@@ -32,10 +33,9 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             _fiScanHelper.cboFileType_SelectedIndexChanged();
             _iOCRhelper = iOCRhelper;
             _ironOCR = ironOCR;
-            
         }
 
-        ~FiScan()
+        ~CentralHub()
         {
             _fiScanHelper.FormScan_Closed();
             //_fiScanHelper.Dispose();
@@ -43,11 +43,11 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         public VisitorDataModel StartScanning()
         {
-            
+
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
 
-            while(vistorData is null)
+            while (vistorData is null)
             {
                 Thread.Sleep(100);
 
@@ -56,15 +56,13 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 
         }
 
-
-
         public void OnScanCompleted(EventArgs e, string fileName)
         {
             //ProcessImageAgain:
             vistorData = new VisitorDataModel();
             //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
             ProcessTextData processText = new ProcessTextData();
-            
+
             vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
 
             //check for null values in fields
@@ -79,9 +77,6 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             //        }
             //    }
             //}
-            
-            
-            
             //var Result = _ironOCR.GetTextFromImage(fileName);
             //File.WriteAllText("D:\\Images\\Extracted.txt", result);
         }

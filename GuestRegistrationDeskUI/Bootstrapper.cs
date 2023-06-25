@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.Api;
+using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
@@ -40,7 +41,7 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                .Singleton<IFiScan, FiScan>()
+                .Singleton<IFiScan, CentralHub>()
                 .Singleton<IOCRhelper, OCRhelper>()
                 .Singleton<ITesseractLib, TesseractLib>()
                 .Singleton<IIronOCR, TessereactIronOCR>();
