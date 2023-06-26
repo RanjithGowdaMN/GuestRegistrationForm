@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesseract.OCRLibrary", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronOCR.Library", "IronOCR.Library\IronOCR.Library.csproj", "{D21BBB0A-CA79-4D71-8731-72DD9531A330}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDSDKLib", "EDSDKLib\EDSDKLib.csproj", "{15E99248-6161-46A4-9183-609CA62406A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanonEDSDKLib", "EDSDKLib\CanonEDSDKLib.csproj", "{15E99248-6161-46A4-9183-609CA62406A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
