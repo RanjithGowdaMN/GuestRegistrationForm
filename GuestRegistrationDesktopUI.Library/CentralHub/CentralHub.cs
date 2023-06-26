@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.FiScanner;
+﻿using CanonEDLibrary;
+using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationDesktopUI.Library.TextProcessing;
@@ -23,7 +24,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
 
-        public CentralHub(IOCRhelper iOCRhelper, IIronOCR ironOCR)
+        private ICameraOperations _cameraOperations;
+
+        public CentralHub(IOCRhelper iOCRhelper, IIronOCR ironOCR, ICameraOperations cameraOperations)
         {
             _fiScanHelper = FiScanHelper.GetFormInstance;
             _fiScanHelper.ScanCompleted += OnScanCompleted;
@@ -33,6 +36,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _fiScanHelper.cboFileType_SelectedIndexChanged();
             _iOCRhelper = iOCRhelper;
             _ironOCR = ironOCR;
+
+            _cameraOperations = cameraOperations;
+
+            _cameraOperations.TakePhoto();
         }
 
         ~CentralHub()
