@@ -43,42 +43,37 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public VisitorDataModel StartScanning()
         {
-
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
-
             while (vistorData is null)
             {
                 Thread.Sleep(100);
-
             }
             return vistorData;
-
         }
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            //ProcessImageAgain:
             vistorData = new VisitorDataModel();
             //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
             ProcessTextData processText = new ProcessTextData();
-
             vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+        }
 
-            //check for null values in fields
-            //foreach (PropertyInfo pi in vistorData.GetType().GetProperties())
-            //{
-            //    if (pi.PropertyType == typeof(string))
-            //    {
-            //        string value = (string)pi.GetValue(vistorData);
-            //        if (string.IsNullOrEmpty(value))
-            //        {
-            //            goto ProcessImageAgain;
-            //        }
-            //    }
-            //}
-            //var Result = _ironOCR.GetTextFromImage(fileName);
-            //File.WriteAllText("D:\\Images\\Extracted.txt", result);
+        public bool CheckNullForFields(object obj)
+        {
+            foreach (PropertyInfo pi in obj.GetType().GetProperties())
+            {
+                if (pi.PropertyType == typeof(string))
+                {
+                    string value = (string)pi.GetValue(vistorData);
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
