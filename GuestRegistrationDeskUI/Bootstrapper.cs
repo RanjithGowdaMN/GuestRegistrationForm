@@ -4,6 +4,7 @@ using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
+using GuestRegistrationDesktopUI.Library.PhotoHandler;
 using GuestRegistrationDeskUI.Helpers;
 using GuestRegistrationDeskUI.ViewModels;
 using IronOCR.Library;
@@ -44,8 +45,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IFiScan, CentralHub>()
                 .Singleton<IOCRhelper, OCRhelper>()
                 .Singleton<ITesseractLib, TesseractLib>()
-                .Singleton<IIronOCR, TessereactIronOCR>();
-                //.Singleton<ICameraOperations, CameraOperations>();
+                .Singleton<IIronOCR, TessereactIronOCR>()
+                .Singleton<ICanonSDKHelper, CentralHub>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
