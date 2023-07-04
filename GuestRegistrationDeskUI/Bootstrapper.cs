@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using CanonEDLibrary;
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.FiScanner;
@@ -45,8 +44,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IFiScan, CentralHub>()
                 .Singleton<IOCRhelper, OCRhelper>()
                 .Singleton<ITesseractLib, TesseractLib>()
-                .Singleton<IIronOCR, TessereactIronOCR>()
-                .Singleton<ICameraOperations, CameraOperations>();
+                .Singleton<IIronOCR, TessereactIronOCR>();
+                //.Singleton<ICameraOperations, CameraOperations>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
