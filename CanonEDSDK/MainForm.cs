@@ -107,11 +107,15 @@ namespace CanonEDSDK
                 string dir = null;
                 dir = SavePathTextBox.Text;
                 //Invoke((Action)delegate { dir = SavePathTextBox.Text; });
-                sender.DownloadFile(Info, dir);
+                //sender.DownloadFile(Info, dir);
+
+                sender.DownloadToFile(Info, "D:\\Images\\Photos\\temp\\IMG_252525.JPG");
                 //Invoke((Action)delegate { MainProgressBar.Value = 0; });
             }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
+
+
 
         private void ErrorHandler_NonSevereErrorHappened(object sender, ErrorCode ex)
         {

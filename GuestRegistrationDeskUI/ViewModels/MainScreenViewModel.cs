@@ -1,16 +1,8 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
-using GuestRegistrationDesktopUI.Library.FiScanner;
-using GuestRegistrationDesktopUI.Library.PhotoHandler;
-using GuestRegistrationDeskUI.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
+
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -24,7 +16,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
         ~MainScreenViewModel()
         {
-            _centralHub.CloseAllSession();
+            
         }
         //Scan Button clicked
         public void ScanIDCard()
@@ -124,7 +116,6 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -96,7 +96,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 if(visitorDataModel.Name is null)
                 {
                     visitorDataModel.Name = SelectUpperCase(data[data.Count - 1]);
-                }    
+                }
 
             }
             return visitorDataModel;
