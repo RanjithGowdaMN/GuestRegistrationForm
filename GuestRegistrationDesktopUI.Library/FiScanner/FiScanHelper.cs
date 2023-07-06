@@ -11,14 +11,20 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
     {
 
         private static FiScanHelper fiScanHelper = null;
-
+        private static readonly object controlObject = new object();
         public static FiScanHelper GetFormInstance
         {
             get
             {
                 if (fiScanHelper == null)
                 {
-                    return new FiScanHelper();
+                    lock (controlObject)
+                    {
+                        if (fiScanHelper == null)
+                        {
+                            return new FiScanHelper();
+                        }
+                    }
                 }
                 return fiScanHelper;
 

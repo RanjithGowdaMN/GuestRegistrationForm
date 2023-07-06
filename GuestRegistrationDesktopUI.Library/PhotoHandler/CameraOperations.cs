@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.PhotoHandler
 {
-    public class CanonSDKHelper : MainForm
+    public class CanonSDKHelper : MainForm, ICanonSDKHelper
     {
         private static CanonSDKHelper canonSDKHelper = null;
         public static CanonSDKHelper GetFormInstance

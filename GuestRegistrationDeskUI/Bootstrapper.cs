@@ -42,11 +42,11 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                .Singleton<IFiScan, CentralHub>()
                 .Singleton<IOCRhelper, OCRhelper>()
                 .Singleton<ITesseractLib, TesseractLib>()
                 .Singleton<IIronOCR, TessereactIronOCR>()
-                .Singleton<ICanonSDKHelper, CentralHub>();
+                .Singleton<ICentralHub, CentralHub>()
+                .Singleton<ICanonSDKHelper, CanonSDKHelper>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

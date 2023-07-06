@@ -34,6 +34,7 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="EDSDKLib, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -81,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
+    <Compile Include="CentralHub\ICentralHub.cs" />
     <Compile Include="FileHandler\FileHelper.cs" />
     <Compile Include="CentralHub\CentralHub.cs" />
     <Compile Include="FiScanner\FiScanHelper.cs">
@@ -89,6 +91,7 @@
     <Compile Include="FiScanner\IFiScan.cs" />
     <Compile Include="FiScanner\IFiScanHelper.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="Models\CameraStatus.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />

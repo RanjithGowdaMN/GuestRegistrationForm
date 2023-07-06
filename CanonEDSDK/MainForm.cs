@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace CanonEDSDK
@@ -13,7 +14,7 @@ namespace CanonEDSDK
         #region Variables
 
         CanonAPI APIHandler;
-        Camera MainCamera;
+        public Camera MainCamera;
         CameraValue[] AvList;
         CameraValue[] TvList;
         CameraValue[] ISOList;
@@ -39,18 +40,22 @@ namespace CanonEDSDK
                 ErrorHandler.SevereErrorHappened += ErrorHandler_SevereErrorHappened;
                 ErrorHandler.NonSevereErrorHappened += ErrorHandler_NonSevereErrorHappened;
                 SavePathTextBox.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "RemotePhoto");
+
+                SavePathTextBox.Text = Path.GetDirectoryName("D:\\Images\\Photos\\temp\\");
+
                 SaveFolderBrowser.Description = "Save Images To...";
                 LiveViewPicBox.Paint += LiveViewPicBox_Paint;
                 LVBw = LiveViewPicBox.Width;
                 LVBh = LiveViewPicBox.Height;
                 RefreshCamera();
                 IsInit = true;
+                
             }
             catch (DllNotFoundException) { ReportError("Canon DLLs not found!", true); }
             catch (Exception ex) { ReportError(ex.Message, true); }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void MainForm_FormClosing( [Optional] object sender, [Optional] FormClosingEventArgs e)
         {
             try
             {
@@ -95,14 +100,15 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void MainCamera_DownloadReady(Camera sender, DownloadInfo Info)
+        public void MainCamera_DownloadReady(Camera sender, DownloadInfo Info)
         {
             try
             {
                 string dir = null;
-                Invoke((Action)delegate { dir = SavePathTextBox.Text; });
+                dir = SavePathTextBox.Text;
+                //Invoke((Action)delegate { dir = SavePathTextBox.Text; });
                 sender.DownloadFile(Info, dir);
-                Invoke((Action)delegate { MainProgressBar.Value = 0; });
+                //Invoke((Action)delegate { MainProgressBar.Value = 0; });
             }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
@@ -137,18 +143,25 @@ namespace CanonEDSDK
 
         #region Settings
 
-        public void TakePhotoButton_Click(object sender, EventArgs e)
+        public void TakePhotoButton_Click([Optional] object sender, [Optional] EventArgs e)
         {
             try
             {
                 if ((string)TvCoBox.SelectedItem == "Bulb") MainCamera.TakePhotoBulbAsync((int)BulbUpDo.Value);
                 else MainCamera.TakePhotoShutterAsync();
+
+
             }
-            catch (Exception ex) { ReportError(ex.Message, false); }
+            catch (Exception ex) { 
+                ReportError(ex.Message, false); 
+            }
+            
         }
 
         public void TakePhoto()
         {
+            MainCamera.SetSetting(PropertyID.SaveTo, (int)SaveTo.Host);
+            //SavePathTextBox.Text = "D:\\Images\\Photos\\";
             MainCamera.TakePhotoShutterAsync();
         }
 
@@ -218,9 +231,10 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void SaveToRdButton_CheckedChanged(object sender, EventArgs e)
+        public void SaveToRdButton_CheckedChanged([Optional] object sender, [Optional] EventArgs e)
         {
             try
+            
             {
                 if (IsInit)
                 {
@@ -239,6 +253,7 @@ namespace CanonEDSDK
                         BrowseButton.Enabled = true;
                         SavePathTextBox.Enabled = true;
                     }
+
                 }
             }
             catch (Exception ex) { ReportError(ex.Message, false); }
@@ -384,6 +399,11 @@ namespace CanonEDSDK
                 ISOCoBox.SelectedIndex = ISOCoBox.Items.IndexOf(ISOValues.GetValue(MainCamera.GetInt32Setting(PropertyID.ISO)).StringValue);
                 SettingsGroupBox.Enabled = true;
                 LiveViewGroupBox.Enabled = true;
+
+                STCameraRdButton.Checked = false;
+                STComputerRdButton.Checked = true;
+                SaveToRdButton_CheckedChanged();
+                SavePathTextBox.Text = Path.GetDirectoryName("D:\\Images\\Photos\\temp\\");
             }
         }
 

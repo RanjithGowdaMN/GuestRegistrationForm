@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
+using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.FiScanner;
+using GuestRegistrationDesktopUI.Library.PhotoHandler;
 using GuestRegistrationDeskUI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,34 +9,45 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Documents;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
     public class MainScreenViewModel : Screen, INotifyPropertyChanged
     {
-        private IFiScan _fiScan;
-        public string visitorDetails = "Scanned Information: ";
-        public VisitorData visitorData;
+        private ICentralHub _centralHub;
 
-        public MainScreenViewModel(IFiScan fiScan)
+        public MainScreenViewModel(ICentralHub centralHub)
         {
-            _fiScan = fiScan;
-            //VisitorDetailsValue = "Scanned Data: ...";
-            visitorName = "test Data...";
+            _centralHub = centralHub;
         }
-
+        ~MainScreenViewModel()
+        {
+            _centralHub.CloseAllSession();
+        }
+        //Scan Button clicked
         public void ScanIDCard()
         {
-
             //_fiScan.StartScanning();
-            var result = _fiScan.StartScanning();
+            //var result = _fiScan.StartScanning();
+            var result = _centralHub.StartScanning();
             //VisitorDetailsValue = "Scanned Data: " + result.ToString();
             visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
             visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
             visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
             visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
             visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
+        }
+
+        //Take Photo Button Clicked
+        public void TakePhoto()
+        {
+            var result = _centralHub.TakePhoto();
+            if (!result.CameraSessionActive)
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
         }
 
         private string _visitorName;
@@ -112,13 +125,13 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
 
     }
 }

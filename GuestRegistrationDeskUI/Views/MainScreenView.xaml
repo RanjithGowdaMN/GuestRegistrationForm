@@ -29,7 +29,7 @@
         </Button>
 
         <Button Grid.Row="2" Grid.Column="0" Padding="20 5" Width="92" Margin="56,10,52,10"
-                HorizontalAlignment="Center" x:Name="RFU1" >
+                HorizontalAlignment="Center" x:Name="TakePhoto" >
             Photo
         </Button>
 
