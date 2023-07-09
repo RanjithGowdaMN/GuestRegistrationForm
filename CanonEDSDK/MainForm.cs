@@ -28,6 +28,8 @@ namespace CanonEDSDK
         object ErrLock = new object();
         object LvLock = new object();
 
+        public string FileToBeSaved = string.Empty;
+
         #endregion
 
         public MainForm()
@@ -109,13 +111,28 @@ namespace CanonEDSDK
                 //Invoke((Action)delegate { dir = SavePathTextBox.Text; });
                 //sender.DownloadFile(Info, dir);
 
-                sender.DownloadToFile(Info, "D:\\Images\\Photos\\temp\\IMG_252525.JPG");
+                //sender.DownloadToFile(Info, FileToBeSaved);
+                
+                OnTakePhotoCompleted(Info);
                 //Invoke((Action)delegate { MainProgressBar.Value = 0; });
             }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
+        public delegate void OnPhotoCompletedEventHandler(DownloadInfo info);
+        //FileModel fileInfo = new FileModel();
 
+        public event OnPhotoCompletedEventHandler CanonImageToFiles;
+
+        public void OnTakePhotoCompleted(DownloadInfo Info)
+        {
+            //fileInfo.FileName = ScannedFileName;
+            if (CanonImageToFiles != null)
+            {
+                //ScannedFileName
+                CanonImageToFiles(Info);
+            }
+        }
 
         private void ErrorHandler_NonSevereErrorHappened(object sender, ErrorCode ex)
         {

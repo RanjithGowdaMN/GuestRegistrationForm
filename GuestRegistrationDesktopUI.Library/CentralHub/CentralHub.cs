@@ -1,10 +1,12 @@
-﻿using GuestRegistrationDesktopUI.Library.FiScanner;
+﻿using EOSDigital.API;
+using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationDesktopUI.Library.PhotoHandler;
 using GuestRegistrationDesktopUI.Library.TextProcessing;
 using IronOCR.Library;
 using System;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -46,11 +48,21 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _canonSDKHelper.InitializeLifetimeService();
             _canonSDKHelper.OpenSession();
 
+            _canonSDKHelper.CanonImageToFiles += DownloadImageToFile;
+
             vistorData = new VisitorDataModel();
             cameraStatus = new CameraStatus();
 
         }
 
+        public void DownloadImageToFile(DownloadInfo info)
+        {
+            string filename = "IMG_" + FileHelper.GetImageFileName(ImageDir).PadLeft(5,'0') + ".jpg";
+
+            string fullFileName = Path.Combine(ImageDir, "Photos", filename);
+            _canonSDKHelper.MainCamera.DownloadToFile(info, fullFileName);
+
+        }
         ~CentralHub()
         {
             _fiScanHelper.FormScan_Closed();
@@ -63,6 +75,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public VisitorDataModel StartScanning()
         {
+            string fileCouter = FileHelper.GetImageFileName(ImageDir);
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
             while (vistorData is null)
