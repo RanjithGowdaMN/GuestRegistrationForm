@@ -20,6 +20,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private CanonSDKHelper _canonSDKHelper;
 
         private string ImageDir = "D:\\Images\\";
+        private string PhotoDir = "D:\\Images\\Photos\\";
         private IOCRhelper _iOCRhelper;
         //private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
@@ -57,9 +58,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public void DownloadImageToFile(DownloadInfo info)
         {
-            string filename = "IMG_" + FileHelper.GetImageFileName(ImageDir).PadLeft(5,'0') + ".jpg";
+            string filename = "image" + FileHelper.GetImageFileName(PhotoDir).PadLeft(5,'0') + ".jpg";
 
-            string fullFileName = Path.Combine(ImageDir, "Photos", filename);
+            string fullFileName = Path.Combine(PhotoDir, filename);
             _canonSDKHelper.MainCamera.DownloadToFile(info, fullFileName);
 
         }
