@@ -3,16 +3,16 @@ using GuestRegistrationDesktopUI.Library.CentralHub;
 using System.ComponentModel;
 using System.Windows;
 
-
 namespace GuestRegistrationDeskUI.ViewModels
 {
     public class MainScreenViewModel : Screen, INotifyPropertyChanged
     {
         private ICentralHub _centralHub;
-
-        public MainScreenViewModel(ICentralHub centralHub)
+        private SimpleContainer _container;
+        public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container)
         {
             _centralHub = centralHub;
+            _container = container;
         }
         ~MainScreenViewModel()
         {
@@ -39,6 +39,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             if (!result.CameraSessionActive)
             {
                 MessageBox.Show(result.ErrorMessage);
+                //_centralHub = _container.GetInstance<ICentralHub>();
             }
         }
 

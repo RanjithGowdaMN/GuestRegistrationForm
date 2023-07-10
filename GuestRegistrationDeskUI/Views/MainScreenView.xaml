@@ -4,54 +4,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GuestRegistrationDeskUI.Views"
-             mc:Ignorable="d" Background="White" FontSize="18" 
-             d:DesignHeight="600" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="133*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="400*" />
-        </Grid.ColumnDefinitions>
+             mc:Ignorable="d" Background="White" FontSize="12" 
+             d:DesignHeight="1500" d:DesignWidth="2000"
+             Height="1000" Width="1700">
+    <Grid Height="1000" Margin="5,0,5,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" MinHeight="35"/>
-            <RowDefinition Height="auto" MinHeight="35"/>
-            <RowDefinition Height="auto" MinHeight="35"/>
-            <RowDefinition Height="auto" MinHeight="35" />
-            <RowDefinition Height="auto" MinHeight="35"/>
-            <RowDefinition Height="auto" MinHeight="35"/>
-            <RowDefinition/>
+            <RowDefinition Height="231*"/>
+            <RowDefinition Height="269*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="1" Grid.Column="0"
-                HorizontalAlignment="Center" x:Name="ScanIDCard" Padding="20 5" Width="92" Margin="22,10,19,10" >
-            Scan
-        </Button>
+        <TabControl TabStripPlacement="Left" Margin="0,2,0,8" Padding="0 0 0 0" FontSize="18" FontWeight="Bold" Grid.RowSpan="2" HorizontalAlignment="Right" Width="1700">
+            <TabItem Name="ScanIdDocuments" Header="Scan" Padding="25 10 10 25">
+                <TabItem.Content>
+                    <Grid Margin="0,0,520.4,260.4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition Height="auto" MinHeight="35" />
+                            <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >Name:</Label>
+                        <Label Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >ID number:</Label>
+                        <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >DOB:</Label>
+                        <Label Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >ID Expiry:</Label>
+                        <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >Nationality:</Label>
 
-        <Button Grid.Row="2" Grid.Column="0" Padding="20 5" Width="92" Margin="56,10,52,10"
+                        <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490"/>
+                        <TextBox x:Name="IDNo" Text="{Binding visitorIDNo, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                        <TextBox x:Name="DOB" Text="{Binding visitorDOB, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                        <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                        <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+
+                        <Button Grid.Row="6" Grid.Column="1"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
+                            Scan Front Side
+                        </Button>
+                        <Button Grid.Row="6" Grid.Column="2"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
+                            Scan Back Side
+                        </Button>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+
+            <TabItem Name="TakeVisitorPhoto" Header="Photo" Grid.Row="1" Grid.Column="2"  Padding="25 50 50 25">
+                <TabItem.Content>
+                    <Button Grid.Row="2" Grid.Column="0" Padding="20 5" Width="92" Height="25" Margin="22,10,19,10"
                 HorizontalAlignment="Center" x:Name="TakePhoto" >
-            Photo
-        </Button>
+                        Photo
+                    </Button>
+                </TabItem.Content>
+            </TabItem>
 
-        <Button Grid.Row="3" Grid.Column="0" Padding="20 5"
-                HorizontalAlignment="Center" x:Name="RFU2" Margin="56,10,52,10" Width="92">
-            Save
-        </Button>
+            <TabItem Name="GenerateDocuments" Header="Generate Document" Grid.Row="1" Grid.Column="2"  Padding="25 50 50 25">
+                <TabItem.Content>
+                    <Label >Generate Document</Label>
+                </TabItem.Content>
+            </TabItem>
 
-        <Button Grid.Row="4" Grid.Column="0" Padding="20 5"
-                HorizontalAlignment="Center" x:Name="RFU3" Margin="56,10,52,10" Width="92">
-            Print
-        </Button>
+            <TabItem Name="PrintingDocument" Header="Print" Grid.Row="1" Grid.Column="2"  Padding="25 50 50 25">
+                <TabItem.Content>
+                    <Label >test</Label>
+                </TabItem.Content>
+            </TabItem>
 
-        <Button Grid.Row="5" Grid.Column="0" Padding="20 5"
-                HorizontalAlignment="Center" x:Name="RFU4" Margin="56,22,52,10" Width="92">
-            Other
-        </Button>
-        <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490"/>
-        <TextBox x:Name="IDNo" Text="{Binding visitorIDNo, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-        <TextBox x:Name="DOB" Text="{Binding visitorDOB, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-        <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-        <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="38" Margin="58,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        </TabControl>
 
     </Grid>
 </UserControl>
