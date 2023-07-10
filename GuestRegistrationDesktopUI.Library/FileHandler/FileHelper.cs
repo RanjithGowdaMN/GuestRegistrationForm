@@ -45,7 +45,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
                 }
             }
             int lastModifiedFileCounter = 0;
-            if (int.TryParse(lastModifiedFileName.Replace("image", string.Empty).Split('.')[0], out lastModifiedFileCounter))
+            if (int.TryParse(lastModifiedFileName.Replace("image", string.Empty).Replace("photo", string.Empty).Split('.')[0], out lastModifiedFileCounter))
             {
                 return (lastModifiedFileCounter + 1).ToString();
             }

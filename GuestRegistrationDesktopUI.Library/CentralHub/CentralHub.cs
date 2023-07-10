@@ -35,7 +35,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 );
             
             //initialize Fi Scanner
-            //_fiScanHelper = FiScanHelper.GetFormInstance;
             _fiScanHelper.ScanCompleted += OnScanCompleted;
             _fiScanHelper.FormScan_Load();
             _fiScanHelper.OpenScanner();
@@ -58,7 +57,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public void DownloadImageToFile(DownloadInfo info)
         {
-            string filename = "image" + FileHelper.GetImageFileName(PhotoDir).PadLeft(5,'0') + ".jpg";
+            string filename = "photo" + FileHelper.GetImageFileName(PhotoDir).PadLeft(5,'0') + ".jpg";
 
             string fullFileName = Path.Combine(PhotoDir, filename);
             _canonSDKHelper.MainCamera.DownloadToFile(info, fullFileName);
