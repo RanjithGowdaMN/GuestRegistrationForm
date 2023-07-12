@@ -11,6 +11,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 {
     public class ProcessTextData
     {
+        private const string TextProcessingErrorMessage = "Error in text processing! Please ReScan";
         public VisitorDataModel ProcessTextFromBlob(string InputText)
         {
             VisitorDataModel visitorData = new VisitorDataModel();
@@ -65,7 +66,6 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                     {
                         data.Add(text);
                     }
-                    
                 }
             }
 
@@ -74,30 +74,61 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 if (line.Contains("ID"))
                 {
                     //visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
-                    visitorDataModel.IDno = SelectNumberOnly(line);
+                    try
+                    {
+                        visitorDataModel.IDno = SelectNumberOnly(line);
+                    }
+                    catch (Exception)
+                    {
+
+                        visitorDataModel.IDno = TextProcessingErrorMessage;
+                    }
                 } 
                 else if(line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O."))
                 {
-                    //visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
-                    visitorDataModel.DateOfBirth = ExtractDate(line);
+                    try
+                    {
+                        visitorDataModel.DateOfBirth = ExtractDate(line);
+                    }
+                    catch (Exception)
+                    {
+
+                        visitorDataModel.DateOfBirth = TextProcessingErrorMessage;
+                    }
                 }
                 else if (line.Contains("Expiry"))
                 {
-                    visitorDataModel.Expiry = ExtractDate(line);
+                    try
+                    {
+                        visitorDataModel.Expiry = ExtractDate(line);
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Expiry = TextProcessingErrorMessage;
+                    }
                 }
                 else if (line.Contains("Nationality"))
                 {
-                    visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    try
+                    {
+                        visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Nationality = TextProcessingErrorMessage;
+                    }
                 }
                 else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
                 {
-                    visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    try
+                    {
+                        visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Name = TextProcessingErrorMessage;
+                    }
                 }
-                if(visitorDataModel.Name is null)
-                {
-                    visitorDataModel.Name = SelectUpperCase(data[data.Count - 1]);
-                }
-
             }
             return visitorDataModel;
         }
