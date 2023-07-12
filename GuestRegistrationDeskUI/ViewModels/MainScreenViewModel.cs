@@ -34,14 +34,11 @@ namespace GuestRegistrationDeskUI.ViewModels
         public void UpdatePhotoImage(string path)
         {
             //ImagePath.Freeze();
-            //ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00020.jpg"));
-            
-
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ImagePath = new BitmapImage(new Uri(path));
+            });
         }
-        //public void UpdatePhotoImage(object obj, EventArgs eventArgs)
-        //{
-        //    ImagePath = new BitmapImage(new Uri(""));
-        //}
 
         //Scan Button clicked
         public void ScanIDCard()
@@ -49,20 +46,21 @@ namespace GuestRegistrationDeskUI.ViewModels
             //_fiScan.StartScanning();
             //var result = _fiScan.StartScanning();
             //VisitorDetailsValue = "Scanned Data: " + result.ToString();
-
-            var result = _centralHub.StartScanning();
-            visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
-            visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
-            visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
-            visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
-            visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var result = _centralHub.StartScanning();
+                visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
+                visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
+                visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
+                visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
+                visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
+            });
         }
 
         //Take Photo Button Clicked
         public void TakePhoto()
         {
             var result = _centralHub.TakePhoto();
-            ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00006.jpg"));
             if (!result.CameraSessionActive)
             {
                 MessageBox.Show(result.ErrorMessage);
@@ -70,7 +68,10 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
             else
             {
-                //ImagePath = new BitmapImage(new Uri(result.ImagePath));
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00002.jpg"));
+                });
             }
         }
 
