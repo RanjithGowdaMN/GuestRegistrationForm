@@ -25,22 +25,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private string PhotoDir = "D:\\Images\\Photos\\";
         private string fullImageFileName = string.Empty;
 
-
         private IOCRhelper _iOCRhelper;
         //private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
-
-        //private string _imagePath;
-        //public string ImagePath
-        //{
-        //    get { return _imagePath; }
-        //    set
-        //    {
-        //        _imagePath = value;
-        //        OnPropertyChanged(nameof(ImagePath));
-        //    }
-        //}
 
         public CentralHub(IOCRhelper iOCRhelper)//, IIronOCR ironOCR)
         {
@@ -75,7 +63,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         {
             _fiScanHelper.FormScan_Closed();
             //_fiScanHelper.Dispose();
-
             _canonSDKHelper.CloseSession();
             //_canonSDKHelper.Dispose();
             //_canonSDKHelper.MainForm_FormClosing();
@@ -98,7 +85,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
             ProcessTextData processText = new ProcessTextData();
             vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
-            //TakePhoto();
         }
 
         public bool CheckNullForFields(object obj)
@@ -119,17 +105,14 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         public void DownloadImageToFile(DownloadInfo info)
         {
             string filename = "photo" + FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0') + ".jpg";
-
             fullImageFileName = Path.Combine(PhotoDir, filename);
-            //cameraStatus.ImagePath = fullImageFileName;
             _canonSDKHelper.MainCamera.DownloadToFile(info, fullImageFileName);
             OnPhotoDownloadCompleted(fullImageFileName);
-            //ImagePath = fullImageFileName;
+            cameraStatus.ImagePath = fullImageFileName;
 
         }
 
         public delegate void OnPhotoDownloadCompletedEventHandler(string path);
-        //FileModel fileInfo = new FileModel();
 
         public event OnPhotoDownloadCompletedEventHandler CanonImageDownload;
 
@@ -143,7 +126,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             }
         }
 
-
         public CameraStatus TakePhoto()
         {
             try
@@ -154,7 +136,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                     //_canonSDKHelper.OpenSession();
                     _canonSDKHelper.TakePhotoButton_Click(_canonSDKHelper.MainCamera, EventArgs.Empty);
                     cameraStatus.CameraSessionActive = true;
-                    //cameraStatus.ImagePath = fullImageFileName;
                     return cameraStatus;
                 }
                 else
@@ -164,8 +145,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                     return cameraStatus;
 
                 }
-                //Create subscriber from Central hub to execute a donwload in SDK
-                //_canonSDKHelper.MainCamera.DownloadReady += _canonSDKHelper.MainCamera_DownloadReady;
             }
             catch (Exception)
             {
@@ -193,13 +172,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _canonSDKHelper.CloseSession();
             _canonSDKHelper.Dispose();
         }
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //public virtual void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
 
     }
 }

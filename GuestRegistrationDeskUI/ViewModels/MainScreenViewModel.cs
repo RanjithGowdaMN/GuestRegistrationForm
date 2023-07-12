@@ -70,7 +70,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00002.jpg"));
+                    ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00003.jpg"));
                 });
             }
         }
