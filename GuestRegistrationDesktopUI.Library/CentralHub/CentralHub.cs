@@ -107,6 +107,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             string filename = "photo" + FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0') + ".jpg";
             fullImageFileName = Path.Combine(PhotoDir, filename);
             _canonSDKHelper.MainCamera.DownloadToFile(info, fullImageFileName);
+            File.SetAttributes(fullImageFileName, FileAttributes.ReadOnly);
             OnPhotoDownloadCompleted(fullImageFileName);
             cameraStatus.ImagePath = fullImageFileName;
 
