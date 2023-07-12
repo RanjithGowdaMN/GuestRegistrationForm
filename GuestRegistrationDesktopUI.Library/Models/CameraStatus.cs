@@ -11,5 +11,6 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public bool CameraSessionActive { get; set; } = false;
         public bool CameraConnected { get; set; } = false;
         public string ErrorMessage { get; set; } = null;
+        public string ImagePath { get; set; }
     }
 }

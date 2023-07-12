@@ -1,7 +1,10 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
+using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -9,22 +12,45 @@ namespace GuestRegistrationDeskUI.ViewModels
     {
         private ICentralHub _centralHub;
         private SimpleContainer _container;
+
+        public BitmapImage ImageToShow { get; set; }
+
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container)
         {
             _centralHub = centralHub;
             _container = container;
+
+            //load default/dummy image
+            ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00001.jpg"));
+
+            _centralHub.CanonImageDownload += UpdatePhotoImage;
+
+
         }
         ~MainScreenViewModel()
         {
             
         }
+        public void UpdatePhotoImage(string path)
+        {
+            //ImagePath.Freeze();
+            //ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00020.jpg"));
+            
+
+        }
+        //public void UpdatePhotoImage(object obj, EventArgs eventArgs)
+        //{
+        //    ImagePath = new BitmapImage(new Uri(""));
+        //}
+
         //Scan Button clicked
         public void ScanIDCard()
         {
             //_fiScan.StartScanning();
             //var result = _fiScan.StartScanning();
-            var result = _centralHub.StartScanning();
             //VisitorDetailsValue = "Scanned Data: " + result.ToString();
+
+            var result = _centralHub.StartScanning();
             visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
             visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
             visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
@@ -36,10 +62,15 @@ namespace GuestRegistrationDeskUI.ViewModels
         public void TakePhoto()
         {
             var result = _centralHub.TakePhoto();
+            ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00006.jpg"));
             if (!result.CameraSessionActive)
             {
                 MessageBox.Show(result.ErrorMessage);
                 //_centralHub = _container.GetInstance<ICentralHub>();
+            }
+            else
+            {
+                //ImagePath = new BitmapImage(new Uri(result.ImagePath));
             }
         }
 
@@ -115,6 +146,17 @@ namespace GuestRegistrationDeskUI.ViewModels
                     _visitorNationality = value;
                     OnPropertyChanged(nameof(visitorNationality));
                 }
+            }
+        }
+
+        private BitmapImage _imagePath;
+        public BitmapImage ImagePath
+        {
+            get { return _imagePath; }
+            set
+            {
+                _imagePath = value;
+                OnPropertyChanged(nameof(ImagePath));
             }
         }
 

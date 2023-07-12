@@ -131,7 +131,7 @@ namespace CanonEDSDK
             {
                 //ScannedFileName
                 CanonImageToFiles(Info);
-            }
+            }            
         }
 
         private void ErrorHandler_NonSevereErrorHappened(object sender, ErrorCode ex)
