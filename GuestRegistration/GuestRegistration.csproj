@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -218,6 +221,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MappingProfile.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -315,9 +319,17 @@
     <Content Include="Scripts\jquery-3.6.4.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GenerateDocument.Library\GenerateDocument.Library.csproj">
+      <Project>{A60FFA33-C667-47A9-8C96-2D0817B636D3}</Project>
+      <Name>GenerateDocument.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuestDataManager.Library\GuestDataManager.Library.csproj">
       <Project>{0c5936bd-d56e-4f34-97a1-ddef0e9a3542}</Project>
       <Name>GuestDataManager.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
+      <Project>{66E111C1-5521-4C17-BD50-C71B73B1B4F7}</Project>
+      <Name>GuestRegistrationDesktopUI.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

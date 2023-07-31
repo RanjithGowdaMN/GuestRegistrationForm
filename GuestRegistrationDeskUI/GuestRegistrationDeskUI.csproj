@@ -174,6 +174,10 @@
       <Project>{995ecf12-c2dc-4f55-8598-2bb636b65305}</Project>
       <Name>fiScan</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GenerateDocument.Library\GenerateDocument.Library.csproj">
+      <Project>{A60FFA33-C667-47A9-8C96-2D0817B636D3}</Project>
+      <Name>GenerateDocument.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>
       <Name>GuestRegistrationDesktopUI.Library</Name>

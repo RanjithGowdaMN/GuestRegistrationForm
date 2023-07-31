@@ -23,5 +23,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         event OnPhotoDownloadCompletedEventHandler CanonImageDownload;
 
+        void GenerateDocument();
+
     }
 }

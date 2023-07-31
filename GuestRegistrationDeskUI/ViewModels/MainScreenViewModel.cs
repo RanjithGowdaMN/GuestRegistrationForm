@@ -21,16 +21,20 @@ namespace GuestRegistrationDeskUI.ViewModels
             _container = container;
 
             //load default/dummy image
-            ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00001.jpg"));
+            ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
 
             _centralHub.CanonImageDownload += UpdatePhotoImage;
-
-
         }
         ~MainScreenViewModel()
         {
             
         }
+
+        public void GenerateVisitorDocument()
+        {
+            _centralHub.GenerateDocument();
+        }
+
         public void UpdatePhotoImage(string path)
         {
             //ImagePath.Freeze();
@@ -70,7 +74,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    ImagePath = new BitmapImage(new Uri("D:\\Images\\Photos\\photo00003.jpg"));
+                    ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00003.jpg"));
                 });
             }
         }

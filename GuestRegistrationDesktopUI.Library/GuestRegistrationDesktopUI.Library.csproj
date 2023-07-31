@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="FiScanner\IFiScan.cs" />
     <Compile Include="FiScanner\IFiScanHelper.cs" />
+    <Compile Include="GenerateDocument\DocumentGenerator.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
@@ -117,6 +118,10 @@
     <ProjectReference Include="..\FI800Scan\fiScan.csproj">
       <Project>{995ECF12-C2DC-4F55-8598-2BB636B65305}</Project>
       <Name>fiScan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerateDocument.Library\GenerateDocument.Library.csproj">
+      <Project>{a60ffa33-c667-47a9-8c96-2d0817b636d3}</Project>
+      <Name>GenerateDocument.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\IronOCR.Library\IronOCR.Library.csproj">
       <Project>{D21BBB0A-CA79-4D71-8731-72DD9531A330}</Project>

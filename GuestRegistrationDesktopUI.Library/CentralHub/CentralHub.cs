@@ -1,4 +1,5 @@
 ﻿using EOSDigital.API;
+using GenerateDocument.Library;
 using GuestRegistrationDesktopUI.Library.FiScanner;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
@@ -21,8 +22,13 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private FiScanHelper _fiScanHelper;
         private CanonSDKHelper _canonSDKHelper;
 
-        private string ImageDir = "D:\\Images\\";
+        private IGenerateWordDocument _generateWordDocument;
+
+        private string ImageDir = "D:\\Images\\ScannedID\\";
         private string PhotoDir = "D:\\Images\\Photos\\";
+        private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
+        private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
+
         private string fullImageFileName = string.Empty;
 
         private IOCRhelper _iOCRhelper;
@@ -30,8 +36,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
 
-        public CentralHub(IOCRhelper iOCRhelper)//, IIronOCR ironOCR)
+        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument)//, IIronOCR ironOCR)
         {
+            _generateWordDocument = generateWordDocument;
+
             //initialize Fi Scanner and Camera
             Parallel.Invoke(
                     () => _fiScanHelper = FiScanHelper.GetFormInstance,
@@ -66,6 +74,18 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _canonSDKHelper.CloseSession();
             //_canonSDKHelper.Dispose();
             //_canonSDKHelper.MainForm_FormClosing();
+        }
+
+        public void GenerateDocument()
+        {
+            GuestDataModel guestDataModel = new GuestDataModel();
+            guestDataModel.IDno = vistorData.IDno;
+            guestDataModel.Name = vistorData.Name;
+            guestDataModel.DateOfBirth = vistorData.DateOfBirth;
+            guestDataModel.Expiry = vistorData.Expiry;
+            guestDataModel.Nationality = vistorData.Nationality;
+
+            _generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
         }
 
         public VisitorDataModel StartScanning()
