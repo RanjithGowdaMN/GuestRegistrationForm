@@ -32,7 +32,7 @@ namespace GuestRegistrationDeskUI.Views
             // Create a BitmapImage from the image path
             var image = new System.Windows.Media.Imaging.BitmapImage();
             image.BeginInit();
-            image.UriSource = new System.Uri("D:\\Images\\Photos\\photo00001.jpg");
+            image.UriSource = new System.Uri("D:\\VisitorData\\Photos\\photo00001.jpg");
             image.EndInit();
 
             VisitorPhoto.Source = image;

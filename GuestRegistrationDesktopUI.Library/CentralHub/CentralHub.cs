@@ -24,8 +24,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         private IGenerateWordDocument _generateWordDocument;
 
-        private string ImageDir = "D:\\Images\\ScannedID\\";
-        private string PhotoDir = "D:\\Images\\Photos\\";
+        private string ImageDir = "D:\\VisitorData\\ScannedID\\";
+        private string PhotoDir = "D:\\VisitorData\\Photos\\";
+        private string ProcessedImageDir = "D:\\VisitorData\\ProcessedImage\\";
         private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
         private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
 

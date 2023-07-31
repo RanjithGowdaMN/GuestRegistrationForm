@@ -1,9 +1,9 @@
 {
   "ImageThreshold": "100",
-  "PyScriptSource": "D:\\Images\\ProcessedImage\\Testscript.py",
-  "ScannedIDfolder": "D:\\Images\\",
-  "ScannedPhotofolder": "D:\\Images\\Photo\\",
+  "PyScriptSource": "D:\\VisitorData\\ProcessedImage\\Testscript.py",
+  "ScannedIDfolder": "D:\\VisitorData\\ScannedID\\",
+  "ScannedPhotofolder": "D:\\VisitorData\\Photo\\",
   "ProcessedImageFolder": "D:\\Images\\ProcessedImage\\",
   "ScannedIDcounter": 0,
-  "PhotoCounter":  0
+  "PhotoCounter": 0
 }

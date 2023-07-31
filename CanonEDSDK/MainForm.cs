@@ -43,7 +43,7 @@ namespace CanonEDSDK
                 ErrorHandler.NonSevereErrorHappened += ErrorHandler_NonSevereErrorHappened;
                 SavePathTextBox.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "RemotePhoto");
 
-                SavePathTextBox.Text = Path.GetDirectoryName("D:\\Images\\Photos\\temp\\");
+                SavePathTextBox.Text = Path.GetDirectoryName("D:\\VisitorData\\Photos\\temp\\");
 
                 SaveFolderBrowser.Description = "Save Images To...";
                 LiveViewPicBox.Paint += LiveViewPicBox_Paint;
@@ -424,7 +424,7 @@ namespace CanonEDSDK
                 STCameraRdButton.Checked = false;
                 STComputerRdButton.Checked = true;
                 SaveToRdButton_CheckedChanged();
-                SavePathTextBox.Text = Path.GetDirectoryName("D:\\Images\\Photos\\temp\\");
+                SavePathTextBox.Text = Path.GetDirectoryName("D:\\VisitorData\\Photos\\temp\\");
             }
         }
 
