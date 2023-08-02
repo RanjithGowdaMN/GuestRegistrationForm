@@ -21,7 +21,7 @@ namespace Tesseract.Library
         {
             string extractedText = string.Empty;
 
-            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 100).Trim();
+            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 105).Trim();
             try
             {
                 using (var OCRengine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))

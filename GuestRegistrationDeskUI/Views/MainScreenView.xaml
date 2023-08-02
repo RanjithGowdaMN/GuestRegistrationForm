@@ -88,13 +88,9 @@
                         </Grid.RowDefinitions>
 
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="10,0,0,0"
-                                 HorizontalAlignment="Left" x:Name="GenerateVisitorDocument" >
-                            Visitor
-                        </Button>
+                                 HorizontalAlignment="Left" x:Name="GenerateVisitorDocument" Content="Contract" />
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="40,10,19,10"
-                                 HorizontalAlignment="Center" x:Name="GenerateContract" >
-                            Contract
-                        </Button>
+                                 HorizontalAlignment="Center" x:Name="GenerateContract" Content="Visitor" />
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="170" Height="50" Margin="500,10,19,10"
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" >
                             Temparary Badge

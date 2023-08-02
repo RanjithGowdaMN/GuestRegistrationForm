@@ -116,7 +116,7 @@
       <Name>CanonED.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\FI800Scan\fiScan.csproj">
-      <Project>{995ECF12-C2DC-4F55-8598-2BB636B65305}</Project>
+      <Project>{995ecf12-c2dc-4f55-8598-2bb636b65305}</Project>
       <Name>fiScan</Name>
     </ProjectReference>
     <ProjectReference Include="..\GenerateDocument.Library\GenerateDocument.Library.csproj">

@@ -48,7 +48,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IIronOCR, TessereactIronOCR>()
                 .Singleton<ICentralHub, CentralHub>()
                 .Singleton<ICanonSDKHelper, CanonSDKHelper>()
-                .Singleton<IGenerateWordDocument, GenerateWordDocument>();
+                .Singleton<IGenerateWordDocument, GenerateWordDocument>()
+                .Singleton<IGeneratePDFdocument, GeneratePDFdocument>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

@@ -23,6 +23,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private CanonSDKHelper _canonSDKHelper;
 
         private IGenerateWordDocument _generateWordDocument;
+        private IGeneratePDFdocument _generatePDFdocument;
 
         private string ImageDir = "D:\\VisitorData\\ScannedID\\";
         private string PhotoDir = "D:\\VisitorData\\Photos\\";
@@ -37,9 +38,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
 
-        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument)//, IIronOCR ironOCR)
+        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
             _generateWordDocument = generateWordDocument;
+            _generatePDFdocument = generatePDFdocument;
 
             //initialize Fi Scanner and Camera
             Parallel.Invoke(
@@ -86,7 +88,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.Expiry = vistorData.Expiry;
             guestDataModel.Nationality = vistorData.Nationality;
 
-            _generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+
         }
 
         public VisitorDataModel StartScanning()

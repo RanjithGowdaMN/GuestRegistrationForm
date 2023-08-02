@@ -14,8 +14,8 @@ namespace GenerateDocument.Library
         public void GenerateWordDoc(GuestDataModel guestDataModel,  string inputFilePath,
                                     string outputFilePath, string imagePath)
         {
-            inputFilePath = @"E:\misnad\imgevisit\visitorsc.docx"; // Path to the input Word document
-            outputFilePath = @"E:\misnad\imgevisit\visit1.docx"; // Path to save the modified Word document
+            inputFilePath = @"D:\VisitorData\BaseDocument\visitors1.docx"; // Path to the input Word document
+            outputFilePath = @"D:\VisitorData\GeneratedDocument\visit1.docx"; // Path to save the modified Word document
             //imagePath = @"E:\misnad\imgevisit\Sachin.jpg"; // Path to the image file
                                         //    int pageNumber=2;
             string txt = "sachin";
@@ -23,6 +23,7 @@ namespace GenerateDocument.Library
             Word.Application wordApp = new Word.Application();
 
             // Open the existing Word document
+            
 
             WordDocument doc = wordApp.Documents.Open(inputFilePath);
 
