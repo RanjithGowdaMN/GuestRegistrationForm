@@ -12,7 +12,7 @@ namespace GenerateDocument.Library
     public class GeneratePDFdocument : IGeneratePDFdocument
     {
         public void GeneratePdfDoc(GuestDataModel guestDataModel, string inputFilePath,
-                                    string outputFilePath, string imagePath)
+                                    string outputFilePath, string imagePath, string docType)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Contractor.pdf";
             string fullName = guestDataModel.Name;
@@ -168,7 +168,7 @@ namespace GenerateDocument.Library
             {
                 int targetPage = 3;
                 // Load the image
-                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
+                Image image = Image.GetInstance(imagePath);
 
                 // Set the position and size of the image on the page
                 image.SetAbsolutePosition(410, 632);

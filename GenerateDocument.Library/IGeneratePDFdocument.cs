@@ -2,6 +2,6 @@
 {
     public interface IGeneratePDFdocument
     {
-        void GeneratePdfDoc(GuestDataModel guestDataModel, string inputFilePath, string outputFilePath, string imagePath);
+        void GeneratePdfDoc(GuestDataModel guestDataModel, string inputFilePath, string outputFilePath, string imagePath, string docType);
     }
 }

@@ -87,12 +87,22 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.DateOfBirth = vistorData.DateOfBirth;
             guestDataModel.Expiry = vistorData.Expiry;
             guestDataModel.Nationality = vistorData.Nationality;
+            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
+        }
+        public void GenerateContractDocument()
+        {
+            GuestDataModel guestDataModel = new GuestDataModel();
+            guestDataModel.IDno = vistorData.IDno;
+            guestDataModel.Name = vistorData.Name;
+            guestDataModel.DateOfBirth = vistorData.DateOfBirth;
+            guestDataModel.Expiry = vistorData.Expiry;
+            guestDataModel.Nationality = vistorData.Nationality;
 
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
         }
-
         public VisitorDataModel StartScanning()
         {
             string fileCouter = FileHelper.GetImageFileName(ImageDir);

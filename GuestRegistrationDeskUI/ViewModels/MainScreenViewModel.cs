@@ -36,6 +36,12 @@ namespace GuestRegistrationDeskUI.ViewModels
             
         }
 
+        public void GenerateContract()
+        {
+            _centralHub.GenerateDocument();
+
+        }
+
         public void UpdatePhotoImage(string path)
         {
             //ImagePath.Freeze();
