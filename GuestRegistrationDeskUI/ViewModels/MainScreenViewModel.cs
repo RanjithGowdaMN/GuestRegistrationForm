@@ -36,9 +36,9 @@ namespace GuestRegistrationDeskUI.ViewModels
             
         }
 
-        public void GenerateContract()
+        public void GenerateContractDocument()
         {
-            _centralHub.GenerateDocument();
+            _centralHub.GenerateContractDocument();
 
         }
 

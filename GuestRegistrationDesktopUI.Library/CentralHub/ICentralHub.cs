@@ -25,5 +25,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         void GenerateDocument();
 
+        void GenerateContractDocument();
+
     }
 }

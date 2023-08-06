@@ -31,7 +31,7 @@ namespace GenerateDocument.Library
         }
 
         public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
-                                string outputFilePath, string imagePath)
+                                string outputFilePath, string imagePath, string docType)
         {
             // Check if the PDF and image files exist
             if (!File.Exists(inputFilePath))
@@ -52,7 +52,7 @@ namespace GenerateDocument.Library
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, outputPdfFile);
 
                     // Add image to PDF
-                    AddImageToPdf(pdfStamper, imagePath);//targetPage);//, xPosition, yPosition, width, height);
+                    AddImageToPdf(pdfStamper, imagePath, docType);//targetPage);//, xPosition, yPosition, width, height);
 
                     // Add texts to PDF
                     AddTextToTargetPage(pdfStamper, textsToAdd1);
@@ -129,17 +129,28 @@ namespace GenerateDocument.Library
             }
         }
 
-        public static void AddImageToPdf(PdfStamper pdfStamper, string imagePath)
+        public static void AddImageToPdf(PdfStamper pdfStamper, string imagePath, string docType)
         {
             try
             {
+
                 int targetPage = 3;
+               
+
                 // Load the image
                 Image image = Image.GetInstance(imagePath);
-
+                if (docType == "contract")
                 // Set the position and size of the image on the page
-                image.SetAbsolutePosition(410, 632);
-                image.ScaleToFit(120, 120);
+                {
+                    image.SetAbsolutePosition(410, 632);
+                    image.ScaleToFit(120, 200);
+                }
+                else
+                {
+                    image.SetAbsolutePosition(410, 662);
+                    image.ScaleToFit(120, 120);
+
+                }
 
                 // Get the number of pages in the PDF
                 int pageCount = pdfStamper.Reader.NumberOfPages;

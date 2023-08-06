@@ -57,7 +57,7 @@ namespace GenerateDocument.Library
             outputFilePath = $"D:\\VisitorData\\GeneratedDocument\\C_{guestDataModel.Name}_{guestDataModel.IDno}.pdf";
 
             // Modify the PDF with the image and texts
-            GeneratePDFdocument.ModifyPdf(inputFilePath, textsToAdd1, textsToAdd, outputFilePath, imagePath);
+            GeneratePDFdocument.ModifyPdf(inputFilePath, textsToAdd1, textsToAdd, outputFilePath, imagePath, "contract");
         }
     }
 }
