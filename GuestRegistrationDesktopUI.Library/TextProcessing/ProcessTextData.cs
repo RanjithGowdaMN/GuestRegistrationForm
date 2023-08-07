@@ -149,8 +149,37 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                     }
                 }
             }
+            foreach (string line in data)
+            {
+                if (line.Contains("ID"))
+                {
+                    //visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
+                    visitorDataModel.IDno = SelectNumberOnly(line);
+                }
+                else if (line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O."))
+                {
+                    //visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
+                    visitorDataModel.DateOfBirth = ExtractDate(line);
+                }
+                else if (line.Contains("Expiry"))
+                {
+                    visitorDataModel.Expiry = ExtractDate(line);
+                }
+                else if (line.Contains("Nationality"))
+                {
+                    visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                }
+                else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
+                {
+                    visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                }
+                if (visitorDataModel.Name is null)
+                {
+                    visitorDataModel.Name = SelectUpperCase(data[data.Count - 1]);
+                }
 
-            
+            }
+
             return visitorDataModel;
         }
 
