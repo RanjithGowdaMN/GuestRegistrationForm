@@ -87,6 +87,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.DateOfBirth = vistorData.DateOfBirth;
             guestDataModel.Expiry = vistorData.Expiry;
             guestDataModel.Nationality = vistorData.Nationality;
+            guestDataModel.IsPassport = vistorData.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
@@ -98,7 +99,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.DateOfBirth = vistorData.DateOfBirth;
             guestDataModel.Expiry = vistorData.Expiry;
             guestDataModel.Nationality = vistorData.Nationality;
-
+            guestDataModel.IsPassport = vistorData.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 

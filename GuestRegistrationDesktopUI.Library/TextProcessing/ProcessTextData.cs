@@ -70,6 +70,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             visitorDataModel.Nationality = countryCode;
             visitorDataModel.DateOfBirth = DateOfBirth;
             visitorDataModel.Expiry = ExpiryDate;
+            visitorDataModel.IsPassport = true;
             return visitorDataModel;
         }
         private (string result, int curIndex) ExtractNumberGroup(string currentItem, int startIdx)
