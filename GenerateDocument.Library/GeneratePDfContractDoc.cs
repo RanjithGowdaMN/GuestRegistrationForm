@@ -12,14 +12,14 @@ namespace GenerateDocument.Library
                                             string outputFilePath, string imagePath)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Contractor.pdf";
-
-
             string fullName = guestDataModel.Name;
             string[] nameParts = fullName.Split(' ');
 
-            string firstName = nameParts[1];
-            string scndName = nameParts[2];
-            string lastName = string.Join(" ", nameParts.Skip(3));
+            string firstName = nameParts[0];
+            string scndName = nameParts[1];
+            string lastName = string.Join(" ", nameParts.Skip(2));
+
+
 
             List<Tuple<float, float, string>> textForSecondPage = new List<Tuple<float, float, string>>();
             List<Tuple<float, float, string>> textForThirdPage = new List<Tuple<float, float, string>>();
@@ -27,6 +27,7 @@ namespace GenerateDocument.Library
             if (guestDataModel.IsPassport)
             {
                 //Text position for Passport
+               
                 textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
                 textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
                 textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
@@ -38,10 +39,11 @@ namespace GenerateDocument.Library
             else
             {
                 //Text position for Qatar ID 
+                                
                 textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
                 textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
                 textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
-                textForSecondPage.Add(new Tuple<float, float, string>(310, 415, guestDataModel.IDno));
+                textForSecondPage.Add(new Tuple<float, float, string>(340, 415, guestDataModel.IDno));
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
             }

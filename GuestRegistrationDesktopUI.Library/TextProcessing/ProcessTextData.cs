@@ -15,6 +15,11 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         public VisitorDataModel ProcessTextFromBlob(string InputText)
         {
             VisitorDataModel visitorData = new VisitorDataModel();
+            
+            if (InputText.Length < 25)
+            {
+                return FillErrorMessage();
+            }
 
             bool isQatarId = InputText.Contains("State Of Qatar") || InputText.Contains("Residency Permit") || InputText.Contains("Permit"); 
 
@@ -167,11 +172,11 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 }
                 else if (line.Contains("Nationality"))
                 {
-                    visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1)).Trim();
                 }
                 else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
                 {
-                    visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1)).Trim();
                 }
                 if (visitorDataModel.Name is null)
                 {
@@ -338,6 +343,17 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                     }
                 }
             }
+            return visitorDataModel;
+        }
+    
+        private VisitorDataModel FillErrorMessage()
+        {
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.DateOfBirth = "Error Please Re-Scan";
+            visitorDataModel.Expiry = "Error Please Re-Scan";
+            visitorDataModel.IDno = "Error Please Re-Scan";
+            visitorDataModel.Name = "Error Please Re-Scan";
+            visitorDataModel.Nationality = "Error Please Re-Scan";
             return visitorDataModel;
         }
     }
