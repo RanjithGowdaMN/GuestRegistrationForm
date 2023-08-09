@@ -108,6 +108,8 @@
     <Compile Include="PhotoHandler\ICanonSDKHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextProcessing\CountryCode.cs" />
+    <Compile Include="TextProcessing\Document.cs" />
+    <Compile Include="TextProcessing\Parser.cs" />
     <Compile Include="TextProcessing\ProcessTextData.cs" />
   </ItemGroup>
   <ItemGroup>
