@@ -44,9 +44,6 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             }
             return visitorData;
         }
-
-        
-
         private List<string> RemoveEmptyItems(List<string> items)
         {
             items.RemoveAll(x => x == "");
