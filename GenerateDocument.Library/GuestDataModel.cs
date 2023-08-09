@@ -13,5 +13,6 @@ namespace GenerateDocument.Library
         public string DateOfBirth { get; set; }
         public string Expiry { get; set; }
         public string Nationality { get; set; }
+        public bool IsPassport { get; set; }
     }
 }

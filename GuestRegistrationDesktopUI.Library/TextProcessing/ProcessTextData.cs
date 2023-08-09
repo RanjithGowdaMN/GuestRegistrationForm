@@ -17,6 +17,25 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         public VisitorDataModel ProcessTextFromBlob(string InputText)
         {
             VisitorDataModel visitorData = new VisitorDataModel();
+            
+            if (InputText.Length < 25)
+            {
+                return FillErrorMessage();
+            }
+
+            bool isQatarId = InputText.Contains("State Of Qatar") || InputText.Contains("Residency Permit") || InputText.Contains("Permit"); 
+
+            if (isQatarId)
+            {
+                return ProcessQatarIdImage(InputText);
+            }
+            else
+            {
+                return ProcessPassPortImage(InputText);
+            }
+
+            //return visitorData;
+        }
             try
             {
                 bool isQatarId = InputText.Contains("State Of Qatar") || InputText.Contains("Residency Permit") || InputText.Contains("Permit");
@@ -43,6 +62,42 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         }
         private VisitorDataModel ProcessPassPortImage(string inputText)
         {
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            string mrz = inputText.Substring(inputText.IndexOf("<")).Replace("\n", "");
+
+            List<string> mrzCode2Part = mrz.Split(new[] { "<<" }, StringSplitOptions.None).ToList();
+            mrzCode2Part = RemoveEmptyItems(mrzCode2Part);
+            string countryCode = mrzCode2Part[0].Substring(1, 3);
+            string secondName = mrzCode2Part[0].Substring(4).Replace("<", " ");
+            List<string> SecondPartParsed = mrzCode2Part[1].Split('<').ToList();
+            string FirstName = ExtractFirstName(SecondPartParsed);
+            (string Idnumber, int startIndexOfDOB) = ExtractIDnumber(SecondPartParsed);
+            string remaingData = SecondPartParsed[startIndexOfDOB];
+            remaingData = remaingData.Substring(3).Replace(" ", "");
+            (string DateOfBirth, int dobIndex) = ExtractNumberGroup(remaingData, 0);
+            (string ExpiryDate, int expIndex) = ExtractNumberGroup(remaingData, dobIndex + 1);
+
+            //using (StringReader reader = new StringReader(inputText))
+            //{
+            //    string line;
+            //    while ((line = reader.ReadLine()) != null)
+            //    {
+            //        string text = line.TrimStart().TrimEnd();
+            //        if (text != null && text != string.Empty && text != "")
+            //        {
+            //            data.Add(text);
+            //        }
+            //    }
+            //}
+
+            visitorDataModel.Name = FirstName + " "+secondName;
+            visitorDataModel.IDno = Idnumber;
+            visitorDataModel.Nationality = countryCode;
+            visitorDataModel.DateOfBirth = DateOfBirth;
+            visitorDataModel.Expiry = ExpiryDate;
+            visitorDataModel.IsPassport = true;
+            return visitorDataModel;
+        }
             try
             {
                 VisitorDataModel visitorDataModel = new VisitorDataModel();
@@ -160,6 +215,53 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         private VisitorDataModel ProcessQatarIdImage(string inputText)
         {
             //throw new NotImplementedException();
+            List<string> data = new List<string>();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            using (StringReader reader = new StringReader(inputText))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string text = line.TrimStart().TrimEnd();
+                    if (text != null && text != string.Empty && text != "")
+                    {
+                        data.Add(text);
+                    }
+                }
+            }
+            foreach (string line in data)
+            {
+                if (line.Contains("ID"))
+                {
+                    //visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
+                    visitorDataModel.IDno = SelectNumberOnly(line);
+                }
+                else if (line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O."))
+                {
+                    //visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
+                    visitorDataModel.DateOfBirth = ExtractDate(line);
+                }
+                else if (line.Contains("Expiry"))
+                {
+                    visitorDataModel.Expiry = ExtractDate(line);
+                }
+                else if (line.Contains("Nationality"))
+                {
+                    visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1)).Trim();
+                }
+                else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
+                {
+                    visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1)).Trim();
+                }
+                if (visitorDataModel.Name is null)
+                {
+                    visitorDataModel.Name = SelectUpperCase(data[data.Count - 1]);
+                }
+
+            }
+
+            return visitorDataModel;
+        }
             try
             {
                 List<string> data = new List<string>();
@@ -319,6 +421,56 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                         catch (Exception)
                         {
 
+                        visitorDataModel.DateOfBirth = TextProcessingErrorMessage;
+                    }
+                }
+                else if (line.Contains("Expiry"))
+                {
+                    try
+                    {
+                        visitorDataModel.Expiry = ExtractDate(line);
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Expiry = TextProcessingErrorMessage;
+                    }
+                }
+                else if (line.Contains("Nationality"))
+                {
+                    try
+                    {
+                        visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Nationality = TextProcessingErrorMessage;
+                    }
+                }
+                else if (line.Contains("Name") || line.Contains("Sam") || line.Contains("|") || line.Contains("ame"))
+                {
+                    try
+                    {
+                        visitorDataModel.Name = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1));
+                    }
+                    catch (Exception)
+                    {
+                        visitorDataModel.Name = TextProcessingErrorMessage;
+                    }
+                }
+            }
+            return visitorDataModel;
+        }
+    
+        private VisitorDataModel FillErrorMessage()
+        {
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.DateOfBirth = "Error Please Re-Scan";
+            visitorDataModel.Expiry = "Error Please Re-Scan";
+            visitorDataModel.IDno = "Error Please Re-Scan";
+            visitorDataModel.Name = "Error Please Re-Scan";
+            visitorDataModel.Nationality = "Error Please Re-Scan";
+            return visitorDataModel;
+        }
                             visitorDataModel.DateOfBirth = TextProcessingErrorMessage;
                         }
                     }
