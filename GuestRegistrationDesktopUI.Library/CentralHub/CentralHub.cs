@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
+using NLog;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
@@ -30,7 +31,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private string ProcessedImageDir = "D:\\VisitorData\\ProcessedImage\\";
         private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
         private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private string fullImageFileName = string.Empty;
 
         private IOCRhelper _iOCRhelper;
@@ -117,9 +118,19 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
-            ProcessTextData processText = new ProcessTextData();
-            vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+            try
+            {
+                //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+                ProcessTextData processText = new ProcessTextData();
+                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"Error OnScanCompleted {ex.Message}");
+                logger.Error($"Error OnScanCompleted {ex.InnerException}");
+                logger.Error($"Error OnScanCompleted {ex.StackTrace}");
+                throw;
+            }
         }
 
         public bool CheckNullForFields(object obj)
@@ -145,7 +156,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             File.SetAttributes(fullImageFileName, FileAttributes.ReadOnly);
             OnPhotoDownloadCompleted(fullImageFileName);
             cameraStatus.ImagePath = fullImageFileName;
-
         }
 
         public delegate void OnPhotoDownloadCompletedEventHandler(string path);
@@ -161,7 +171,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 CanonImageDownload(path);
             }
         }
-
         public CameraStatus TakePhoto()
         {
             try
@@ -184,7 +193,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             }
             catch (Exception)
             {
-
+                logger.Error($"camera sleep mode!!");
                 //throw;
             }
 
