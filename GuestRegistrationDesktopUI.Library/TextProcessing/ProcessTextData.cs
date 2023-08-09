@@ -47,30 +47,37 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         private List<string> RemoveEmptyItems(List<string> items)
         {
             items.RemoveAll(x => x == "");
+            items.RemoveAll(x => x == "kkk");
+            items.RemoveAll(x => x == "ccc");
             items.RemoveAll(x => x == " ");
             return items;
         }
         private VisitorDataModel ProcessPassPortImage(string inputText)
         {
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
             try
             {
-                VisitorDataModel visitorDataModel = new VisitorDataModel();
                 string mrz = inputText.Substring(inputText.IndexOf("<")).Replace("\n", "");
                 List<string> mrzCode2Part = mrz.Split(new[] { "<<" }, StringSplitOptions.None).ToList();
                 mrzCode2Part = RemoveEmptyItems(mrzCode2Part);
+
                 string countryCode = mrzCode2Part[0].Substring(1, 3);
+                visitorDataModel.Nationality = countryCode;
+
                 string secondName = mrzCode2Part[0].Substring(4).Replace("<", " ");
                 List<string> SecondPartParsed = mrzCode2Part[1].Split('<').ToList();
                 string FirstName = ExtractFirstName(SecondPartParsed);
+                visitorDataModel.Name = FirstName + " " + secondName;
+
                 (string Idnumber, int startIndexOfDOB) = ExtractIDnumber(SecondPartParsed);
+                visitorDataModel.IDno = Idnumber;
+
                 string remaingData = SecondPartParsed[startIndexOfDOB];
                 remaingData = remaingData.Substring(3).Replace(" ", "");
                 (string DateOfBirth, int dobIndex) = ExtractNumberGroup(remaingData, 0);
-                (string ExpiryDate, int expIndex) = ExtractNumberGroup(remaingData, dobIndex + 1);
-                visitorDataModel.Name = FirstName + " " + secondName;
-                visitorDataModel.IDno = Idnumber;
-                visitorDataModel.Nationality = countryCode;
                 visitorDataModel.DateOfBirth = DateOfBirth;
+
+                (string ExpiryDate, int expIndex) = ExtractNumberGroup(remaingData, dobIndex + 1);
                 visitorDataModel.Expiry = ExpiryDate;
                 visitorDataModel.IsPassport = true;
                 return visitorDataModel;
@@ -78,8 +85,9 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             catch (Exception ex)
             {
                 LogError(ex, "ProcessPassPortImage");
-                throw;
+                //throw;
             }
+            return visitorDataModel;
         }
         private (string result, int curIndex) ExtractNumberGroup(string currentItem, int startIdx)
         {
