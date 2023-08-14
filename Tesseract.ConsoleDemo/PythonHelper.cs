@@ -11,7 +11,7 @@ namespace Tesseract.Library
             //string json = File.ReadAllText("./ApplicationSettings.json.json");
             //JObject config = JObject.Parse(json);
 
-            string pythonScriptPath = "D:\\VisitorData\\ScannedID\\ProcessedImage\\Testscript.py";
+            string pythonScriptPath = "D:\\VisitorData\\ScannedID\\ProcessedImage\\GaussMedianBlur.py";
             //string pythonScriptPath = (string)config["PyScriptSource"];
 
 

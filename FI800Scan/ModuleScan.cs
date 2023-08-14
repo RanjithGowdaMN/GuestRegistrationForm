@@ -90,6 +90,17 @@ namespace fiScanTest
         public const int PIXEL_RGB = 2;                         //RGB
 
         //Resolution
+        //public const int RS_200 = 0;                            //200dpi
+        //public const int RS_240 = 1;                            //240dpi
+        //public const int RS_300 = 2;                            //300dpi
+        //public const int RS_400 = 3;                            //400dpi
+        //public const int RS_500 = 4;                            //500dpi
+        //public const int RS_600 = 5;                            //600dpi
+        //public const int RS_700 = 6;                            //700dpi
+        //public const int RS_800 = 7;                            //800dpi
+        //public const int RS_1200 = 9;                           //1200dpi
+        //public const int RS_CUSTM = 99;                         //Custom
+
         public const int RS_200 = 0;                            //200dpi
         public const int RS_240 = 1;                            //240dpi
         public const int RS_300 = 2;                            //300dpi

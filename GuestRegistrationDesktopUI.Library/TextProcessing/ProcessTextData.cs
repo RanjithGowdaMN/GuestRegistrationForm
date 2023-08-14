@@ -18,7 +18,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         {
             VisitorDataModel visitorData = new VisitorDataModel();
 
-            if (InputText.Length < 25)
+          if (InputText.Length < 25)
             {
                 return FillErrorMessage();
             }
@@ -57,30 +57,9 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             VisitorDataModel visitorDataModel = new VisitorDataModel();
             try
             {
-                string mrz = inputText.Substring(inputText.IndexOf("<")).Replace("\n", "");
-                List<string> mrzCode2Part = mrz.Split(new[] { "<<" }, StringSplitOptions.None).ToList();
-                mrzCode2Part = RemoveEmptyItems(mrzCode2Part);
+                //return MRZParsingLogic.parseMRZLogicTwo(inputText);
+                return MRZParsingLogic.parseMRZLogicOne(inputText);
 
-                string countryCode = mrzCode2Part[0].Substring(1, 3);
-                visitorDataModel.Nationality = countryCode;
-
-                string secondName = mrzCode2Part[0].Substring(4).Replace("<", " ");
-                List<string> SecondPartParsed = mrzCode2Part[1].Split('<').ToList();
-                string FirstName = ExtractFirstName(SecondPartParsed);
-                visitorDataModel.Name = FirstName + " " + secondName;
-
-                (string Idnumber, int startIndexOfDOB) = ExtractIDnumber(SecondPartParsed);
-                visitorDataModel.IDno = Idnumber;
-
-                string remaingData = SecondPartParsed[startIndexOfDOB];
-                remaingData = remaingData.Substring(3).Replace(" ", "");
-                (string DateOfBirth, int dobIndex) = ExtractNumberGroup(remaingData, 0);
-                visitorDataModel.DateOfBirth = DateOfBirth;
-
-                (string ExpiryDate, int expIndex) = ExtractNumberGroup(remaingData, dobIndex + 1);
-                visitorDataModel.Expiry = ExpiryDate;
-                visitorDataModel.IsPassport = true;
-                return visitorDataModel;
             }
             catch (Exception ex)
             {
@@ -89,30 +68,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             }
             return visitorDataModel;
         }
-        private (string result, int curIndex) ExtractNumberGroup(string currentItem, int startIdx)
-        {
-            try
-            {
-                string result = string.Empty;
-                int count = 0;
-                for (int i = startIdx; i < currentItem.Length; i++)
-                {
-                    if (Char.IsNumber(currentItem[i]))
-                    {
-                        result = currentItem.Substring(i, 6);
-                        count = i + 6;
-                        break;
-                    }
-                }
-                return (DateInterpolation(result), count);
-            }
-            catch (Exception ex)
-            {
-                LogError(ex, "ExtractNumberGroup");
-                throw;
-            }
-
-        }
+       
         private (string, int) ExtractIDnumber(List<string> items)
         {
             try
@@ -143,36 +99,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 throw;
             }
         }
-        private string ExtractFirstName(List<string> items)
-        {
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                bool anyNumPresent = false;
-                foreach (var item in items)
-                {
-                    foreach (var chars in item)
-                    {
-                        if (Char.IsNumber(chars))
-                        {
-                            anyNumPresent = true;
-                            break;
-                        }
-                    }
-                    if (!anyNumPresent)
-                    {
-                        sb.Append(item);
-                        sb.Append(" ");
-                    }
-                }
-                return sb.ToString().Trim();
-            }
-            catch (Exception ex)
-            {
-                LogError(ex, "ExtractFirstName");
-                throw;
-            }
-        }
+        
         private VisitorDataModel ProcessQatarIdImage(string inputText)
         {
             try
@@ -305,44 +232,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 throw;
             };
         }
-        private string DateInterpolation(string item)
-        {
-            try
-            {
-                StringBuilder number = new StringBuilder();
-                foreach (var chars in item)
-                {
-                    if (Char.IsNumber(chars))
-                    {
-                        number.Append(chars);
-                    }
-                }
-                string year = number.ToString().Substring(0, 2);
-                string month = number.ToString().Substring(2, 2);
-                string day = number.ToString().Substring(4, 2);
-                int yearinInt = Convert.ToInt32(year);
-                if (yearinInt <= 50 && yearinInt >= 00)
-                {
-                    year = "20" + year;
-                }
-                else
-                {
-                    year = "19" + year;
-                }
-                number.Clear();
-                number.Append(day);
-                number.Append("/");
-                number.Append(month);
-                number.Append("/");
-                number.Append(year);
-                return number.ToString();
-            }
-            catch (Exception ex)
-            {
-                LogError(ex, "DateInterpolation");
-                throw;
-            }
-        }
+        
         private VisitorDataModel FillErrorMessage()
         {
             VisitorDataModel visitorDataModel = new VisitorDataModel();
