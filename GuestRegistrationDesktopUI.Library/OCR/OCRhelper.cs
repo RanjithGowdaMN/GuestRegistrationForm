@@ -15,10 +15,9 @@ namespace GuestRegistrationDesktopUI.Library.OCR
             _tesseract = tesseract;
         }
 
-        public string ExtractText(string imagePath, int idType)
+        public string ExtractTextFromImage(string imagePath)
         {
-            return _tesseract.ProcessImageAndExtractText(imagePath, idType);
-            //return _tesseract.ExtractTextFromImage(imagePath);
+            return _tesseract.ExtractTextFromImage(imagePath);
         }
     }
 }

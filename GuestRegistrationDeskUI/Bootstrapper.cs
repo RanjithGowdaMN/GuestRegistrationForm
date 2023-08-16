@@ -43,7 +43,7 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                //.Singleton<IOCRhelper, OCRhelper>()
+                .Singleton<IOCRhelper, OCRhelper>()
                 .Singleton<ITesseractLib, TesseractLib>()
                 .Singleton<IIronOCR, TessereactIronOCR>()
                 .Singleton<ICentralHub, CentralHub>()

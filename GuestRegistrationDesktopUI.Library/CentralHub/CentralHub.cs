@@ -15,7 +15,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using NLog;
-using Tesseract.Library;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
@@ -35,15 +34,12 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private string fullImageFileName = string.Empty;
 
-        //private IOCRhelper _iOCRhelper;
+        private IOCRhelper _iOCRhelper;
         //private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
-        
-        private int _idType = 1;
-        private ITesseractLib _tesseractLib;
 
-        public CentralHub(ITesseractLib tesseractLib, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
+        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
             _generateWordDocument = generateWordDocument;
             _generatePDFdocument = generatePDFdocument;
@@ -62,7 +58,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _fiScanHelper.cboFileType_SelectedIndexChanged();
 
             //Initialize OCR
-            _tesseractLib = tesseractLib;
+            _iOCRhelper = iOCRhelper;
             //_ironOCR = ironOCR;
 
             _canonSDKHelper.InitializeLifetimeService();
@@ -109,9 +105,8 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
         }
-        public VisitorDataModel StartScanning(int IdType)
+        public VisitorDataModel StartScanning()
         {
-            _idType = IdType;
             string fileCouter = FileHelper.GetImageFileName(ImageDir);
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
@@ -128,7 +123,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             {
                 //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
                 ProcessTextData processText = new ProcessTextData();
-                vistorData = processText.ProcessTextFromBlob(_tesseractLib.ProcessImageAndExtractText(fileName, _idType));
+                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
             }
             catch (Exception ex)
             {
