@@ -121,11 +121,11 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
             visitorDataModel.Nationality = countryCode;
 
-            List<string> mrzFirstPart = mrz[0].Substring(4).Split('<').ToList();
+            List<string> mrzFirstPart = mrz[0].Substring(5).Split('<').ToList();
             mrzFirstPart = RemoveEmptyItems(mrzFirstPart);
-            string FullName = mrzFirstPart[mrzFirstPart.Count-1];
+            string FullName = mrzFirstPart[0];//mrzFirstPart.Count-1];
 
-            for (int i = 0; i < mrzFirstPart.Count-1; i++)
+            for (int i = 1; i < mrzFirstPart.Count; i++)
             {
                 FullName += " " + mrzFirstPart[i];
             }
