@@ -11,14 +11,14 @@ namespace Tesseract.Library
             //string json = File.ReadAllText("./ApplicationSettings.json.json");
             //JObject config = JObject.Parse(json);
 
-            string pythonScriptPath = "D:\\VisitorData\\ScannedID\\ProcessedImage\\GaussMedianBlur.py";
+            string pythonScriptPath = "D:\\VisitorData\\ScannedID\\ProcessedImage\\Interpolate_GaussBlur_Median.py";
             //string pythonScriptPath = (string)config["PyScriptSource"];
 
 
             // Create a new process to run the Python script
             Process process = new Process();
             process.StartInfo.FileName = "python"; // Assuming Python is added to the system's PATH
-            process.StartInfo.Arguments = $"{pythonScriptPath} {imagePath} {threshold}";
+            process.StartInfo.Arguments = $"{pythonScriptPath} {imagePath} {threshold} {2}";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.Start();

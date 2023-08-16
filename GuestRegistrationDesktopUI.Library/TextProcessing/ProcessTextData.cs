@@ -58,7 +58,9 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             try
             {
                 //return MRZParsingLogic.parseMRZLogicTwo(inputText);
-                return MRZParsingLogic.parseMRZLogicOne(inputText);
+                //return MRZParsingLogic.parseMRZLogicTwo(inputText); 
+                return MRZParsingLogic.parseMRZLogicThree(inputText);
+
 
             }
             catch (Exception ex)
@@ -121,21 +123,21 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 }
                 foreach (string line in data)
                 {
-                    if (line.Contains("ID"))
+                    if (line.Contains("ID") || line.Contains("D.No"))
                     {
                         //visitorDataModel.IDno = line.Substring(line.IndexOf(":") + 1, 12);
                         visitorDataModel.IDno = SelectNumberOnly(line);
                     }
-                    else if (line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O."))
+                    else if (line.Contains("D.O.B") || line.Contains("D.0.B") || line.Contains("D.O") || line.Contains(".O.") || line.Contains("0.B"))
                     {
                         //visitorDataModel.DateOfBirth = line.Substring(line.IndexOf(":") + 1, 11);
                         visitorDataModel.DateOfBirth = ExtractDate(line);
                     }
-                    else if (line.Contains("Expiry"))
+                    else if (line.Contains("Expiry") || line.Contains("xpiry"))
                     {
                         visitorDataModel.Expiry = ExtractDate(line);
                     }
-                    else if (line.Contains("Nationality"))
+                    else if (line.Contains("Nationality") || line.Contains("ionality"))
                     {
                         visitorDataModel.Nationality = RemoveLowerCase(line.Substring(line.IndexOf(":") + 1)).Trim();
                     }

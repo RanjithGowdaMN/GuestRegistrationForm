@@ -87,6 +87,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             visitorDataModel.Nationality = countryCode;
 
             string secondName = mrzCode2Part[0].Substring(4).Replace("<", " ");
+
             List<string> SecondPartParsed = mrzCode2Part[1].Split('<').ToList();
             string FirstName = ExtractFirstName(SecondPartParsed);
             visitorDataModel.Name = FirstName + " " + secondName;
@@ -103,6 +104,38 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
             (string ExpiryDate, int expIndex) = ExtractNumberGroup(remaingData, dobIndex + 1);
             visitorDataModel.Expiry = ExpiryDate;
+            visitorDataModel.IsPassport = true;
+            return visitorDataModel;
+        }
+
+        public static VisitorDataModel parseMRZLogicThree(string inputText)
+        {
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+
+            inputText = inputText.Replace(" ", "");
+            List<string> mrz = inputText.Split(inputText[inputText.IndexOf('\n')]).ToList();
+
+            string countryCode = mrz[0].Substring(2, 3);
+
+            countryCode = CountryAbbr.getCountryFullName(countryCode);
+
+            visitorDataModel.Nationality = countryCode;
+
+            List<string> mrzFirstPart = mrz[0].Substring(4).Split('<').ToList();
+            mrzFirstPart = RemoveEmptyItems(mrzFirstPart);
+            string FullName = mrzFirstPart[mrzFirstPart.Count-1];
+
+            for (int i = 0; i < mrzFirstPart.Count-1; i++)
+            {
+                FullName += " " + mrzFirstPart[i];
+            }
+
+            List<string> mrzSecondPart = mrz[1].Split('<').ToList();
+            visitorDataModel.Name = ExtractCharatersOnly(FullName);
+            visitorDataModel.IDno = mrzSecondPart[0];
+            (visitorDataModel.DateOfBirth, visitorDataModel.Expiry) = ExtractExpiryandDob(mrzSecondPart[1]);
+            visitorDataModel.DateOfBirth = DateInterpolation(visitorDataModel.DateOfBirth);
+            visitorDataModel.Expiry = DateInterpolation(visitorDataModel.Expiry);
             visitorDataModel.IsPassport = true;
             return visitorDataModel;
         }
@@ -172,6 +205,10 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         }
         private static string DateInterpolation(string item)
         {
+            if (item.Length < 5)
+            {
+                return string.Empty;
+            }
             try
             {
                 StringBuilder number = new StringBuilder();
@@ -243,6 +280,19 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             logger.Error($"Error in {v} \n {ex.Message}");
             logger.Error($"{ex.StackTrace}");
             logger.Error($"{ex.InnerException}");
+        }
+
+        private static string ExtractCharatersOnly(string text)
+        {
+            string result = string.Empty;
+            foreach (var chars in text)
+            {
+                if (Char.IsLetter(chars) || Char.IsWhiteSpace(chars))
+                {
+                    result += chars;
+                }
+            }
+            return result;
         }
     }
 }
