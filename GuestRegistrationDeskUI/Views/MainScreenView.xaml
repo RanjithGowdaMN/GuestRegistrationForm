@@ -25,6 +25,7 @@
                             <RowDefinition Height="auto" MinHeight="35" />
                             <RowDefinition Height="auto" MinHeight="35"/>
                             <RowDefinition Height="auto" MinHeight="35"/>
+                            <RowDefinition Height="auto" MinHeight="35"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >Name:</Label>
@@ -39,12 +40,18 @@
                         <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                         <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
 
+                        <StackPanel Grid.Row="6" Grid.Column="1" Margin="25 25 0 10" Orientation="Horizontal" Height="auto">
+                            <RadioButton Content="Passport" IsChecked="{Binding IsPassportSelected, Mode=TwoWay}" Margin="0,0,0,359" />
+                            <RadioButton Content="ID card" IsChecked="{Binding IsIdSelected, Mode=TwoWay}" Margin="25,0,0,359" />
+                        </StackPanel>
+                        
+                        
                         <Button Grid.Row="6" Grid.Column="1"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="92" Margin="28,70,0,0" >
                             Scan Front Side
                         </Button>
                         <Button Grid.Row="6" Grid.Column="2"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="35" Width="92" Margin="28,70,0,0" >
                             Scan Back Side
                         </Button>
                     </Grid>
@@ -71,7 +78,7 @@
                             Take Photo
                         </Button>
                     </Grid>
-                    
+
                 </TabItem.Content>
             </TabItem>
 
@@ -81,7 +88,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>

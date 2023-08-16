@@ -2,6 +2,6 @@
 {
     public interface IIronOCR
     {
-        string GetTextFromImage(string imagePath);
+        string GetTextFromImage(string imagePath, int idType);
     }
 }

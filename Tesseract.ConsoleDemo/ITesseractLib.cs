@@ -2,6 +2,6 @@
 {
     public interface ITesseractLib
     {
-        string ExtractTextFromImage(string imagePath);
+        string ProcessImageAndExtractText(string imagePath, int idType);
     }
 }

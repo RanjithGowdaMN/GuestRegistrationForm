@@ -9,7 +9,7 @@ namespace IronOCR.Library
 {
     public class TessereactIronOCR : IIronOCR
     {
-        public string GetTextFromImage(string imagePath)
+        public string GetTextFromImage(string imagePath, int idType)
         {
             var Ocr = new IronTesseract(); // nothing to configure
             Ocr.Language = OcrLanguage.English;

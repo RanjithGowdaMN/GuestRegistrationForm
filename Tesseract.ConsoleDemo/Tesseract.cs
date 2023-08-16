@@ -17,11 +17,11 @@ namespace Tesseract.Library
         //    tesseractLib.ExtractTextFromImage("D:\\Images\\image00123.jpg");
         //}
 
-        public string ExtractTextFromImage(string imagePath)
+        public string ProcessImageAndExtractText(string imagePath, int idType)
         {
             string extractedText = string.Empty;
 
-            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 105).Trim();
+            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 105, idType).Trim();
             try
             {
                 using (var OCRengine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))

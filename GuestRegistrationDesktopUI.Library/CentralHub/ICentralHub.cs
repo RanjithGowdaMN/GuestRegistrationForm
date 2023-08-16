@@ -11,7 +11,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
     public interface ICentralHub
     {
-        VisitorDataModel StartScanning();
+        VisitorDataModel StartScanning(int IdType);
 
         CameraStatus TakePhoto();
 

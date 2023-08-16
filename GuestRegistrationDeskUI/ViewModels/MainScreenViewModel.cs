@@ -12,14 +12,15 @@ namespace GuestRegistrationDeskUI.ViewModels
     {
         private ICentralHub _centralHub;
         private SimpleContainer _container;
-
         public BitmapImage ImageToShow { get; set; }
-
+        private bool _isPassportSelected;
+        private bool _isIdSelected;
+        private int IdType;
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container)
         {
             _centralHub = centralHub;
             _container = container;
-
+            IsPassportSelected = true;
             //load default/dummy image
             ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
 
@@ -59,7 +60,9 @@ namespace GuestRegistrationDeskUI.ViewModels
             //VisitorDetailsValue = "Scanned Data: " + result.ToString();
             Application.Current.Dispatcher.Invoke(() =>
             {
-                var result = _centralHub.StartScanning();
+                IdType = _isPassportSelected ? 2 : 1;
+
+                var result = _centralHub.StartScanning(IdType);
                 visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
                 visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
                 visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
@@ -158,6 +161,25 @@ namespace GuestRegistrationDeskUI.ViewModels
                     _visitorNationality = value;
                     OnPropertyChanged(nameof(visitorNationality));
                 }
+            }
+        }
+        public bool IsPassportSelected
+        {
+            get => _isPassportSelected;
+            set
+            {
+                _isPassportSelected = value;
+                OnPropertyChanged(nameof(IsPassportSelected));
+            }
+        }
+
+        public bool IsIdSelected
+        {
+            get => _isIdSelected;
+            set
+            {
+                _isIdSelected = value;
+                OnPropertyChanged(nameof(IsIdSelected));
             }
         }
 
