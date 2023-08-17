@@ -173,7 +173,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                     int secondIdx = InputText.IndexOf("/", firstIdx + 1);
                     if (secondIdx - firstIdx == 3)
                     {
-                        ddmmyyyy = InputText.Substring(firstIdx - 2, secondIdx - 2);
+                        ddmmyyyy = InputText.Substring(firstIdx - 2, 10);
                         return ddmmyyyy;
                     }
                 }
@@ -182,7 +182,8 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             catch (Exception ex)
             {
                 LogError(ex, "ExtractDate");
-                throw;
+                return InputText.Replace(".", "").Replace(":", "").Replace("D", "").Replace("O", "").Replace("B", "");
+                //throw;
             }
         }
 
@@ -206,7 +207,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
             foreach (char c in InputText)
             {
-                if (char.IsUpper(c))
+                if (char.IsUpper(c) || char.IsWhiteSpace(c))
                 {
                     sb.Append(c);
                 }
