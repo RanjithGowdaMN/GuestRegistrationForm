@@ -17,13 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FargoEncodingPrinting.Libra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScan", "FI800Scan\fiScan.csproj", "{995ECF12-C2DC-4F55-8598-2BB636B65305}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesseract.OCRLibrary", "Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj", "{A50EC795-E457-4AAF-81EF-CD54880CFFA3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronOCR.Library", "IronOCR.Library\IronOCR.Library.csproj", "{D21BBB0A-CA79-4D71-8731-72DD9531A330}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanonED.Library", "CanonEDSDK\CanonED.Library.csproj", "{AC6B306C-AC16-43C4-8624-54A026A5B822}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDocument.Library", "GenerateDocument.Library\GenerateDocument.Library.csproj", "{A60FFA33-C667-47A9-8C96-2D0817B636D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR.Library", "Tesseract\TesseractOCR.Library.csproj", "{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,20 +123,7 @@ Global
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|x64.Build.0 = Release|x64
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|x86.ActiveCfg = Release|Any CPU
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Release|x86.Build.0 = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|x64.Build.0 = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Debug|x86.Build.0 = Debug|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x64.ActiveCfg = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x64.Build.0 = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x86.ActiveCfg = Release|Any CPU
-		{A50EC795-E457-4AAF-81EF-CD54880CFFA3}.Release|x86.Build.0 = Release|Any CPU
 		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|x64.Build.0 = Debug|Any CPU
 		{D21BBB0A-CA79-4D71-8731-72DD9531A330}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -171,6 +158,18 @@ Global
 		{A60FFA33-C667-47A9-8C96-2D0817B636D3}.Release|x64.Build.0 = Release|Any CPU
 		{A60FFA33-C667-47A9-8C96-2D0817B636D3}.Release|x86.ActiveCfg = Release|Any CPU
 		{A60FFA33-C667-47A9-8C96-2D0817B636D3}.Release|x86.Build.0 = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Debug|x86.Build.0 = Debug|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|x64.Build.0 = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|x86.ActiveCfg = Release|Any CPU
+		{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

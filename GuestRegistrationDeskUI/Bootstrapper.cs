@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Tesseract.Library;
+using TesseractOCR.Library;
 
 namespace GuestRegistrationDeskUI
 {
@@ -44,7 +45,7 @@ namespace GuestRegistrationDeskUI
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IOCRhelper, OCRhelper>()
-                .Singleton<ITesseractLib, TesseractLib>()
+                .Singleton<ITesseractHelper, TesseractLib>()
                 .Singleton<IIronOCR, TessereactIronOCR>()
                 .Singleton<ICentralHub, CentralHub>()
                 .Singleton<ICanonSDKHelper, CanonSDKHelper>()

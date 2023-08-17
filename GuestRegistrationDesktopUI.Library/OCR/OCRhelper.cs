@@ -4,20 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tesseract.Library;
+using TesseractOCR.Library;
 
 namespace GuestRegistrationDesktopUI.Library.OCR
 {
     public class OCRhelper : IOCRhelper
     {
-        private ITesseractLib _tesseract;
-        public OCRhelper(ITesseractLib tesseract)
+        private ITesseractHelper _tesseract;
+        public OCRhelper(ITesseractHelper tesseract)
         {
             _tesseract = tesseract;
         }
 
-        public string ExtractTextFromImage(string imagePath)
+        public string ExtractText(string imagePath, int IdType)
         {
-            return _tesseract.ExtractTextFromImage(imagePath);
+            return _tesseract.ExtractTxtFromImg(imagePath, IdType, 0,0,0,"","", "");
+
         }
+
     }
 }

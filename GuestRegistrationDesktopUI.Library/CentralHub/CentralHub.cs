@@ -39,6 +39,8 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
 
+        public int IdType;
+
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
             _generateWordDocument = generateWordDocument;
@@ -105,8 +107,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
         }
-        public VisitorDataModel StartScanning()
+        public VisitorDataModel StartScanning(int idType)
         {
+            IdType = idType;
             string fileCouter = FileHelper.GetImageFileName(ImageDir);
             _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
             _fiScanHelper.StartScan();
@@ -123,7 +126,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             {
                 //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
                 ProcessTextData processText = new ProcessTextData();
-                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractTextFromImage(fileName));
+                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
             }
             catch (Exception ex)
             {

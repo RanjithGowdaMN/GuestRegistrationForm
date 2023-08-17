@@ -2,11 +2,11 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace Tesseract.Library
+namespace TesseractOCR.Library
 {
     public static class PythonHelper
     {
-        public static string ApplyImageThreshold(string imagePath, int threshold)
+        public static string ApplyImageThreshold(string imagePath, int threshold, int idType)
         {
             //string json = File.ReadAllText("./ApplicationSettings.json.json");
             //JObject config = JObject.Parse(json);
@@ -18,7 +18,7 @@ namespace Tesseract.Library
             // Create a new process to run the Python script
             Process process = new Process();
             process.StartInfo.FileName = "python"; // Assuming Python is added to the system's PATH
-            process.StartInfo.Arguments = $"{pythonScriptPath} {imagePath} {threshold} {2}";
+            process.StartInfo.Arguments = $"{pythonScriptPath} {imagePath} {threshold} {idType}";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.Start();

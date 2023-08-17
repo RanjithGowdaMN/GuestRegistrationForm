@@ -21,6 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -136,9 +139,9 @@
       <Project>{D21BBB0A-CA79-4D71-8731-72DD9531A330}</Project>
       <Name>IronOCR.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj">
-      <Project>{a50ec795-e457-4aaf-81ef-cd54880cffa3}</Project>
-      <Name>Tesseract.OCRLibrary</Name>
+    <ProjectReference Include="..\Tesseract\TesseractOCR.Library.csproj">
+      <Project>{ed8d74e9-6673-45b3-8f32-c9b8c3a61a0c}</Project>
+      <Name>TesseractOCR.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

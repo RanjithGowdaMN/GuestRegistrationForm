@@ -12,7 +12,10 @@ namespace GuestRegistrationDeskUI.ViewModels
     {
         private ICentralHub _centralHub;
         private SimpleContainer _container;
-
+        private bool _isPassport = true;
+        private bool _isIDcard;
+        private bool _isOther;
+        private int _idType;
         public BitmapImage ImageToShow { get; set; }
 
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container)
@@ -57,9 +60,10 @@ namespace GuestRegistrationDeskUI.ViewModels
             //_fiScan.StartScanning();
             //var result = _fiScan.StartScanning();
             //VisitorDetailsValue = "Scanned Data: " + result.ToString();
+            _idType = _isPassport ? 2 : 1;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                var result = _centralHub.StartScanning();
+                var result = _centralHub.StartScanning(_idType);
                 visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
                 visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
                 visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
@@ -171,7 +175,42 @@ namespace GuestRegistrationDeskUI.ViewModels
                 OnPropertyChanged(nameof(ImagePath));
             }
         }
-
+        public bool IsPassport
+        {
+            get { return _isPassport; }
+            set
+            {
+                if (IsPassport != value)
+                {
+                    _isPassport = value;
+                    OnPropertyChanged(nameof(_isPassport));
+                }
+            }
+        }
+        public bool IsOther
+        {
+            get { return _isOther; }
+            set
+            {
+                if (IsOther != value)
+                {
+                    _isOther = value;
+                    OnPropertyChanged(nameof(_isOther));
+                }
+            }
+        }
+        public bool IsIDcard
+        {
+            get { return _isIDcard; }
+            set
+            {
+                if (IsIDcard != value)
+                {
+                    _isIDcard = value;
+                    OnPropertyChanged(nameof(_isIDcard));
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

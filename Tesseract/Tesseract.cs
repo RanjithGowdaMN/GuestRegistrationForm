@@ -7,9 +7,11 @@ using System.IO;
 using AForge.Imaging.Filters;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
-namespace Tesseract.Library
+using Tesseract;
+
+namespace TesseractOCR.Library
 {
-    public class TesseractLib : ITesseractLib
+    public class TesseractLib : ITesseractHelper
     {
         //public static void Main()
         //{
@@ -17,11 +19,11 @@ namespace Tesseract.Library
         //    tesseractLib.ExtractTextFromImage("D:\\Images\\image00123.jpg");
         //}
 
-        public string ExtractTextFromImage(string imagePath)
+        public string ExtractTextFromImg(string imagePath, int IdType)
         {
             string extractedText = string.Empty;
 
-            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 105).Trim();
+            imagePath = PythonHelper.ApplyImageThreshold(imagePath, 105, IdType).Trim();
             try
             {
                 using (var OCRengine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
@@ -51,6 +53,11 @@ namespace Tesseract.Library
             }
             //Debug.Write("Press any key to continue . . . ");
             return extractedText;
+        }
+
+        public string ExtractTxtFromImg(string imagePath, int id_Type, int RFU1, int RFU2, int RFU3, string RFU4, string RFU5, string RFU6)
+        {
+            return ExtractTextFromImg(imagePath, id_Type); ;
         }
     }
 }

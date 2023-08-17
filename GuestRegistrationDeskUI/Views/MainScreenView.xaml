@@ -39,13 +39,19 @@
                         <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                         <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
 
+                        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="25 15 0 0">
+                            <RadioButton Content="Passport" IsChecked="{Binding IsPassport, Mode=TwoWay}" Margin="0,5,0,372"/>
+                            <RadioButton Content="ID card" IsChecked="{Binding IsIDcard, Mode=OneWay}" Margin="25,5,0,372"/>
+                            <RadioButton Content="Other" IsChecked="{Binding IsIDcard, Mode=OneWay}" Margin="25,5,0,372"/>
+                        </StackPanel>
+
                         <Button Grid.Row="6" Grid.Column="1"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
-                            Scan Front Side
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="125" Margin="50,75,0,0" >
+                            Scan Front
                         </Button>
                         <Button Grid.Row="6" Grid.Column="2"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="35" Width="92" Margin="50,50,0,0" >
-                            Scan Back Side
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="40" Width="125" Margin="50,75,0,0" >
+                            Scan Back
                         </Button>
                     </Grid>
                 </TabItem.Content>

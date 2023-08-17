@@ -186,9 +186,9 @@
       <Project>{d21bbb0a-ca79-4d71-8731-72dd9531a330}</Project>
       <Name>IronOCR.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tesseract.ConsoleDemo\Tesseract.OCRLibrary.csproj">
-      <Project>{a50ec795-e457-4aaf-81ef-cd54880cffa3}</Project>
-      <Name>Tesseract.OCRLibrary</Name>
+    <ProjectReference Include="..\Tesseract\TesseractOCR.Library.csproj">
+      <Project>{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}</Project>
+      <Name>TesseractOCR.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

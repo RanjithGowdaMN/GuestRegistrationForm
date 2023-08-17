@@ -2,6 +2,6 @@
 {
     public interface IOCRhelper
     {
-        string ExtractTextFromImage(string imagePath);
+        string ExtractText(string imagePath, int IdType);
     }
 }
