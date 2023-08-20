@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDesktopUI.Library.Models;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -35,13 +36,25 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public void GenerateVisitorDocument()
         {
-            _centralHub.GenerateDocument();
+            VisitorDataModel visitorDataFromUI = new VisitorDataModel();
+            visitorDataFromUI.IDno = visitorIDNo;
+            visitorDataFromUI.Name = visitorName;
+            visitorDataFromUI.DateOfBirth = visitorDOB;
+            visitorDataFromUI.Expiry = visitorIDExpiry;
+            visitorDataFromUI.Nationality = visitorNationality;
+            _centralHub.GenerateDocument(visitorDataFromUI);
             
         }
 
         public void GenerateContractDocument()
         {
-            _centralHub.GenerateContractDocument();
+            VisitorDataModel visitorDataFromUI = new VisitorDataModel();
+            visitorDataFromUI.IDno = visitorIDNo;
+            visitorDataFromUI.Name = visitorName;
+            visitorDataFromUI.DateOfBirth = visitorDOB;
+            visitorDataFromUI.Expiry = visitorIDExpiry;
+            visitorDataFromUI.Nationality = visitorNationality;
+            _centralHub.GenerateContractDocument(visitorDataFromUI);
 
         }
 

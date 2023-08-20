@@ -82,27 +82,27 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //_canonSDKHelper.MainForm_FormClosing();
         }
 
-        public void GenerateDocument()
+        public void GenerateDocument(VisitorDataModel visitorDataFromUI)
         {
             GuestDataModel guestDataModel = new GuestDataModel();
-            guestDataModel.IDno = vistorData.IDno;
-            guestDataModel.Name = vistorData.Name;
-            guestDataModel.DateOfBirth = vistorData.DateOfBirth;
-            guestDataModel.Expiry = vistorData.Expiry;
-            guestDataModel.Nationality = vistorData.Nationality;
-            guestDataModel.IsPassport = vistorData.IsPassport;
+            guestDataModel.IDno = visitorDataFromUI.IDno;
+            guestDataModel.Name = visitorDataFromUI.Name;
+            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
+            guestDataModel.Expiry = visitorDataFromUI.Expiry;
+            guestDataModel.Nationality = visitorDataFromUI.Nationality;
+            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
-        public void GenerateContractDocument()
+        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI)
         {
             GuestDataModel guestDataModel = new GuestDataModel();
-            guestDataModel.IDno = vistorData.IDno;
-            guestDataModel.Name = vistorData.Name;
-            guestDataModel.DateOfBirth = vistorData.DateOfBirth;
-            guestDataModel.Expiry = vistorData.Expiry;
-            guestDataModel.Nationality = vistorData.Nationality;
-            guestDataModel.IsPassport = vistorData.IsPassport;
+            guestDataModel.IDno = visitorDataFromUI.IDno;
+            guestDataModel.Name = visitorDataFromUI.Name;
+            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
+            guestDataModel.Expiry = visitorDataFromUI.Expiry;
+            guestDataModel.Nationality = visitorDataFromUI.Nationality;
+            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
