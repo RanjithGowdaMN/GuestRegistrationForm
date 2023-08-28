@@ -16,7 +16,16 @@ namespace GenerateDocument.Library
             string[] nameParts = fullName.Split(' ');
 
             string firstName = nameParts[0];
-            string scndName = nameParts[1];
+            string scndName = string.Empty;
+            try
+            {
+                scndName = nameParts[1];
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                scndName = string.Empty;
+            }
+
             string lastName = string.Join(" ", nameParts.Skip(2));
 
 

@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuestRegistrationDeskUI.Views"
         mc:Ignorable="d"
-        Title="Guest Registration Form" Height="1000" Width="1700">
+        Title="Guest Registration Form"  Height="auto" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center">
     <DockPanel>
-
-        <Grid>
-            <ContentControl x:Name="ActiveItem" Margin="20 5 20 20"/>
-        </Grid>
+        <ScrollViewer Width = "1500"  
+            HorizontalScrollBarVisibility = "Visible" VerticalScrollBarVisibility = "Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ContentControl x:Name="ActiveItem"  Grid.ColumnSpan="2" />
+            </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>
        

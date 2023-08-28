@@ -37,5 +37,20 @@ namespace GuestRegistrationDeskUI.Views
 
             VisitorPhoto.Source = image;
         }
+
+        private void UserControl_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Scroll_1(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

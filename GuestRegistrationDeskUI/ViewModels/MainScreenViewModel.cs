@@ -42,6 +42,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataFromUI.DateOfBirth = visitorDOB;
             visitorDataFromUI.Expiry = visitorIDExpiry;
             visitorDataFromUI.Nationality = visitorNationality;
+            visitorDataFromUI.IsPassport = IsPassport;
             _centralHub.GenerateDocument(visitorDataFromUI);
             
         }
@@ -54,6 +55,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataFromUI.DateOfBirth = visitorDOB;
             visitorDataFromUI.Expiry = visitorIDExpiry;
             visitorDataFromUI.Nationality = visitorNationality;
+            visitorDataFromUI.IsPassport = IsPassport;
             _centralHub.GenerateContractDocument(visitorDataFromUI);
 
         }
