@@ -40,8 +40,10 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
                 textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
                 textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 450, guestDataModel.DateOfBirth));
                 textForSecondPage.Add(new Tuple<float, float, string>(160, 415, guestDataModel.IDno));
                 textForSecondPage.Add(new Tuple<float, float, string>(160, 385, guestDataModel.Expiry));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 355, guestDataModel.Nationality));
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
             }
@@ -52,7 +54,11 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
                 textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
                 textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 450, guestDataModel.DateOfBirth));
                 textForSecondPage.Add(new Tuple<float, float, string>(340, 415, guestDataModel.IDno));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 385, guestDataModel.Expiry));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 355, guestDataModel.Nationality));
+
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
             }

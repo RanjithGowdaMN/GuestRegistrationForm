@@ -12,7 +12,8 @@ namespace GenerateDocument.Library
                                             string outputFilePath, string imagePath)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Visitor.pdf";
-         
+            DateTime currentDate = DateTime.Now;
+          
             // adding text for 3rd page
             List<Tuple<float, float, string>> textsToAdd1 = new List<Tuple<float, float, string>>
             {
@@ -25,9 +26,12 @@ namespace GenerateDocument.Library
             //adding text for 2nd page
             List<Tuple<float, float, string>> textsToAdd = new List<Tuple<float, float, string>>
             {
-                new Tuple<float, float, string>(178, 645, guestDataModel.Name),
+                new Tuple<float, float, string>(180, 645, guestDataModel.Name),
+                new Tuple<float, float, string>(480,645,currentDate.ToString("dd/MM/yyyy")),
                 new Tuple<float, float, string>(480, 600, guestDataModel.IDno),
-                //new Tuple<float, float, string>(350, 680,guestDataModel.Expiry),
+                new Tuple<float, float, string>(480,550,guestDataModel.DateOfBirth),
+                new Tuple<float, float, string>(480, 500,guestDataModel.Expiry),
+                new Tuple<float, float, string>(480,453,guestDataModel.Nationality)
                 
                 // To be add other data
 

@@ -50,8 +50,8 @@
                                  HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="125" Margin="50,75,0,0" >
                             Scan Front
                         </Button>
-                        <Button Grid.Row="6" Grid.Column="2"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="40" Width="125" Margin="50,75,0,0" >
+                        <Button Grid.Row="6" Grid.Column="1"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCardBackSide" Padding="0 0" Height="35" Width="125" Margin="278,73,0,0" >
                             Scan Back
                         </Button>
                     </Grid>
@@ -84,19 +84,12 @@
 
             <TabItem Name="VisitorDetails" Header="Additional Details" Padding="25 50 50 25" Margin="0 0 0 0" VerticalAlignment="Center">
 
-                <TabControl TabStripPlacement="Top" Margin="-17,17,-217,-284" Padding="0 0 0 0" FontSize="14" Height="1233" VerticalAlignment="Top" SelectionChanged="TabControl_SelectionChanged" RenderTransformOrigin="0.504,0.676">
+                <TabControl TabStripPlacement="Top" Margin="3,17,-217,-284" Padding="0 0 0 0" FontSize="14" Height="1188" VerticalAlignment="Top" SelectionChanged="TabControl_SelectionChanged" RenderTransformOrigin="0.504,0.676">
                     <TabItem Name="VisitorDataSheet" Width="250" Header="Visitor Data Sheet">
                         <TabItem.Content>
 
-                            <Grid Margin="67,47,-221,292" RenderTransformOrigin="0.5,0.5">
-                                <Grid.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="0.222"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Grid.RenderTransform>
+                            <Grid >
+
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="61.181" />
                                     <ColumnDefinition Width="270"/>
@@ -279,7 +272,7 @@
                         <TabItem.Content>
 
 
-                            <Grid Margin="0,0,16,-216" Height="1397" VerticalAlignment="Bottom">
+                            <Grid >
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="343" />
