@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestRegistrationDesktopUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestDataManager.Library", "GuestDataManager.Library\GuestDataManager.Library.csproj", "{0C5936BD-D56E-4F34-97A1-DDEF0E9A3542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FargoEncodingPrinting.Library", "FargoEncodingPrinting.Library\FargoEncodingPrinting.Library.csproj", "{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiScan", "FI800Scan\fiScan.csproj", "{995ECF12-C2DC-4F55-8598-2BB636B65305}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronOCR.Library", "IronOCR.Library\IronOCR.Library.csproj", "{D21BBB0A-CA79-4D71-8731-72DD9531A330}"
@@ -101,16 +99,6 @@ Global
 		{0C5936BD-D56E-4F34-97A1-DDEF0E9A3542}.Release|x64.Build.0 = Release|Any CPU
 		{0C5936BD-D56E-4F34-97A1-DDEF0E9A3542}.Release|x86.ActiveCfg = Release|Any CPU
 		{0C5936BD-D56E-4F34-97A1-DDEF0E9A3542}.Release|x86.Build.0 = Release|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Debug|x64.Build.0 = Debug|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Release|x64.ActiveCfg = Release|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Release|x64.Build.0 = Release|Any CPU
-		{AFDB8CB9-40FB-4500-BAE1-5FDB047B6297}.Release|x86.ActiveCfg = Release|Any CPU
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{995ECF12-C2DC-4F55-8598-2BB636B65305}.Debug|x64.ActiveCfg = Debug|x64
