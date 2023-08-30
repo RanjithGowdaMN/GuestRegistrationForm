@@ -31,7 +31,6 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
         ~MainScreenViewModel()
         {
-            
         }
 
         public void GenerateVisitorDocument()
@@ -57,7 +56,6 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataFromUI.Nationality = visitorNationality;
             visitorDataFromUI.IsPassport = IsPassport;
             _centralHub.GenerateContractDocument(visitorDataFromUI);
-
         }
 
         public void UpdatePhotoImage(string path)
@@ -72,18 +70,30 @@ namespace GuestRegistrationDeskUI.ViewModels
         //Scan Button clicked
         public void ScanIDCard()
         {
-            //_fiScan.StartScanning();
-            //var result = _fiScan.StartScanning();
-            //VisitorDetailsValue = "Scanned Data: " + result.ToString();
+            string scannedFileNameFront = string.Empty;
             _idType = _isPassport ? 2 : 1;
             Application.Current.Dispatcher.Invoke(() =>
             {
-                var result = _centralHub.StartScanning(_idType);
+                (var result, string fileName) = _centralHub.StartScanning(_idType);
                 visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
                 visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
                 visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
                 visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
                 visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
+                scannedFileNameFront = fileName;
+            });
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                //scannedFileNameFront
+            });
+        }
+
+        public void ScanIDBackSide() {
+            _centralHub.ScanBackSide();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                //TDB Dispatch image to UI
             });
         }
 

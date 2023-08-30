@@ -38,8 +38,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         //private IIronOCR _ironOCR;
         private VisitorDataModel vistorData;
         private CameraStatus cameraStatus;
+        private ScannedFileModel scannedFileInfo;
 
         public int IdType;
+        public bool IsBackSide;
 
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
@@ -70,6 +72,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
             vistorData = new VisitorDataModel();
             cameraStatus = new CameraStatus();
+            scannedFileInfo = new ScannedFileModel();
 
         }
 
@@ -107,17 +110,30 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
         }
-        public VisitorDataModel StartScanning(int idType)
+        public (VisitorDataModel, string) StartScanning(int idType)
         {
             IdType = idType;
             string fileCouter = FileHelper.GetImageFileName(ImageDir);
-            _fiScanHelper.ScanModeSet(FileHelper.GetImageFileName(ImageDir));
+            _fiScanHelper.ScanModeSet(fileCouter);
             _fiScanHelper.StartScan();
+            scannedFileInfo.FrontSideFileName = fileCouter;
             while (vistorData is null)
             {
                 Thread.Sleep(100);
             }
-            return vistorData;
+            return (vistorData, "");
+        }
+
+        public string ScanBackSide()
+        {
+            string fileCouter = FileHelper.GetImageFileName(ImageDir);
+            _fiScanHelper.ScanModeSet(fileCouter);
+            _fiScanHelper.StartScan();
+            scannedFileInfo.BackSideFileName = fileCouter;
+            scannedFileInfo.IsSecondSidePresent = true;
+            
+            //TBD return scannd File name
+            return "";
         }
 
         public void OnScanCompleted(EventArgs e, string fileName)

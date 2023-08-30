@@ -102,6 +102,7 @@
     <Compile Include="Models\CameraStatus.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
+    <Compile Include="Models\ScannedFileModel.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />

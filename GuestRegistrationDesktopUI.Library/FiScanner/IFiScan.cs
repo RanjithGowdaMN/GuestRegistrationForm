@@ -5,7 +5,7 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
 {
     public interface IFiScan
     {
-        VisitorDataModel StartScanning(int IdType);
+        (VisitorDataModel, string) StartScanning(int IdType);
 
         //void OnScanCompleted();
     }
