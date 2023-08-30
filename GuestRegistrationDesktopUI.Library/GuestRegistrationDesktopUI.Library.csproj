@@ -102,10 +102,15 @@
     <Compile Include="ImageCrop\CropImages.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
+    <Compile Include="Models\ConfidentialityAgreementForVisitor.cs" />
+    <Compile Include="Models\ConsultantApplicationForm.cs" />
+    <Compile Include="Models\HighlySecurityControlAreaLog.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ScannedFileModel.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />
+    <Compile Include="Models\VisitorDataSheet.cs" />
+    <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />
     <Compile Include="PhotoHandler\CameraOperations.cs">
