@@ -24,8 +24,8 @@ namespace GuestRegistrationDeskUI.Views
         public MainScreenView()
         {
             InitializeComponent();
+            ScanIDBackSide.IsEnabled = false;
             //LoadImage();
-
         }
         public void LoadImage()
         {
@@ -38,18 +38,21 @@ namespace GuestRegistrationDeskUI.Views
             VisitorPhoto.Source = image;
         }
 
-        private void UserControl_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
-
-        private void UserControl_Scroll_1(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
-
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)rbPassport.IsChecked)
+            {
+                ScanIDBackSide.IsEnabled = false;
+            }
+            else
+            {
+                ScanIDBackSide.IsEnabled = true;
+            }
 
         }
     }

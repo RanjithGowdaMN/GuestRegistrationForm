@@ -40,10 +40,10 @@
                         <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                         <TextBox x:Name="Nationality" Text="{Binding visitorNationality, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,16,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
 
-                        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="25 15 0 0">
-                            <RadioButton Content="Passport" IsChecked="{Binding IsPassport, Mode=TwoWay}" Margin="0,5,0,372"/>
-                            <RadioButton Content="ID card" IsChecked="{Binding IsIDcard, Mode=OneWay}" Margin="25,5,0,372"/>
-                            <RadioButton Content="Other" IsChecked="{Binding IsIDcard, Mode=OneWay}" Margin="25,5,0,372"/>
+                        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="25 15 0 0" >
+                            <RadioButton x:Name="rbPassport" Content="Passport" IsChecked="{Binding IsPassport, Mode=TwoWay}" Margin="0,5,0,372" Click="RadioButton_Click" />
+                            <RadioButton x:Name="rbIDcard" Content="ID card" IsChecked="{Binding IsIDcard, Mode=TwoWay}" Margin="25,5,0,372" Click="RadioButton_Click" />
+                            <RadioButton x:Name="rbOthers" Content="Other" IsChecked="{Binding IsIDcard, Mode=TwoWay}" Margin="25,5,0,372" Click="RadioButton_Click" />
                         </StackPanel>
 
                         <Button Grid.Row="6" Grid.Column="1"

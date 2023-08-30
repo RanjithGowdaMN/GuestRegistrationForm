@@ -96,6 +96,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 //TDB Dispatch image to UI
             });
+            
         }
 
         //Take Photo Button Clicked

@@ -15,10 +15,10 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
 
             string tempImageName = "D:\\VisitorData\\ScannedID\\temp.jpg";
 
-            int cropX = 100;
-            int cropY = 100; 
-            int cropWidth = 200; 
-            int cropHeight = 200;
+            int cropX = 2000;
+            int cropY = 0; 
+            int cropWidth = 10000; 
+            int cropHeight = 10000;
 
             if (fileType == 2)
             {
@@ -35,7 +35,7 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
                 cropY = (int)IdCard.y;
                 cropWidth = (int)IdCard.xWidth;
                 cropHeight = (int)IdCard.yHeight;
-            } 
+            }
             else
             {
 
@@ -48,17 +48,16 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
                     croppedImage.Save(tempImageName);
                 }
             }
-
             File.Delete(fileName);
             File.Move(tempImageName, fileName);
         }
 
         public enum Passport
         {
-            x = 100,
-            y = 100,
-            xWidth = 250,
-            yHeight = 350
+            x = 2500,
+            y = 0,
+            xWidth = 6800,
+            yHeight = 8800
         }
 
         public enum IdCard
