@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -98,6 +99,7 @@
     <Compile Include="FiScanner\IFiScan.cs" />
     <Compile Include="FiScanner\IFiScanHelper.cs" />
     <Compile Include="GenerateDocument\DocumentGenerator.cs" />
+    <Compile Include="ImageCrop\CropImages.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />

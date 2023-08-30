@@ -90,7 +90,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
 
         public void ScanIDBackSide() {
-            _centralHub.ScanBackSide();
+            _idType = _isPassport ? 2 : 1;
+            _centralHub.ScanBackSide(_idType);
             Application.Current.Dispatcher.Invoke(() =>
             {
                 //TDB Dispatch image to UI

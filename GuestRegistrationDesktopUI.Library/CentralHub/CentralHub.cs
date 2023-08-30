@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using NLog;
+using GuestRegistrationDesktopUI.Library.ImageCrop;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
@@ -117,6 +118,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _fiScanHelper.ScanModeSet(fileCouter);
             _fiScanHelper.StartScan();
             scannedFileInfo.FrontSideFileName = fileCouter;
+            scannedFileInfo.IsSecondSide = false;
             while (vistorData is null)
             {
                 Thread.Sleep(100);
@@ -124,33 +126,41 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             return (vistorData, "");
         }
 
-        public string ScanBackSide()
+        public string ScanBackSide(int idType)
         {
+            IdType = idType;
             string fileCouter = FileHelper.GetImageFileName(ImageDir);
             _fiScanHelper.ScanModeSet(fileCouter);
-            _fiScanHelper.StartScan();
             scannedFileInfo.BackSideFileName = fileCouter;
-            scannedFileInfo.IsSecondSidePresent = true;
-            
+            scannedFileInfo.IsSecondSide = true;
+            _fiScanHelper.StartScan();
+
+            //CropImages.CropImage(Path.Combine(ImageDir,"image", fileCouter, ".jpg"), IdType);
             //TBD return scannd File name
             return "";
         }
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            try
+            if (!scannedFileInfo.IsSecondSide)
             {
-                //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
-                ProcessTextData processText = new ProcessTextData();
-                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
+                try
+                {
+                    //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+                    ProcessTextData processText = new ProcessTextData();
+                    vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
+                }
+                catch (Exception ex)
+                {
+                    logger.Error($"Error OnScanCompleted {ex.Message}");
+                    logger.Error($"Error OnScanCompleted {ex.InnerException}");
+                    logger.Error($"Error OnScanCompleted {ex.StackTrace}");
+                }
             }
-            catch (Exception ex)
-            {
-                logger.Error($"Error OnScanCompleted {ex.Message}");
-                logger.Error($"Error OnScanCompleted {ex.InnerException}");
-                logger.Error($"Error OnScanCompleted {ex.StackTrace}");
-                throw;
-            }
+
+            CropImages.CropImage(fileName, IdType);
+
+
         }
 
         public bool CheckNullForFields(object obj)

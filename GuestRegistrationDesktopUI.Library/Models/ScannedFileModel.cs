@@ -10,6 +10,6 @@ namespace GuestRegistrationDesktopUI.Library.Models
     {
         public string FrontSideFileName { get; set; }
         public string BackSideFileName { get; set; }
-        public bool IsSecondSidePresent { get; set; }
+        public bool IsSecondSide { get; set; }
     }
 }
