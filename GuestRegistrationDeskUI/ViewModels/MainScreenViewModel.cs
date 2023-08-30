@@ -117,9 +117,15 @@ namespace GuestRegistrationDeskUI.ViewModels
                 });
             }
         }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private string _visitorName;
-
         public string visitorName
         {
             get { return _visitorName; }
@@ -262,12 +268,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
     }
 }

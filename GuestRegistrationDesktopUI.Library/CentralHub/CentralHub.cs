@@ -124,6 +124,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             {
                 Thread.Sleep(100);
             }
+            scannedFileInfo.FrontSideFileName = gScannedFileName;
             return (vistorData, gScannedFileName);
         }
 
@@ -136,8 +137,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             scannedFileInfo.IsSecondSide = true;
             _fiScanHelper.StartScan();
 
-            //CropImages.CropImage(Path.Combine(ImageDir,"image", fileCouter, ".jpg"), IdType);
-            //TBD return scannd File name
+            scannedFileInfo.BackSideFileName = gScannedFileName;
             return gScannedFileName;
         }
 
@@ -160,8 +160,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             }
             gScannedFileName = fileName;
             CropImages.CropImage(fileName, IdType);
-
-
         }
 
         public bool CheckNullForFields(object obj)
