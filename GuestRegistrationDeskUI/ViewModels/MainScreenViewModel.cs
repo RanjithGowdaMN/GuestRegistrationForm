@@ -85,16 +85,17 @@ namespace GuestRegistrationDeskUI.ViewModels
 
             Application.Current.Dispatcher.Invoke(() =>
             {
-                //scannedFileNameFront
+                ImagePathfront = new BitmapImage(new Uri(scannedFileNameFront));
             });
         }
 
         public void ScanIDBackSide() {
             _idType = _isPassport ? 2 : 1;
-            _centralHub.ScanBackSide(_idType);
+            string scannedFileNameBack = string.Empty;
+            scannedFileNameBack = _centralHub.ScanBackSide(_idType);
             Application.Current.Dispatcher.Invoke(() =>
             {
-                //TDB Dispatch image to UI
+                ImagePathBack = new BitmapImage(new Uri(scannedFileNameBack));
             });
             
         }
@@ -202,6 +203,29 @@ namespace GuestRegistrationDeskUI.ViewModels
                 OnPropertyChanged(nameof(ImagePath));
             }
         }
+
+        private BitmapImage _imagePathfront;
+        public BitmapImage ImagePathfront
+        {
+            get { return _imagePathfront; }
+            set
+            {
+                _imagePathfront = value;
+                OnPropertyChanged(nameof(ImagePathfront));
+            }
+        }
+
+        private BitmapImage _imagePathBack;
+        public BitmapImage ImagePathBack
+        {
+            get { return _imagePathBack; }
+            set
+            {
+                _imagePathBack = value;
+                OnPropertyChanged(nameof(ImagePathBack));
+            }
+        }
+
         public bool IsPassport
         {
             get { return _isPassport; }

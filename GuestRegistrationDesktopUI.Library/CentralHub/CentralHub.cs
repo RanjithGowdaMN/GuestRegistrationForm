@@ -43,6 +43,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public int IdType;
         public bool IsBackSide;
+        public string gScannedFileName = string.Empty;
 
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
@@ -123,7 +124,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             {
                 Thread.Sleep(100);
             }
-            return (vistorData, "");
+            return (vistorData, gScannedFileName);
         }
 
         public string ScanBackSide(int idType)
@@ -137,7 +138,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
             //CropImages.CropImage(Path.Combine(ImageDir,"image", fileCouter, ".jpg"), IdType);
             //TBD return scannd File name
-            return "";
+            return gScannedFileName;
         }
 
         public void OnScanCompleted(EventArgs e, string fileName)
@@ -157,7 +158,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                     logger.Error($"Error OnScanCompleted {ex.StackTrace}");
                 }
             }
-
+            gScannedFileName = fileName;
             CropImages.CropImage(fileName, IdType);
 
 
