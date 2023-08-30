@@ -398,12 +398,14 @@
                 </TabItem.Content>
             </TabItem>
 
-            <TabItem Name="PrintingDocument" Header="Save" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Padding="10 50 50 25">
+            <TabItem Name="PrintingDocument" Header="Print Card" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Padding="10 50 50 25">
                 <TabItem.Content>
                     <Label >test</Label>
                 </TabItem.Content>
             </TabItem>
-
+            <TabItem Name="Save" Header="Save" Padding="10 50 50 25" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center">
+                
+            </TabItem>
         </TabControl>
 
     </Grid>
