@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDeskUI.Models;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -33,18 +34,12 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public void GenerateVisitorDocument()
         {
-
-            VisitorDataModel visitorDataFromUI = new VisitorDataModel();
-            visitorDataFromUI = getDetails();
-            _centralHub.GenerateDocument(visitorDataFromUI);
-            
+            sendDetails("visitor");
         }
 
         public void GenerateContractDocument()
         {
-            VisitorDataModel visitorDataFromUI = new VisitorDataModel();
-            visitorDataFromUI = getDetails();
-            _centralHub.GenerateContractDocument(visitorDataFromUI);
+            sendDetails("contract");
         }
 
         public void UpdatePhotoImage(string path)
@@ -113,7 +108,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-        private VisitorDataModel getDetails()
+        private void sendDetails(string visitorType)
         {
             VisitorDataModel visitorDataFromUI = new VisitorDataModel();
             visitorDataFromUI.IDno = visitorIDNo;
@@ -123,10 +118,28 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataFromUI.Nationality = visitorNationality;
             visitorDataFromUI.IsPassport = IsPassport;
 
+            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            visitorDataSheet.VisitorName = vdsVisitorName;
 
+            ConfidentialityAgreementForVisitor confidentialityAgreementForVisitor = new ConfidentialityAgreementForVisitor();
+            confidentialityAgreementForVisitor.Name = caForvName;
 
+            VisitorsLogBook visitorsLogBook = new VisitorsLogBook();
+            visitorsLogBook.IdDateOfIssue = IdDateOfIssue;
 
-            return visitorDataFromUI;
+            HighlySecurityControlAreaLog highlySecurityControlAreaLog = new HighlySecurityControlAreaLog();
+            highlySecurityControlAreaLog.VistorsAndCompanyName = VistorsAndCompanyName;
+
+            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+            consultantApplicationForm.FirstName = caFirstName;
+
+            if (visitorType == "visitor") { 
+            _centralHub.GenerateDocument(visitorDataFromUI);
+            }
+             else if(visitorType == "contract")
+            {
+                _centralHub.GenerateContractDocument(visitorDataFromUI);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

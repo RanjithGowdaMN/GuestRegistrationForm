@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class ConsultantApplicationForm
+    public class ConsultantApplicationForm
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; }

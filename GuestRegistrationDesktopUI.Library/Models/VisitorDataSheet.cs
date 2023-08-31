@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class VisitorDataSheet
+    public class VisitorDataSheet
     {
         public string VisitorName { get; set; }
         public string Date { get; set; }

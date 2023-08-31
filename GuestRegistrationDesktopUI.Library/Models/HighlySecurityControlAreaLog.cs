@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class HighlySecurityControlAreaLog
+    public class HighlySecurityControlAreaLog
     {
         public string VistorsAndCompanyName { get; set; }
         public string PurposeoftheVisit { get; set; }
