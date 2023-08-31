@@ -6,23 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using GuestRegistrationDesktopUI.Library.Models;
 
 namespace GenerateDocument.Library
 {
     public class GeneratePDFdocument : IGeneratePDFdocument
     {
-        public void GeneratePdfDoc(GuestDataModel guestDataModel, string inputFilePath,
+        public void GeneratePdfDoc(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
                                     string outputFilePath, string imagePath, string docType)
         {
             if (docType == "visitor")
             {
                 GeneratePDFVisitorDoc generatePDFVisitorDoc = new GeneratePDFVisitorDoc();
-                generatePDFVisitorDoc.GenerateVisitorDocument(guestDataModel, inputFilePath, outputFilePath, imagePath);
+                generatePDFVisitorDoc.GenerateVisitorDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
             }
             else if (docType == "contract")
             {
                 GeneratePDfContractDoc generatePDfContractDoc = new GeneratePDfContractDoc();
-                generatePDfContractDoc.GenerateContractDocument(guestDataModel, inputFilePath, outputFilePath, imagePath);
+                generatePDfContractDoc.GenerateContractDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
             }
             else
             {

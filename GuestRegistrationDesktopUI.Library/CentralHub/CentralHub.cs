@@ -89,6 +89,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
+
+            sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
+
             GuestDataModel guestDataModel = new GuestDataModel();
             guestDataModel.IDno = visitorDataFromUI.IDno;
             guestDataModel.Name = visitorDataFromUI.Name;
@@ -97,10 +100,17 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.Nationality = visitorDataFromUI.Nationality;
             guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
+            //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
         public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
+            sendDataForDocGeneration("contract", visitorDataFromUI, concatenatedDataBinding);
+            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
+        }
+
+        public void sendDataForDocGeneration(string visitorType, VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding) {
+
             GuestDataModel guestDataModel = new GuestDataModel();
             guestDataModel.IDno = visitorDataFromUI.IDno;
             guestDataModel.Name = visitorDataFromUI.Name;
@@ -108,9 +118,16 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.Expiry = visitorDataFromUI.Expiry;
             guestDataModel.Nationality = visitorDataFromUI.Nationality;
             guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
-            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
+            gScannedFileModel gscannedFileModel = new gScannedFileModel();
+            gscannedFileModel.BackSideFileName = scannedFileInfo.BackSideFileName;
+            gscannedFileModel.FrontSideFileName = scannedFileInfo.FrontSideFileName;
+            gscannedFileModel.IsSecondSide = scannedFileInfo.IsSecondSide;
+
+            gConcatenatedDataBinding guestDataBinding = new gConcatenatedDataBinding();
+            guestDataBinding.CAforVisitor.Company = concatenatedDataBinding.CAforVisitor.Company;
+
+            _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);
         }
         public (VisitorDataModel, string) StartScanning(int idType)
         {
