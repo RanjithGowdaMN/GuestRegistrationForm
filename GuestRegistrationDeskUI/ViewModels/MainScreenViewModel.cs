@@ -118,20 +118,69 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataFromUI.IsPassport = IsPassport;
 
             VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            visitorDataSheet.AreaVisited = AreaVisited;
+            visitorDataSheet.Company = Company;
+            visitorDataSheet.Date = vdsDate;
+            visitorDataSheet.DepartmentManager = DepartmentManager;
+            visitorDataSheet.PersontobeVisited = PersontobeVisited;
+            visitorDataSheet.ProductionManager = ProductionManager;
+            visitorDataSheet.ReasonForVisit = ReasonForVisit;
+            visitorDataSheet.SecurityController = SecurityController;
+            visitorDataSheet.VisitDateTime = VisitDateTime;
+            visitorDataSheet.VisitDuration = VisitDuration;
+            visitorDataSheet.VisitorIdNo = VisitorIdNo;
             visitorDataSheet.VisitorName = vdsVisitorName;
+
 
             ConfidentialityAgreementForVisitor confidentialityAgreementForVisitor = new ConfidentialityAgreementForVisitor();
             confidentialityAgreementForVisitor.Name = caForvName;
+            confidentialityAgreementForVisitor.Company = cavCompany;
+            confidentialityAgreementForVisitor.Date = cavDate;
+            confidentialityAgreementForVisitor.Title = Title;
 
             VisitorsLogBook visitorsLogBook = new VisitorsLogBook();
             visitorsLogBook.IdDateOfIssue = IdDateOfIssue;
+            visitorsLogBook.ArrivalTime = ArrivalTime;
+            visitorsLogBook.Date = Date;
+            visitorsLogBook.DepartureTime = DepartureTime;
+            visitorsLogBook.EmployeetobeVisited = EmployeetobeVisited;
+            visitorsLogBook.PlaceOfIssue = PlaceOfIssue;
+            visitorsLogBook.PurposeOfVisit = PurposeOfVisit;
+            visitorsLogBook.VisitorAndCompanyName = VisitorAndCompanyName;
+            visitorsLogBook.VisitorsBadgeNo = VisitorsBadgeNo;
+
 
             HighlySecurityControlAreaLog highlySecurityControlAreaLog = new HighlySecurityControlAreaLog();
             highlySecurityControlAreaLog.VistorsAndCompanyName = VistorsAndCompanyName;
+            highlySecurityControlAreaLog.ArrivalTime = hscArrivalTime;
+            highlySecurityControlAreaLog.Date = hscDate;
+            highlySecurityControlAreaLog.DepartureTime = hscDepartureTime;
+            highlySecurityControlAreaLog.PurposeoftheVisit = PurposeoftheVisit;
+            highlySecurityControlAreaLog.VisitorsBadgeNo = hscVisitorsBadgeNo;
+
 
             ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+            consultantApplicationForm.Address = Address;
+            consultantApplicationForm.CellPhone = CellPhone;
+            consultantApplicationForm.City = City;
+            consultantApplicationForm.CompanyName = CompanyName;
+            consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
+            consultantApplicationForm.Duration = Duration;
+            consultantApplicationForm.Email = Email;
+            consultantApplicationForm.EmergencyContactNo = EmergencyContactNo;
             consultantApplicationForm.FirstName = caFirstName;
-
+            consultantApplicationForm.Homephone = Homephone;
+            consultantApplicationForm.IdNo = IdNo;
+            consultantApplicationForm.IsNo = IsNo;
+            consultantApplicationForm.IsYes = IsYes;
+            consultantApplicationForm.LastName = caLastName;
+            consultantApplicationForm.MiddleName = caMiddleName;
+            consultantApplicationForm.PassportNo = PassportNo;
+            consultantApplicationForm.PassportValidity = PassportValidity;
+            consultantApplicationForm.PurposeOfVisit = caPurposeOfVisit;
+            consultantApplicationForm.SecurityNo = SecurityNo;
+            consultantApplicationForm.State = State;
+            consultantApplicationForm.Zip = Zip;
 
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
             concatenatedDataBinding.visitorDataSheet = visitorDataSheet;
@@ -141,11 +190,11 @@ namespace GuestRegistrationDeskUI.ViewModels
             concatenatedDataBinding.consultantApplicationForm = consultantApplicationForm;
 
             if (visitorType == "visitor") { 
-            _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
+                 _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
             }
-             else if(visitorType == "contract")
+            else if(visitorType == "contract")
             {
-                _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
+                 _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
             }
         }
 

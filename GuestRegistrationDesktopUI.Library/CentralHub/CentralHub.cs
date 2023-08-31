@@ -125,7 +125,61 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             gscannedFileModel.IsSecondSide = scannedFileInfo.IsSecondSide;
 
             gConcatenatedDataBinding guestDataBinding = new gConcatenatedDataBinding();
+            guestDataBinding.visitorDataSheet.AreaVisited = concatenatedDataBinding.visitorDataSheet.AreaVisited;
+            guestDataBinding.visitorDataSheet.Company = concatenatedDataBinding.visitorDataSheet.Company;
+            guestDataBinding.visitorDataSheet.Date = concatenatedDataBinding.visitorDataSheet.Date;
+            guestDataBinding.visitorDataSheet.DepartmentManager = concatenatedDataBinding.visitorDataSheet.DepartmentManager;
+            guestDataBinding.visitorDataSheet.PersontobeVisited = concatenatedDataBinding.visitorDataSheet.PersontobeVisited;
+            guestDataBinding.visitorDataSheet.ProductionManager = concatenatedDataBinding.visitorDataSheet.ProductionManager;
+            guestDataBinding.visitorDataSheet.ReasonForVisit = concatenatedDataBinding.visitorDataSheet.ReasonForVisit;
+            guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
+            guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateTime;
+            guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;
+            guestDataBinding.visitorDataSheet.VisitorIdNo = concatenatedDataBinding.visitorDataSheet.VisitorIdNo;
+            guestDataBinding.visitorDataSheet.VisitorName = concatenatedDataBinding.visitorDataSheet.VisitorName;
+
             guestDataBinding.CAforVisitor.Company = concatenatedDataBinding.CAforVisitor.Company;
+            guestDataBinding.CAforVisitor.Date = concatenatedDataBinding.CAforVisitor.Date;
+            guestDataBinding.CAforVisitor.Name = concatenatedDataBinding.CAforVisitor.Name;
+            guestDataBinding.CAforVisitor.Title = concatenatedDataBinding.CAforVisitor.Title;
+
+            guestDataBinding.vlBook.ArrivalTime = concatenatedDataBinding.vlBook.ArrivalTime;
+            guestDataBinding.vlBook.Date = concatenatedDataBinding.vlBook.Date;
+            guestDataBinding.vlBook.DepartureTime = concatenatedDataBinding.vlBook.DepartureTime;
+            guestDataBinding.vlBook.EmployeetobeVisited = concatenatedDataBinding.vlBook.EmployeetobeVisited;
+            guestDataBinding.vlBook.IdDateOfIssue = concatenatedDataBinding.vlBook.IdDateOfIssue;
+            guestDataBinding.vlBook.PlaceOfIssue = concatenatedDataBinding.vlBook.PlaceOfIssue;
+            guestDataBinding.vlBook.PurposeOfVisit = concatenatedDataBinding.vlBook.PurposeOfVisit;
+            guestDataBinding.vlBook.VisitorAndCompanyName = concatenatedDataBinding.vlBook.VisitorAndCompanyName;
+            guestDataBinding.vlBook.VisitorsBadgeNo = concatenatedDataBinding.vlBook.VisitorsBadgeNo;
+
+            guestDataBinding.hsaLog.ArrivalTime = concatenatedDataBinding.hsaLog.ArrivalTime;
+            guestDataBinding.hsaLog.Date = concatenatedDataBinding.hsaLog.Date;
+            guestDataBinding.hsaLog.DepartureTime = concatenatedDataBinding.hsaLog.DepartureTime;
+            guestDataBinding.hsaLog.PurposeoftheVisit = concatenatedDataBinding.hsaLog.PurposeoftheVisit;
+            guestDataBinding.hsaLog.VisitorsBadgeNo = concatenatedDataBinding.hsaLog.VisitorsBadgeNo;
+            guestDataBinding.hsaLog.VistorsAndCompanyName = concatenatedDataBinding.hsaLog.VistorsAndCompanyName;
+
+            guestDataBinding.consultantApplicationForm.Address = concatenatedDataBinding.consultantApplicationForm.Address;
+            guestDataBinding.consultantApplicationForm.CellPhone = concatenatedDataBinding.consultantApplicationForm.CellPhone;
+            guestDataBinding.consultantApplicationForm.City = concatenatedDataBinding.consultantApplicationForm.City;
+            guestDataBinding.consultantApplicationForm.CompanyName = concatenatedDataBinding.consultantApplicationForm.CompanyName;
+            guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue;
+            guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Duration;
+            guestDataBinding.consultantApplicationForm.Email = concatenatedDataBinding.consultantApplicationForm.Email;
+            guestDataBinding.consultantApplicationForm.EmergencyContactNo = concatenatedDataBinding.consultantApplicationForm.EmergencyContactNo;
+            guestDataBinding.consultantApplicationForm.FirstName = concatenatedDataBinding.consultantApplicationForm.FirstName;
+            guestDataBinding.consultantApplicationForm.Homephone = concatenatedDataBinding.consultantApplicationForm.Homephone;
+            guestDataBinding.consultantApplicationForm.IdNo = concatenatedDataBinding.consultantApplicationForm.IdNo;
+            guestDataBinding.consultantApplicationForm.IsNo = concatenatedDataBinding.consultantApplicationForm.IsNo;
+            guestDataBinding.consultantApplicationForm.IsYes = concatenatedDataBinding.consultantApplicationForm.IsYes;
+            guestDataBinding.consultantApplicationForm.LastName = concatenatedDataBinding.consultantApplicationForm.LastName;
+            guestDataBinding.consultantApplicationForm.MiddleName = concatenatedDataBinding.consultantApplicationForm.MiddleName;
+            guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNo;
+            guestDataBinding.consultantApplicationForm.PassportValidity = concatenatedDataBinding.consultantApplicationForm.PassportValidity;
+            guestDataBinding.consultantApplicationForm.PurposeOfVisit = concatenatedDataBinding.consultantApplicationForm.PurposeOfVisit;
+            guestDataBinding.consultantApplicationForm.SecurityNo = concatenatedDataBinding.consultantApplicationForm.SecurityNo;
+            guestDataBinding.consultantApplicationForm.State = concatenatedDataBinding.consultantApplicationForm.State;
 
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);
         }
