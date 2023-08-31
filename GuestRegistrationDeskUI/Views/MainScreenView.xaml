@@ -123,11 +123,11 @@
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-
+                                <!--VisitorDataSheet -->
                                 <Label x:Name="lblVisitorsName" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="109" Grid.ColumnSpan="2" >Visitor's Name:</Label>
-                                <TextBox x:Name="txtVisitorsName"  Text="{Binding VisitorName, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtVisitorsName"  Text="{Binding vdsVisitorName, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblDate" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="41" Grid.ColumnSpan="2">Date</Label>
-                                <TextBox x:Name="txtDate" Text="{Binding Date, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtDate" Text="{Binding vdsDate, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblCompany" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="72" Grid.ColumnSpan="2">Company</Label>
                                 <TextBox x:Name="txtCompany" Text="{Binding Company, Mode=TwoWay}" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblVisitorsIdNo" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="103" Grid.ColumnSpan="2">Visitor's Id No</Label>
@@ -173,13 +173,13 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Label x:Name="lblName" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Name</Label>
-                                <TextBox x:Name="txtName" Text="{Binding Name,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="txtName" Text="{Binding caForvName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
                                 <Label x:Name="lblTitle" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Title</Label>
                                 <TextBox x:Name="txtTitle" Text="{Binding Title,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
                                 <Label x:Name="lblCompany1" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Company</Label>
-                                <TextBox x:Name="txtCompany1" Text="{Binding Company,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="txtCompany1" Text="{Binding cavCompany,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
                                 <Label x:Name="lblDate1" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Date</Label>
-                                <TextBox x:Name="txtDate1" Text="{Binding Date,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="txtDate1" Text="{Binding cavDate,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="1,10,359,10" MinHeight="30" Grid.ColumnSpan="2"/>
 
                             </Grid>
 
@@ -187,7 +187,6 @@
                     </TabItem>
                     <TabItem Name="VisitorLogBook" Width="250" Header="Visitor Log Book">
                         <TabItem.Content>
-
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="350" />
@@ -210,32 +209,29 @@
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-
                                 <Label x:Name="lblIdDateOfIssue" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Official ID Document Date of Issue</Label>
-                                <TextBox x:Name="txtIdDateofIssue" Text="{Binding IdDateOfIssue,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtIdDateofIssue" Text="{Binding IdDateOfIssue, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblPlaceOfIssue" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Place of Issue</Label>
-                                <TextBox x:Name="txtPlaceofIssue" Text="{Binding PlaceOfIssue,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtPlaceofIssue" Text="{Binding PlaceOfIssue, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblVisitorName" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor and Company Name</Label>
-                                <TextBox x:Name="txtVisitorName" Text="{Binding VisitorandCompanyName,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtVisitorName" Text="{Binding VisitorAndCompanyName, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblBadgeNo" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's Badge No</Label>
-                                <TextBox x:Name="txtBadgeNo" Text="{Binding VisitorsBadgeNo,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtBadgeNo" Text="{Binding VisitorsBadgeNo, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblPurposeOfVisit" Margin="30,11,0,11" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Purpose of the Visit</Label>
-                                <TextBox x:Name="txtPurposeOfvisit" Text="{Binding PurposeOfVisit,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtPurposeOfvisit" Text="{Binding PurposeOfVisit, Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblDate2" Margin="30,11,0,11" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Date</Label>
-                                <TextBox x:Name="txtDate2" Text="{Binding Date,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtDate2" Text="{Binding Date, Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblArrivalTime" Margin="30,11,0,11" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Arrival Time</Label>
-                                <TextBox x:Name="txtArrivalTime" Text="{Binding ArrivalTime,Mode=TwoWay}" Grid.Row="7" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtArrivalTime" Text="{Binding ArrivalTime, Mode=TwoWay}" Grid.Row="7" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblDepartureTime" Margin="30,11,0,11" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Departure Time</Label>
-                                <TextBox x:Name="txtDepartureTime" Text="{Binding DepartureTime,Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtDepartureTime" Text="{Binding DepartureTime, Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                                 <Label x:Name="lblEmployeeName" Margin="30,11,0,11" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Employee Name to be Visited</Label>
-                                <TextBox x:Name="txtEmployeeName" Text="{Binding EmployeetobeVisited,Mode=TwoWay}" Grid.Row="9" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="txtEmployeeName" Text="{Binding EmployeetobeVisited, Mode=TwoWay}" Grid.Row="9" Grid.Column="1" Margin="1,10,274,10" MinHeight="30" Grid.ColumnSpan="3"/>
                             </Grid>
                         </TabItem.Content>
                     </TabItem>
-
                     <TabItem Name="HSALog" Width="250" Header="HSA Log">
                         <TabItem.Content>
-
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="350" />
@@ -250,39 +246,27 @@
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition Height="auto" MinHeight="35"/>
-
-
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-
-                                <Label x:Name="lblVisitorName1" Margin="30,0,0,0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's / Company Name</Label>
-                                <TextBox x:Name="txtVisitorName1" Text="{Binding VisitorsAndCompanyName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
+                                <!-- HighlySecurityControlAreaLog -->
+                                 <Label x:Name="lblVisitorName1" Margin="30,0,0,0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's / Company Name</Label>
+                                <TextBox x:Name="txtVisitorName1" Text="{Binding VistorsAndCompanyName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblPurposeVisit" Margin="30,0,0,0" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Purpose of the Visit</Label>
                                 <TextBox x:Name="txtPurposeVisit" Text="{Binding PurposeoftheVisit,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblBadgeNo1" Margin="30,0,0,0" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's Badge No</Label>
-                                <TextBox x:Name="txtBadgeNo1" Text="{Binding VisitorsBadgeNo,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
+                                <TextBox x:Name="txtBadgeNo1" Text="{Binding hscVisitorsBadgeNo,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblDate3" Margin="30,0,0,0" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Date</Label>
-                                <TextBox x:Name="txtDate3" Text="{Binding Date,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
+                                <TextBox x:Name="txtDate3" Text="{Binding hscDate,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblArrivalTime1" Margin="30,0,0,0" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Arrival Time</Label>
-                                <TextBox x:Name="txtArrivalTime1" Text="{Binding ArrivalTime,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
+                                <TextBox x:Name="txtArrivalTime1" Text="{Binding hscArrivalTime,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblDepartureTime1" Margin="30,0,0,0" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">DepartureTime</Label>
-                                <TextBox x:Name="txtDepartureTime1" Text="{Binding DepartureTime,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
-
-
-
+                                <TextBox x:Name="txtDepartureTime1" Text="{Binding hscDepartureTime,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                             </Grid>
-
                         </TabItem.Content>
                     </TabItem>
-
                     <TabItem Name="ConsultantApplicationForm" Width="250" Header="Consultant Application Form">
-
-
                         <TabItem.Content>
-
-
                             <Grid >
-
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="343" />
                                     <ColumnDefinition Width="255" />
@@ -313,16 +297,15 @@
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition Height="auto" MinHeight="35"/>
                                     <RowDefinition Height="auto" MinHeight="35"/>
-
-
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
+                                <!-- ConsultantApplicationForm -->
                                 <Label x:Name="lblFirstName" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="81">First Name</Label>
-                                <TextBox x:Name="txtFirstName" Text="{Binding FirstName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtFirstName" Text="{Binding caFirstName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblMiddleName" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="99">Middle Name</Label>
-                                <TextBox x:Name="txtMiddleName" Text="{Binding MiddleName,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtMiddleName" Text="{Binding caMiddleName,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblLastName" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="79">Last Name</Label>
-                                <TextBox x:Name="txtLastName" Text="{Binding LastName,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtLastName" Text="{Binding caLastName,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblAddress" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="63">Address</Label>
                                 <TextBox x:Name="txtAddress" Text="{Binding Address,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblCity" Margin="30,11,0,11" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="36">City</Label>
@@ -336,12 +319,12 @@
                                 <Label x:Name="lblCellPhone" Margin="30,11,0,11" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="80">Cell Phone</Label>
                                 <TextBox x:Name="txtCellPhone" Text="{Binding CellPhone,Mode=TwoWay}" Grid.Row="9" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblHomePhone" Margin="30,11,0,11" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="95">Home Phone</Label>
-                                <TextBox x:Name="txtHomePhone" Text="{Binding HomePhone,Mode=TwoWay}" Grid.Row="10" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtHomePhone" Text="{Binding Homephone,Mode=TwoWay}" Grid.Row="10" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblSecurityNo" Margin="30,11,0,11" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="164">Social Security Number</Label>
                                 <TextBox x:Name="txtSecurityNo" Text="{Binding SecurityNo,Mode=TwoWay}" Grid.Row="11" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblConvictedFelony" Margin="30,49,0,7" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="282" Grid.RowSpan="2">Have you ever been convicted of a felony</Label>
                                 <StackPanel Grid.Row="12" Grid.Column="1" Orientation="Horizontal" Margin="1,10,19,10" MinHeight="30" Grid.RowSpan="2">
-                                    <RadioButton Content="YES" IsChecked="{Binding Isyes, Mode=TwoWay}" Margin="0,10,0,10" MinHeight="30"/>
+                                    <RadioButton Content="YES" IsChecked="{Binding IsYes, Mode=TwoWay}" Margin="0,10,0,10" MinHeight="30"/>
                                     <RadioButton Content="NO" IsChecked="{Binding IsNo, Mode=TwoWay}" Margin="0,10,0,10" MinHeight="30"/>
                                 </StackPanel>
                                 <Label x:Name="lblCompanyName" Margin="30,11,0,11" Grid.Row="14" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="115">Company Name</Label>
@@ -355,35 +338,26 @@
                                 <Label x:Name="lblPassportValidity" Margin="30,11,0,11" Grid.Row="18" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="127">Passport Valid Till</Label>
                                 <TextBox x:Name="txtPassportValidty" Text="{Binding PassportValidity,Mode=TwoWay}" Grid.Row="18" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblPurposeOfVisit1" Margin="30,11,0,11" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="116">Purpose Of Visit</Label>
-                                <TextBox x:Name="txtPurposeOfVisit1" Text="{Binding PurposeOfVisit ,Mode=TwoWay}" Grid.Row="19" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                <TextBox x:Name="txtPurposeOfVisit1" Text="{Binding caPurposeOfVisit ,Mode=TwoWay}" Grid.Row="19" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblDuration" Margin="30,11,0,11" Grid.Row="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="68">Duration</Label>
                                 <TextBox x:Name="txtDuration" Text="{Binding Duration,Mode=TwoWay}" Grid.Row="20" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblEmergencyContactNo" Margin="30,11,0,11" Grid.Row="21" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="161">Emergency Contact No</Label>
                                 <TextBox x:Name="txtEmergencyContactNo" Text="{Binding EmergencyContactNo,Mode=TwoWay}" Grid.Row="21" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
-
-
-
                             </Grid>
-
-
                         </TabItem.Content>
-
                     </TabItem>
                 </TabControl>
             </TabItem>
-
             <TabItem Name="GenerateDocuments" Header="Generate Document" Grid.Row="1" Grid.Column="2"  Padding="25 50 50 25">
                 <TabItem.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="10,0,0,0"
                                  HorizontalAlignment="Left" x:Name="GenerateVisitorDocument" Content="Visitor" />
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="0,10,19,10"
@@ -403,20 +377,15 @@
                             </DocumentViewer.RenderTransform>
                         </DocumentViewer>
                     </Grid>
-
                 </TabItem.Content>
             </TabItem>
-
             <TabItem Name="PrintingDocument" Header="Print Card" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Padding="10 50 50 25">
                 <TabItem.Content>
                     <Label >test</Label>
                 </TabItem.Content>
             </TabItem>
             <TabItem Name="Save" Header="Save" Padding="10 50 50 25" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center">
-
             </TabItem>
         </TabControl>
-
     </Grid>
-
 </UserControl>
