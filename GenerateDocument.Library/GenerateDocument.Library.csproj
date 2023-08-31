@@ -58,10 +58,18 @@
     <Compile Include="GuestDataModel.cs" />
     <Compile Include="IGeneratePDFdocument.cs" />
     <Compile Include="IGenerateWordDocument.cs" />
+    <Compile Include="Models\ConcatenatedDataBinding.cs" />
+    <Compile Include="Models\ConfidentialityAgreementForVisitor.cs" />
+    <Compile Include="Models\ConsultantApplicationForm.cs" />
+    <Compile Include="Models\HighlySecurityControlAreaLog.cs" />
+    <Compile Include="Models\ScannedFileModel.cs" />
+    <Compile Include="Models\VisitorDataSheet.cs" />
+    <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

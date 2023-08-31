@@ -87,7 +87,6 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 ImagePathBack = new BitmapImage(new Uri(scannedFileNameBack));
             });
-            
         }
 
         //Take Photo Button Clicked
@@ -133,12 +132,20 @@ namespace GuestRegistrationDeskUI.ViewModels
             ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
             consultantApplicationForm.FirstName = caFirstName;
 
+
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            concatenatedDataBinding.visitorDataSheet = visitorDataSheet;
+            concatenatedDataBinding.CAforVisitor = confidentialityAgreementForVisitor;
+            concatenatedDataBinding.vlBook = visitorsLogBook;
+            concatenatedDataBinding.hsaLog = highlySecurityControlAreaLog;
+            concatenatedDataBinding.consultantApplicationForm = consultantApplicationForm;
+
             if (visitorType == "visitor") { 
-            _centralHub.GenerateDocument(visitorDataFromUI);
+            _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
             }
              else if(visitorType == "contract")
             {
-                _centralHub.GenerateContractDocument(visitorDataFromUI);
+                _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
             }
         }
 

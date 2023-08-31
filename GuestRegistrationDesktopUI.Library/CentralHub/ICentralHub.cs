@@ -25,9 +25,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         event OnPhotoDownloadCompletedEventHandler CanonImageDownload;
 
-        void GenerateDocument(VisitorDataModel visitorDataFromUI);
+        void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
-        void GenerateContractDocument(VisitorDataModel visitorDataFromUI);
+        void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
     }
 }

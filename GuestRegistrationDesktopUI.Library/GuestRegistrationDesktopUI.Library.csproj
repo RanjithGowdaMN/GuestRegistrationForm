@@ -102,6 +102,7 @@
     <Compile Include="ImageCrop\CropImages.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
+    <Compile Include="Models\ConcatenatedDataBinding.cs" />
     <Compile Include="Models\ConfidentialityAgreementForVisitor.cs" />
     <Compile Include="Models\ConsultantApplicationForm.cs" />
     <Compile Include="Models\HighlySecurityControlAreaLog.cs" />

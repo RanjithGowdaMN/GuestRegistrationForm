@@ -87,7 +87,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //_canonSDKHelper.MainForm_FormClosing();
         }
 
-        public void GenerateDocument(VisitorDataModel visitorDataFromUI)
+        public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
             GuestDataModel guestDataModel = new GuestDataModel();
             guestDataModel.IDno = visitorDataFromUI.IDno;
@@ -99,7 +99,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
-        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI)
+        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
             GuestDataModel guestDataModel = new GuestDataModel();
             guestDataModel.IDno = visitorDataFromUI.IDno;
