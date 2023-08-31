@@ -283,8 +283,23 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             } 
         }
-        public string PlaceOfIssue { get; set; }
-        public string VisitorAndCompanyName { get; set; }
+        private string _placeOfIssue;
+
+        public string PlaceOfIssue
+        {
+            get { return _placeOfIssue; }
+            set { _placeOfIssue = value; }
+        }
+
+        //public string _visitorAndCompanyName { get; set; }
+        private string _visitorAndCompanyName;
+
+        public string VisitorAndCompanyName
+        {
+            get { return _visitorAndCompanyName; }
+            set { _visitorAndCompanyName = value; }
+        }
+
         public string VisitorsBadgeNo { get; set; }
         public string PurposeOfVisit { get; set; }
         public string Date { get; set; }
@@ -294,7 +309,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         //VisitorDataSheet
         public string VisitorName { get; set; }
-        //public string Date { get; set; }
+        public string vdsDate { get; set; }
         public string Company { get; set; }
         public string VisitorIdNo { get; set; }
         public string ReasonForVisit { get; set; }
@@ -309,17 +324,17 @@ namespace GuestRegistrationDeskUI.ViewModels
         //HighlySecurityControlAreaLog
         public string VistorsAndCompanyName { get; set; }
         public string PurposeoftheVisit { get; set; }
-        //public string VisitorsBadgeNo { get; set; }
-       //public string Date { get; set; }
-        //public string ArrivalTime { get; set; }
-       // public string DepartureTime { get; set; }
-        public string Name { get; set; }
+        public string hscVisitorsBadgeNo { get; set; }
+        public string hscDate { get; set; }
+        public string hscArrivalTime { get; set; }
+        public string hscDepartureTime { get; set; }
+        public string hscName { get; set; }
 
 
         //ConsultantApplicationForm
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
+        public string caFirstName { get; set; }
+        public string caMiddleName { get; set; }
+        public string caLastName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -335,16 +350,16 @@ namespace GuestRegistrationDeskUI.ViewModels
         public string PassportNo { get; set; }
         public string DateandPlaceofIssue { get; set; }
         public string PassportValidity { get; set; }
-        //public string PurposeOfVisit { get; set; }
+        public string caPurposeOfVisit { get; set; }
         public string Duration { get; set; }
         public string EmergencyContactNo { get; set; }
 
 
         //ConfidentialityAgreementForVisitor
-        //public string Name { get; set; }
+        public string caForvName { get; set; }
         public string Title { get; set; }
-       // public string Company { get; set; }
-        //public string Date { get; set; }
+        public string cavCompany { get; set; }
+        public string cavDate { get; set; }
 
     }
 }

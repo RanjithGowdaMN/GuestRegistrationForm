@@ -51,6 +51,8 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
             File.Move(tempImageName, fileName);
         }
 
+
+
         public enum Passport
         {
             x = 1700,
