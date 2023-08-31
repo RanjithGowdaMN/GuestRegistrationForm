@@ -8,7 +8,6 @@ namespace GuestRegistrationDeskUI.Models
 {
     class VisitorsLogBook
     {
-
         public string IdDateOfIssue { get; set; }
         public string PlaceOfIssue { get; set; }
         public string VisitorAndCompanyName { get; set; }
@@ -18,7 +17,6 @@ namespace GuestRegistrationDeskUI.Models
         public string ArrivalTime { get; set; }
         public string DepartureTime { get; set; }
         public string EmployeetobeVisited { get; set; }
-
     }
 
 }

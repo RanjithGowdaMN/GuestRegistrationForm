@@ -15,6 +15,5 @@ namespace GuestRegistrationDeskUI.Models
         public string ArrivalTime { get; set; }
         public string DepartureTime { get; set; }
         public string Name { get; set; }
-
     }
 }

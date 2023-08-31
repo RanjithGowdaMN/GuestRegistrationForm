@@ -269,6 +269,82 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+        // Visitor Log Book
+        private string _idDateOfIssue;
+        public string IdDateOfIssue { 
+            get 
+            {
+                return _idDateOfIssue; 
+            } 
+            set {
+                if (IdDateOfIssue != value) {
+                    _idDateOfIssue = value;
+                    OnPropertyChanged(nameof(_idDateOfIssue));
+                }
+            } 
+        }
+        public string PlaceOfIssue { get; set; }
+        public string VisitorAndCompanyName { get; set; }
+        public string VisitorsBadgeNo { get; set; }
+        public string PurposeOfVisit { get; set; }
+        public string Date { get; set; }
+        public string ArrivalTime { get; set; }
+        public string DepartureTime { get; set; }
+        public string EmployeetobeVisited { get; set; }
+
+        //VisitorDataSheet
+        public string VisitorName { get; set; }
+        //public string Date { get; set; }
+        public string Company { get; set; }
+        public string VisitorIdNo { get; set; }
+        public string ReasonForVisit { get; set; }
+        public string PersontobeVisited { get; set; }
+        public string AreaVisited { get; set; }
+        public string VisitDateTime { get; set; }
+        public string VisitDuration { get; set; }
+        public string DepartmentManager { get; set; }
+        public string ProductionManager { get; set; }
+        public string SecurityController { get; set; }
+
+        //HighlySecurityControlAreaLog
+        public string VistorsAndCompanyName { get; set; }
+        public string PurposeoftheVisit { get; set; }
+        //public string VisitorsBadgeNo { get; set; }
+       //public string Date { get; set; }
+        //public string ArrivalTime { get; set; }
+       // public string DepartureTime { get; set; }
+        public string Name { get; set; }
+
+
+        //ConsultantApplicationForm
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string Email { get; set; }
+        public string CellPhone { get; set; }
+        public string Homephone { get; set; }
+        public string SecurityNo { get; set; }
+        public string IsYes { get; set; }
+        public string IsNo { get; set; }
+        public string CompanyName { get; set; }
+        public string IdNo { get; set; }
+        public string PassportNo { get; set; }
+        public string DateandPlaceofIssue { get; set; }
+        public string PassportValidity { get; set; }
+        //public string PurposeOfVisit { get; set; }
+        public string Duration { get; set; }
+        public string EmergencyContactNo { get; set; }
+
+
+        //ConfidentialityAgreementForVisitor
+        //public string Name { get; set; }
+        public string Title { get; set; }
+       // public string Company { get; set; }
+        //public string Date { get; set; }
 
     }
 }

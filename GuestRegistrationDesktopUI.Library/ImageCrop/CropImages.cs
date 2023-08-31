@@ -10,7 +10,6 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
 {
     public static class CropImages
     {
-        
         public static void CropImage(string fileName, int fileType) {
 
             string tempImageName = "D:\\VisitorData\\ScannedID\\temp.jpg";
@@ -54,7 +53,7 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
 
         public enum Passport
         {
-            x = 2500,
+            x = 1700,
             y = 0,
             xWidth = 6800,
             yHeight = 8800
@@ -62,7 +61,7 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
 
         public enum IdCard
         {
-            x = 3000,
+            x = 2500,
             y = 0,
             xWidth = 4800,
             yHeight = 2800
