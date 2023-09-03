@@ -9,6 +9,14 @@ namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class gConcatenatedDataBinding
     {
+        public gConcatenatedDataBinding()
+        {
+            visitorDataSheet = new gVisitorDataSheet();
+            CAforVisitor = new gConfidentialityAgreementForVisitor();
+            vlBook = new gVisitorsLogBook();
+            hsaLog = new gHighlySecurityControlAreaLog();
+            consultantApplicationForm = new gConsultantApplicationForm();
+        }
         public gVisitorDataSheet visitorDataSheet { get; set; }
         public gConfidentialityAgreementForVisitor  CAforVisitor { get; set; }
         public gVisitorsLogBook  vlBook { get; set; }
