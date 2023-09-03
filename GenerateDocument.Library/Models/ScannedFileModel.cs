@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.Models
 {
-    public class ScannedFileModel
+    public class gScannedFileModel
     {
         public string FrontSideFileName { get; set; }
         public string BackSideFileName { get; set; }

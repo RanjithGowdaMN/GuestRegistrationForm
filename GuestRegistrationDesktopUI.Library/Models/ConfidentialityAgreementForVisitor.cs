@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class ConfidentialityAgreementForVisitor
+    public class ConfidentialityAgreementForVisitor
     {
-
         public string Name { get; set; }
         public string Title { get; set; }
         public string Company { get; set; }
         public string Date { get; set; }
-
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class ConsultantApplicationForm
+    public class ConsultantApplicationForm
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -19,8 +19,8 @@ namespace GuestRegistrationDeskUI.Models
         public string CellPhone { get; set; }
         public string Homephone { get; set; }
         public string SecurityNo { get; set; }
-        public string IsYes { get; set; }
-        public string IsNo { get; set; }
+        public bool IsYes { get; set; }
+        public bool IsNo { get; set; }
         public string CompanyName { get; set; }
         public string IdNo { get; set; }
         public string PassportNo { get; set; }

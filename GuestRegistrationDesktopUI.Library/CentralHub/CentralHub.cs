@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using NLog;
+using GuestRegistrationDesktopUI.Library.ImageCrop;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
@@ -42,6 +43,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public int IdType;
         public bool IsBackSide;
+        public string gScannedFileName = string.Empty;
 
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
         {
@@ -85,30 +87,101 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //_canonSDKHelper.MainForm_FormClosing();
         }
 
-        public void GenerateDocument(VisitorDataModel visitorDataFromUI)
+        public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
-            GuestDataModel guestDataModel = new GuestDataModel();
-            guestDataModel.IDno = visitorDataFromUI.IDno;
-            guestDataModel.Name = visitorDataFromUI.Name;
-            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
-            guestDataModel.Expiry = visitorDataFromUI.Expiry;
-            guestDataModel.Nationality = visitorDataFromUI.Nationality;
-            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
-            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
-        }
-        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI)
-        {
-            GuestDataModel guestDataModel = new GuestDataModel();
-            guestDataModel.IDno = visitorDataFromUI.IDno;
-            guestDataModel.Name = visitorDataFromUI.Name;
-            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
-            guestDataModel.Expiry = visitorDataFromUI.Expiry;
-            guestDataModel.Nationality = visitorDataFromUI.Nationality;
-            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
-            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
 
+            sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
+
+            GuestDataModel guestDataModel = new GuestDataModel();
+            guestDataModel.IDno = visitorDataFromUI.IDno;
+            guestDataModel.Name = visitorDataFromUI.Name;
+            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
+            guestDataModel.Expiry = visitorDataFromUI.Expiry;
+            guestDataModel.Nationality = visitorDataFromUI.Nationality;
+            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
+            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
+        }
+        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
+        {
+            sendDataForDocGeneration("contract", visitorDataFromUI, concatenatedDataBinding);
+            //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
+            //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
+        }
+
+        public void sendDataForDocGeneration(string visitorType, VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding) {
+
+            GuestDataModel guestDataModel = new GuestDataModel();
+            guestDataModel.IDno = visitorDataFromUI.IDno;
+            guestDataModel.Name = visitorDataFromUI.Name;
+            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
+            guestDataModel.Expiry = visitorDataFromUI.Expiry;
+            guestDataModel.Nationality = visitorDataFromUI.Nationality;
+            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
+
+            gScannedFileModel gscannedFileModel = new gScannedFileModel();
+            gscannedFileModel.BackSideFileName = scannedFileInfo.BackSideFileName;
+            gscannedFileModel.FrontSideFileName = scannedFileInfo.FrontSideFileName;
+            gscannedFileModel.IsSecondSide = scannedFileInfo.IsSecondSide;
+
+            gConcatenatedDataBinding guestDataBinding = new gConcatenatedDataBinding();
+            guestDataBinding.visitorDataSheet.AreaVisited = concatenatedDataBinding.visitorDataSheet.AreaVisited;
+            guestDataBinding.visitorDataSheet.Company = concatenatedDataBinding.visitorDataSheet.Company;
+            guestDataBinding.visitorDataSheet.Date = concatenatedDataBinding.visitorDataSheet.Date;
+            guestDataBinding.visitorDataSheet.DepartmentManager = concatenatedDataBinding.visitorDataSheet.DepartmentManager;
+            guestDataBinding.visitorDataSheet.PersontobeVisited = concatenatedDataBinding.visitorDataSheet.PersontobeVisited;
+            guestDataBinding.visitorDataSheet.ProductionManager = concatenatedDataBinding.visitorDataSheet.ProductionManager;
+            guestDataBinding.visitorDataSheet.ReasonForVisit = concatenatedDataBinding.visitorDataSheet.ReasonForVisit;
+            guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
+            guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateTime;
+            guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;
+            guestDataBinding.visitorDataSheet.VisitorIdNo = concatenatedDataBinding.visitorDataSheet.VisitorIdNo;
+            guestDataBinding.visitorDataSheet.VisitorName = concatenatedDataBinding.visitorDataSheet.VisitorName;
+
+            guestDataBinding.CAforVisitor.Company = concatenatedDataBinding.CAforVisitor.Company;
+            guestDataBinding.CAforVisitor.Date = concatenatedDataBinding.CAforVisitor.Date;
+            guestDataBinding.CAforVisitor.Name = concatenatedDataBinding.CAforVisitor.Name;
+            guestDataBinding.CAforVisitor.Title = concatenatedDataBinding.CAforVisitor.Title;
+
+            guestDataBinding.vlBook.ArrivalTime = concatenatedDataBinding.vlBook.ArrivalTime;
+            guestDataBinding.vlBook.Date = concatenatedDataBinding.vlBook.Date;
+            guestDataBinding.vlBook.DepartureTime = concatenatedDataBinding.vlBook.DepartureTime;
+            guestDataBinding.vlBook.EmployeetobeVisited = concatenatedDataBinding.vlBook.EmployeetobeVisited;
+            guestDataBinding.vlBook.IdDateOfIssue = concatenatedDataBinding.vlBook.IdDateOfIssue;
+            guestDataBinding.vlBook.PlaceOfIssue = concatenatedDataBinding.vlBook.PlaceOfIssue;
+            guestDataBinding.vlBook.PurposeOfVisit = concatenatedDataBinding.vlBook.PurposeOfVisit;
+            guestDataBinding.vlBook.VisitorAndCompanyName = concatenatedDataBinding.vlBook.VisitorAndCompanyName;
+            guestDataBinding.vlBook.VisitorsBadgeNo = concatenatedDataBinding.vlBook.VisitorsBadgeNo;
+
+            guestDataBinding.hsaLog.ArrivalTime = concatenatedDataBinding.hsaLog.ArrivalTime;
+            guestDataBinding.hsaLog.Date = concatenatedDataBinding.hsaLog.Date;
+            guestDataBinding.hsaLog.DepartureTime = concatenatedDataBinding.hsaLog.DepartureTime;
+            guestDataBinding.hsaLog.PurposeoftheVisit = concatenatedDataBinding.hsaLog.PurposeoftheVisit;
+            guestDataBinding.hsaLog.VisitorsBadgeNo = concatenatedDataBinding.hsaLog.VisitorsBadgeNo;
+            guestDataBinding.hsaLog.VistorsAndCompanyName = concatenatedDataBinding.hsaLog.VistorsAndCompanyName;
+
+            guestDataBinding.consultantApplicationForm.Address = concatenatedDataBinding.consultantApplicationForm.Address;
+            guestDataBinding.consultantApplicationForm.CellPhone = concatenatedDataBinding.consultantApplicationForm.CellPhone;
+            guestDataBinding.consultantApplicationForm.City = concatenatedDataBinding.consultantApplicationForm.City;
+            guestDataBinding.consultantApplicationForm.CompanyName = concatenatedDataBinding.consultantApplicationForm.CompanyName;
+            guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue;
+            guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Duration;
+            guestDataBinding.consultantApplicationForm.Email = concatenatedDataBinding.consultantApplicationForm.Email;
+            guestDataBinding.consultantApplicationForm.EmergencyContactNo = concatenatedDataBinding.consultantApplicationForm.EmergencyContactNo;
+            guestDataBinding.consultantApplicationForm.FirstName = concatenatedDataBinding.consultantApplicationForm.FirstName;
+            guestDataBinding.consultantApplicationForm.Homephone = concatenatedDataBinding.consultantApplicationForm.Homephone;
+            guestDataBinding.consultantApplicationForm.IdNo = concatenatedDataBinding.consultantApplicationForm.IdNo;
+            guestDataBinding.consultantApplicationForm.IsNo = concatenatedDataBinding.consultantApplicationForm.IsNo;
+            guestDataBinding.consultantApplicationForm.IsYes = concatenatedDataBinding.consultantApplicationForm.IsYes;
+            guestDataBinding.consultantApplicationForm.LastName = concatenatedDataBinding.consultantApplicationForm.LastName;
+            guestDataBinding.consultantApplicationForm.MiddleName = concatenatedDataBinding.consultantApplicationForm.MiddleName;
+            guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNo;
+            guestDataBinding.consultantApplicationForm.PassportValidity = concatenatedDataBinding.consultantApplicationForm.PassportValidity;
+            guestDataBinding.consultantApplicationForm.PurposeOfVisit = concatenatedDataBinding.consultantApplicationForm.PurposeOfVisit;
+            guestDataBinding.consultantApplicationForm.SecurityNo = concatenatedDataBinding.consultantApplicationForm.SecurityNo;
+            guestDataBinding.consultantApplicationForm.State = concatenatedDataBinding.consultantApplicationForm.State;
+
+            _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);
         }
         public (VisitorDataModel, string) StartScanning(int idType)
         {
@@ -117,40 +190,47 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _fiScanHelper.ScanModeSet(fileCouter);
             _fiScanHelper.StartScan();
             scannedFileInfo.FrontSideFileName = fileCouter;
+            scannedFileInfo.IsSecondSide = false;
             while (vistorData is null)
             {
                 Thread.Sleep(100);
             }
-            return (vistorData, "");
+            scannedFileInfo.FrontSideFileName = gScannedFileName;
+            return (vistorData, gScannedFileName);
         }
 
-        public string ScanBackSide()
+        public string ScanBackSide(int idType)
         {
+            IdType = idType;
             string fileCouter = FileHelper.GetImageFileName(ImageDir);
             _fiScanHelper.ScanModeSet(fileCouter);
-            _fiScanHelper.StartScan();
             scannedFileInfo.BackSideFileName = fileCouter;
-            scannedFileInfo.IsSecondSidePresent = true;
-            
-            //TBD return scannd File name
-            return "";
+            scannedFileInfo.IsSecondSide = true;
+            _fiScanHelper.StartScan();
+
+            scannedFileInfo.BackSideFileName = gScannedFileName;
+            return gScannedFileName;
         }
 
         public void OnScanCompleted(EventArgs e, string fileName)
         {
-            try
+            if (!scannedFileInfo.IsSecondSide)
             {
-                //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
-                ProcessTextData processText = new ProcessTextData();
-                vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
+                try
+                {
+                    //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
+                    ProcessTextData processText = new ProcessTextData();
+                    vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
+                }
+                catch (Exception ex)
+                {
+                    logger.Error($"Error OnScanCompleted {ex.Message}");
+                    logger.Error($"Error OnScanCompleted {ex.InnerException}");
+                    logger.Error($"Error OnScanCompleted {ex.StackTrace}");
+                }
             }
-            catch (Exception ex)
-            {
-                logger.Error($"Error OnScanCompleted {ex.Message}");
-                logger.Error($"Error OnScanCompleted {ex.InnerException}");
-                logger.Error($"Error OnScanCompleted {ex.StackTrace}");
-                throw;
-            }
+            gScannedFileName = fileName;
+            CropImages.CropImage(fileName, IdType);
         }
 
         public bool CheckNullForFields(object obj)

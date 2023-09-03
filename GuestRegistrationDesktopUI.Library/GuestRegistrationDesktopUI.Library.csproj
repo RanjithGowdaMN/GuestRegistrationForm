@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -95,12 +96,19 @@
     <Compile Include="FiScanner\IFiScan.cs" />
     <Compile Include="FiScanner\IFiScanHelper.cs" />
     <Compile Include="GenerateDocument\DocumentGenerator.cs" />
+    <Compile Include="ImageCrop\CropImages.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
+    <Compile Include="Models\ConcatenatedDataBinding.cs" />
+    <Compile Include="Models\ConfidentialityAgreementForVisitor.cs" />
+    <Compile Include="Models\ConsultantApplicationForm.cs" />
+    <Compile Include="Models\HighlySecurityControlAreaLog.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ScannedFileModel.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />
+    <Compile Include="Models\VisitorDataSheet.cs" />
+    <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />
     <Compile Include="PhotoHandler\CameraOperations.cs">

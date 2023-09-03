@@ -99,12 +99,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EventModel\LogOnEvent.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
-    <Compile Include="Models\ConfidentialityAgreementForVisitor.cs" />
-    <Compile Include="Models\ConsultantApplicationForm.cs" />
-    <Compile Include="Models\HighlySecurityControlAreaLog.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />
-    <Compile Include="Models\VisitorDataSheet.cs" />
-    <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="ViewModels\EncodingAndPrintingViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainScreenViewModel.cs" />

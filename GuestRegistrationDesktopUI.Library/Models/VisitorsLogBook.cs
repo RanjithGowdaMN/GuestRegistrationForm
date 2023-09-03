@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class HighlySecurityControlAreaLog
+    public class VisitorsLogBook
     {
-        public string VistorsAndCompanyName { get; set; }
-        public string PurposeoftheVisit { get; set; }
+        public string IdDateOfIssue { get; set; }
+        public string PlaceOfIssue { get; set; }
+        public string VisitorAndCompanyName { get; set; }
         public string VisitorsBadgeNo { get; set; }
+        public string PurposeOfVisit { get; set; }
         public string Date { get; set; }
         public string ArrivalTime { get; set; }
         public string DepartureTime { get; set; }
-        public string Name { get; set; }
-
+        public string EmployeetobeVisited { get; set; }
     }
+
 }

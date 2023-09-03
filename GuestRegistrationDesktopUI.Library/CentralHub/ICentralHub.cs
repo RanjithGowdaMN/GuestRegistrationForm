@@ -13,7 +13,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
     {
         (VisitorDataModel, string) StartScanning(int IdType);
 
-        string ScanBackSide();
+        string ScanBackSide(int idType);
 
         CameraStatus TakePhoto();
 
@@ -25,9 +25,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         event OnPhotoDownloadCompletedEventHandler CanonImageDownload;
 
-        void GenerateDocument(VisitorDataModel visitorDataFromUI);
+        void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
-        void GenerateContractDocument(VisitorDataModel visitorDataFromUI);
+        void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
     }
 }

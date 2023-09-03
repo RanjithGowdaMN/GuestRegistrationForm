@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuestRegistrationDesktopUI.Library.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace GenerateDocument.Library
 {
     public class GeneratePDfContractDoc
     {
-        public void GenerateContractDocument(GuestDataModel guestDataModel, string inputFilePath,
+        public void GenerateContractDocument(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
                                             string outputFilePath, string imagePath)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Contractor.pdf";

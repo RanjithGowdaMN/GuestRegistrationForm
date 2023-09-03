@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDeskUI.Models
 {
-    class VisitorDataSheet
+    public class gVisitorDataSheet
     {
-
-
         public string VisitorName { get; set; }
         public string Date { get; set; }
         public string Company { get; set; }
@@ -22,6 +20,5 @@ namespace GuestRegistrationDeskUI.Models
         public string DepartmentManager { get; set; }
         public string ProductionManager { get; set; }
         public string SecurityController { get; set; }
-
     }
 }
