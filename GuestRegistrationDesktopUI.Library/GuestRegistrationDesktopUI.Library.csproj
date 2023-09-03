@@ -81,9 +81,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tesseract.Library">
-      <HintPath>..\Tesseract.ConsoleDemo\bin\Debug\netcoreapp3.0\Tesseract.Library.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +138,7 @@
       <Name>IronOCR.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tesseract\TesseractOCR.Library.csproj">
-      <Project>{ed8d74e9-6673-45b3-8f32-c9b8c3a61a0c}</Project>
+      <Project>{ED8D74E9-6673-45B3-8F32-C9B8C3A61A0C}</Project>
       <Name>TesseractOCR.Library</Name>
     </ProjectReference>
   </ItemGroup>

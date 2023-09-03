@@ -16,7 +16,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Tesseract.Library;
 using TesseractOCR.Library;
 
 namespace GuestRegistrationDeskUI
