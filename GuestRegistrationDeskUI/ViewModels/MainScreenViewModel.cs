@@ -32,6 +32,16 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
         }
 
+        public void PrintVisitorIdCard()
+        {
+            _centralHub.PrintIdCard(visitorName, "VISITOR");
+        }
+
+        public void PrintContractIdCard()
+        {
+            _centralHub.PrintIdCard(visitorName, "CONTRACT");
+        }
+
         public void GenerateVisitorDocument()
         {
             sendDetails("visitor");

@@ -50,7 +50,8 @@ namespace GuestRegistrationDeskUI
                 .Singleton<ICentralHub, CentralHub>()
                 .Singleton<ICanonSDKHelper, CanonSDKHelper>()
                 .Singleton<IGenerateWordDocument, GenerateWordDocument>()
-                .Singleton<IGeneratePDFdocument, GeneratePDFdocument>();
+                .Singleton<IGeneratePDFdocument, GeneratePDFdocument>()
+                .Singleton<IGenerateCardPrintDoc, GenerateCardPrintDoc>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

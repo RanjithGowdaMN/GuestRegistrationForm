@@ -26,6 +26,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         private IGenerateWordDocument _generateWordDocument;
         private IGeneratePDFdocument _generatePDFdocument;
+        private IGenerateCardPrintDoc _generateCardPrintDoc;
 
         private string ImageDir = "D:\\VisitorData\\ScannedID\\";
         private string PhotoDir = "D:\\VisitorData\\Photos\\";
@@ -45,11 +46,12 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         public bool IsBackSide;
         public string gScannedFileName = string.Empty;
 
-        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, IGeneratePDFdocument generatePDFdocument)//, IIronOCR ironOCR)
+        public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, 
+            IGeneratePDFdocument generatePDFdocument, IGenerateCardPrintDoc generateCardPrintDoc)//, IIronOCR ironOCR)
         {
             _generateWordDocument = generateWordDocument;
             _generatePDFdocument = generatePDFdocument;
-
+            _generateCardPrintDoc = generateCardPrintDoc;
             //initialize Fi Scanner and Camera
             Parallel.Invoke(
                     () => _fiScanHelper = FiScanHelper.GetFormInstance,
@@ -85,6 +87,15 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             _canonSDKHelper.CloseSession();
             //_canonSDKHelper.Dispose();
             //_canonSDKHelper.MainForm_FormClosing();
+        }
+
+        public void PrintIdCard(string visitorName, string visitorType)
+        {
+            string outputPath = string.Empty;
+            string sppLogo = string.Empty;
+            string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
+
+            _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, visitorNumber, visitorType);
         }
 
         public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)

@@ -29,5 +29,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
+        void PrintIdCard(string visitorName, string visitorType);
+
     }
 }

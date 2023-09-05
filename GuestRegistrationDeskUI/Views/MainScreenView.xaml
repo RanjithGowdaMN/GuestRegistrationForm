@@ -249,7 +249,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <!-- HighlySecurityControlAreaLog -->
-                                 <Label x:Name="lblVisitorName1" Margin="30,0,0,0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's / Company Name</Label>
+                                <Label x:Name="lblVisitorName1" Margin="30,0,0,0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Visitor's / Company Name</Label>
                                 <TextBox x:Name="txtVisitorName1" Text="{Binding VistorsAndCompanyName,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
                                 <Label x:Name="lblPurposeVisit" Margin="30,0,0,0" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">Purpose of the Visit</Label>
                                 <TextBox x:Name="txtPurposeVisit" Text="{Binding PurposeoftheVisit,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0,10,0,10" MinHeight="30"/>
@@ -380,9 +380,24 @@
                 </TabItem.Content>
             </TabItem>
             <TabItem Name="PrintingDocument" Header="Print Card" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Padding="10 50 50 25">
-                <TabItem.Content>
-                    <Label >test</Label>
-                </TabItem.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" ></ColumnDefinition>
+                        <ColumnDefinition Width="auto" ></ColumnDefinition>
+                        <ColumnDefinition Width="auto" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="2" Grid.Column="0" Padding="10 5" Width="178" Height="50" Margin="-538,36,0,100"
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" />
+                    <Button Grid.Row="2" Grid.Column="1" Padding="10 5" Width="178" Height="50" Margin="-226,36,0,100"
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" />
+
+                </Grid>
             </TabItem>
             <TabItem Name="Save" Header="Save" Padding="10 50 50 25" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center">
             </TabItem>

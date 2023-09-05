@@ -51,11 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateCardPrintDoc.cs" />
     <Compile Include="GeneratePDfContractDoc.cs" />
     <Compile Include="GeneratePDFdocument.cs" />
     <Compile Include="GeneratePDFVisitorDoc.cs" />
     <Compile Include="GenerateWordDocument.cs" />
     <Compile Include="GuestDataModel.cs" />
+    <Compile Include="IGenerateCardPrintDoc.cs" />
     <Compile Include="IGeneratePDFdocument.cs" />
     <Compile Include="IGenerateWordDocument.cs" />
     <Compile Include="Models\ConcatenatedDataBinding.cs" />
