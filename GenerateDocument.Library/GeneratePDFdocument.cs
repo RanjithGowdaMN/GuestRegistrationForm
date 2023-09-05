@@ -29,17 +29,20 @@ namespace GenerateDocument.Library
             {
 
             }
+
+             
+
         }
 
         public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
-                                string outputFilePath, string imagePath, string docType)
+                                string outputFilePath, string imagePath, string docType,gScannedFileModel gScannedFileModel,GuestDataModel guestDataModel)
         {
             // Check if the PDF and image files exist
             if (!File.Exists(inputFilePath))
             {
                 Console.WriteLine("PDF or image file not found.");
                 return;
-            }
+            }                
 
             try
             {
@@ -52,14 +55,19 @@ namespace GenerateDocument.Library
                     // Create a PdfStamper to modify the PDF
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, outputPdfFile);
 
+
+                    //Add Scanned images
+                    AddImageToPdf(pdfStamper, gScannedFileModel, docType, guestDataModel);
+
                     // Add image to PDF
                     AddImageToPdf(pdfStamper, imagePath, docType);//targetPage);//, xPosition, yPosition, width, height);
-
+                   
+              
                     // Add texts to PDF
                     AddTextToTargetPage(pdfStamper, textsToAdd1);
 
                     // Add texts to PDF
-                    AddTextToPdf(pdfStamper, textsToAdd);
+                    AddTextToPdf(pdfStamper, textsToAdd);                                
 
                     // Close the PdfStamper and PdfReader
                     pdfStamper.Close();
@@ -119,7 +127,11 @@ namespace GenerateDocument.Library
                 foreach (var text in textsToAdd1)
                 {
                     content.SetTextMatrix(text.Item1, text.Item2);
-                    content.ShowText(text.Item3);
+                    if (!string.IsNullOrEmpty(text.Item3))
+                    {
+                        content.ShowText(text.Item3);
+                    }
+                    
                 }
 
                 content.EndText();
@@ -136,7 +148,7 @@ namespace GenerateDocument.Library
             {
 
                 int targetPage = 3;
-               
+
 
                 // Load the image
                 Image image = Image.GetInstance(imagePath);
@@ -170,10 +182,175 @@ namespace GenerateDocument.Library
                     Console.WriteLine("Target page is out of range.");
                 }
             }
+
+
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred while adding the image: " + ex.Message);
             }
+                  
+                     
+        }
+
+
+        public static void AddImageToPdf(PdfStamper pdfStamper, gScannedFileModel gScannedFileModel, string docType,GuestDataModel guestDataModel)
+        {
+            try
+            {
+
+
+                if (guestDataModel.IsPassport)
+                {
+
+                    if (docType == "contract")
+                    {
+                        int targetPage1 = 2;
+
+
+                        // Load the image of front
+                        Image image1 = Image.GetInstance(gScannedFileModel.FrontSideFileName);
+
+                        image1.SetAbsolutePosition(100, 32);
+                        image1.ScaleToFit(350, 280);
+
+
+
+                        // Get the number of pages in the PDF
+                        int pageCount1 = pdfStamper.Reader.NumberOfPages;
+
+                        // Check if the target page is within the valid range
+                        if (targetPage1 > 0 && targetPage1 <= pageCount1)
+                        {
+                            // Get the target page content
+                            PdfContentByte content = pdfStamper.GetOverContent(targetPage1);
+
+                            // Add the image to the target page
+                            content.AddImage(image1);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Target page is out of range.");
+                        }
+
+                    }
+                    else if(docType=="visitor")
+
+                    {
+                        int targetPage12 = 3;
+
+
+                        // Load the image of front
+                        Image image1 = Image.GetInstance(gScannedFileModel.FrontSideFileName);
+
+                        image1.SetAbsolutePosition(100, 22);
+                        image1.ScaleToFit(350, 280);
+
+
+
+                        // Get the number of pages in the PDF
+                        int pageCount1 = pdfStamper.Reader.NumberOfPages;
+
+                        // Check if the target page is within the valid range
+                        if (targetPage12 > 0 && targetPage12 <= pageCount1)
+                        {
+                            // Get the target page content
+                            PdfContentByte content = pdfStamper.GetOverContent(targetPage12);
+
+                            // Add the image to the target page
+                            content.AddImage(image1);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Target page is out of range.");
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    if (docType == "contract")
+
+                    {
+
+                        int targetPage = 2;
+
+
+                        // Load the image of front
+                        Image image = Image.GetInstance(gScannedFileModel.FrontSideFileName);
+
+                        image.SetAbsolutePosition(30, 102);
+                        image.ScaleToFit(250, 150);
+
+                        //Load the image of back
+                        Image img = Image.GetInstance(gScannedFileModel.BackSideFileName);
+                        img.SetAbsolutePosition(300, 102);
+                        img.ScaleToFit(250, 150);
+
+
+                        // Get the number of pages in the PDF
+                        int pageCount = pdfStamper.Reader.NumberOfPages;
+
+                        // Check if the target page is within the valid range
+                        if (targetPage > 0 && targetPage <= pageCount)
+                        {
+                            // Get the target page content
+                            PdfContentByte content = pdfStamper.GetOverContent(targetPage);
+
+                            // Add the image to the target page
+                            content.AddImage(image);
+                            content.AddImage(img);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Target page is out of range.");
+                        }
+                    }
+                   
+                    else if(docType=="visitor")
+                    {
+                        int targetPage = 3;
+
+
+                        // Load the image of front
+                        Image image = Image.GetInstance(gScannedFileModel.FrontSideFileName);
+
+                        image.SetAbsolutePosition(10, 102);
+                        image.ScaleToFit(250, 150);
+
+                        //Load the image of back
+                        Image img = Image.GetInstance(gScannedFileModel.BackSideFileName);
+                        img.SetAbsolutePosition(300, 102);
+                        img.ScaleToFit(250, 150);
+
+
+                        // Get the number of pages in the PDF
+                        int pageCount = pdfStamper.Reader.NumberOfPages;
+
+                        // Check if the target page is within the valid range
+                        if (targetPage > 0 && targetPage <= pageCount)
+                        {
+                            // Get the target page content
+                            PdfContentByte content = pdfStamper.GetOverContent(targetPage);
+
+                            // Add the image to the target page
+                            content.AddImage(image);
+                            content.AddImage(img);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Target page is out of range.");
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while adding the image: " + ex.Message);
+            }
+
+
         }
     }
 }

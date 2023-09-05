@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tesseract.Library;
 using TesseractOCR.Library;
 
 namespace GuestRegistrationDesktopUI.Library.OCR
