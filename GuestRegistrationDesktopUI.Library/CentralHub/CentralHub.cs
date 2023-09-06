@@ -115,7 +115,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         }
         public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
-            sendDataForDocGeneration("contract", visitorDataFromUI, concatenatedDataBinding);
+            sendDataForDocGeneration("contractor", visitorDataFromUI, concatenatedDataBinding);
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
         }

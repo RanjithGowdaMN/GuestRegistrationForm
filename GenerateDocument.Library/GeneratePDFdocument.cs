@@ -20,7 +20,7 @@ namespace GenerateDocument.Library
                 GeneratePDFVisitorDoc generatePDFVisitorDoc = new GeneratePDFVisitorDoc();
                 generatePDFVisitorDoc.GenerateVisitorDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
             }
-            else if (docType == "contract")
+            else if (docType == "contractor")
             {
                 GeneratePDfContractDoc generatePDfContractDoc = new GeneratePDfContractDoc();
                 generatePDfContractDoc.GenerateContractDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
