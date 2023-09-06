@@ -56,7 +56,78 @@ namespace GuestRegistrationDeskUI.Views
         }
         public void ClearFields()
         {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
 
+                Name.Text = string.Empty;
+                IDNo.Text = string.Empty;
+                DOB.Text = string.Empty;
+            });
+                
+            Expiry.Text = string.Empty;
+            Nationality.Text = string.Empty;
+
+            txtVisitorsName.Text = string.Empty;
+            txtDate.Text = string.Empty;
+            txtCompany.Text = string.Empty;
+            txtVisitorsIdNo.Text = string.Empty;
+            txtReasonforVisit.Text = string.Empty;
+            txtPersontobeVisited.Text = string.Empty;
+            txtAreaVisited.Text = string.Empty;
+            txtVisitDateTime.Text = string.Empty;
+            txtVisitDuration.Text = string.Empty;
+            txtDepartmentManager.Text = string.Empty;
+            txtProductionManager.Text = string.Empty;
+            txtSecurityController.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtTitle.Text = string.Empty;
+            txtCompany1.Text = string.Empty;
+            txtDate1.Text = string.Empty;
+            txtIdDateofIssue.Text = string.Empty;
+            txtPlaceofIssue.Text = string.Empty;
+            txtVisitorName.Text = string.Empty;
+            txtBadgeNo.Text = string.Empty;
+            txtPurposeOfvisit.Text = string.Empty;
+            txtDate2.Text = string.Empty;
+            txtArrivalTime.Text = string.Empty;
+            txtDepartureTime.Text = string.Empty;
+            txtEmployeeName.Text = string.Empty;
+            txtVisitorName1.Text = string.Empty;
+            txtPurposeVisit.Text = string.Empty;
+            txtBadgeNo1.Text = string.Empty;
+            txtDate3.Text = string.Empty;
+            txtArrivalTime1.Text = string.Empty;
+            txtDepartureTime1.Text = string.Empty;
+            txtFirstName.Text = string.Empty;
+            txtMiddleName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtState.Text = string.Empty;
+            txtZip.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtCellPhone.Text = string.Empty;
+            txtHomePhone.Text = string.Empty;
+            txtSecurityNo.Text = string.Empty;
+            txtCompanyName.Text = string.Empty;
+            txtIdNo.Text = string.Empty;
+            txtPassportNo.Text = string.Empty;
+            txtDateandPlaceofIssue.Text = string.Empty;
+            txtPassportValidty.Text = string.Empty;
+            txtPurposeOfVisit1.Text = string.Empty;
+            txtDuration.Text = string.Empty;
+            txtEmergencyContactNo.Text = string.Empty;
+
+        }
+
+        private void PrintVisitorIdCard_Click(object sender, RoutedEventArgs e)
+        {
+            //ClearFields();
+        }
+
+        private void PrintContractIdCard_Click(object sender, RoutedEventArgs e)
+        {
+            //ClearFields();
         }
     }
 }

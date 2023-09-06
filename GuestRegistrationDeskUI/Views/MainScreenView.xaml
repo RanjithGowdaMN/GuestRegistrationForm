@@ -393,9 +393,9 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="2" Grid.Column="0" Padding="10 5" Width="178" Height="50" Margin="-538,36,0,100"
-                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" />
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" Click="PrintVisitorIdCard_Click" />
                     <Button Grid.Row="2" Grid.Column="1" Padding="10 5" Width="178" Height="50" Margin="-226,36,0,100"
-                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" />
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" Click="PrintContractIdCard_Click" />
 
                 </Grid>
             </TabItem>
