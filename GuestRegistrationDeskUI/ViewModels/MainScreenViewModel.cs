@@ -24,22 +24,29 @@ namespace GuestRegistrationDeskUI.ViewModels
             _container = container;
 
             //load default/dummy image
-            ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
-
+            resetDefaultImage();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
         }
         ~MainScreenViewModel()
         {
         }
-
+        public void resetDefaultImage()
+        {
+            ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
+            ImagePathfront = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardFront.jpg"));
+            ImagePathBack = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardBack.jpg"));
+        }
         public void PrintVisitorIdCard()
         {
             _centralHub.PrintIdCard(visitorName, "VISITOR");
+            ResetOrClearAllFields();
+            
         }
 
         public void PrintContractIdCard()
         {
             _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
+            ResetOrClearAllFields();
         }
 
         public void GenerateVisitorDocument()
@@ -208,6 +215,75 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+        private void ResetOrClearAllFields()
+        {
+            IsYes = false;
+            IsNo = false;
+            IsPassport = false;
+            IsOther = false;
+            IsIDcard = false;
+
+            resetDefaultImage();
+            //Reset Photos
+            visitorName = string.Empty;
+            visitorIDNo = string.Empty;
+            visitorDOB = string.Empty;
+            visitorIDExpiry = string.Empty;
+            visitorNationality = string.Empty;
+            vdsVisitorName = string.Empty;
+            vdsDate = string.Empty;
+            Company = string.Empty;
+            VisitorIdNo = string.Empty;
+            ReasonForVisit = string.Empty;
+            PersontobeVisited = string.Empty;
+            AreaVisited = string.Empty;
+            VisitDateTime = string.Empty;
+            VisitDuration = string.Empty;
+            DepartmentManager = string.Empty;
+            ProductionManager = string.Empty;
+            SecurityController = string.Empty;
+            caForvName = string.Empty;
+            Title = string.Empty;
+            cavCompany = string.Empty;
+            cavDate = string.Empty;
+            IdDateOfIssue = string.Empty;
+            PlaceOfIssue = string.Empty;
+            VisitorAndCompanyName = string.Empty;
+            VisitorsBadgeNo = string.Empty;
+            PurposeOfVisit = string.Empty;
+            Date = string.Empty;
+            ArrivalTime = string.Empty;
+            DepartureTime = string.Empty;
+            EmployeetobeVisited = string.Empty;
+            VistorsAndCompanyName = string.Empty;
+            PurposeoftheVisit = string.Empty;
+            hscVisitorsBadgeNo = string.Empty;
+            hscDate = string.Empty;
+            hscArrivalTime = string.Empty;
+            hscDepartureTime = string.Empty;
+            caFirstName = string.Empty;
+            caMiddleName = string.Empty;
+            caLastName = string.Empty;
+            Address = string.Empty;
+            City = string.Empty;
+            State = string.Empty;
+            Zip = string.Empty;
+            Email = string.Empty;
+            CellPhone = string.Empty;
+            Homephone = string.Empty;
+            SecurityNo = string.Empty;
+            CompanyName = string.Empty;
+            IdNo = string.Empty;
+            PassportNo = string.Empty;
+            DateandPlaceofIssue = string.Empty;
+            PassportValidity = string.Empty;
+            caPurposeOfVisit = string.Empty;
+            Duration = string.Empty;
+            EmergencyContactNo = string.Empty;
+
+
+
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
