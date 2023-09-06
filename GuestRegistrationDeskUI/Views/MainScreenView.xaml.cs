@@ -122,12 +122,12 @@ namespace GuestRegistrationDeskUI.Views
 
         private void PrintVisitorIdCard_Click(object sender, RoutedEventArgs e)
         {
-            //ClearFields();
+            ClearFields();
         }
 
         private void PrintContractIdCard_Click(object sender, RoutedEventArgs e)
         {
-            //ClearFields();
+            ClearFields();
         }
     }
 }

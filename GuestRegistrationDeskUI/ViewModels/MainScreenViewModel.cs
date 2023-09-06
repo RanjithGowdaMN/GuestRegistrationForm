@@ -39,7 +39,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
         public void PrintVisitorIdCard()
         {
-            _centralHub.PrintIdCard(visitorName, "VISITOR");
+           // _centralHub.PrintIdCard(visitorName, "VISITOR");
             ResetOrClearAllFields();
             
         }
