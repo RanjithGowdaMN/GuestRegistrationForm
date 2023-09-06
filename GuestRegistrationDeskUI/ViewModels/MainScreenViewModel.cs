@@ -281,8 +281,6 @@ namespace GuestRegistrationDeskUI.ViewModels
             Duration = string.Empty;
             EmergencyContactNo = string.Empty;
 
-
-
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -407,6 +405,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isPassport = value;
                     OnPropertyChanged(nameof(_isPassport));
+                    ResetOrClearAllFields();
                 }
             }
         }
@@ -421,6 +420,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isOther = value;
                     OnPropertyChanged(nameof(_isOther));
+                    ResetOrClearAllFields();
                 }
             }
         }
@@ -434,6 +434,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isIDcard = value;
                     OnPropertyChanged(nameof(_isIDcard));
+                    ResetOrClearAllFields();
                 }
             }
         }
