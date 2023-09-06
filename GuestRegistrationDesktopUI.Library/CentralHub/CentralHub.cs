@@ -91,8 +91,8 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public void PrintIdCard(string visitorName, string visitorType)
         {
-            string outputPath = string.Empty;
-            string sppLogo = string.Empty;
+            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0') + ".pdf");
+            string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
             string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
 
             _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, visitorNumber, visitorType);

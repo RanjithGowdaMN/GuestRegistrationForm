@@ -39,7 +39,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public void PrintContractIdCard()
         {
-            _centralHub.PrintIdCard(visitorName, "CONTRACT");
+            _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
         }
 
         public void GenerateVisitorDocument()

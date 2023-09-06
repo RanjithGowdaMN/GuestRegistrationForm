@@ -7,8 +7,8 @@ namespace GenerateDocument.Library
 {
     public class GenerateCardPrintDoc : IGenerateCardPrintDoc
     {
-        public float cardWidth = 244; //4 inches
-        public float cardHeight = 155; //2 inches
+        public float cardWidth = 252.72f; //4 inches
+        public float cardHeight = 153.09f; //2 inches
 
         public void printCard(string outputPath, string sppLogo, string imagePath,
                             string visitorName, string visitorNumber, string visitorType)
@@ -22,12 +22,17 @@ namespace GenerateDocument.Library
             PdfContentByte contentByte = writer.DirectContent;
             // Draw a background color (light gray) for the entire card
             contentByte.SetColorFill(new BaseColor(250, 249, 246));
-            contentByte.Rectangle(0, 0, cardWidth, cardHeight);
-            contentByte.Fill();
+           // contentByte.Rectangle(0, 0, cardWidth, cardHeight);
+           // contentByte.Fill();
 
             // Load the image
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
-            image.ScaleToFit(80, 80);
+
+            image.ScaleToFit(120, 60);
+           
+
+            //Load the Logo
+
             iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
 
             // image1.ScaleToFit(50, 750);
@@ -35,37 +40,61 @@ namespace GenerateDocument.Library
             image1.ScaleToFit(image1.Width * imageScalingFactor, image1.Height * imageScalingFactor);
 
             // Position the image
-            image.SetAbsolutePosition(3, 30);
+            image.SetAbsolutePosition(10, 40);
             contentByte.AddImage(image);
+            
 
+            //position of Logo
             image1.SetAbsolutePosition(10, 120);
             contentByte.AddImage(image1);
 
 
-            int a = 1;
-            if (a == 1)
+            
+            if (!(visitorType == "VISITOR"))
             {
-                //string text2 = "CONTRACTOR";
+                //type";
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 90, 82, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 90, 0);
                 contentByte.EndText();
 
-                //string text3 = "001";
+                //idnumber;
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 90, 62, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 132, 0);
                 contentByte.EndText();
 
-                // Add text content
-                //string text1 = "Sachin Ramesh Tendulkar Cricket";
+                //name
+                float fontSize = 10;
+                BaseFont baseFont = BaseFont.CreateFont();
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                bool textFits = false;
+                while (!textFits && fontSize > 0)
+                {
+                    contentByte.SetFontAndSize(baseFont, fontSize);
+                    float textWidth = baseFont.GetWidthPoint(visitorName, fontSize);
+                    
+                    if (textWidth <= cardWidth)
+                    {
+                        textFits = true;
+                    }
+                    else
+                    {
+                        fontSize -= 1; // Reduce font size if text exceeds maxWidth
+                    }
+                }
+                float xPosition = 1;
+                float yPosition = 25;
+                // Center-align the text within the maxWidth
+                float textX = xPosition + (cardWidth - baseFont.GetWidthPoint(visitorName, fontSize)) / 2;
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, 90, 102, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, textX, yPosition, 0);
                 contentByte.EndText();
+
 
                 // Reset graphic state for full opacity
                 contentByte.SetGState(new PdfGState() { FillOpacity = 60f });
@@ -80,25 +109,52 @@ namespace GenerateDocument.Library
             {
                 //string text2 = "VISITOR";
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 90, 82, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 140, 90, 0);
                 contentByte.EndText();
 
-                //string text3 = "001";
+                //idnumber";
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 90, 62, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 132, 0);
                 contentByte.EndText();
 
-                // Add text content
-                //string text1 = "Sachin Ramesh Tendulkar Cricket";
+
+                // Name
+                float fontSize = 10;
+                BaseFont baseFont = BaseFont.CreateFont();
                 contentByte.BeginText();
-                contentByte.SetFontAndSize(BaseFont.CreateFont(), 10); // You can customize the font and size
+                bool textFits = false;
+
+                while (!textFits && fontSize > 0)
+                {
+                    contentByte.SetFontAndSize(baseFont, fontSize);
+                    float textWidth = baseFont.GetWidthPoint(visitorName, fontSize);
+
+                    if (textWidth <= cardWidth)
+                    {
+                        textFits = true;
+                    }
+                    else
+                    {
+                        fontSize -= 1; // Reduce font size if text exceeds maxWidth
+                    }
+                }
+
+                float xPosition = 1;
+                float yPosition = 25;
+
+                // Center-align the text within the maxWidth
+                float textX = xPosition + (cardWidth - baseFont.GetWidthPoint(visitorName, fontSize)) / 2;
+
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, 90, 102, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, textX, yPosition, 0);
                 contentByte.EndText();
+
 
 
                 // Reset graphic state for full opacity
