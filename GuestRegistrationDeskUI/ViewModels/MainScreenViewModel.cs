@@ -405,7 +405,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isPassport = value;
                     OnPropertyChanged(nameof(_isPassport));
-                    ResetOrClearAllFields();
+                    //ResetOrClearAllFields();
                 }
             }
         }
@@ -420,7 +420,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isOther = value;
                     OnPropertyChanged(nameof(_isOther));
-                    ResetOrClearAllFields();
+                    //ResetOrClearAllFields();
                 }
             }
         }
@@ -434,7 +434,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isIDcard = value;
                     OnPropertyChanged(nameof(_isIDcard));
-                    ResetOrClearAllFields();
+                    //ResetOrClearAllFields();
                 }
             }
         }
