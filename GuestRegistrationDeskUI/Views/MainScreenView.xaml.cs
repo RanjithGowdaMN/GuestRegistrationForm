@@ -53,6 +53,9 @@ namespace GuestRegistrationDeskUI.Views
             {
                 ScanIDBackSide.IsEnabled = true;
             }
+        }
+        public void ClearFields()
+        {
 
         }
     }

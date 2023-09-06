@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDeskUI.EventModel;
 using GuestRegistrationDeskUI.Models;
 using System;
 using System.ComponentModel;
@@ -14,15 +15,15 @@ namespace GuestRegistrationDeskUI.ViewModels
     {
         private ICentralHub _centralHub;
         private SimpleContainer _container;
-
+        private IEventAggregator _events;
         private int _idType;
         public BitmapImage ImageToShow { get; set; }
 
-        public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container)
+        public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
             _centralHub = centralHub;
             _container = container;
-
+            _events = events;
             //load default/dummy image
             resetDefaultImage();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
@@ -217,127 +218,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         private void ResetOrClearAllFields()
         {
-            _isYes = false;
-            _isNo = false;
-            _isPassport = false;
-            _isOther = false;
-            _isIDcard = false;
-
-            resetDefaultImage();
-            //Reset Photos
-            //Reset Photos
-            _visitorName = string.Empty;
-            _visitorIDNo = string.Empty;
-            _visitorDOB = string.Empty;
-            _visitorIDExpiry = string.Empty;
-            _visitorNationality = string.Empty;
-            _vdsvisitorName = string.Empty;
-            _vdsDate = string.Empty;
-            _company = string.Empty;
-            _visitorIdNo = string.Empty;
-            _reasonForVisit = string.Empty;
-            _persontobeVisited = string.Empty;
-            _areaVisited = string.Empty;
-            _visitDateTime = string.Empty;
-            _visitDuration = string.Empty;
-            _departmentManager = string.Empty;
-            _productionManager = string.Empty;
-            _securityController = string.Empty;
-            _caForvName = string.Empty;
-            _title = string.Empty;
-            _cavCompany = string.Empty;
-            _cavDate = string.Empty;
-            _idDateOfIssue = string.Empty;
-            _placeOfIssue = string.Empty;
-            _visitorAndCompanyName = string.Empty;
-            _visitorsBadgeNo = string.Empty;
-            _purposeOfVisit = string.Empty;
-            _date = string.Empty;
-            _arrivalTime = string.Empty;
-            _departureTime = string.Empty;
-            _employeetobeVisited = string.Empty;
-            _vistorsAndCompanyName = string.Empty;
-            _purposeoftheVisit = string.Empty;
-            _hscVisitorsBadgeNo = string.Empty;
-            _hscDate = string.Empty;
-            _hscArrivalTime = string.Empty;
-            _hscDepartureTime = string.Empty;
-            _caFirstName = string.Empty;
-            _caMiddleName = string.Empty;
-            _caLastName = string.Empty;
-            _address = string.Empty;
-            _city = string.Empty;
-            _state = string.Empty;
-            _zip = string.Empty;
-            _email = string.Empty;
-            _cellPhone = string.Empty;
-            _homephone = string.Empty;
-            _securityNo = string.Empty;
-            _companyName = string.Empty;
-            _idNo = string.Empty;
-            _passportNo = string.Empty;
-            _dateandPlaceofIssue = string.Empty;
-            _passportValidity = string.Empty;
-            _caPurposeOfVisit = string.Empty;
-            _duration = string.Empty;
-            _emergencyContactNo = string.Empty;
-
-            visitorName = string.Empty;
-            visitorIDNo = string.Empty;
-            visitorDOB = string.Empty;
-            visitorIDExpiry = string.Empty;
-            visitorNationality = string.Empty;
-            vdsVisitorName = string.Empty;
-            vdsDate = string.Empty;
-            Company = string.Empty;
-            VisitorIdNo = string.Empty;
-            ReasonForVisit = string.Empty;
-            PersontobeVisited = string.Empty;
-            AreaVisited = string.Empty;
-            VisitDateTime = string.Empty;
-            VisitDuration = string.Empty;
-            DepartmentManager = string.Empty;
-            ProductionManager = string.Empty;
-            SecurityController = string.Empty;
-            caForvName = string.Empty;
-            Title = string.Empty;
-            cavCompany = string.Empty;
-            cavDate = string.Empty;
-            IdDateOfIssue = string.Empty;
-            PlaceOfIssue = string.Empty;
-            VisitorAndCompanyName = string.Empty;
-            VisitorsBadgeNo = string.Empty;
-            PurposeOfVisit = string.Empty;
-            Date = string.Empty;
-            ArrivalTime = string.Empty;
-            DepartureTime = string.Empty;
-            EmployeetobeVisited = string.Empty;
-            VistorsAndCompanyName = string.Empty;
-            PurposeoftheVisit = string.Empty;
-            hscVisitorsBadgeNo = string.Empty;
-            hscDate = string.Empty;
-            hscArrivalTime = string.Empty;
-            hscDepartureTime = string.Empty;
-            caFirstName = string.Empty;
-            caMiddleName = string.Empty;
-            caLastName = string.Empty;
-            Address = string.Empty;
-            City = string.Empty;
-            State = string.Empty;
-            Zip = string.Empty;
-            Email = string.Empty;
-            CellPhone = string.Empty;
-            Homephone = string.Empty;
-            SecurityNo = string.Empty;
-            CompanyName = string.Empty;
-            IdNo = string.Empty;
-            PassportNo = string.Empty;
-            DateandPlaceofIssue = string.Empty;
-            PassportValidity = string.Empty;
-            caPurposeOfVisit = string.Empty;
-            Duration = string.Empty;
-            EmergencyContactNo = string.Empty;
-
+            _events.PublishOnUIThreadAsync(new LogOnEvent());
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
