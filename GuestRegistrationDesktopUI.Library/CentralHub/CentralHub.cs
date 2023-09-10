@@ -34,7 +34,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
         private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private string fullImageFileName = string.Empty;
+        
 
         private IOCRhelper _iOCRhelper;
         //private IIronOCR _ironOCR;
@@ -45,6 +45,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         public int IdType;
         public bool IsBackSide;
         public string gScannedFileName = string.Empty;
+
+        public string generatedVisitorIDNumber = string.Empty;
+        public string fullImageFileName = string.Empty;
 
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, 
             IGeneratePDFdocument generatePDFdocument, IGenerateCardPrintDoc generateCardPrintDoc)//, IIronOCR ironOCR)
@@ -89,32 +92,37 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //_canonSDKHelper.MainForm_FormClosing();
         }
 
+        public string GenerateVisitorIDnumber()
+        {
+            if (String.IsNullOrEmpty(fullImageFileName) || String.IsNullOrEmpty(generatedVisitorIDNumber))
+            {
+                generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
+                fullImageFileName =Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
+                File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName);
+            }
+            return generatedVisitorIDNumber;
+        }
+
         public void PrintIdCard(string visitorName, string visitorType)
         {
             string outputPath =Path.Combine("D:\\VisitorData\\IdCard", FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0') + ".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
-            string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
-
-            _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, visitorNumber, visitorType);
+            //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
+            GenerateVisitorIDnumber();
+            _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
         }
 
         public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
-
+            GenerateVisitorIDnumber();
             sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
 
-            GuestDataModel guestDataModel = new GuestDataModel();
-            guestDataModel.IDno = visitorDataFromUI.IDno;
-            guestDataModel.Name = visitorDataFromUI.Name;
-            guestDataModel.DateOfBirth = visitorDataFromUI.DateOfBirth;
-            guestDataModel.Expiry = visitorDataFromUI.Expiry;
-            guestDataModel.Nationality = visitorDataFromUI.Nationality;
-            guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
         public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
+            GenerateVisitorIDnumber();
             sendDataForDocGeneration("contractor", visitorDataFromUI, concatenatedDataBinding);
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
@@ -146,6 +154,12 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
             guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateTime;
             guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;
+
+            if (String.IsNullOrEmpty(concatenatedDataBinding.visitorDataSheet.VisitorIdNo))
+            {
+                concatenatedDataBinding.visitorDataSheet.VisitorIdNo = generatedVisitorIDNumber;
+            }
+
             guestDataBinding.visitorDataSheet.VisitorIdNo = concatenatedDataBinding.visitorDataSheet.VisitorIdNo;
             guestDataBinding.visitorDataSheet.VisitorName = concatenatedDataBinding.visitorDataSheet.VisitorName;
 

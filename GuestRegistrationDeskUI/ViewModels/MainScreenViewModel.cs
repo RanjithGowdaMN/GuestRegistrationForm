@@ -95,7 +95,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             if (ImagePath.UriSource.AbsoluteUri == "file:///D:/VisitorData/Photos/photo00001.jpg")
             {
-                var Result = MessageBox.Show("Photo Not Taken, do you want take photo", "Guest Photo !!", MessageBoxButton.YesNo);
+                var Result = MessageBox.Show("Photo Not Taken, Proceed without photo", "Guest Photo !!", MessageBoxButton.YesNo);
                 if (Result.ToString() == "No")
                 {
                     return false;
