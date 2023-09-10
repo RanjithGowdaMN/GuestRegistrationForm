@@ -115,7 +115,7 @@ namespace GenerateDocument.Library
 
 
             
-            outputFilePath = $"D:\\VisitorData\\GeneratedDocument\\C_{guestDataModel.IDno}__{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
+            outputFilePath = $"D:\\VisitorData\\GeneratedDocument\\C_{guestDataModel.IDno}__{DateTime.Now.ToString("ddMMyyyyHHmm")}.pdf";
 
             // Modify the PDF with the image and texts
             GeneratePDFdocument.ModifyPdf(inputFilePath, textForSecondPage, textForThirdPage, outputFilePath, imagePath, "contract",gScannedFileModel,guestDataModel);

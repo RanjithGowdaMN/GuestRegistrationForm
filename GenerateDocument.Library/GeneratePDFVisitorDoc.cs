@@ -51,7 +51,7 @@ namespace GenerateDocument.Library
             };
 
 
-            outputFilePath = $"D:\\VisitorData\\GeneratedDocument\\V_{guestDataModel.IDno}_{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
+            outputFilePath = $"D:\\VisitorData\\GeneratedDocument\\V_{guestDataModel.IDno}_{DateTime.Now.ToString("ddMMyyyyHHmm")}.pdf";
 
             // Modify the PDF with the image and texts
             GeneratePDFdocument.ModifyPdf(inputFilePath, textsToAdd1, textsToAdd, outputFilePath, imagePath, "visitor",gScannedFileModel,guestDataModel);
