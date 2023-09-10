@@ -27,8 +27,8 @@ namespace GenerateDocument.Library
 
             // Load the image
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
-
-            image.ScaleToFit(120, 60);
+            image.RotationDegrees = 270;
+            image.ScaleToFit(150, 100);
            
 
             //Load the Logo
@@ -45,7 +45,7 @@ namespace GenerateDocument.Library
             
 
             //position of Logo
-            image1.SetAbsolutePosition(10, 120);
+            image1.SetAbsolutePosition(100, 120);
             contentByte.AddImage(image1);
 
 
@@ -57,7 +57,7 @@ namespace GenerateDocument.Library
                 BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 90, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 60, 0);
                 contentByte.EndText();
 
                 //idnumber;
@@ -65,7 +65,7 @@ namespace GenerateDocument.Library
                 BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 132, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 100, 0);
                 contentByte.EndText();
 
                 //name
@@ -112,7 +112,7 @@ namespace GenerateDocument.Library
                 BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 140, 90, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 140, 60, 0);
                 contentByte.EndText();
 
                 //idnumber";
@@ -120,7 +120,7 @@ namespace GenerateDocument.Library
                 BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 132, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 100, 0);
                 contentByte.EndText();
 
 

@@ -54,7 +54,7 @@ namespace GenerateDocument.Library
 
                     // Create a PdfStamper to modify the PDF
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, outputPdfFile);
-
+                  
 
                     //Add Scanned images
                     AddImageToPdf(pdfStamper, gScannedFileModel, docType, guestDataModel);

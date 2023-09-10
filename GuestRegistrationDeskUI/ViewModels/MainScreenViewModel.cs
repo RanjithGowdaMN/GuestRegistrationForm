@@ -39,7 +39,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
         public void PrintVisitorIdCard()
         {
-           // _centralHub.PrintIdCard(visitorName, "VISITOR");
+            _centralHub.PrintIdCard(visitorName, "VISITOR");
             ResetOrClearAllFields();
             
         }
@@ -218,8 +218,8 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         private void ResetOrClearAllFields()
         {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
+            //Application.Current.Dispatcher.Invoke(() =>
+            
                 //ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00003.jpg"));
                 _visitorName = "";
                 _visitorIDNo = "";
@@ -333,7 +333,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 Duration = "";
                 EmergencyContactNo = "";
                 _events.PublishOnUIThreadAsync(new LogOnEvent());
-            });
+           // });
             resetDefaultImage();
         }
         public event PropertyChangedEventHandler PropertyChanged;
