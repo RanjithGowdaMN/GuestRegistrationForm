@@ -99,7 +99,14 @@ namespace GenerateDocument.Library
                 foreach (var text in textsToAdd)
                 {
                     content.SetTextMatrix(text.Item1, text.Item2);
-                    content.ShowText(text.Item3);
+                    if (text.Item3 != null)
+                    {
+                        content.ShowText(text.Item3);
+                    }
+                    else
+                    {
+                        content.ShowText("");
+                    }
                 }
 
                 content.EndText();
@@ -130,6 +137,10 @@ namespace GenerateDocument.Library
                     if (!string.IsNullOrEmpty(text.Item3))
                     {
                         content.ShowText(text.Item3);
+                    }
+                    else
+                    {
+                        content.ShowText("");
                     }
                     
                 }

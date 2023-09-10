@@ -18,15 +18,27 @@ namespace GenerateDocument.Library
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(outputPath, FileMode.Create));
             document.Open();
 
+            if (String.IsNullOrEmpty(visitorName) || String.IsNullOrWhiteSpace(visitorName))
+            {
+                visitorName = "";
+            }
+            if (String.IsNullOrEmpty(visitorNumber) || String.IsNullOrWhiteSpace(visitorNumber))
+            {
+                visitorNumber = "00000";
+            }
             // Create a content byte
             PdfContentByte contentByte = writer.DirectContent;
             // Draw a background color (light gray) for the entire card
             contentByte.SetColorFill(new BaseColor(250, 249, 246));
-           // contentByte.Rectangle(0, 0, cardWidth, cardHeight);
-           // contentByte.Fill();
+            // contentByte.Rectangle(0, 0, cardWidth, cardHeight);
+            // contentByte.Fill();
 
             // Load the image
-            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
+            if (String.IsNullOrEmpty(imagePath))
+            {
+                imagePath = "D:\\VisitorData\\Photos\\photo00001.jpg";
+            }
+            Image image = Image.GetInstance(imagePath);
             image.RotationDegrees = 270;
             image.ScaleToFit(150, 100);
            
