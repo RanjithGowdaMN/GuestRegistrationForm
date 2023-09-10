@@ -37,27 +37,43 @@ namespace GuestRegistrationDeskUI.ViewModels
             ImagePathfront = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardFront.jpg"));
             ImagePathBack = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardBack.jpg"));
         }
+
         public void PrintVisitorIdCard()
         {
-            _centralHub.PrintIdCard(visitorName, "VISITOR");
-            ResetOrClearAllFields();
-            
+            if (MessageForPhoto())
+            {
+                _centralHub.PrintIdCard(visitorName, "VISITOR");
+                ResetOrClearAllFields();
+            }
+            return;  
         }
 
         public void PrintContractIdCard()
         {
-            _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
-            ResetOrClearAllFields();
+            if (MessageForPhoto())
+            {
+                _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
+                ResetOrClearAllFields();
+            }
+            return;
         }
 
         public void GenerateVisitorDocument()
         {
-            sendDetails("visitor");
+            if (MessageForPhoto())
+            {
+                sendDetails("visitor");
+            }
+            return;
         }
 
         public void GenerateContractDocument()
         {
-            sendDetails("contract");
+            if (MessageForPhoto())
+            {
+                sendDetails("contract");
+            }
+            return;
         }
 
         public void UpdatePhotoImage(string path)
@@ -73,6 +89,19 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                 }
             });
+        }
+
+        public bool MessageForPhoto()
+        {
+            if (ImagePath.UriSource.AbsoluteUri == "file:///D:/VisitorData/Photos/photo00001.jpg")
+            {
+                var Result = MessageBox.Show("Photo Not Taken, do you want take photo", "Guest Photo !!", MessageBoxButton.YesNo);
+                if (Result.ToString() == "No")
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         //Scan Button clicked
@@ -94,6 +123,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             Application.Current.Dispatcher.Invoke(() =>
             {
                 ImagePathfront = new BitmapImage(new Uri(scannedFileNameFront));
+                
             });
         }
 
@@ -105,6 +135,11 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 ImagePathBack = new BitmapImage(new Uri(scannedFileNameBack));
             });
+        }
+
+        public static void ShowMessages(string message)
+        {
+            MessageBox.Show(message);
         }
 
         //Take Photo Button Clicked
