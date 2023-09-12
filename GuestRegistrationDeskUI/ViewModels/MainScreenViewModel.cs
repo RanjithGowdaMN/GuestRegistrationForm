@@ -5,6 +5,7 @@ using GuestRegistrationDeskUI.EventModel;
 using GuestRegistrationDeskUI.Models;
 using System;
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -112,14 +113,15 @@ namespace GuestRegistrationDeskUI.ViewModels
             Application.Current.Dispatcher.Invoke(() =>
             {
                 (var result, string fileName) = _centralHub.StartScanning(_idType);
+                Thread.Sleep(1000);
                 visitorName = result.Name == null ? "Error/ please rescan" : result.Name;
                 visitorIDNo = result.IDno == null ? "Error/ please rescan" : result.IDno;
                 visitorDOB = result.DateOfBirth == null ? "Error/ please rescan" : result.DateOfBirth;
                 visitorIDExpiry = result.Expiry == null ? "Error/ please rescan" : result.Expiry;
                 visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
                 scannedFileNameFront = fileName;
-            });
-
+            }, System.Windows.Threading.DispatcherPriority.Normal);
+            
             Application.Current.Dispatcher.Invoke(() =>
             {
                 ImagePathfront = new BitmapImage(new Uri(scannedFileNameFront));
@@ -367,8 +369,8 @@ namespace GuestRegistrationDeskUI.ViewModels
                 caPurposeOfVisit = "";
                 Duration = "";
                 EmergencyContactNo = "";
-                _events.PublishOnUIThreadAsync(new LogOnEvent());
-           // });
+                //_events.PublishOnUIThreadAsync(new LogOnEvent());
+            //});
             resetDefaultImage();
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -494,7 +496,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isPassport = value;
                     OnPropertyChanged(nameof(_isPassport));
-                    //ResetOrClearAllFields();
+                    ResetOrClearAllFields();
                 }
             }
         }
@@ -523,7 +525,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _isIDcard = value;
                     OnPropertyChanged(nameof(_isIDcard));
-                    //ResetOrClearAllFields();
+                    ResetOrClearAllFields();
                 }
             }
         }

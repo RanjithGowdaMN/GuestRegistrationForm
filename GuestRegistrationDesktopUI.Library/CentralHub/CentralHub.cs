@@ -17,6 +17,8 @@ using static System.Net.Mime.MediaTypeNames;
 using NLog;
 using GuestRegistrationDesktopUI.Library.ImageCrop;
 
+
+
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
     public class CentralHub : IFiScan, ICentralHub, IDisposable //, INotifyPropertyChanged
@@ -96,8 +98,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         {
             if (String.IsNullOrEmpty(fullImageFileName) || String.IsNullOrEmpty(generatedVisitorIDNumber))
             {
-                generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
+                generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 01).ToString().PadLeft(5, '0');
                 fullImageFileName =Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
+                //TBD
                 File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName);
             }
             return generatedVisitorIDNumber;
@@ -110,6 +113,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
             GenerateVisitorIDnumber();
             _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
+            vistorData = new VisitorDataModel();
         }
 
         public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
@@ -279,9 +283,16 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             fullImageFileName = Path.Combine(PhotoDir, filename);
             _canonSDKHelper.MainCamera.DownloadToFile(info, fullImageFileName);
             File.SetAttributes(fullImageFileName, FileAttributes.ReadOnly);
+
+           
             OnPhotoDownloadCompleted(fullImageFileName);
             cameraStatus.ImagePath = fullImageFileName;
         }
+
+      
+
+
+
 
         public delegate void OnPhotoDownloadCompletedEventHandler(string path);
 

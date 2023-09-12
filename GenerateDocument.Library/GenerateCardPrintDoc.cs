@@ -38,9 +38,11 @@ namespace GenerateDocument.Library
             {
                 imagePath = "D:\\VisitorData\\Photos\\photo00001.jpg";
             }
-            Image image = Image.GetInstance(imagePath);
-            image.RotationDegrees = 270;
-            image.ScaleToFit(150, 100);
+            
+                Image image = Image.GetInstance(imagePath);
+                image.RotationDegrees = 270;
+                image.ScaleToFit(150, 100);
+          
            
 
             //Load the Logo
@@ -53,7 +55,7 @@ namespace GenerateDocument.Library
 
             // Position the image
             image.SetAbsolutePosition(10, 40);
-            contentByte.AddImage(image);
+           contentByte.AddImage(image);
             
 
             //position of Logo

@@ -166,13 +166,15 @@ namespace GenerateDocument.Library
                 if (docType == "contract")
                 // Set the position and size of the image on the page
                 {
-                    image.SetAbsolutePosition(410, 632);
-                    image.ScaleToFit(120, 200);
+                    image.RotationDegrees = 270;
+                    image.SetAbsolutePosition(450, 632);
+                    image.ScaleToFit(100, 100);
                 }
                 else
                 {
-                    image.SetAbsolutePosition(410, 662);
-                    image.ScaleToFit(120, 120);
+                    image.RotationDegrees = 270;
+                    image.SetAbsolutePosition(450, 662);
+                    image.ScaleToFit(80, 80);
 
                 }
 
