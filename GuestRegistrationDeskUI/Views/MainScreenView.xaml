@@ -366,16 +366,6 @@
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" >
                             Temperory Badge
                         </Button>
-                        <DocumentViewer x:Name="ViewDocument"  Margin="7,8,-529,-669" ScrollViewer.CanContentScroll="True" Grid.Row="1" RenderTransformOrigin="0.5,0.5" >
-                            <DocumentViewer.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="-0.097"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </DocumentViewer.RenderTransform>
-                        </DocumentViewer>
                     </Grid>
                 </TabItem.Content>
             </TabItem>

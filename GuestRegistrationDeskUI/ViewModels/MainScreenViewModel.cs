@@ -45,7 +45,9 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 _centralHub.PrintIdCard(visitorName, "VISITOR");
                 ResetOrClearAllFields();
+                MessageBox.Show("File Created!");
             }
+            
             return;  
         }
 
@@ -55,6 +57,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
                 ResetOrClearAllFields();
+                MessageBox.Show("File Created!");
             }
             return;
         }
@@ -64,6 +67,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             if (MessageForPhoto())
             {
                 sendDetails("visitor");
+                MessageBox.Show("File Created!");
             }
             return;
         }
@@ -73,6 +77,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             if (MessageForPhoto())
             {
                 sendDetails("contract");
+                MessageBox.Show("File Created!");
             }
             return;
         }
