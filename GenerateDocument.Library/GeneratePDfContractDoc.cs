@@ -35,35 +35,35 @@ namespace GenerateDocument.Library
 
            
 
-            List<Tuple<float, float, string, float>> textForSecondPage = new List<Tuple<float, float, string, float>>();
+            List<Tuple<float, float, string>> textForSecondPage = new List<Tuple<float, float, string>>();
             List<Tuple<float, float, string>> textForThirdPage = new List<Tuple<float, float, string>>();
 
             if (guestDataModel.IsPassport)
             {
                 //Text position for Passport
                //consultant Application Form
-                textForSecondPage.Add(new Tuple<float, float, string, float>(390, 580, firstName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(230, 580, scndName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(70, 580, lastName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(340, 550, gConcatenatedDataBinding.consultantApplicationForm.Address, 16.0f));         
-                textForSecondPage.Add(new Tuple<float, float, string, float>(240, 550, gConcatenatedDataBinding.consultantApplicationForm.City, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(140, 550, gConcatenatedDataBinding.consultantApplicationForm.State, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(100, 515, gConcatenatedDataBinding.consultantApplicationForm.Zip, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(318, 513, gConcatenatedDataBinding.consultantApplicationForm.Email, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(200, 513, gConcatenatedDataBinding.consultantApplicationForm.CellPhone, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(70, 513, gConcatenatedDataBinding.consultantApplicationForm.Homephone, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 483, gConcatenatedDataBinding.consultantApplicationForm.SecurityNo, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 453, gConcatenatedDataBinding.consultantApplicationForm.CompanyName, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
+                textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
+                textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
+                textForSecondPage.Add(new Tuple<float, float, string>(340, 550, gConcatenatedDataBinding.consultantApplicationForm.Address));         
+                textForSecondPage.Add(new Tuple<float, float, string>(240, 550, gConcatenatedDataBinding.consultantApplicationForm.City));
+                textForSecondPage.Add(new Tuple<float, float, string>(140, 550, gConcatenatedDataBinding.consultantApplicationForm.State));
+                textForSecondPage.Add(new Tuple<float, float, string>(100, 515, gConcatenatedDataBinding.consultantApplicationForm.Zip));
+                textForSecondPage.Add(new Tuple<float, float, string>(318, 513, gConcatenatedDataBinding.consultantApplicationForm.Email));
+                textForSecondPage.Add(new Tuple<float, float, string>(200, 513, gConcatenatedDataBinding.consultantApplicationForm.CellPhone));
+                textForSecondPage.Add(new Tuple<float, float, string>(70, 513, gConcatenatedDataBinding.consultantApplicationForm.Homephone));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 483, gConcatenatedDataBinding.consultantApplicationForm.SecurityNo));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 453, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                                
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 450, guestDataModel.DateOfBirth, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 415, guestDataModel.IDno, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 385, guestDataModel.Expiry, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 355, guestDataModel.Nationality, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 450, guestDataModel.DateOfBirth));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 415, guestDataModel.IDno));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 385, guestDataModel.Expiry));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 355, guestDataModel.Nationality));
 
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 383, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310,350, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 315, gConcatenatedDataBinding.consultantApplicationForm.Duration, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(100,315, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 383, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue));
+                textForSecondPage.Add(new Tuple<float, float, string>(310,350, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 315, gConcatenatedDataBinding.consultantApplicationForm.Duration));
+                textForSecondPage.Add(new Tuple<float, float, string>(100,315, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
 
                 
 
@@ -79,30 +79,30 @@ namespace GenerateDocument.Library
             {
                 //Text position for Qatar ID 
                 //Consultant Application Form           
-                textForSecondPage.Add(new Tuple<float, float, string, float>(390, 580, firstName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(230, 580, scndName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(70, 580, lastName, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 450, guestDataModel.DateOfBirth, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(340, 415, guestDataModel.IDno, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 385, guestDataModel.Expiry, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(390, 580, firstName));
+                textForSecondPage.Add(new Tuple<float, float, string>(230, 580, scndName));
+                textForSecondPage.Add(new Tuple<float, float, string>(70, 580, lastName));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 450, guestDataModel.DateOfBirth));
+                textForSecondPage.Add(new Tuple<float, float, string>(340, 415, guestDataModel.IDno));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 385, guestDataModel.Expiry));
                                                          
-                textForSecondPage.Add(new Tuple<float, float, string, float>(160, 355, guestDataModel.Nationality, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(160, 355, guestDataModel.Nationality));
 
 
-                textForSecondPage.Add(new Tuple<float, float, string, float>(340, 550, gConcatenatedDataBinding.consultantApplicationForm.Address, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(240, 550, gConcatenatedDataBinding.consultantApplicationForm.City, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(140, 550, gConcatenatedDataBinding.consultantApplicationForm.State, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(70, 528, gConcatenatedDataBinding.consultantApplicationForm.Zip, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(318, 513, gConcatenatedDataBinding.consultantApplicationForm.Email, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(200, 513, gConcatenatedDataBinding.consultantApplicationForm.CellPhone, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(70, 513, gConcatenatedDataBinding.consultantApplicationForm.Homephone, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 483, gConcatenatedDataBinding.consultantApplicationForm.SecurityNo, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 453, gConcatenatedDataBinding.consultantApplicationForm.CompanyName, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(340, 550, gConcatenatedDataBinding.consultantApplicationForm.Address));
+                textForSecondPage.Add(new Tuple<float, float, string>(240, 550, gConcatenatedDataBinding.consultantApplicationForm.City));
+                textForSecondPage.Add(new Tuple<float, float, string>(140, 550, gConcatenatedDataBinding.consultantApplicationForm.State));
+                textForSecondPage.Add(new Tuple<float, float, string>(70, 528, gConcatenatedDataBinding.consultantApplicationForm.Zip));
+                textForSecondPage.Add(new Tuple<float, float, string>(318, 513, gConcatenatedDataBinding.consultantApplicationForm.Email));
+                textForSecondPage.Add(new Tuple<float, float, string>(200, 513, gConcatenatedDataBinding.consultantApplicationForm.CellPhone));
+                textForSecondPage.Add(new Tuple<float, float, string>(70, 513, gConcatenatedDataBinding.consultantApplicationForm.Homephone));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 483, gConcatenatedDataBinding.consultantApplicationForm.SecurityNo));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 453, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
 
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 383, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 350, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(310, 315, gConcatenatedDataBinding.consultantApplicationForm.Duration, 16.0f));
-                textForSecondPage.Add(new Tuple<float, float, string, float>(100, 315, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo, 16.0f));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 383, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 350, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
+                textForSecondPage.Add(new Tuple<float, float, string>(310, 315, gConcatenatedDataBinding.consultantApplicationForm.Duration));
+                textForSecondPage.Add(new Tuple<float, float, string>(100, 315, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
 
 
                 //confidentiality Agreement For Contractors

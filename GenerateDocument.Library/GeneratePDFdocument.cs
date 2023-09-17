@@ -34,7 +34,7 @@ namespace GenerateDocument.Library
 
         }
 
-        public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string, float>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
+        public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
                                 string outputFilePath, string imagePath, string docType,gScannedFileModel gScannedFileModel,GuestDataModel guestDataModel)
         {
             // Check if the PDF and image files exist
@@ -94,7 +94,7 @@ namespace GenerateDocument.Library
                 // Add text to the target page
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 content.BeginText();
-                content.SetFontAndSize(bf, 8);
+                content.SetFontAndSize(bf,10);
 
                 foreach (var text in textsToAdd)
                 {
@@ -117,7 +117,7 @@ namespace GenerateDocument.Library
             }
         }
 
-        public static void AddTextToTargetPage(PdfStamper pdfStamper, List<Tuple<float, float, string, float>> textsToAdd1)
+        public static void AddTextToTargetPage(PdfStamper pdfStamper, List<Tuple<float, float, string>> textsToAdd1)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace GenerateDocument.Library
                 // Add text to the target page
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 content.BeginText();
-                content.SetFontAndSize(bf, 8);
+                content.SetFontAndSize(bf, 10);
 
                 foreach (var text in textsToAdd1)
                 {
