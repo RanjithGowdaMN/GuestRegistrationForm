@@ -123,12 +123,17 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
             List<string> mrzFirstPart = mrz[0].Substring(5).Split('<').ToList();
             mrzFirstPart = RemoveEmptyItems(mrzFirstPart);
-            string FullName = mrzFirstPart[0];//mrzFirstPart.Count-1];
 
-            for (int i = 1; i < mrzFirstPart.Count; i++)
-            {
-                FullName += " " + mrzFirstPart[i];
-            }
+
+
+            //string FullName = mrzFirstPart[mrzFirstPart.Count - 1];//mrzFirstPart.Count-1];
+
+            //for (int i = 0; i < mrzFirstPart.Count -1; i++)
+            //{
+            //    FullName += " " + mrzFirstPart[i];
+            //}
+
+            string FullName = BuildFullName(mrzFirstPart);
 
             List<string> mrzSecondPart = mrz[1].Split('<').ToList();
             visitorDataModel.Name = ExtractCharatersOnly(FullName);
@@ -293,6 +298,33 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
                 }
             }
             return result;
+        }
+
+        private static string BuildFullName(List<string> names)
+        {
+            StringBuilder fullName = new StringBuilder();
+            if (names.Count == 6)
+            {
+                return names[3] + " " + names[4] + " " + names[5] + " " + names[0] + " " + names[1] + " " + names[2];
+
+            }
+            else if (names.Count == 5) { 
+                return names[3] + " " + names[4] + " " + names[0] + " " + names[1] + " " + names[2];
+            }
+            else if (names.Count == 4)
+            {
+                return names[2] + " " + names[3] + " " + names[1] + " " + names[0];
+            }
+            else if(names.Count == 3)
+            {
+                return names[2] + " " + names[0] + " " + names[1];// + " " + names[0];
+            } else if (names.Count == 2)
+            {
+                return names[1] + " " + names[0];
+            } else
+            {
+                return String.Join(" ",names);
+            }
         }
     }
 }

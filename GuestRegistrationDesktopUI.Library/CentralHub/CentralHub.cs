@@ -96,24 +96,54 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public string GenerateVisitorIDnumber()
         {
-            if (String.IsNullOrEmpty(fullImageFileName) || String.IsNullOrEmpty(generatedVisitorIDNumber))
+            if (String.IsNullOrEmpty(fullImageFileName))
             {
-                generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 01).ToString().PadLeft(5, '0');
-                fullImageFileName =Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
-                //TBD
-                File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName);
+                if (String.IsNullOrEmpty(generatedVisitorIDNumber) )
+                {
+                    generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 00).ToString().PadLeft(5, '0');
+                    //return generatedVisitorIDNumber;
+                }
+
+
+
+                //generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0').PadLeft(5, '0');
+
+                fullImageFileName = Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
+                File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName, true);
+
+                ////TBD
+                //try
+                //{
+                //    File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName);
+
+                //}
+                //catch (Exception)
+                //{
+                //    generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 01).ToString().PadLeft(5, '0');
+                //    fullImageFileName = Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
+                //    File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName, true);
+
+                //}
+            }
+            else
+            {
+                generatedVisitorIDNumber = fullImageFileName.Replace("D:\\VisitorData\\Photos\\photo", "").Replace(".jpg", "");
             }
             return generatedVisitorIDNumber;
         }
 
         public void PrintIdCard(string visitorName, string visitorType)
         {
-            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0') + ".pdf");
+            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", GenerateVisitorIDnumber() + ".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
             //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
-            GenerateVisitorIDnumber();
+            //GenerateVisitorIDnumber();
             _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
             vistorData = new VisitorDataModel();
+            cameraStatus = new CameraStatus();
+            scannedFileInfo = new ScannedFileModel();
+            fullImageFileName = string.Empty;
+            generatedVisitorIDNumber = string.Empty;
         }
 
         public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
@@ -248,7 +278,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 try
                 {
                     //scannedData = _iOCRhelper.ExtractTextFromImage(fileName);
-                    ProcessTextData processText = new ProcessTextData();
+                     ProcessTextData processText = new ProcessTextData();
                     vistorData = processText.ProcessTextFromBlob(_iOCRhelper.ExtractText(fileName, IdType));
                 }
                 catch (Exception ex)
@@ -288,12 +318,8 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             OnPhotoDownloadCompleted(fullImageFileName);
             cameraStatus.ImagePath = fullImageFileName;
         }
-
-      
-
-
-
-
+             
+ 
         public delegate void OnPhotoDownloadCompletedEventHandler(string path);
 
         public event OnPhotoDownloadCompletedEventHandler CanonImageDownload;

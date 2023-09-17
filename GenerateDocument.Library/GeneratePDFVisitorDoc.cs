@@ -14,17 +14,26 @@ namespace GenerateDocument.Library
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Visitor.pdf";
             DateTime currentDate = DateTime.Now;
-          
-            // confidentiality Agreement for visitors
-            List<Tuple<float, float, string>> textsToAdd1 = new List<Tuple<float, float, string>>
-            { 
 
-            new Tuple<float, float, string>(110, 638, guestDataModel.Name),
-            new Tuple<float, float, string>(110,608,gConcatenatedDataBinding.CAforVisitor.Title),
-            new Tuple<float, float, string>(355,608,gConcatenatedDataBinding.CAforVisitor.Company),
-            new Tuple<float, float, string>(400,440,gConcatenatedDataBinding.CAforVisitor.Date )
-                           
-            };
+            // confidentiality Agreement for visitors
+            /* List<Tuple<float, float, string>> textsToAdd1 = new List<Tuple<float, float, string>>
+             { 
+
+             new Tuple<float, float, string>(110, 638, guestDataModel.Name),
+             new Tuple<float, float, string>(110,608,gConcatenatedDataBinding.CAforVisitor.Title),
+             new Tuple<float, float, string>(355,608,gConcatenatedDataBinding.CAforVisitor.Company),
+             new Tuple<float, float, string>(400,440,gConcatenatedDataBinding.CAforVisitor.Date )
+
+             };*/
+
+            List<Tuple<float, float, string, float>> textsToAdd1 = new List<Tuple<float, float, string, float>>
+{
+  new Tuple<float, float, string, float>  (110, 638, guestDataModel.Name, 20.0f), // Specify the font size (e.g., 16.0f)
+  new Tuple<float, float, string, float>  (110, 608, gConcatenatedDataBinding.CAforVisitor.Title, 16.0f), // Specify the font size 
+    new Tuple<float, float, string, float> (355, 608, gConcatenatedDataBinding.CAforVisitor.Company, 16.0f), // Specify the font size
+  new Tuple<float, float, string, float>  (400, 440, gConcatenatedDataBinding.CAforVisitor.Date, 16.0f) // Specify the font size
+};
+
 
             //Visitors Data Sheet
             List<Tuple<float, float, string>> textsToAdd = new List<Tuple<float, float, string>>

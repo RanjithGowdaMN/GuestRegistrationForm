@@ -40,8 +40,8 @@ namespace GenerateDocument.Library
             }
             
                 Image image = Image.GetInstance(imagePath);
-                image.RotationDegrees = 270;
-                image.ScaleToFit(150, 100);
+               // image.RotationDegrees = 270;
+                image.ScaleToFit(100, 80);
           
            
 

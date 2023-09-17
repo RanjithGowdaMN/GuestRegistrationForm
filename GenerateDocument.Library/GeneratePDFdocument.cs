@@ -34,7 +34,7 @@ namespace GenerateDocument.Library
 
         }
 
-        public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
+        public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string, float>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
                                 string outputFilePath, string imagePath, string docType,gScannedFileModel gScannedFileModel,GuestDataModel guestDataModel)
         {
             // Check if the PDF and image files exist
@@ -117,7 +117,7 @@ namespace GenerateDocument.Library
             }
         }
 
-        public static void AddTextToTargetPage(PdfStamper pdfStamper, List<Tuple<float, float, string>> textsToAdd1)
+        public static void AddTextToTargetPage(PdfStamper pdfStamper, List<Tuple<float, float, string, float>> textsToAdd1)
         {
             try
             {
@@ -166,13 +166,13 @@ namespace GenerateDocument.Library
                 if (docType == "contract")
                 // Set the position and size of the image on the page
                 {
-                    image.RotationDegrees = 270;
-                    image.SetAbsolutePosition(450, 632);
+                  //  image.RotationDegrees = 270;
+                    image.SetAbsolutePosition(440, 632);
                     image.ScaleToFit(100, 100);
                 }
                 else
                 {
-                    image.RotationDegrees = 270;
+                    //image.RotationDegrees = 270;
                     image.SetAbsolutePosition(450, 662);
                     image.ScaleToFit(80, 80);
 

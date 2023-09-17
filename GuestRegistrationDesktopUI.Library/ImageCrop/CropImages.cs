@@ -12,43 +12,51 @@ namespace GuestRegistrationDesktopUI.Library.ImageCrop
     {
         public static void CropImage(string fileName, int fileType) {
 
-            string tempImageName = "D:\\VisitorData\\ScannedID\\temp.jpg";
+            try
+            {
+                string tempImageName = "D:\\VisitorData\\ScannedID\\temp.jpg";
 
-            int cropX = 2000;
-            int cropY = 0; 
-            int cropWidth = 10000; 
-            int cropHeight = 10000;
+                int cropX = 2000;
+                int cropY = 0;
+                int cropWidth = 10000;
+                int cropHeight = 10000;
 
-            if (fileType == 2)
-            {
-                //passport
-                cropX = (int)Passport.x;
-                cropY = (int)Passport.y;
-                cropWidth = (int)Passport.xWidth;
-                cropHeight = (int)Passport.yHeight;
-            }
-            else if(fileType == 1)
-            {
-                // ID card
-                cropX = (int)IdCard.x;
-                cropY = (int)IdCard.y;
-                cropWidth = (int)IdCard.xWidth;
-                cropHeight = (int)IdCard.yHeight;
-            }
-            else
-            {
-
-            }
-            using (Bitmap inputImage = new Bitmap(fileName))
-            {
-                Rectangle cropRect = new Rectangle(cropX, cropY, cropWidth, cropHeight);
-                using (Bitmap croppedImage = inputImage.Clone(cropRect, inputImage.PixelFormat))
+                if (fileType == 2)
                 {
-                    croppedImage.Save(tempImageName);
+                    //passport
+                    cropX = (int)Passport.x;
+                    cropY = (int)Passport.y;
+                    cropWidth = (int)Passport.xWidth;
+                    cropHeight = (int)Passport.yHeight;
                 }
+                else if (fileType == 1)
+                {
+                    // ID card
+                    cropX = (int)IdCard.x;
+                    cropY = (int)IdCard.y;
+                    cropWidth = (int)IdCard.xWidth;
+                    cropHeight = (int)IdCard.yHeight;
+                }
+                else
+                {
+
+                }
+                using (Bitmap inputImage = new Bitmap(fileName))
+                {
+                    Rectangle cropRect = new Rectangle(cropX, cropY, cropWidth, cropHeight);
+                    using (Bitmap croppedImage = inputImage.Clone(cropRect, inputImage.PixelFormat))
+                    {
+                        croppedImage.Save(tempImageName);
+                    }
+                }
+                File.Delete(fileName);
+                File.Move(tempImageName, fileName);
             }
-            File.Delete(fileName);
-            File.Move(tempImageName, fileName);
+            catch (Exception ex)
+            {
+
+                return;
+            }
         }
 
 
