@@ -68,7 +68,7 @@ namespace GuestRegistrationDeskUI.Views
                 Expiry.Text = string.Empty;
                 Nationality.Text = string.Empty;
 
-                txtVisitorsName.Text = string.Empty;
+                //txtVisitorsName.Text = string.Empty;
                 txtDate.Text = string.Empty;
                 txtCompany.Text = string.Empty;
                 txtVisitorsIdNo.Text = string.Empty;
@@ -80,7 +80,7 @@ namespace GuestRegistrationDeskUI.Views
                 txtDepartmentManager.Text = string.Empty;
                 txtProductionManager.Text = string.Empty;
                 txtSecurityController.Text = string.Empty;
-                txtName.Text = string.Empty;
+                //txtName.Text = string.Empty;
                 txtTitle.Text = string.Empty;
                 txtCompany1.Text = string.Empty;
                 txtDate1.Text = string.Empty;
@@ -99,9 +99,9 @@ namespace GuestRegistrationDeskUI.Views
                 txtDate3.Text = string.Empty;
                 txtArrivalTime1.Text = string.Empty;
                 txtDepartureTime1.Text = string.Empty;
-                txtFirstName.Text = string.Empty;
-                txtMiddleName.Text = string.Empty;
-                txtLastName.Text = string.Empty;
+                //txtFirstName.Text = string.Empty;
+                //txtMiddleName.Text = string.Empty;
+                //txtLastName.Text = string.Empty;
                 txtAddress.Text = string.Empty;
                 txtCity.Text = string.Empty;
                 txtState.Text = string.Empty;

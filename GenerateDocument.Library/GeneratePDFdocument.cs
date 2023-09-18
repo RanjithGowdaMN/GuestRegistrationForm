@@ -94,14 +94,16 @@ namespace GenerateDocument.Library
                 // Add text to the target page
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 content.BeginText();
-                content.SetFontAndSize(bf,10);
+                content.SetFontAndSize(bf,8);
 
                 foreach (var text in textsToAdd)
                 {
+                   string uppercaseText = text.Item3.ToUpper();
                     content.SetTextMatrix(text.Item1, text.Item2);
                     if (text.Item3 != null)
                     {
-                        content.ShowText(text.Item3);
+                   //     text.Item3.ToUpper();
+                        content.ShowText(uppercaseText);
                     }
                     else
                     {
@@ -129,14 +131,17 @@ namespace GenerateDocument.Library
                 // Add text to the target page
                 BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 content.BeginText();
-                content.SetFontAndSize(bf, 10);
+                content.SetFontAndSize(bf, 8);
 
                 foreach (var text in textsToAdd1)
                 {
-                    content.SetTextMatrix(text.Item1, text.Item2);
+
                     if (!string.IsNullOrEmpty(text.Item3))
                     {
-                        content.ShowText(text.Item3);
+                        string uppercaseText = text.Item3.ToUpper();
+                        content.SetTextMatrix(text.Item1, text.Item2);
+                        // text.Item3.ToUpper();
+                        content.ShowText(uppercaseText);
                     }
                     else
                     {

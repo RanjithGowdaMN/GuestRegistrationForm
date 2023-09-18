@@ -17,12 +17,12 @@ namespace GenerateDocument.Library
 
             // confidentiality Agreement for visitors
             List<Tuple<float, float, string>> textsToAdd1 = new List<Tuple<float, float, string>>
-             { 
+             {
 
-             new Tuple<float, float, string>(110, 638, guestDataModel.Name),
-             new Tuple<float, float, string>(110,608,gConcatenatedDataBinding.CAforVisitor.Title),
-             new Tuple<float, float, string>(355,608,gConcatenatedDataBinding.CAforVisitor.Company),
-             new Tuple<float, float, string>(400,440,gConcatenatedDataBinding.CAforVisitor.Date )
+             new Tuple<float, float, string>(105, 638, guestDataModel.Name),
+             new Tuple<float, float, string>(100,603,gConcatenatedDataBinding.CAforVisitor.Title),
+             new Tuple<float, float, string>(355,603,gConcatenatedDataBinding.CAforVisitor.Company),
+             new Tuple<float, float, string>(400,430,DateTime.Now.ToString("dd-MM-yyyy")),
 
              };
 
@@ -31,21 +31,21 @@ namespace GenerateDocument.Library
             //Visitors Data Sheet
             List<Tuple<float, float, string>> textsToAdd = new List<Tuple<float, float, string>>
             {
-                new Tuple<float, float, string>(180, 645, guestDataModel.Name),
-                new Tuple<float, float, string>(480,645,gConcatenatedDataBinding.visitorDataSheet.Date),
-                new Tuple<float, float, string>(480, 600, guestDataModel.IDno),
-                new Tuple<float, float, string>(480,550,guestDataModel.DateOfBirth),
-                new Tuple<float, float, string>(480, 500,guestDataModel.Expiry),
-                new Tuple<float, float, string>(480,453,guestDataModel.Nationality),
-                new Tuple<float, float, string>(180,600,gConcatenatedDataBinding.visitorDataSheet.Company),
-                new Tuple<float, float, string>(180,550,gConcatenatedDataBinding.visitorDataSheet.ReasonForVisit),
-                new Tuple<float, float, string>(180,500,gConcatenatedDataBinding.visitorDataSheet.PersontobeVisited),
-                new Tuple<float, float, string>(180,453,gConcatenatedDataBinding.visitorDataSheet.AreaVisited),
-                new Tuple<float, float, string>(480,410,gConcatenatedDataBinding.visitorDataSheet.VisitDuration),
-                new Tuple<float, float, string>(180,410,gConcatenatedDataBinding.visitorDataSheet.VisitDateTime),
-                new Tuple<float, float, string>(180,373,gConcatenatedDataBinding.visitorDataSheet.DepartmentManager),
-                new Tuple<float, float, string>(180,330,gConcatenatedDataBinding.visitorDataSheet.ProductionManager),
-                new Tuple<float, float, string>(180,283,gConcatenatedDataBinding.visitorDataSheet.SecurityController)
+                new Tuple<float, float, string>(182, 645, guestDataModel.Name),
+                new Tuple<float, float, string>(470,645,gConcatenatedDataBinding.visitorDataSheet.Date),
+                new Tuple<float, float, string>(470, 600, guestDataModel.IDno),
+                new Tuple<float, float, string>(470,550,guestDataModel.DateOfBirth),
+                new Tuple<float, float, string>(470, 500,guestDataModel.Expiry),
+                new Tuple<float, float, string>(470,453,guestDataModel.Nationality),
+                new Tuple<float, float, string>(182,600,gConcatenatedDataBinding.visitorDataSheet.Company),
+                new Tuple<float, float, string>(182,550,gConcatenatedDataBinding.visitorDataSheet.ReasonForVisit),
+                new Tuple<float, float, string>(182,500,gConcatenatedDataBinding.visitorDataSheet.PersontobeVisited),
+                new Tuple<float, float, string>(182,453,gConcatenatedDataBinding.visitorDataSheet.AreaVisited),
+                new Tuple<float, float, string>(470,410,gConcatenatedDataBinding.visitorDataSheet.VisitDuration),
+                new Tuple<float, float, string>(182,410,gConcatenatedDataBinding.visitorDataSheet.VisitDateTime),
+                new Tuple<float, float, string>(182,373,gConcatenatedDataBinding.visitorDataSheet.DepartmentManager),
+                new Tuple<float, float, string>(182,330,gConcatenatedDataBinding.visitorDataSheet.ProductionManager),
+                new Tuple<float, float, string>(182,283,gConcatenatedDataBinding.visitorDataSheet.SecurityController)
                 
 
                 // To be add other data
