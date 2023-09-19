@@ -1,6 +1,7 @@
 ﻿using GuestRegistrationDeskUI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+
+
 
 namespace GuestRegistrationDeskUI.Views
 {
@@ -22,6 +26,7 @@ namespace GuestRegistrationDeskUI.Views
     /// </summary>
     public partial class MainScreenView : UserControl
     {
+        PrinterSettings printerSettings = new PrinterSettings();
         public MainScreenView()
         {
             InitializeComponent();
@@ -70,7 +75,7 @@ namespace GuestRegistrationDeskUI.Views
 
                 //txtVisitorsName.Text = string.Empty;
                // txtDate.Text = string.Empty;
-                txtCompany.Text = string.Empty;
+                //txtCompany.Text = string.Empty;
                 txtVisitorsIdNo.Text = string.Empty;
                 txtReasonforVisit.Text = string.Empty;
                 txtPersontobeVisited.Text = string.Empty;
@@ -134,6 +139,31 @@ namespace GuestRegistrationDeskUI.Views
         private void ScanIDCard_Click(object sender, RoutedEventArgs e)
         {
             ClearFields();
+        }
+
+        private void VisitorCompanyName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbPrinterSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            printerSettings.PrinterName = cmbPrinterSelection.SelectedItem.ToString();
+        }
+
+        private void GenerateTempBadge_Click(object sender, RoutedEventArgs e)
+        {
+           // var printDialog1 = new PrintDialog();
+
+            PrintDocument printDialog = new PrintDocument() 
+            { DocumentName = "D:/Visi.pdf" };
+            printDialog.Print();
+
+            //if (printDialog.ShowDialog() == MessageBox.Show()
+            //{
+            //    printDialog.PrintDocument.Print();
+            //}
         }
     }
 }

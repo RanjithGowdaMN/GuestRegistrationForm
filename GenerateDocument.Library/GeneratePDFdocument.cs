@@ -29,9 +29,6 @@ namespace GenerateDocument.Library
             {
 
             }
-
-             
-
         }
 
         public static void ModifyPdf(string inputFilePath, List<Tuple<float, float, string>> textsToAdd1, List<Tuple<float, float, string>> textsToAdd,
@@ -206,8 +203,7 @@ namespace GenerateDocument.Library
             {
                 Console.WriteLine("An error occurred while adding the image: " + ex.Message);
             }
-                  
-                     
+        
         }
 
 

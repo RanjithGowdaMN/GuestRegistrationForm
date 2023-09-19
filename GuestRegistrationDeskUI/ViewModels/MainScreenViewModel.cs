@@ -3,12 +3,16 @@ using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.EventModel;
 using GuestRegistrationDeskUI.Models;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Drawing.Printing;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -22,6 +26,7 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
+            LoadData();
             _centralHub = centralHub;
             _container = container;
             _events = events;
@@ -32,6 +37,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         ~MainScreenViewModel()
         {
         }
+
+
         public void resetDefaultImage()
         {
             ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
@@ -384,6 +391,9 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
+
+        
 
         private string _visitorName;
         public string visitorName
@@ -598,5 +608,46 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _caPurposeOfVisit; public string caPurposeOfVisit { get { return _caPurposeOfVisit; } set { if (_caPurposeOfVisit != value) { _caPurposeOfVisit = value; } } }
         private string _duration; public string Duration { get { return _duration; } set { if (_duration != value) { _duration = value; } } }
         private string _emergencyContactNo; public string EmergencyContactNo { get { return _emergencyContactNo; } set { if (_emergencyContactNo != value) { _emergencyContactNo = value; } } }
+
+        private void LoadData()
+        {
+            try
+            {
+                string jsonFilePath = "D:\\VisitorData\\Data\\DataConfiguration.json"; // Provide the path to your JSON file
+                string jsonData = File.ReadAllText(jsonFilePath);
+    
+                var data = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
+                VisitorCompanyName = data.VisitorCompanyName;
+                VisitorVisitPurpose = data.VisitorVisitPurpose;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., file not found, JSON parsing error
+            }
+        }
+        private List<string> _visitorCompanyName;
+        public List<string> VisitorCompanyName
+        {
+            get { return _visitorCompanyName; }
+            set
+            {
+                _visitorCompanyName = value;
+                NotifyOfPropertyChange(() => VisitorCompanyName);
+            }
+        }
+
+        private List<string> _visitorVisitPurpose;
+
+        public List<string> VisitorVisitPurpose
+        {
+            get { return _visitorVisitPurpose; }
+            set
+            {
+                _visitorVisitPurpose = value;
+                NotifyOfPropertyChange(() => VisitorVisitPurpose);
+            }
+        }
     }
+
 }

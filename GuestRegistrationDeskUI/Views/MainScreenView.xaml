@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="GuestRegistrationDeskUI.Views.MainScreenView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Printing="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GuestRegistrationDeskUI.Views"
@@ -129,7 +130,8 @@
                                 <!--><Label x:Name="lblDate" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="41" Grid.ColumnSpan="2">Date</Label>
                                 <TextBox x:Name="txtDate" Text="{Binding vdsDate, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
                                 <Label x:Name="lblCompany" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="72" Grid.ColumnSpan="2">Company</Label>
-                                <TextBox x:Name="txtCompany" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                <!--<TextBox x:Name="txtCompany" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
+                                <ComboBox x:Name="VisitorCompanyName" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30" SelectionChanged="VisitorCompanyName_SelectionChanged"/>
                                 <Label x:Name="lblVisitorsIdNo" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="103" Grid.ColumnSpan="2">Visitor's Id No</Label>
                                 <TextBox x:Name="txtVisitorsIdNo" Text="{Binding VisitorIdNo, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblReasonforVisit" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Reason for the Visit</Label>
@@ -363,9 +365,14 @@
                                  HorizontalAlignment="Left" x:Name="GenerateVisitorDocument" Content="Visitor" />
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="0,10,19,10"
                                  HorizontalAlignment="Center" x:Name="GenerateContractDocument" Content="Contract" />
-                        <Button Grid.Row="0" Padding="10 5" Width="190" Height="50" Margin="500,10,0,11"
-                                 HorizontalAlignment="Center" x:Name="GenerateTempBadge" >
-                            Temperory Badge
+
+                        <!--<ComboBox x:Name="printerComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="503,17,0,0"/>-->
+
+                        <ComboBox Name="cmbPrinterSelection" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" SelectionChanged="cmbPrinterSelection_SelectionChanged" Margin="500,29,-14.4,11.2" />
+
+                        <Button Grid.Row="0" Padding="10 5" Width="190" Height="50" Margin="759,10,-257,11.2"
+                                 HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
+                            Print Document
                         </Button>
                     </Grid>
                 </TabItem.Content>
