@@ -69,7 +69,7 @@ namespace GuestRegistrationDeskUI.Views
                 Nationality.Text = string.Empty;
 
                 //txtVisitorsName.Text = string.Empty;
-                txtDate.Text = string.Empty;
+               // txtDate.Text = string.Empty;
                 txtCompany.Text = string.Empty;
                 txtVisitorsIdNo.Text = string.Empty;
                 txtReasonforVisit.Text = string.Empty;
@@ -83,7 +83,7 @@ namespace GuestRegistrationDeskUI.Views
                 //txtName.Text = string.Empty;
                 txtTitle.Text = string.Empty;
                 txtCompany1.Text = string.Empty;
-                txtDate1.Text = string.Empty;
+                //txtDate1.Text = string.Empty;
                 txtIdDateofIssue.Text = string.Empty;
                 txtPlaceofIssue.Text = string.Empty;
                 txtVisitorName.Text = string.Empty;
