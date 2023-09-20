@@ -40,6 +40,9 @@
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="EDSDKLib, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Ghostscript.NET, Version=1.2.3.0, Culture=neutral, PublicKeyToken=f85051de34525b59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ghostscript.NET.1.2.3.1\lib\net40\Ghostscript.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -110,7 +113,9 @@
     <Compile Include="CentralHub\ICentralHub.cs" />
     <Compile Include="FileHandler\FileHelper.cs" />
     <Compile Include="CentralHub\CentralHub.cs" />
-    <Compile Include="FiScanner\FiScanHelper.cs" />
+    <Compile Include="FiScanner\FiScanHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FiScanner\IFiScan.cs" />
     <Compile Include="FiScanner\IFiScanHelper.cs" />
     <Compile Include="GenerateDocument\DocumentGenerator.cs" />
@@ -129,7 +134,9 @@
     <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />
-    <Compile Include="PhotoHandler\CameraOperations.cs" />
+    <Compile Include="PhotoHandler\CameraOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PhotoHandler\ICanonSDKHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextProcessing\CountryCode.cs" />

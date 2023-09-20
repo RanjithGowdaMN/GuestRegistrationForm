@@ -12,7 +12,7 @@
 
     <Grid MinHeight="1200" Margin="0,0,10,10"  >
 
-        <TabControl TabStripPlacement="Left" Margin="0,10,0,-10" Padding="0 0 0 0" FontSize="18" FontWeight="Bold">
+        <TabControl TabStripPlacement="Left" Margin="0,10,0,410" Padding="0 0 0 0" FontSize="18" FontWeight="Bold">
             <TabItem Name="ScanIdDocuments" Header="Scan" HorizontalContentAlignment="Center" Padding="25 50 50 25">
                 <TabItem.Content>
                     <Grid Margin="0,0,520.4,431">
@@ -138,7 +138,7 @@
                                 <Label x:Name="lblReasonforVisit" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Reason for the Visit</Label>
                                 <TextBox x:Name="txtReasonforVisit" Text="{Binding ReasonForVisit,Mode=TwoWay}" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblPersontobeVisited" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="158" Grid.ColumnSpan="2">Person(s) to be Visited</Label>
-                                
+
                                 <!--<TextBox x:Name="txtPersontobeVisited" Text="{Binding PersontobeVisited,Mode=TwoWay}" Grid.Row="4" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
 
                                 <ComboBox x:Name="DepartmentNames" Grid.Row="4" Grid.Column="2" Margin="1,10,19,10" MinHeight="30" SelectionChanged="DepartmentNames_SelectionChanged"/>
@@ -364,6 +364,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
+
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -371,18 +372,26 @@
                         </Grid.RowDefinitions>
                         <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="10,0,0,0"
                                  HorizontalAlignment="Left" x:Name="GenerateVisitorDocument" Content="Visitor" />
-                        <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="150" Height="50" Margin="0,10,19,10"
+                        <Button Grid.Row="0" Padding="10 5" Width="150" Height="50" Margin="210,11,641,11"
                                  HorizontalAlignment="Center" x:Name="GenerateContractDocument" Content="Contract" />
 
                         <!--<ComboBox x:Name="printerComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="503,17,0,0"/>-->
 
-                        <ComboBox Name="cmbPrinterSelection" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" SelectionChanged="cmbPrinterSelection_SelectionChanged" Margin="500,29,-14.4,11.2" />
+                        <ComboBox Grid.Row="0" Name="cmbPrinterSelection" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" SelectionChanged="cmbPrinterSelection_SelectionChanged" Margin="603,21,282,19" />
 
                         <Button Grid.Row="0" Padding="10 5" Width="190" Height="50" Margin="759,10,-257,11.2"
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
                             Print Document
                         </Button>
-
+                        
+                        
+                        <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="900" Width="1000" Margin="124,0,27,0">
+                            <StackPanel  Grid.Row="1" Name="imageContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{Binding DocImage}" Width="200" Height="150" Stretch="Uniform" />
+                            </StackPanel>
+                        </ScrollViewer>
+                        
+                        
                     </Grid>
                 </TabItem.Content>
             </TabItem>

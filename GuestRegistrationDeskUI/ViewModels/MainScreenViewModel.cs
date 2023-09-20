@@ -19,6 +19,13 @@ using Windows.Data.Pdf;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using GuestRegistrationDeskUI.Views;
+using Ghostscript.NET.Rasterizer;
+using Ghostscript.NET;
+using Ghostscript.NET.Processor;
+using Ghostscript.NET.Viewer;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Interop;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -28,11 +35,12 @@ namespace GuestRegistrationDeskUI.ViewModels
         private SimpleContainer _container;
         private IEventAggregator _events;
         private int _idType;
+        public string GeneratedFileName = string.Empty;
 
         public UIbindingModel cmdData;
         public BitmapImage ImageToShow { get; set; }
 
-
+        public event EventHandler<string> DocumentGeneratedEvent; //MentionFileGeneration
 
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
@@ -44,7 +52,8 @@ namespace GuestRegistrationDeskUI.ViewModels
             //load default/dummy image
             resetDefaultImage();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
-            
+            DocumentGeneratedEvent += sendFileForUpdate;
+
         }
         ~MainScreenViewModel()
         {
@@ -66,8 +75,8 @@ namespace GuestRegistrationDeskUI.ViewModels
                 ResetOrClearAllFields();
                 MessageBox.Show("File Created!");
             }
-            
-            return;  
+
+            return;
         }
 
         public void PrintContractIdCard()
@@ -80,15 +89,24 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
             return;
         }
-
+        public delegate void MentionFileGeneration(string fileName);
         public void GenerateVisitorDocument()
         {
             if (MessageForPhoto())
             {
-                sendDetails("visitor");
+                //ConvertPdfToImages("", "");
+                GeneratedFileName = sendDetails("visitor");
                 MessageBox.Show("File Created!");
+                // raise event here
+                DocumentGeneratedEvent?.Invoke(this, GeneratedFileName);
+
             }
             return;
+        }
+
+        public void sendFileForUpdate(object obj, string fileName)
+        {
+            //ConvertPdfToImages("", "");
         }
 
         public void GenerateContractDocument()
@@ -145,15 +163,16 @@ namespace GuestRegistrationDeskUI.ViewModels
                 visitorNationality = result.Nationality == null ? "Error/ please rescan" : result.Nationality;
                 scannedFileNameFront = fileName;
             }, System.Windows.Threading.DispatcherPriority.Normal);
-            
+
             Application.Current.Dispatcher.Invoke(() =>
             {
                 ImagePathfront = new BitmapImage(new Uri(scannedFileNameFront));
-                
+
             });
         }
 
-        public void ScanIDBackSide() {
+        public void ScanIDBackSide()
+        {
             _idType = _isPassport ? 2 : 1;
             string scannedFileNameBack = string.Empty;
             scannedFileNameBack = _centralHub.ScanBackSide(_idType);
@@ -269,11 +288,13 @@ namespace GuestRegistrationDeskUI.ViewModels
             concatenatedDataBinding.hsaLog = highlySecurityControlAreaLog;
             concatenatedDataBinding.consultantApplicationForm = consultantApplicationForm;
             # endregion
-            if (visitorType == "visitor") { 
-                 return _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
+            if (visitorType == "visitor")
+            {
+                return _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
             }
-            else if(visitorType == "contract"){
-                 return _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
+            else if (visitorType == "contract")
+            {
+                return _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
             }
             return "D:\\VisitorData\\BaseDocument\\Visitor.pdf";
         }
@@ -282,116 +303,116 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             #region default    
             _visitorName = "";
-                _visitorIDNo = "";
-                _visitorDOB = "";
-                _visitorIDExpiry = "";
-                _visitorNationality = "";
-                _vdsvisitorName = "";
-                _vdsDate = "";
-                _company = "";
-                _visitorIdNo = "";
-                _reasonForVisit = "";
-                _persontobeVisited = "";
-                _areaVisited = "";
-                _visitDateTime = "";
-                _visitDuration = "";
-                _departmentManager = "";
-                _productionManager = "";
-                _securityController = "";
-                _caForvName = "";
-                _title = "";
-                _cavCompany = "";
-                _cavDate = "";
-                _idDateOfIssue = "";
-                _placeOfIssue = "";
-                _visitorAndCompanyName = "";
-                _visitorsBadgeNo = "";
-                _purposeOfVisit = "";
-                _date = "";
-                _arrivalTime = "";
-                _departureTime = "";
-                _employeetobeVisited = "";
-                _vistorsAndCompanyName = "";
-                _purposeoftheVisit = "";
-                _hscVisitorsBadgeNo = "";
-                _hscDate = "";
-                _hscArrivalTime = "";
-                _hscDepartureTime = "";
-                _caFirstName = "";
-                _caMiddleName = "";
-                _caLastName = "";
-                _address = "";
-                _city = "";
-                _state = "";
-                _zip = "";
-                _email = "";
-                _cellPhone = "";
-                _homephone = "";
-                _securityNo = "";
-                _companyName = "";
-                _idNo = "";
-                _passportNo = "";
-                _dateandPlaceofIssue = "";
-                _passportValidity = "";
-                _caPurposeOfVisit = "";
-                _duration = "";
-                _emergencyContactNo = "";
+            _visitorIDNo = "";
+            _visitorDOB = "";
+            _visitorIDExpiry = "";
+            _visitorNationality = "";
+            _vdsvisitorName = "";
+            _vdsDate = "";
+            _company = "";
+            _visitorIdNo = "";
+            _reasonForVisit = "";
+            _persontobeVisited = "";
+            _areaVisited = "";
+            _visitDateTime = "";
+            _visitDuration = "";
+            _departmentManager = "";
+            _productionManager = "";
+            _securityController = "";
+            _caForvName = "";
+            _title = "";
+            _cavCompany = "";
+            _cavDate = "";
+            _idDateOfIssue = "";
+            _placeOfIssue = "";
+            _visitorAndCompanyName = "";
+            _visitorsBadgeNo = "";
+            _purposeOfVisit = "";
+            _date = "";
+            _arrivalTime = "";
+            _departureTime = "";
+            _employeetobeVisited = "";
+            _vistorsAndCompanyName = "";
+            _purposeoftheVisit = "";
+            _hscVisitorsBadgeNo = "";
+            _hscDate = "";
+            _hscArrivalTime = "";
+            _hscDepartureTime = "";
+            _caFirstName = "";
+            _caMiddleName = "";
+            _caLastName = "";
+            _address = "";
+            _city = "";
+            _state = "";
+            _zip = "";
+            _email = "";
+            _cellPhone = "";
+            _homephone = "";
+            _securityNo = "";
+            _companyName = "";
+            _idNo = "";
+            _passportNo = "";
+            _dateandPlaceofIssue = "";
+            _passportValidity = "";
+            _caPurposeOfVisit = "";
+            _duration = "";
+            _emergencyContactNo = "";
 
-                visitorName = "";
-                visitorIDNo = "";
-                visitorDOB = "";
-                visitorIDExpiry = "";
-                visitorNationality = "";
-                vdsVisitorName = "";
-                vdsDate = "";
-                Company = "";
-                VisitorIdNo = "";
-                ReasonForVisit = "";
-                PersontobeVisited = "";
-                AreaVisited = "";
-                VisitDateTime = "";
-                VisitDuration = "";
-                DepartmentManager = "";
-                ProductionManager = "";
-                SecurityController = "";
-                caForvName = "";
-                Title = "";
-                cavCompany = "";
-                cavDate = "";
-                IdDateOfIssue = "";
-                PlaceOfIssue = "";
-                VisitorAndCompanyName = "";
-                VisitorsBadgeNo = "";
-                PurposeOfVisit = "";
-                Date = "";
-                ArrivalTime = "";
-                DepartureTime = "";
-                EmployeetobeVisited = "";
-                VistorsAndCompanyName = "";
-                PurposeoftheVisit = "";
-                hscVisitorsBadgeNo = "";
-                hscDate = "";
-                hscArrivalTime = "";
-                hscDepartureTime = "";
-                caFirstName = "";
-                caMiddleName = "";
-                caLastName = "";
-                Address = "";
-                City = "";
-                State = "";
-                Zip = "";
-                Email = "";
-                CellPhone = "";
-                Homephone = "";
-                SecurityNo = "";
-                CompanyName = "";
-                IdNo = "";
-                PassportNo = "";
-                DateandPlaceofIssue = "";
-                PassportValidity = "";
-                caPurposeOfVisit = "";
-                Duration = "";
-                EmergencyContactNo = "";
+            visitorName = "";
+            visitorIDNo = "";
+            visitorDOB = "";
+            visitorIDExpiry = "";
+            visitorNationality = "";
+            vdsVisitorName = "";
+            vdsDate = "";
+            Company = "";
+            VisitorIdNo = "";
+            ReasonForVisit = "";
+            PersontobeVisited = "";
+            AreaVisited = "";
+            VisitDateTime = "";
+            VisitDuration = "";
+            DepartmentManager = "";
+            ProductionManager = "";
+            SecurityController = "";
+            caForvName = "";
+            Title = "";
+            cavCompany = "";
+            cavDate = "";
+            IdDateOfIssue = "";
+            PlaceOfIssue = "";
+            VisitorAndCompanyName = "";
+            VisitorsBadgeNo = "";
+            PurposeOfVisit = "";
+            Date = "";
+            ArrivalTime = "";
+            DepartureTime = "";
+            EmployeetobeVisited = "";
+            VistorsAndCompanyName = "";
+            PurposeoftheVisit = "";
+            hscVisitorsBadgeNo = "";
+            hscDate = "";
+            hscArrivalTime = "";
+            hscDepartureTime = "";
+            caFirstName = "";
+            caMiddleName = "";
+            caLastName = "";
+            Address = "";
+            City = "";
+            State = "";
+            Zip = "";
+            Email = "";
+            CellPhone = "";
+            Homephone = "";
+            SecurityNo = "";
+            CompanyName = "";
+            IdNo = "";
+            PassportNo = "";
+            DateandPlaceofIssue = "";
+            PassportValidity = "";
+            caPurposeOfVisit = "";
+            Duration = "";
+            EmergencyContactNo = "";
             #endregion
             resetDefaultImage();
         }
@@ -574,9 +595,9 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _cavDate; public string cavDate { get { return _cavDate; } set { if (_cavDate != value) { _cavDate = value; } } }
 
         // Visitor Log Book
-        private string _idDateOfIssue; public string IdDateOfIssue { get{return _idDateOfIssue;}set {if (IdDateOfIssue != value) {_idDateOfIssue = value;OnPropertyChanged(nameof(_idDateOfIssue));}}}
-        private string _placeOfIssue; public string PlaceOfIssue{get { return _placeOfIssue; }set {if (_placeOfIssue != value){_placeOfIssue = value;OnPropertyChanged(nameof(_idDateOfIssue));}}}
-        private string _visitorAndCompanyName; public string VisitorAndCompanyName{get { return _visitorAndCompanyName; }set { _visitorAndCompanyName = value; }}
+        private string _idDateOfIssue; public string IdDateOfIssue { get { return _idDateOfIssue; } set { if (IdDateOfIssue != value) { _idDateOfIssue = value; OnPropertyChanged(nameof(_idDateOfIssue)); } } }
+        private string _placeOfIssue; public string PlaceOfIssue { get { return _placeOfIssue; } set { if (_placeOfIssue != value) { _placeOfIssue = value; OnPropertyChanged(nameof(_idDateOfIssue)); } } }
+        private string _visitorAndCompanyName; public string VisitorAndCompanyName { get { return _visitorAndCompanyName; } set { _visitorAndCompanyName = value; } }
         private string _visitorsBadgeNo; public string VisitorsBadgeNo { get { return _visitorsBadgeNo; } set { if (_visitorsBadgeNo != value) { _visitorsBadgeNo = value; } } }
         private string _purposeOfVisit; public string PurposeOfVisit { get { return _purposeOfVisit; } set { if (_purposeOfVisit != value) { _purposeOfVisit = value; } } }
         private string _date; public string Date { get { return _date; } set { if (_date != value) { _date = value; } } }
@@ -672,7 +693,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                     OnPropertyChanged(nameof(_departmentNames));
                     //filterEmployeeName(DepartmentNames[0]);
                 }
-                
+
             }
         }
         public List<string> _employeeToBeVisited;
@@ -688,68 +709,5 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
-       
-
-        
-
-        //public void LoadGeneratedDocument()
-        //{
-        //    var pdfDrawer = (MainScreenView)d;
-
-        //    if (!string.IsNullOrEmpty(pdfDrawer.PdfPath))
-        //    {
-        //        //making sure it's an absolute path
-        //        var path = System.IO.Path.GetFullPath(pdfDrawer.PdfPath);
-
-        //        StorageFile.GetFileFromPathAsync(path).AsTask()
-        //          //load pdf document on background thread
-        //          .ContinueWith(t => PdfDocument.LoadFromFileAsync(t.Result).AsTask()).Unwrap()
-        //          //display on UI Thread
-        //          .ContinueWith(t2 => PdfToImages(pdfDrawer, t2.Result), TaskScheduler.FromCurrentSynchronizationContext());
-        //    }
-        //}
-
-        //private async static Task PdfToImages(MainScreenView pdfViewer, PdfDocument pdfDoc)
-        //{
-        //    var items = pdfViewer.PagesContainer.Items;
-        //    items.Clear();
-            
-        //    if (pdfDoc == null) return;
-
-        //    for (uint i = 0; i < pdfDoc.PageCount; i++)
-        //    {
-        //        using (var page = pdfDoc.GetPage(i))
-        //        {
-        //            var bitmap = await PageToBitmapAsync(page);
-        //            var image = new System.Windows.Controls.Image
-        //            {
-        //                Source = bitmap,
-        //                HorizontalAlignment = HorizontalAlignment.Center,
-        //                Margin = new Thickness(0, 4, 0, 4),
-        //                MaxWidth = 800
-        //            };
-        //            items.Add(image);
-        //        }
-        //    }
-        //}
-        //private static async Task<BitmapImage> PageToBitmapAsync(PdfPage page)
-        //{
-        //    BitmapImage image = new BitmapImage();
-
-        //    using (var stream = new InMemoryRandomAccessStream())
-        //    {
-        //        Windows.Foundation.IAsyncAction asyncAction = page.RenderToStreamAsync(stream);
-        //        //await page.RenderToStreamAsync(stream);
-        //        image.BeginInit();
-        //        image.CacheOption = BitmapCacheOption.OnLoad;
-        //        //image.StreamSource = stream.AsStream();
-                
-        //        image.EndInit();
-        //    }
-
-        //    return image;
-        //}
-
     }
-
 }
