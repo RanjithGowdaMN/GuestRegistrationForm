@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Drawing.Printing;
+using AcroPDFLib;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -27,6 +28,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
             LoadData();
+
             _centralHub = centralHub;
             _container = container;
             _events = events;
@@ -174,8 +176,9 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-        private void sendDetails(string visitorType)
+        private string sendDetails(string visitorType)
         {
+            #region DataTransfer
             VisitorDataModel visitorDataFromUI = new VisitorDataModel();
             visitorDataFromUI.IDno = visitorIDNo;
             visitorDataFromUI.Name = visitorName;
@@ -255,22 +258,20 @@ namespace GuestRegistrationDeskUI.ViewModels
             concatenatedDataBinding.vlBook = visitorsLogBook;
             concatenatedDataBinding.hsaLog = highlySecurityControlAreaLog;
             concatenatedDataBinding.consultantApplicationForm = consultantApplicationForm;
-
+            # endregion
             if (visitorType == "visitor") { 
-                 _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
+                 return _centralHub.GenerateDocument(visitorDataFromUI, concatenatedDataBinding);
             }
-            else if(visitorType == "contract")
-            {
-                 _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
+            else if(visitorType == "contract"){
+                 return _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
             }
+            return "D:\\VisitorData\\BaseDocument\\Visitor.pdf";
         }
 
         private void ResetOrClearAllFields()
         {
-            //Application.Current.Dispatcher.Invoke(() =>
-            
-                //ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00003.jpg"));
-                _visitorName = "";
+            #region default    
+            _visitorName = "";
                 _visitorIDNo = "";
                 _visitorDOB = "";
                 _visitorIDExpiry = "";
@@ -381,8 +382,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 caPurposeOfVisit = "";
                 Duration = "";
                 EmergencyContactNo = "";
-                //_events.PublishOnUIThreadAsync(new LogOnEvent());
-            //});
+            #endregion
             resetDefaultImage();
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -391,9 +391,6 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
-
-        
 
         private string _visitorName;
         public string visitorName
@@ -546,6 +543,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         }
 
         //VisitorDataSheet
+        #region property
         private string _vdsvisitorName; public string vdsVisitorName { get { return _vdsvisitorName; } set { if (_vdsvisitorName != value) { _vdsvisitorName = value; } } }
         private string _vdsDate; public string vdsDate { get { return _vdsDate; } set { if (_vdsDate != value) { _vdsDate = value; } } }
         private string _company; public string Company { get { return _company; } set { if (_company != value) { _company = value; } } }
@@ -608,7 +606,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _caPurposeOfVisit; public string caPurposeOfVisit { get { return _caPurposeOfVisit; } set { if (_caPurposeOfVisit != value) { _caPurposeOfVisit = value; } } }
         private string _duration; public string Duration { get { return _duration; } set { if (_duration != value) { _duration = value; } } }
         private string _emergencyContactNo; public string EmergencyContactNo { get { return _emergencyContactNo; } set { if (_emergencyContactNo != value) { _emergencyContactNo = value; } } }
-
+        #endregion
         private void LoadData()
         {
             try
@@ -625,6 +623,8 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 // Handle exceptions, e.g., file not found, JSON parsing error
             }
+            string pdfUrl = "https://example.com/your-pdf-file.pdf";
+            //pdfViewer.Navigate(new Uri(pdfUrl));
         }
         private List<string> _visitorCompanyName;
         public List<string> VisitorCompanyName

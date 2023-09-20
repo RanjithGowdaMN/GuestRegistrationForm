@@ -12,22 +12,22 @@ namespace GenerateDocument.Library
 {
     public class GeneratePDFdocument : IGeneratePDFdocument
     {
-        public void GeneratePdfDoc(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
+        public string  GeneratePdfDoc(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
                                     string outputFilePath, string imagePath, string docType)
         {
             if (docType == "visitor")
             {
                 GeneratePDFVisitorDoc generatePDFVisitorDoc = new GeneratePDFVisitorDoc();
-                generatePDFVisitorDoc.GenerateVisitorDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
+                return generatePDFVisitorDoc.GenerateVisitorDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
             }
             else if (docType == "contractor")
             {
                 GeneratePDfContractDoc generatePDfContractDoc = new GeneratePDfContractDoc();
-                generatePDfContractDoc.GenerateContractDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
+                return generatePDfContractDoc.GenerateContractDocument(guestDataModel, gScannedFileModel, gConcatenatedDataBinding, inputFilePath, outputFilePath, imagePath);
             }
             else
             {
-
+                return "";
             }
         }
 
@@ -95,11 +95,12 @@ namespace GenerateDocument.Library
 
                 foreach (var text in textsToAdd)
                 {
-                   string uppercaseText = text.Item3.ToUpper();
-                    content.SetTextMatrix(text.Item1, text.Item2);
+                   
                     if (text.Item3 != null)
                     {
-                   //     text.Item3.ToUpper();
+                        //     text.Item3.ToUpper();
+                        string uppercaseText = text.Item3.ToUpper();
+                        content.SetTextMatrix(text.Item1, text.Item2);
                         content.ShowText(uppercaseText);
                     }
                     else
@@ -363,8 +364,6 @@ namespace GenerateDocument.Library
             {
                 Console.WriteLine("An error occurred while adding the image: " + ex.Message);
             }
-
-
         }
     }
 }

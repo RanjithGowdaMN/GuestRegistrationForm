@@ -17,8 +17,6 @@ using static System.Net.Mime.MediaTypeNames;
 using NLog;
 using GuestRegistrationDesktopUI.Library.ImageCrop;
 
-
-
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
     public class CentralHub : IFiScan, ICentralHub, IDisposable //, INotifyPropertyChanged
@@ -36,7 +34,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
         private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        
+        public string GeneratedDocument = string.Empty;
 
         private IOCRhelper _iOCRhelper;
         //private IIronOCR _ironOCR;
@@ -146,23 +144,23 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             generatedVisitorIDNumber = string.Empty;
         }
 
-        public void GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
+        public string GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
             GenerateVisitorIDnumber();
-            sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
+            return sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
 
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "visitor");
         }
-        public void GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
+        public string GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
             GenerateVisitorIDnumber();
-            sendDataForDocGeneration("contractor", visitorDataFromUI, concatenatedDataBinding);
+            return sendDataForDocGeneration("contractor", visitorDataFromUI, concatenatedDataBinding);
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");
         }
 
-        public void sendDataForDocGeneration(string visitorType, VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding) {
+        public string sendDataForDocGeneration(string visitorType, VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding) {
 
             GuestDataModel guestDataModel = new GuestDataModel();
             guestDataModel.IDno = visitorDataFromUI.IDno;
@@ -240,7 +238,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.SecurityNo = concatenatedDataBinding.consultantApplicationForm.SecurityNo;
             guestDataBinding.consultantApplicationForm.State = concatenatedDataBinding.consultantApplicationForm.State;
 
-            _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);
+            return _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);
         }
         public (VisitorDataModel, string) StartScanning(int idType)
         {

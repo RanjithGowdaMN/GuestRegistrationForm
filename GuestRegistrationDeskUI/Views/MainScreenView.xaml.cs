@@ -1,4 +1,6 @@
-﻿using GuestRegistrationDeskUI.ViewModels;
+﻿using Caliburn.Micro;
+using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDeskUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -27,10 +29,28 @@ namespace GuestRegistrationDeskUI.Views
     public partial class MainScreenView : UserControl
     {
         PrinterSettings printerSettings = new PrinterSettings();
+
+        private SimpleContainer _container;
+
+
+        public MainScreenViewModel mainScreenViewModel { get; set; }
         public MainScreenView()
         {
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
+
+
+        }
+        public MainScreenView(SimpleContainer container)
+        {
+            InitializeComponent();
+            ScanIDBackSide.IsEnabled = false;
+            //
+            _container = container;
+
+            mainScreenViewModel = _container.GetInstance<MainScreenViewModel>();
+
+            DataContext = mainScreenViewModel;
             //LoadImage();
         }
         public void LoadImage()

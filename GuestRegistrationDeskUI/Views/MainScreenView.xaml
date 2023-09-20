@@ -374,6 +374,7 @@
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
                             Print Document
                         </Button>
+
                     </Grid>
                 </TabItem.Content>
             </TabItem>

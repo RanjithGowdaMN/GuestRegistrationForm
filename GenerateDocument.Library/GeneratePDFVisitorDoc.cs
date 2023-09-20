@@ -9,7 +9,7 @@ namespace GenerateDocument.Library
 {
     public class GeneratePDFVisitorDoc
     {
-        public void GenerateVisitorDocument(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
+        public string GenerateVisitorDocument(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
                                             string outputFilePath, string imagePath)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Visitor.pdf";
@@ -57,6 +57,8 @@ namespace GenerateDocument.Library
 
             // Modify the PDF with the image and texts
             GeneratePDFdocument.ModifyPdf(inputFilePath, textsToAdd1, textsToAdd, outputFilePath, imagePath, "visitor",gScannedFileModel,guestDataModel);
+
+            return outputFilePath;
         }
     }
 }

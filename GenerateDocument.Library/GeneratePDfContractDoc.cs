@@ -9,7 +9,7 @@ namespace GenerateDocument.Library
 {
     public class GeneratePDfContractDoc
     {
-        public void GenerateContractDocument(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
+        public string GenerateContractDocument(GuestDataModel guestDataModel, gScannedFileModel gScannedFileModel, gConcatenatedDataBinding gConcatenatedDataBinding, string inputFilePath,
                                             string outputFilePath, string imagePath)
         {
             inputFilePath = @"D:\VisitorData\BaseDocument\Contractor.pdf";
@@ -122,6 +122,8 @@ namespace GenerateDocument.Library
 
             // Modify the PDF with the image and texts
             GeneratePDFdocument.ModifyPdf(inputFilePath, textForSecondPage, textForThirdPage, outputFilePath, imagePath, "contract",gScannedFileModel,guestDataModel);
+            
+            return outputFilePath;
         }
     }
 }
