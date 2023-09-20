@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Drawing.Printing;
 using AcroPDFLib;
+using System.Reflection;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -23,18 +24,21 @@ namespace GuestRegistrationDeskUI.ViewModels
         private SimpleContainer _container;
         private IEventAggregator _events;
         private int _idType;
+
+        public UIbindingModel cmdData;
         public BitmapImage ImageToShow { get; set; }
 
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
+            cmdData = new UIbindingModel();
             LoadData();
-
             _centralHub = centralHub;
             _container = container;
             _events = events;
             //load default/dummy image
             resetDefaultImage();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
+            
         }
         ~MainScreenViewModel()
         {
@@ -613,10 +617,11 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 string jsonFilePath = "D:\\VisitorData\\Data\\DataConfiguration.json"; // Provide the path to your JSON file
                 string jsonData = File.ReadAllText(jsonFilePath);
-    
-                var data = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
-                VisitorCompanyName = data.VisitorCompanyName;
-                VisitorVisitPurpose = data.VisitorVisitPurpose;
+
+                cmdData = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
+                VisitorCompanyName = cmdData.VisitorCompanyName;
+                VisitorVisitPurpose = cmdData.VisitorVisitPurpose;
+                DepartmentNames = cmdData.DepartmentNames;
 
             }
             catch (Exception ex)
@@ -648,6 +653,36 @@ namespace GuestRegistrationDeskUI.ViewModels
                 NotifyOfPropertyChange(() => VisitorVisitPurpose);
             }
         }
+
+        private List<string> _departmentNames;
+        public List<string> DepartmentNames
+        {
+            get { return _departmentNames; }
+            set
+            {
+                if (DepartmentNames != value)
+                {
+                    _departmentNames = value;
+                    OnPropertyChanged(nameof(_departmentNames));
+                    //filterEmployeeName(DepartmentNames[0]);
+                }
+                
+            }
+        }
+        public List<string> _employeeToBeVisited;
+        public List<string> EmpToBeVisited
+        {
+            get { return _employeeToBeVisited; }
+            set
+            {
+                if (EmpToBeVisited != value)
+                {
+                    _employeeToBeVisited = value;
+                    OnPropertyChanged(nameof(_employeeToBeVisited));
+                }
+            }
+        }
+
     }
 
 }

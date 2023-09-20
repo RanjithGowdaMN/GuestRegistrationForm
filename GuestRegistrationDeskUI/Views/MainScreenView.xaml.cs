@@ -1,10 +1,14 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDeskUI.Models;
 using GuestRegistrationDeskUI.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,18 +43,18 @@ namespace GuestRegistrationDeskUI.Views
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
         }
-        public MainScreenView(SimpleContainer container)
-        {
-            InitializeComponent();
-            ScanIDBackSide.IsEnabled = false;
-            //
-            _container = container;
+        //public MainScreenView(SimpleContainer container)
+        //{
+        //    InitializeComponent();
+        //    ScanIDBackSide.IsEnabled = false;
+        //    //
+        //    _container = container;
 
-            mainScreenViewModel = _container.GetInstance<MainScreenViewModel>();
+        //    mainScreenViewModel = _container.GetInstance<MainScreenViewModel>();
 
-            DataContext = mainScreenViewModel;
-            //LoadImage();
-        }
+        //    DataContext = mainScreenViewModel;
+        //    //LoadImage();
+        //}
         public void LoadImage()
         {
             // Create a BitmapImage from the image path
@@ -96,7 +100,7 @@ namespace GuestRegistrationDeskUI.Views
                 //txtCompany.Text = string.Empty;
                 txtVisitorsIdNo.Text = string.Empty;
                 txtReasonforVisit.Text = string.Empty;
-                txtPersontobeVisited.Text = string.Empty;
+                //txtPersontobeVisited.Text = string.Empty; replaced with cmb
                 txtAreaVisited.Text = string.Empty;
                 txtVisitDateTime.Text = string.Empty;
                 txtVisitDuration.Text = string.Empty;
@@ -166,7 +170,6 @@ namespace GuestRegistrationDeskUI.Views
 
         private void cmbPrinterSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
             printerSettings.PrinterName = cmbPrinterSelection.SelectedItem.ToString();
         }
 
@@ -182,6 +185,19 @@ namespace GuestRegistrationDeskUI.Views
             //{
             //    printDialog.PrintDocument.Print();
             //}
+        }
+
+        private void DepartmentNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //EmpToBeVisited.ItemsSource = ""
+
+            string jsonFilePath = "D:\\VisitorData\\Data\\DataConfiguration.json"; // Provide the path to your JSON file
+            string jsonData = File.ReadAllText(jsonFilePath);
+
+            var cmdData = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
+
+            PropertyInfo pinfo = typeof(UIbindingModel).GetProperty(DepartmentNames.SelectedItem.ToString());
+            EmpToBeVisited.ItemsSource = (List<string>)pinfo.GetValue(cmdData, null);
         }
     }
 }
