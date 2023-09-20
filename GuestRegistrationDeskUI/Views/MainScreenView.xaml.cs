@@ -22,8 +22,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
-
+using Windows.Storage;
 
 namespace GuestRegistrationDeskUI.Views
 {
@@ -35,7 +34,6 @@ namespace GuestRegistrationDeskUI.Views
         PrinterSettings printerSettings = new PrinterSettings();
 
         private SimpleContainer _container;
-
 
         public MainScreenViewModel mainScreenViewModel { get; set; }
         public MainScreenView()

@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="GuestRegistrationDeskUI.Views.MainScreenView"
+             
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Printing="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"
@@ -381,6 +382,7 @@
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
                             Print Document
                         </Button>
+
                     </Grid>
                 </TabItem.Content>
             </TabItem>

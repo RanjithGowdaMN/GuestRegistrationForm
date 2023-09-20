@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Drawing.Printing;
 using AcroPDFLib;
 using System.Reflection;
+using Windows.Data.Pdf;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using GuestRegistrationDeskUI.Views;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
@@ -27,6 +31,8 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public UIbindingModel cmdData;
         public BitmapImage ImageToShow { get; set; }
+
+
 
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
@@ -682,6 +688,67 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
+       
+
+        
+
+        //public void LoadGeneratedDocument()
+        //{
+        //    var pdfDrawer = (MainScreenView)d;
+
+        //    if (!string.IsNullOrEmpty(pdfDrawer.PdfPath))
+        //    {
+        //        //making sure it's an absolute path
+        //        var path = System.IO.Path.GetFullPath(pdfDrawer.PdfPath);
+
+        //        StorageFile.GetFileFromPathAsync(path).AsTask()
+        //          //load pdf document on background thread
+        //          .ContinueWith(t => PdfDocument.LoadFromFileAsync(t.Result).AsTask()).Unwrap()
+        //          //display on UI Thread
+        //          .ContinueWith(t2 => PdfToImages(pdfDrawer, t2.Result), TaskScheduler.FromCurrentSynchronizationContext());
+        //    }
+        //}
+
+        //private async static Task PdfToImages(MainScreenView pdfViewer, PdfDocument pdfDoc)
+        //{
+        //    var items = pdfViewer.PagesContainer.Items;
+        //    items.Clear();
+            
+        //    if (pdfDoc == null) return;
+
+        //    for (uint i = 0; i < pdfDoc.PageCount; i++)
+        //    {
+        //        using (var page = pdfDoc.GetPage(i))
+        //        {
+        //            var bitmap = await PageToBitmapAsync(page);
+        //            var image = new System.Windows.Controls.Image
+        //            {
+        //                Source = bitmap,
+        //                HorizontalAlignment = HorizontalAlignment.Center,
+        //                Margin = new Thickness(0, 4, 0, 4),
+        //                MaxWidth = 800
+        //            };
+        //            items.Add(image);
+        //        }
+        //    }
+        //}
+        //private static async Task<BitmapImage> PageToBitmapAsync(PdfPage page)
+        //{
+        //    BitmapImage image = new BitmapImage();
+
+        //    using (var stream = new InMemoryRandomAccessStream())
+        //    {
+        //        Windows.Foundation.IAsyncAction asyncAction = page.RenderToStreamAsync(stream);
+        //        //await page.RenderToStreamAsync(stream);
+        //        image.BeginInit();
+        //        image.CacheOption = BitmapCacheOption.OnLoad;
+        //        //image.StreamSource = stream.AsStream();
+                
+        //        image.EndInit();
+        //    }
+
+        //    return image;
+        //}
 
     }
 
