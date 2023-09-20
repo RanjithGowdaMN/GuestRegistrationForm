@@ -13,8 +13,21 @@ namespace GuestRegistrationDeskUI.Models
         public List<string> DepartmentNames { get; set; }
 
         public List<string> Production { get; set; }
-        public List<string> IT { get; set; }
-        public List<string> Security { get; set; }
+        public List<string> ITandSecurity { get; set; }
+        public List<string> Management { get; set; }
+
+        public List<string> Maintenance { get; set; }
+        public List<string> PlanningAndDevelopment { get; set; }
+        public List<string> AccountingAndProcurement { get; set; }
+
+        public List<string> Office { get; set; }
+        public List<string> Store { get; set; }
+        public List<string> GraphicDesign { get; set; }
+        public List<string> Quality { get; set; }
+        public List<string> Personalisation { get; set; }
+
+
+
 
     }
 }
