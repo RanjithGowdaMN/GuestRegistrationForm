@@ -38,8 +38,6 @@ namespace GuestRegistrationDeskUI.Views
         {
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
-
-
         }
         public MainScreenView(SimpleContainer container)
         {
@@ -168,7 +166,7 @@ namespace GuestRegistrationDeskUI.Views
 
         private void cmbPrinterSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+           
             printerSettings.PrinterName = cmbPrinterSelection.SelectedItem.ToString();
         }
 

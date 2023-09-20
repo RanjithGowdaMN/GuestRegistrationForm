@@ -374,7 +374,6 @@
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
                             Print Document
                         </Button>
-
                     </Grid>
                 </TabItem.Content>
             </TabItem>
@@ -400,6 +399,7 @@
             </TabItem>
             <TabItem Name="Save" Header="Save" Padding="10 50 50 25" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center">
             </TabItem>
+            <WebBrowser Height="100" Width="100"/>
         </TabControl>
     </Grid>
 </UserControl>
