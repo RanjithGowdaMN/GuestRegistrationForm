@@ -166,15 +166,6 @@ namespace GuestRegistrationDeskUI.Views
                 MessageBox.Show("Please generate document before printing.");
                 return;
             }
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.PageRangeSelection = PageRangeSelection.AllPages;
-            printDialog.UserPageRangeEnabled = true;
-            
-            bool? doPrint = printDialog.ShowDialog();
-            if (doPrint != true)
-            {
-                return;
-            }
 
             ProcessStartInfo psi = new ProcessStartInfo()
             {
