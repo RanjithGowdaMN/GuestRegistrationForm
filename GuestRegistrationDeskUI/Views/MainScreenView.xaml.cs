@@ -39,21 +39,20 @@ namespace GuestRegistrationDeskUI.Views
         private SimpleContainer _container;
 
         public MainScreenViewModel mainScreenViewModel { get; set; }
-        public MainScreenView()
+        public MainScreenView() 
         {
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
 
             
-
             //mainScreenViewModel = new MainScreenViewModel();
 
             //mainScreenViewModel.DocumentGeneratedEvent += this.SendDocumentToUI;
         }
-        //public MainScreenView(SimpleContainer container)
+        //public MainScreenView(SimpleContainer container) : this()
         //{
-        //    InitializeComponent();
-        //    ScanIDBackSide.IsEnabled = false;
+        //    //InitializeComponent();
+        //    //ScanIDBackSide.IsEnabled = false;
         //    //
         //    _container = container;
 
@@ -72,7 +71,10 @@ namespace GuestRegistrationDeskUI.Views
 
             VisitorPhoto.Source = image;
         }
-
+        private void FormName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SendDocumentToUI(DocumentNameDummy.Text);
+        }
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -210,75 +212,75 @@ namespace GuestRegistrationDeskUI.Views
            
         }
 
-        public void SendDocumentToUI(object obj, string fileName)
+        public void SendDocumentToUI(string inputPdfPath)
         {
-            //// imageContainer.Children.Add();
-            //// Specify the path to the input PDF file
+            // imageContainer.Children.Add();
+            // Specify the path to the input PDF file
             //string inputPdfPath = "D:\\VisitorData\\GeneratedDocument\\V_ANSAR GADDAFI BADARUDEEN Kerala.pdf";
 
-            //// Specify the output directory where the image will be saved
-            ////string outputDirectory = "output/";
+            // Specify the output directory where the image will be saved
+            //string outputDirectory = "output/";
 
-            //// Create the output directory if it doesn't exist
-            ////Directory.CreateDirectory(outputDirectory);
+            // Create the output directory if it doesn't exist
+            //Directory.CreateDirectory(outputDirectory);
 
-            //// Initialize Ghostscript.NET rasterizer
-            //GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
+            // Initialize Ghostscript.NET rasterizer
+            GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
 
 
-            //try
-            //{
-            //    // Open the PDF file
-            //    rasterizer.Open(inputPdfPath);
-            //    Bitmap[] bitmaps = new Bitmap[rasterizer.PageCount];
-            //    // Loop through each page in the PDF
-            //    for (int pageNumber = 1; pageNumber <= rasterizer.PageCount; pageNumber++)
-            //    {
-            //        bitmaps[pageNumber - 1] = (Bitmap)rasterizer.GetPage(300, pageNumber);
-            //        // Render the page to a System.Drawing.Bitmap
-            //        //using (Bitmap bitmap = (Bitmap)rasterizer.GetPage(300, pageNumber))
-            //        //{
+            try
+            {
+                // Open the PDF file
+                rasterizer.Open(inputPdfPath);
+                Bitmap[] bitmaps = new Bitmap[rasterizer.PageCount];
+                // Loop through each page in the PDF
+                for (int pageNumber = 1; pageNumber <= rasterizer.PageCount; pageNumber++)
+                {
+                    bitmaps[pageNumber - 1] = (Bitmap)rasterizer.GetPage(300, pageNumber);
+                    // Render the page to a System.Drawing.Bitmap
+                    //using (Bitmap bitmap = (Bitmap)rasterizer.GetPage(300, pageNumber))
+                    //{
 
-            //        //    // Specify the output image file path (e.g., output/page1.png)
-            //        //    string outputImagePath = Path.Combine(outputDirectory, $"page{pageNumber}.png");
+                    //    // Specify the output image file path (e.g., output/page1.png)
+                    //    string outputImagePath = Path.Combine(outputDirectory, $"page{pageNumber}.png");
 
-            //        //    // Save the bitmap as an image file
-            //        //    bitmap.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Png);
-            //        //}
-            //    }
+                    //    // Save the bitmap as an image file
+                    //    bitmap.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                    //}
+                }
 
-            //    foreach (Bitmap bitmap in bitmaps)
-            //    {
-            //        // Convert System.Drawing.Bitmap to System.Windows.Media.Imaging.BitmapImage
-            //        BitmapImage bitmapImage = new BitmapImage();
+                foreach (Bitmap bitmap in bitmaps)
+                {
+                    // Convert System.Drawing.Bitmap to System.Windows.Media.Imaging.BitmapImage
+                    BitmapImage bitmapImage = new BitmapImage();
 
-            //        using (System.IO.MemoryStream memory = new System.IO.MemoryStream())
-            //        {
-            //            bitmap.Save(memory, ImageFormat.Png);
-            //            memory.Position = 0;
+                    using (System.IO.MemoryStream memory = new System.IO.MemoryStream())
+                    {
+                        bitmap.Save(memory, ImageFormat.Png);
+                        memory.Position = 0;
 
-            //            bitmapImage.BeginInit();
-            //            bitmapImage.StreamSource = memory;
-            //            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-            //            bitmapImage.EndInit();
-            //        }
+                        bitmapImage.BeginInit();
+                        bitmapImage.StreamSource = memory;
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmapImage.EndInit();
+                    }
 
-            //        // Create an Image control and set its source to the BitmapImage
-            //        System.Windows.Controls.Image imageControl = new System.Windows.Controls.Image();
-            //        imageControl.Source = bitmapImage;
-            //        imageContainer.Children.Add(imageControl);
-            //        // Add the Image control to ;the StackPanel
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    //Console.WriteLine("Error: " + ex.Message);
-            //}
-            //finally
-            //{
-            //    // Clean up resources
-            //    rasterizer.Close();
-            //}
+                    // Create an Image control and set its source to the BitmapImage
+                    System.Windows.Controls.Image imageControl = new System.Windows.Controls.Image();
+                    imageControl.Source = bitmapImage;
+                    imageContainer.Children.Add(imageControl);
+                    // Add the Image control to ;the StackPanel
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                // Clean up resources
+                rasterizer.Close();
+            }
         }
     }
 }

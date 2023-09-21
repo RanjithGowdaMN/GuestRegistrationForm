@@ -38,7 +38,7 @@
                         <Label Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >ID Expiry:</Label>
                         <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >Nationality:</Label>
 
-                        <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490"/>
+                        <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490" />
                         <TextBox x:Name="IDNo" Text="{Binding visitorIDNo, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                         <TextBox x:Name="DOB" Text="{Binding visitorDOB, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                         <TextBox x:Name="Expiry" Text="{Binding visitorIDExpiry, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,14,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
@@ -390,8 +390,8 @@
                                 <Image Source="{Binding DocImage}" Width="200" Height="150" Stretch="Uniform" />
                             </StackPanel>
                         </ScrollViewer>
-                        
-                        
+
+                        <TextBox x:Name="DocumentNameDummy"  Text="{Binding GeneratedDocumentName, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" TextChanged="FormName_TextChanged" Visibility="Hidden"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>

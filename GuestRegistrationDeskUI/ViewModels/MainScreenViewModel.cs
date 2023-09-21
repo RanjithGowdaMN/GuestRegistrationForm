@@ -35,7 +35,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         private SimpleContainer _container;
         private IEventAggregator _events;
         private int _idType;
-        public string GeneratedFileName = string.Empty;
+        
 
         public UIbindingModel cmdData;
         public BitmapImage ImageToShow { get; set; }
@@ -89,16 +89,16 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
             return;
         }
-        public delegate void MentionFileGeneration(string fileName);
+       
         public void GenerateVisitorDocument()
         {
             if (MessageForPhoto())
             {
                 //ConvertPdfToImages("", "");
-                GeneratedFileName = sendDetails("visitor");
+                GeneratedDocumentName = sendDetails("visitor");
                 MessageBox.Show("File Created!");
                 // raise event here
-                DocumentGeneratedEvent?.Invoke(this, GeneratedFileName);
+                //DocumentGeneratedEvent?.Invoke(this, GeneratedFileName);
 
             }
             return;
@@ -113,7 +113,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             if (MessageForPhoto())
             {
-                sendDetails("contract");
+                GeneratedDocumentName = sendDetails("contract");
                 MessageBox.Show("File Created!");
             }
             return;
@@ -437,6 +437,20 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+        private string _generatedDocumentName;
+        public string GeneratedDocumentName
+        {
+            get { return _generatedDocumentName; }
+            set
+            {
+                if (_generatedDocumentName != value)
+                {
+                    _generatedDocumentName = value;
+                    OnPropertyChanged(nameof(GeneratedDocumentName));
+                }
+            }
+        }
+
         private string _visitorIDNo;
 
         public string visitorIDNo
@@ -709,5 +723,13 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
+
+        //public delegate void MentionFileGeneration(string subTotal);
+
+        //public void GenerateTotal(MentionFileGeneration mentionSubtotal)
+        //{
+        //    mentionSubtotal("");
+        //}
+
     }
 }
