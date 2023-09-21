@@ -30,9 +30,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         private string ImageDir = "D:\\VisitorData\\ScannedID\\";
         private string PhotoDir = "D:\\VisitorData\\Photos\\";
-        private string ProcessedImageDir = "D:\\VisitorData\\ProcessedImage\\";
-        private string BaseDocumentPath = "D:\\VisitorData\\BaseDocument\\";
-        private string GeneratedDocPath = "D:\\VisitorData\\GeneratedDocument\\";
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public string GeneratedDocument = string.Empty;
 
