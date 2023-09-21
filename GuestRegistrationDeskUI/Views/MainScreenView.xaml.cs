@@ -27,6 +27,9 @@ namespace GuestRegistrationDeskUI.Views
         {
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
+
+            //txtCompany.IsEnabled = false;
+            txtCompany.Visibility = Visibility.Hidden;
         }
 
         public void LoadImage()
@@ -45,7 +48,16 @@ namespace GuestRegistrationDeskUI.Views
         }
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (VisitorCompanyName.Text == "other")
+            {
+                //txtCompany.IsEnabled = true;
+                txtCompany.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtCompany.Visibility = Visibility.Hidden;
 
+            }
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
@@ -142,7 +154,7 @@ namespace GuestRegistrationDeskUI.Views
 
         private void VisitorCompanyName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void cmbPrinterSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -243,6 +255,25 @@ namespace GuestRegistrationDeskUI.Views
             {
                 // Clean up resources
                 rasterizer.Close();
+            }
+        }
+
+        private void VisitorCompanyName_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+           
+        }
+
+        private void VisitorCompanyName_DropDownClosed(object sender, EventArgs e)
+        {
+            if (VisitorCompanyName.Text == "other")
+            {
+                //txtCompany.IsEnabled = true;
+                txtCompany.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtCompany.Visibility = Visibility.Hidden;
+
             }
         }
     }
