@@ -24,8 +24,6 @@ namespace GuestRegistrationDeskUI.ViewModels
         public UIbindingModel cmdData;
         public BitmapImage ImageToShow { get; set; }
 
-        public event EventHandler<string> DocumentGeneratedEvent; //MentionFileGeneration
-
         public MainScreenViewModel(ICentralHub centralHub, SimpleContainer container, IEventAggregator events)
         {
             cmdData = new UIbindingModel();
@@ -36,7 +34,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             //load default/dummy image
             resetDefaultImage();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
-            DocumentGeneratedEvent += sendFileForUpdate;
+            
 
         }
         ~MainScreenViewModel()
@@ -407,6 +405,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #region Properties
         private string _visitorName;
         public string visitorName
         {
@@ -570,7 +569,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
-
+        #endregion
         //VisitorDataSheet
         #region property
         private string _vdsvisitorName; public string vdsVisitorName { get { return _vdsvisitorName; } set { if (_vdsvisitorName != value) { _vdsvisitorName = value; } } }
@@ -670,6 +669,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+        #region comboBoxProperties
         private List<string> _visitorVisitPurpose;
 
         public List<string> VisitorVisitPurpose
@@ -766,13 +766,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
-
-        //public delegate void MentionFileGeneration(string subTotal);
-
-        //public void GenerateTotal(MentionFileGeneration mentionSubtotal)
-        //{
-        //    mentionSubtotal("");
-        //}
+        #endregion
 
     }
 }

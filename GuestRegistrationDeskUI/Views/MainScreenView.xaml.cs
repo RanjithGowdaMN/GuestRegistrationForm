@@ -1,10 +1,9 @@
-﻿using Caliburn.Micro;
-using Ghostscript.NET.Rasterizer;
+﻿using Ghostscript.NET.Rasterizer;
 using GuestRegistrationDeskUI.Models;
-using GuestRegistrationDeskUI.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -12,7 +11,6 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-//using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
 namespace GuestRegistrationDeskUI.Views
@@ -24,35 +22,16 @@ namespace GuestRegistrationDeskUI.Views
     {
         PrinterSettings printerSettings = new PrinterSettings();
 
-        private SimpleContainer _container;
-
-        public MainScreenViewModel mainScreenViewModel { get; set; }
         public MainScreenView() 
         {
             InitializeComponent();
             ScanIDBackSide.IsEnabled = false;
-
-            
-            //mainScreenViewModel = new MainScreenViewModel();
-
-            //mainScreenViewModel.DocumentGeneratedEvent += this.SendDocumentToUI;
         }
-        //public MainScreenView(SimpleContainer container) : this()
-        //{
-        //    //InitializeComponent();
-        //    //ScanIDBackSide.IsEnabled = false;
-        //    //
-        //    _container = container;
 
-        //    mainScreenViewModel = _container.GetInstance<MainScreenViewModel>();
-
-        //    DataContext = mainScreenViewModel;
-        //    //LoadImage();
-        //}
         public void LoadImage()
         {
             // Create a BitmapImage from the image path
-            var image = new System.Windows.Media.Imaging.BitmapImage();
+            var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = new System.Uri("D:\\VisitorData\\Photos\\photo00001.jpg");
             image.EndInit();
@@ -170,21 +149,50 @@ namespace GuestRegistrationDeskUI.Views
             printerSettings.PrinterName = cmbPrinterSelection.SelectedItem.ToString();
             //SendDocumentToUI();
         }
-
+        private System.Drawing.Printing.PrintDocument docToPrint = new System.Drawing.Printing.PrintDocument();
         private void GenerateTempBadge_Click(object sender, RoutedEventArgs e)
         {
-           // var printDialog1 = new PrintDialog();
+            // var printDialog1 = new PrintDialog();
+            if (string.IsNullOrEmpty(printerSettings.PrinterName))
+            {
+                // Handle the case where no printer is selected
+                MessageBox.Show("Please select a printer before printing.");
+                return;
+            }
 
-            PrintDocument printDialog = new PrintDocument() 
-            { DocumentName = "D:/Visi.pdf" };
-            printDialog.Print();
+            if (string.IsNullOrEmpty(DocumentNameDummy.Text))
+            {
+                // Handle the case where no printer is selected
+                MessageBox.Show("Please generate document before printing.");
+                return;
+            }
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.PageRangeSelection = PageRangeSelection.AllPages;
+            printDialog.UserPageRangeEnabled = true;
+            
+            bool? doPrint = printDialog.ShowDialog();
+            if (doPrint != true)
+            {
+                return;
+            }
 
-            //if (printDialog.ShowDialog() == MessageBox.Show()
-            //{
-            //    printDialog.PrintDocument.Print();
-            //}
+            ProcessStartInfo psi = new ProcessStartInfo()
+            {
+                CreateNoWindow = true,
+                Verb = "printto",
+                FileName = DocumentNameDummy.Text,
+                Arguments = "\"" + printerSettings.PrinterName + "\""
+            };
+
+            Process p = new Process();
+            p.StartInfo = psi;
+            p.Start();
+            if (p.HasExited)
+            {
+                p.Kill();
+            }
+
         }
-
         private void DepartmentNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //EmpToBeVisited.ItemsSource = ""
@@ -202,20 +210,7 @@ namespace GuestRegistrationDeskUI.Views
 
         public void SendDocumentToUI(string inputPdfPath)
         {
-            // imageContainer.Children.Add();
-            // Specify the path to the input PDF file
-            //string inputPdfPath = "D:\\VisitorData\\GeneratedDocument\\V_ANSAR GADDAFI BADARUDEEN Kerala.pdf";
-
-            // Specify the output directory where the image will be saved
-            //string outputDirectory = "output/";
-
-            // Create the output directory if it doesn't exist
-            //Directory.CreateDirectory(outputDirectory);
-
-            // Initialize Ghostscript.NET rasterizer
             GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
-
-
             try
             {
                 // Open the PDF file
@@ -242,7 +237,7 @@ namespace GuestRegistrationDeskUI.Views
                     // Convert System.Drawing.Bitmap to System.Windows.Media.Imaging.BitmapImage
                     BitmapImage bitmapImage = new BitmapImage();
 
-                    using (System.IO.MemoryStream memory = new System.IO.MemoryStream())
+                    using (MemoryStream memory = new MemoryStream())
                     {
                         bitmap.Save(memory, ImageFormat.Png);
                         memory.Position = 0;
@@ -257,12 +252,12 @@ namespace GuestRegistrationDeskUI.Views
                     System.Windows.Controls.Image imageControl = new System.Windows.Controls.Image();
                     imageControl.Source = bitmapImage;
                     imageContainer.Children.Add(imageControl);
-                    // Add the Image control to ;the StackPanel
                 }
             }
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Error Occured while showing preview, please check D:/VisitorData/GeneratedDocument/ folder");
             }
             finally
             {
