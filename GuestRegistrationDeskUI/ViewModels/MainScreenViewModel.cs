@@ -182,7 +182,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00003.jpg"));
+                    ImagePath = new BitmapImage(new Uri(CONSTANTS.ERROR_PHOTO));
                 });
             }
         }
@@ -278,7 +278,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 return _centralHub.GenerateContractDocument(visitorDataFromUI, concatenatedDataBinding);
             }
-            return "D:\\VisitorData\\BaseDocument\\Visitor.pdf";
+            return CONSTANTS.VISITOR_DEFAULT_DOCUMENT;
         }
 
         private void ResetOrClearAllFields()

@@ -33,7 +33,7 @@ namespace GuestRegistrationDeskUI.Views
             // Create a BitmapImage from the image path
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new System.Uri("D:\\VisitorData\\Photos\\photo00001.jpg");
+            image.UriSource = new Uri(CONSTANTS.DEFAULT_PHOTO);
             image.EndInit();
 
             VisitorPhoto.Source = image;
@@ -149,7 +149,6 @@ namespace GuestRegistrationDeskUI.Views
             printerSettings.PrinterName = cmbPrinterSelection.SelectedItem.ToString();
             //SendDocumentToUI();
         }
-        private System.Drawing.Printing.PrintDocument docToPrint = new System.Drawing.Printing.PrintDocument();
         private void GenerateTempBadge_Click(object sender, RoutedEventArgs e)
         {
             // var printDialog1 = new PrintDialog();
@@ -188,15 +187,13 @@ namespace GuestRegistrationDeskUI.Views
         {
             //EmpToBeVisited.ItemsSource = ""
 
-            string jsonFilePath = "D:\\VisitorData\\Data\\DataConfiguration.json"; // Provide the path to your JSON file
+            string jsonFilePath = CONSTANTS.CONFIGURATION_FILE;
             string jsonData = File.ReadAllText(jsonFilePath);
 
             var cmdData = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
 
             PropertyInfo pinfo = typeof(UIbindingModel).GetProperty(DepartmentNames.SelectedItem.ToString());
             EmpToBeVisited.ItemsSource = (List<string>)pinfo.GetValue(cmdData, null);
-
-           
         }
 
         public void SendDocumentToUI(string inputPdfPath)
@@ -211,16 +208,6 @@ namespace GuestRegistrationDeskUI.Views
                 for (int pageNumber = 1; pageNumber <= rasterizer.PageCount; pageNumber++)
                 {
                     bitmaps[pageNumber - 1] = (Bitmap)rasterizer.GetPage(300, pageNumber);
-                    // Render the page to a System.Drawing.Bitmap
-                    //using (Bitmap bitmap = (Bitmap)rasterizer.GetPage(300, pageNumber))
-                    //{
-
-                    //    // Specify the output image file path (e.g., output/page1.png)
-                    //    string outputImagePath = Path.Combine(outputDirectory, $"page{pageNumber}.png");
-
-                    //    // Save the bitmap as an image file
-                    //    bitmap.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Png);
-                    //}
                 }
 
                 foreach (Bitmap bitmap in bitmaps)
