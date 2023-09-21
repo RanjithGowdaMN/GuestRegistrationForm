@@ -647,7 +647,9 @@ namespace GuestRegistrationDeskUI.ViewModels
                 VisitorCompanyName = cmdData.VisitorCompanyName;
                 VisitorVisitPurpose = cmdData.VisitorVisitPurpose;
                 DepartmentNames = cmdData.DepartmentNames;
-
+                CmbReasonforVisit = cmdData.VisitorVisitPurpose;
+                AreaToBeVisited = cmdData.AreaToBeVisited;
+                CmbDepartmentManager = cmdData.CmbDepartmentManager;
             }
             catch (Exception ex)
             {
@@ -704,6 +706,48 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _employeeToBeVisited = value;
                     OnPropertyChanged(nameof(_employeeToBeVisited));
+                }
+            }
+        }
+
+        public List<string> _cmbReasonforVisit;
+        public List<string> CmbReasonforVisit
+        {
+            get { return _cmbReasonforVisit; }
+            set
+            {
+                if (CmbReasonforVisit != value)
+                {
+                    _cmbReasonforVisit = value;
+                    OnPropertyChanged(nameof(_cmbReasonforVisit));
+                }
+            }
+        }
+
+        public List<string> _areaToBeVisited;
+        public List<string> AreaToBeVisited
+        {
+            get { return _areaToBeVisited; }
+            set
+            {
+                if (AreaToBeVisited != value)
+                {
+                    _areaToBeVisited = value;
+                    OnPropertyChanged(nameof(_areaToBeVisited));
+                }
+            }
+        }
+
+        public List<string> _cmbDepartmentManager;
+        public List<string> CmbDepartmentManager
+        {
+            get { return _cmbDepartmentManager; }
+            set
+            {
+                if (CmbDepartmentManager != value)
+                {
+                    _cmbDepartmentManager = value;
+                    OnPropertyChanged(nameof(_cmbDepartmentManager));
                 }
             }
         }

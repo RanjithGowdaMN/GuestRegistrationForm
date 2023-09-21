@@ -136,7 +136,11 @@
                                 <Label x:Name="lblVisitorsIdNo" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="103" Grid.ColumnSpan="2">Visitor's Id No</Label>
                                 <TextBox x:Name="txtVisitorsIdNo" Text="{Binding VisitorIdNo, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblReasonforVisit" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Reason for the Visit</Label>
-                                <TextBox x:Name="txtReasonforVisit" Text="{Binding ReasonForVisit,Mode=TwoWay}" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                <!--<TextBox x:Name="txtReasonforVisit" Text="{Binding ReasonForVisit,Mode=TwoWay}" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
+
+                                <ComboBox x:Name="CmbReasonforVisit" Text="{Binding ReasonForVisit,Mode=TwoWay}" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+
+
                                 <Label x:Name="lblPersontobeVisited" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="158" Grid.ColumnSpan="2">Person(s) to be Visited</Label>
 
                                 <!--<TextBox x:Name="txtPersontobeVisited" Text="{Binding PersontobeVisited,Mode=TwoWay}" Grid.Row="4" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
@@ -145,15 +149,20 @@
 
                                 <ComboBox x:Name="EmpToBeVisited" ItemsSource="{Binding EmpToBeVisited, Mode=TwoWay}" SelectedItem="{Binding PersontobeVisited}" Grid.Row="4" Grid.Column="3" Margin="1,10,0,10" MinHeight="30"/>
 
-
                                 <Label x:Name="lblAreaVisited" Margin="30,11,0,11" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="123" Grid.ColumnSpan="2">Area to be Visted</Label>
-                                <TextBox x:Name="txtAreaVisited" Text="{Binding AreaVisited,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                <!--<TextBox x:Name="txtAreaVisited" Text="{Binding AreaVisited,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
+
+                                <ComboBox x:Name="AreaToBeVisited" Text="{Binding AreaVisited,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+
+
                                 <Label x:Name="lblVisitDateTime" Margin="30,11,0,11" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Visit Date and Time</Label>
                                 <TextBox x:Name="txtVisitDateTime" Text="{Binding VisitDateTime,Mode=TwoWay}" Grid.Row="6" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblVisitDuration" Margin="30,11,0,11" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="101" Grid.ColumnSpan="2">Visit Duration</Label>
                                 <TextBox x:Name="txtVisitDuration" Text="{Binding VisitDuration,Mode=TwoWay}" Grid.Row="7" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                
                                 <Label x:Name="lblDepartmentManager" Margin="30,11,0,11" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="152" Grid.ColumnSpan="2">Department Manager</Label>
                                 <TextBox x:Name="txtDepartmentManager" Text="{Binding DepartmentManager,Mode=TwoWay}" Grid.Row="8" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                                
                                 <Label x:Name="lblProductionManager" Margin="30,11,0,11" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="270" Grid.ColumnSpan="2">Production Manager / Deputy Manager</Label>
                                 <TextBox x:Name="txtProductionManager" Text="{Binding ProductionManager,Mode=TwoWay}" Grid.Row="9" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblSecurityController" Margin="30,11,0,11" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="133" Grid.ColumnSpan="2">Security Controller</Label>

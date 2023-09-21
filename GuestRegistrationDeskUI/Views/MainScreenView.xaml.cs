@@ -96,9 +96,9 @@ namespace GuestRegistrationDeskUI.Views
                // txtDate.Text = string.Empty;
                 //txtCompany.Text = string.Empty;
                 txtVisitorsIdNo.Text = string.Empty;
-                txtReasonforVisit.Text = string.Empty;
+                //txtReasonforVisit.Text = string.Empty;
                 //txtPersontobeVisited.Text = string.Empty; replaced with cmb
-                txtAreaVisited.Text = string.Empty;
+                //txtAreaVisited.Text = string.Empty;
                 txtVisitDateTime.Text = string.Empty;
                 txtVisitDuration.Text = string.Empty;
                 txtDepartmentManager.Text = string.Empty;

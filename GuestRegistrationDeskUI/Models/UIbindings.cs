@@ -27,6 +27,9 @@ namespace GuestRegistrationDeskUI.Models
         public List<string> Personalisation { get; set; }
 
 
+        public List<string> AreaToBeVisited { get; set; }
+        public List<string> CmbDepartmentManager { get; set; }
+
 
 
     }
