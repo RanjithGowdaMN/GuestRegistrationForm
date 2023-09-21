@@ -649,7 +649,8 @@ namespace GuestRegistrationDeskUI.ViewModels
                 DepartmentNames = cmdData.DepartmentNames;
                 CmbReasonforVisit = cmdData.VisitorVisitPurpose;
                 AreaToBeVisited = cmdData.AreaToBeVisited;
-                CmbDepartmentManager = cmdData.CmbDepartmentManager;
+                CmbDepartmentManager = cmdData.DepartmentManager;
+                ProductionManagerDeputyManager = cmdData.ProductionManager_DeputyManager;
             }
             catch (Exception ex)
             {
@@ -738,7 +739,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-        public List<string> _cmbDepartmentManager;
+        private List<string> _cmbDepartmentManager;
         public List<string> CmbDepartmentManager
         {
             get { return _cmbDepartmentManager; }
@@ -748,6 +749,20 @@ namespace GuestRegistrationDeskUI.ViewModels
                 {
                     _cmbDepartmentManager = value;
                     OnPropertyChanged(nameof(_cmbDepartmentManager));
+                }
+            }
+        }
+
+        private List<string> _productionManagerDeputyManager;
+        public List<string> ProductionManagerDeputyManager
+        {
+            get { return _productionManagerDeputyManager; }
+            set
+            {
+                if (ProductionManagerDeputyManager != value)
+                {
+                    _productionManagerDeputyManager = value;
+                    OnPropertyChanged(nameof(_productionManagerDeputyManager));
                 }
             }
         }

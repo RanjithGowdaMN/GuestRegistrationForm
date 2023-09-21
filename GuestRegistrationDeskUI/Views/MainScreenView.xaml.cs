@@ -101,8 +101,8 @@ namespace GuestRegistrationDeskUI.Views
                 //txtAreaVisited.Text = string.Empty;
                 txtVisitDateTime.Text = string.Empty;
                 txtVisitDuration.Text = string.Empty;
-                txtDepartmentManager.Text = string.Empty;
-                txtProductionManager.Text = string.Empty;
+                //txtDepartmentManager.Text = string.Empty;
+                //txtProductionManager.Text = string.Empty;
                 txtSecurityController.Text = string.Empty;
                 //txtName.Text = string.Empty;
                 txtTitle.Text = string.Empty;
