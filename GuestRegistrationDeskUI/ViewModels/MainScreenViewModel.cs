@@ -44,9 +44,9 @@ namespace GuestRegistrationDeskUI.ViewModels
 
         public void resetDefaultImage()
         {
-            ImagePath = new BitmapImage(new Uri("D:\\VisitorData\\Photos\\photo00001.jpg"));
-            ImagePathfront = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardFront.jpg"));
-            ImagePathBack = new BitmapImage(new Uri("D:\\VisitorData\\temp\\IDCardBack.jpg"));
+            ImagePath = new BitmapImage(new Uri(CONSTANTS.DEFAULT_PHOTO));
+            ImagePathfront = new BitmapImage(new Uri(CONSTANTS.DEFAULT_ID_FRONT));
+            ImagePathBack = new BitmapImage(new Uri(CONSTANTS.DEFAULT_ID_BACK));
         }
 
         public void PrintVisitorIdCard()
@@ -639,7 +639,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             try
             {
-                string jsonFilePath = "D:\\VisitorData\\Data\\DataConfiguration.json"; // Provide the path to your JSON file
+                string jsonFilePath = CONSTANTS.CONFIGURATION_FILE; // Provide the path to your JSON file
                 string jsonData = File.ReadAllText(jsonFilePath);
 
                 cmdData = JsonConvert.DeserializeObject<UIbindingModel>(jsonData);
@@ -655,8 +655,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 // Handle exceptions, e.g., file not found, JSON parsing error
             }
-            string pdfUrl = "https://example.com/your-pdf-file.pdf";
-            //pdfViewer.Navigate(new Uri(pdfUrl));
+           
         }
         private List<string> _visitorCompanyName;
         public List<string> VisitorCompanyName

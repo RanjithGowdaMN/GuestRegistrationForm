@@ -9,6 +9,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -177,6 +178,7 @@ namespace GuestRegistrationDeskUI.Views
             Process p = new Process();
             p.StartInfo = psi;
             p.Start();
+            Thread.Sleep(2000);
             if (p.HasExited)
             {
                 p.Kill();
