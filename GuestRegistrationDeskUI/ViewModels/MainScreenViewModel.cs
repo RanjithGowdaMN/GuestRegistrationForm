@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
-using GuestRegistrationDeskUI.EventModel;
 using GuestRegistrationDeskUI.Models;
 using Newtonsoft.Json;
 using System;
@@ -9,23 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using System.Drawing.Printing;
-using AcroPDFLib;
-using System.Reflection;
-using Windows.Data.Pdf;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using GuestRegistrationDeskUI.Views;
-using Ghostscript.NET.Rasterizer;
-using Ghostscript.NET;
-using Ghostscript.NET.Processor;
-using Ghostscript.NET.Viewer;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Windows.Interop;
 
 namespace GuestRegistrationDeskUI.ViewModels
 {
