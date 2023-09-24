@@ -155,16 +155,16 @@
 
                                 <Label x:Name="lblVisitDateTime" Margin="30,11,0,11" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Visit Date and Time</Label>
                                 <TextBox x:Name="txtVisitDateTime" Text="{Binding VisitDateTime,Mode=TwoWay}" Grid.Row="6" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
-                                
+
                                 <Label x:Name="lblVisitDuration" Margin="30,11,0,11" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="101" Grid.ColumnSpan="2">Visit Duration</Label>
                                 <TextBox x:Name="txtVisitDuration" Text="{Binding VisitDuration,Mode=TwoWay}" Grid.Row="7" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
-                                
+
                                 <Label x:Name="lblDepartmentManager" Margin="30,11,0,11" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="152" Grid.ColumnSpan="2">Department Manager</Label>
                                 <ComboBox x:Name="CmbDepartmentManager" Text="{Binding DepartmentManager,Mode=TwoWay}" Grid.Row="8" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
-                                
+
                                 <Label x:Name="lblProductionManager" Margin="30,11,0,11" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="270" Grid.ColumnSpan="2">Production Manager / Deputy Manager</Label>
                                 <ComboBox x:Name="ProductionManagerDeputyManager" Text="{Binding ProductionManager,Mode=TwoWay}" Grid.Row="9" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
-                                
+
                                 <Label x:Name="lblSecurityController" Margin="30,11,0,11" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="133" Grid.ColumnSpan="2">Security Controller</Label>
                                 <TextBox x:Name="txtSecurityController" Text="{Binding SecurityController,Mode=TwoWay}" Grid.Row="10" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
 
@@ -392,8 +392,8 @@
                                  HorizontalAlignment="Center" x:Name="GenerateTempBadge" Click="GenerateTempBadge_Click" RenderTransformOrigin="0.5,0.504" >
                             Print Document
                         </Button>
-                        
-                        
+
+
                         <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="900" Width="1000" Margin="124,0,27,0">
                             <StackPanel  Grid.Row="1" Name="imageContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Source="{Binding DocImage}" Width="200" Height="150" Stretch="Uniform" />
@@ -407,20 +407,31 @@
             <TabItem Name="PrintingDocument" Header="Print Card" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Padding="10 50 50 25">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" ></ColumnDefinition>
-                        <ColumnDefinition Width="auto" ></ColumnDefinition>
-                        <ColumnDefinition Width="auto" ></ColumnDefinition>
+                        <ColumnDefinition Width="200" ></ColumnDefinition>
+                        <ColumnDefinition Width="200" ></ColumnDefinition>
+                        <ColumnDefinition Width="200" ></ColumnDefinition>
+                        <ColumnDefinition Width="200" ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Row="2" Grid.Column="0" Padding="10 5" Width="178" Height="50" Margin="-538,36,0,100"
-                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" Click="PrintVisitorIdCard_Click" />
-                    <Button Grid.Row="2" Grid.Column="1" Padding="10 5" Width="178" Height="50" Margin="-226,36,0,100"
+                    <Button Grid.Row="0" Grid.Column="0" Padding="10 5" Width="178" Height="35" Margin="-202,53,0,468"
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" Click="PrintVisitorIdCard_Click" RenderTransformOrigin="0.52,0.06" />
+                    <Button Grid.Row="0" Padding="10 5" Width="178" Height="34" Margin="10,54,0,468"
                                  HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" Click="PrintContractIdCard_Click" />
+                    <ComboBox Grid.Row="0" Name="cmbPrinterSelectionCard" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" Margin="10,56,33,468" RenderTransformOrigin="-0.126,0.78" Grid.Column="1" Grid.ColumnSpan="2"   />
+                    <Button Grid.Row="0" Grid.Column="3"
+                                 HorizontalAlignment="Center" x:Name="PrintIDCard" Click="PrintIDCard_Click" Margin="66,53,-18,468" Width="152">
+                        Print Card
+                    </Button>
+
+                    <StackPanel  Grid.Row="0" Name="IdContainer" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="4" Margin="0,104,50,184" Width="750" Height="490" Grid.RowSpan="2" >
+                        <Image Source="{Binding CardImage}" Height="20" Stretch="Uniform" RenderTransformOrigin="1.05,0.473" Margin="710,0,10,0" />
+                    </StackPanel>
+
+                    <TextBox x:Name="IDcardNameDummy"  Text="{Binding GeneratedIDcardFileName, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" TextChanged="IdCardFileName_TextChanged" Visibility="Hidden"/>
 
                 </Grid>
             </TabItem>

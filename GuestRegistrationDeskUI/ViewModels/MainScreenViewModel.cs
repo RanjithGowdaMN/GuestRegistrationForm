@@ -53,7 +53,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             if (MessageForPhoto())
             {
-                _centralHub.PrintIdCard(visitorName, "VISITOR");
+                GeneratedIDcardFileName =  _centralHub.PrintIdCard(visitorName, "VISITOR");
                 ResetOrClearAllFields();
                 MessageBox.Show("File Created!");
             }
@@ -65,7 +65,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         {
             if (MessageForPhoto())
             {
-                _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
+                GeneratedIDcardFileName = _centralHub.PrintIdCard(visitorName, "CONTRACTOR");
                 ResetOrClearAllFields();
                 MessageBox.Show("File Created!");
             }
@@ -433,6 +433,21 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
+
+        private string _generatedIDcardFileName;
+        public string GeneratedIDcardFileName
+        {
+            get { return _generatedIDcardFileName; }
+            set
+            {
+                if (_generatedIDcardFileName != value)
+                {
+                    _generatedIDcardFileName = value;
+                    OnPropertyChanged(nameof(GeneratedIDcardFileName));
+                }
+            }
+        }
+
 
         private string _visitorIDNo;
 

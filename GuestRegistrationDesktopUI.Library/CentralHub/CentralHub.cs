@@ -45,6 +45,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public string generatedVisitorIDNumber = string.Empty;
         public string fullImageFileName = string.Empty;
+        public string IDcardFileName = string.Empty;
 
         public CentralHub(IOCRhelper iOCRhelper, IGenerateWordDocument generateWordDocument, 
             IGeneratePDFdocument generatePDFdocument, IGenerateCardPrintDoc generateCardPrintDoc)//, IIronOCR ironOCR)
@@ -127,18 +128,19 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             return generatedVisitorIDNumber;
         }
 
-        public void PrintIdCard(string visitorName, string visitorType)
+        public string PrintIdCard(string visitorName, string visitorType)
         {
             string outputPath =Path.Combine("D:\\VisitorData\\IdCard", GenerateVisitorIDnumber() + ".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
             //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
             //GenerateVisitorIDnumber();
-            _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
+            IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
             vistorData = new VisitorDataModel();
             cameraStatus = new CameraStatus();
             scannedFileInfo = new ScannedFileModel();
             fullImageFileName = string.Empty;
             generatedVisitorIDNumber = string.Empty;
+            return IDcardFileName;
         }
 
         public string GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)

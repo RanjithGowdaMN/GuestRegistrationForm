@@ -10,7 +10,7 @@ namespace GenerateDocument.Library
         public float cardWidth = 252.72f; //4 inches
         public float cardHeight = 153.09f; //2 inches
 
-        public void printCard(string outputPath, string sppLogo, string imagePath,
+        public string printCard(string outputPath, string sppLogo, string imagePath,
                             string visitorName, string visitorNumber, string visitorType)
         {
             Document document = new Document(new Rectangle(cardWidth, cardHeight));
@@ -182,7 +182,7 @@ namespace GenerateDocument.Library
             // Close the document
             document.Close();
 
-            //Console.WriteLine($"PDF created at {outputPath}");
+            return outputPath;
         }
     }
 }

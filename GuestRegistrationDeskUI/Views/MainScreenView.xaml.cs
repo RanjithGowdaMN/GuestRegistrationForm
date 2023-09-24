@@ -46,6 +46,59 @@ namespace GuestRegistrationDeskUI.Views
         {
             SendDocumentToUI(DocumentNameDummy.Text);
         }
+        private void IdCardFileName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SendCardToUI(IDcardNameDummy.Text);
+        }
+
+        private void SendCardToUI(string inputCardPath)
+        {
+            GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
+            try
+            {
+                // Open the PDF file
+                rasterizer.Open(inputCardPath);
+                Bitmap[] bitmaps = new Bitmap[rasterizer.PageCount];
+                // Loop through each page in the PDF
+                for (int pageNumber = 1; pageNumber <= rasterizer.PageCount; pageNumber++)
+                {
+                    bitmaps[pageNumber - 1] = (Bitmap)rasterizer.GetPage(300, pageNumber);
+                }
+
+                foreach (Bitmap bitmap in bitmaps)
+                {
+                    // Convert System.Drawing.Bitmap to System.Windows.Media.Imaging.BitmapImage
+                    BitmapImage bitmapImage = new BitmapImage();
+
+                    using (MemoryStream memory = new MemoryStream())
+                    {
+                        bitmap.Save(memory, ImageFormat.Png);
+                        memory.Position = 0;
+
+                        bitmapImage.BeginInit();
+                        bitmapImage.StreamSource = memory;
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmapImage.EndInit();
+                    }
+
+                    // Create an Image control and set its source to the BitmapImage
+                    System.Windows.Controls.Image imageControl = new System.Windows.Controls.Image();
+                    imageControl.Source = bitmapImage;
+                    IdContainer.Children.Add(imageControl);
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Error Occured while showing preview, please check D:/VisitorData/GeneratedDocument/ folder");
+            }
+            finally
+            {
+                // Clean up resources
+                rasterizer.Close();
+            }
+        }
+
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (VisitorCompanyName.Text == "other")
@@ -275,6 +328,46 @@ namespace GuestRegistrationDeskUI.Views
                 txtCompany.Visibility = Visibility.Hidden;
 
             }
+        }
+
+        private void PrintIDCard_Click(object sender, RoutedEventArgs e)
+        {
+            // var printDialog1 = new PrintDialog();
+            if (string.IsNullOrEmpty(printerSettings.PrinterName))
+            {
+                // Handle the case where no printer is selected
+                MessageBox.Show("Please select a printer before printing.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(IDcardNameDummy.Text))
+            {
+                // Handle the case where no printer is selected
+                MessageBox.Show("Please generate document before printing.");
+                return;
+            }
+
+            ProcessStartInfo psi = new ProcessStartInfo()
+            {
+                CreateNoWindow = true,
+                Verb = "printto",
+                FileName = IDcardNameDummy.Text,
+                Arguments = "\"" + printerSettings.PrinterName + "\""
+            };
+
+            Process p = new Process();
+            p.StartInfo = psi;
+            p.Start();
+            Thread.Sleep(2000);
+            if (p.HasExited)
+            {
+                p.Kill();
+            }
+        }
+
+        private void TabControl_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
