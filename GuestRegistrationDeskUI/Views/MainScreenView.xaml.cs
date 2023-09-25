@@ -53,6 +53,10 @@ namespace GuestRegistrationDeskUI.Views
 
         private void SendCardToUI(string inputCardPath)
         {
+            while (IdContainer.Children.Count > 0)
+            {
+                IdContainer.Children.RemoveAt(IdContainer.Children.Count - 1);
+            }
             GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
             try
             {
@@ -265,6 +269,10 @@ namespace GuestRegistrationDeskUI.Views
 
         public void SendDocumentToUI(string inputPdfPath)
         {
+            while (imageContainer.Children.Count > 0)
+            {
+                imageContainer.Children.RemoveAt(imageContainer.Children.Count - 1);
+            }
             GhostscriptRasterizer rasterizer = new GhostscriptRasterizer();
             try
             {
