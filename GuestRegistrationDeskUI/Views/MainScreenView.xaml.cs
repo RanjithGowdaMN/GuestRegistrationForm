@@ -30,6 +30,8 @@ namespace GuestRegistrationDeskUI.Views
 
             //txtCompany.IsEnabled = false;
             txtCompany.Visibility = Visibility.Hidden;
+            txtCompanyName.Visibility = Visibility.Hidden;
+            txtcavCompany.Visibility = Visibility.Hidden;
         }
 
         public void LoadImage()
@@ -155,13 +157,13 @@ namespace GuestRegistrationDeskUI.Views
                 txtSecurityController.Text = string.Empty;
                 //txtName.Text = string.Empty;
                 txtTitle.Text = string.Empty;
-                txtCompany1.Text = string.Empty;
+                //txtCompany1.Text = string.Empty;
                 //txtDate1.Text = string.Empty;
                 txtIdDateofIssue.Text = string.Empty;
                 txtPlaceofIssue.Text = string.Empty;
                 txtVisitorName.Text = string.Empty;
                 txtBadgeNo.Text = string.Empty;
-                txtPurposeOfvisit.Text = string.Empty;
+                //txtPurposeOfvisit.Text = string.Empty;
                 txtDate2.Text = string.Empty;
                 txtArrivalTime.Text = string.Empty;
                 txtDepartureTime.Text = string.Empty;
@@ -188,7 +190,7 @@ namespace GuestRegistrationDeskUI.Views
                 txtPassportNo.Text = string.Empty;
                 txtDateandPlaceofIssue.Text = string.Empty;
                 txtPassportValidty.Text = string.Empty;
-                txtPurposeOfVisit1.Text = string.Empty;
+                //txtPurposeOfVisit1.Text = string.Empty;
                 txtDuration.Text = string.Empty;
                 txtEmergencyContactNo.Text = string.Empty;
             });
@@ -330,11 +332,33 @@ namespace GuestRegistrationDeskUI.Views
             {
                 //txtCompany.IsEnabled = true;
                 txtCompany.Visibility = Visibility.Visible;
+               
             }
             else
             {
                 txtCompany.Visibility = Visibility.Hidden;
+             
 
+            }
+
+            if(cavCompanyName.Text=="other")
+            {
+                txtcavCompany.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtcavCompany.Visibility = Visibility.Hidden;
+            }
+
+            if (CCompanyName.Text=="other")
+            {
+                txtCompanyName.Visibility = Visibility.Visible;
+
+            }
+
+            else
+            {
+                txtCompanyName.Visibility = Visibility.Hidden;
             }
         }
 

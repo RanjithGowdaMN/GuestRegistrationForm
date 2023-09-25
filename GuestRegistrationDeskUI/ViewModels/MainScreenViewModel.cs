@@ -601,7 +601,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _securityController; public string SecurityController { get { return _securityController; } set { if (_securityController != value) { _securityController = value; } } }
 
         //ConfidentialityAgreementForVisitor
-        private string _caForvName; public string caForvName { get { return _caForvName; } set { if (_caForvName != value) { _caForvName = value; } } }
+        private string _caForvName; public string caForvName { get { return _caForvName; } set { if (_caForvName != value) { _caForvName = value; OnPropertyChanged(nameof(_caForvName)); } } }
         private string _title; public string Title { get { return _title; } set { if (_title != value) { _title = value; } } }
         private string _cavCompany; public string cavCompany { get { return _cavCompany; } set { if (_cavCompany != value) { _cavCompany = value; } } }
         private string _cavDate; public string cavDate { get { return _cavDate; } set { if (_cavDate != value) { _cavDate = value; } } }
@@ -665,12 +665,26 @@ namespace GuestRegistrationDeskUI.ViewModels
                 AreaToBeVisited = cmdData.AreaToBeVisited;
                 CmbDepartmentManager = cmdData.DepartmentManager;
                 ProductionManagerDeputyManager = cmdData.ProductionManager_DeputyManager;
+                cavCompanyName = cmdData.VisitorCompanyName;
+                caPurposeforVisit = cmdData.VisitorVisitPurpose;
+                CCompanyName = cmdData.VisitorCompanyName;
+                
             }
             catch (Exception ex)
             {
                 // Handle exceptions, e.g., file not found, JSON parsing error
             }
            
+        }
+        private List<string> _cavCompanyName;
+        public List<string> cavCompanyName
+        {
+            get { return _cavCompanyName; }
+            set
+            {
+                _cavCompanyName = value;
+                NotifyOfPropertyChange(() => cavCompanyName);
+            }
         }
         private List<string> _visitorCompanyName;
         public List<string> VisitorCompanyName
@@ -682,6 +696,22 @@ namespace GuestRegistrationDeskUI.ViewModels
                 NotifyOfPropertyChange(() => VisitorCompanyName);
             }
         }
+
+        private List<string> _CCompanyName;
+        public List<string> CCompanyName
+        {
+            get { return _CCompanyName; }
+            set
+            {
+                _CCompanyName = value;
+                NotifyOfPropertyChange(() => CCompanyName);
+            }
+        }
+
+
+
+
+
 
         #region comboBoxProperties
         private List<string> _visitorVisitPurpose;
@@ -696,6 +726,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
+      
         private List<string> _departmentNames;
         public List<string> DepartmentNames
         {
@@ -738,6 +769,28 @@ namespace GuestRegistrationDeskUI.ViewModels
                 }
             }
         }
+
+
+        public List<string> _caPurposeforVisit;
+        public List<string> caPurposeforVisit
+        {
+            get { return _caPurposeforVisit; }
+            set
+            {
+                if (caPurposeforVisit != value)
+                {
+                    _caPurposeforVisit = value;
+                    OnPropertyChanged(nameof(_caPurposeforVisit));
+                }
+            }
+        }
+
+
+
+
+
+
+
 
         public List<string> _areaToBeVisited;
         public List<string> AreaToBeVisited
