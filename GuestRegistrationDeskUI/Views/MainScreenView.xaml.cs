@@ -146,7 +146,7 @@ namespace GuestRegistrationDeskUI.Views
                 //txtVisitorsName.Text = string.Empty;
                // txtDate.Text = string.Empty;
                 //txtCompany.Text = string.Empty;
-                txtVisitorsIdNo.Text = string.Empty;
+                //txtVisitorsIdNo.Text = string.Empty;
                 //txtReasonforVisit.Text = string.Empty;
                 //txtPersontobeVisited.Text = string.Empty; replaced with cmb
                 //txtAreaVisited.Text = string.Empty;
