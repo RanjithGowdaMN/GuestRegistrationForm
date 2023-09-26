@@ -29,6 +29,6 @@ namespace GuestRegistrationDeskUI.Models
         public string PurposeOfVisit { get; set; }
         public string Duration { get; set; }
         public string EmergencyContactNo { get; set; }
-
+        public string CcFelony { get; set; }
     }
 }

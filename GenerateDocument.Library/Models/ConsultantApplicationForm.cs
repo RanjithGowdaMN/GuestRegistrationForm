@@ -19,6 +19,8 @@ namespace GuestRegistrationDeskUI.Models
         public string CellPhone { get; set; }
         public string Homephone { get; set; }
         public string SecurityNo { get; set; }
+
+        public string CcFelony { get; set; }
         public bool IsYes { get; set; }
         public bool IsNo { get; set; }
         public string CompanyName { get; set; }

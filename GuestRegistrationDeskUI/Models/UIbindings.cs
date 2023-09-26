@@ -11,6 +11,7 @@ namespace GuestRegistrationDeskUI.Models
         public List<string> VisitorVisitPurpose { get; set; }
         public List<string> VisitorCompanyName { get; set; }
         public List<string> DepartmentNames { get; set; }
+        public List<string> Felony { get; set; }
 
         public List<string> Production { get; set; }
         public List<string> ITandSecurity { get; set; }

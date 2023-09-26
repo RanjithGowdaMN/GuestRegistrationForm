@@ -226,9 +226,11 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.EmergencyContactNo = concatenatedDataBinding.consultantApplicationForm.EmergencyContactNo;
             guestDataBinding.consultantApplicationForm.FirstName = concatenatedDataBinding.consultantApplicationForm.FirstName;
             guestDataBinding.consultantApplicationForm.Homephone = concatenatedDataBinding.consultantApplicationForm.Homephone;
+            guestDataBinding.consultantApplicationForm.Zip = concatenatedDataBinding.consultantApplicationForm.Zip;
             guestDataBinding.consultantApplicationForm.IdNo = concatenatedDataBinding.consultantApplicationForm.IdNo;
             guestDataBinding.consultantApplicationForm.IsNo = concatenatedDataBinding.consultantApplicationForm.IsNo;
             guestDataBinding.consultantApplicationForm.IsYes = concatenatedDataBinding.consultantApplicationForm.IsYes;
+            guestDataBinding.consultantApplicationForm.CcFelony = concatenatedDataBinding.consultantApplicationForm.CcFelony;
             guestDataBinding.consultantApplicationForm.LastName = concatenatedDataBinding.consultantApplicationForm.LastName;
             guestDataBinding.consultantApplicationForm.MiddleName = concatenatedDataBinding.consultantApplicationForm.MiddleName;
             guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNo;

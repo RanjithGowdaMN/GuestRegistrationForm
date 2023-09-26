@@ -356,10 +356,12 @@
                                 <Label x:Name="lblSecurityNo" Margin="30,11,0,11" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="164">Social Security Number</Label>
                                 <TextBox x:Name="txtSecurityNo" Text="{Binding SecurityNo,Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
                                 <Label x:Name="lblConvictedFelony" Margin="30,11,0,11" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="282" Grid.RowSpan="3">Have you ever been convicted of a felony</Label>
-                                <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal" Margin="1,10,19,10" MinHeight="30" Grid.RowSpan="3">
+                                <!--<StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal" Margin="1,10,19,10" MinHeight="30" Grid.RowSpan="3">
                                     <RadioButton Content="YES" IsChecked="{Binding IsYes, Mode=TwoWay}" Margin="0,10,0,10" MinHeight="30"/>
                                     <RadioButton Content="NO" IsChecked="{Binding IsNo, Mode=TwoWay}" Margin="0,10,0,10" MinHeight="30"/>
-                                </StackPanel>
+                                </StackPanel>-->
+                                <ComboBox x:Name="CcFelony" Text="{Binding CFelony,Mode=TwoWay}" Grid.Row="9" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/>
+                                
                                 <Label x:Name="lblCompanyName" Margin="30,11,0,11" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="115">Company Name</Label>
                                 <ComboBox x:Name="CCompanyName" Text="{Binding CompanyName, Mode=TwoWay}" Grid.Row="12" Grid.Column="1" Margin="1,10,19,10" MinHeight="30" SelectionChanged="VisitorCompanyName_SelectionChanged" ContextMenuClosing="VisitorCompanyName_ContextMenuClosing" DropDownClosed="VisitorCompanyName_DropDownClosed"/>
                                 

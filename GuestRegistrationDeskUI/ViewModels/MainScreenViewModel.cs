@@ -253,6 +253,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.Homephone = Homephone;
             consultantApplicationForm.IdNo = IdNo;
             consultantApplicationForm.IsNo = IsNo;
+            consultantApplicationForm.CcFelony = CFelony;
             consultantApplicationForm.IsYes = IsYes;
             consultantApplicationForm.LastName = caLastName;
             consultantApplicationForm.MiddleName = caMiddleName;
@@ -641,6 +642,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _securityNo; public string SecurityNo { get { return _securityNo; } set { if (_securityNo != value) { _securityNo = value; } } }
         private bool _isYes; public bool IsYes { get { return _isYes; } set { if (_isYes != value) { _isYes = value; } } }
         private bool _isNo; public bool IsNo { get { return _isNo; } set { if (_isNo != value) { _isNo = value; } } }
+
+        private string _felony; public string CFelony { get { return _felony; } set { if (_felony != value) { _felony = value; } } }
         private string _companyName; public string CompanyName { get { return _companyName; } set { if (_companyName != value) { _companyName = value; } } }
         private string _idNo; public string IdNo { get { return _idNo; } set { if (_idNo != value) { _idNo = value; } } }
         private string _passportNo; public string PassportNo { get { return _passportNo; } set { if (_passportNo != value) { _passportNo = value; } } }
@@ -668,7 +671,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 cavCompanyName = cmdData.VisitorCompanyName;
                 caPurposeforVisit = cmdData.VisitorVisitPurpose;
                 CCompanyName = cmdData.VisitorCompanyName;
-                
+                CcFelony = cmdData.Felony;
             }
             catch (Exception ex)
             {
@@ -726,7 +729,23 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-      
+
+
+        private List<string> _cfelony;
+
+        public List<string> CcFelony
+        {
+            get { return _cfelony; }
+            set
+            {
+                _cfelony = value;
+                NotifyOfPropertyChange(() => CcFelony);
+            }
+        }
+
+
+
+
         private List<string> _departmentNames;
         public List<string> DepartmentNames
         {
