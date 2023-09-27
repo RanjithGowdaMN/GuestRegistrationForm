@@ -186,7 +186,7 @@ namespace GuestRegistrationDeskUI.Views
                 txtHomePhone.Text = string.Empty;
                 txtSecurityNo.Text = string.Empty;
                 txtCompanyName.Text = string.Empty;
-                txtIdNo.Text = string.Empty;
+                //txtIdNo.Text = string.Empty;
                 txtPassportNo.Text = string.Empty;
                 txtDateandPlaceofIssue.Text = string.Empty;
                 txtPassportValidty.Text = string.Empty;
