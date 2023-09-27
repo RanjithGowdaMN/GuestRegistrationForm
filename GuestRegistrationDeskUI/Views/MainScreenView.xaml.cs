@@ -179,7 +179,7 @@ namespace GuestRegistrationDeskUI.Views
                 //txtLastName.Text = string.Empty;
                 txtAddress.Text = string.Empty;
                 txtCity.Text = string.Empty;
-                txtState.Text = string.Empty;
+                //txtState.Text = string.Empty;
                 txtZip.Text = string.Empty;
                 txtEmail.Text = string.Empty;
                 txtCellPhone.Text = string.Empty;

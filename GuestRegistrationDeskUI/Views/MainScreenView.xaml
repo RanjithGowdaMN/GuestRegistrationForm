@@ -343,7 +343,9 @@
                                 <Label x:Name="lblCity" Margin="30,11.8,0,10.4" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="36">City</Label>
                                 <TextBox x:Name="txtCity" Text="{Binding City,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0.8,9.8,19.4,9.4" MinHeight="30"/>
                                 <Label x:Name="lblState" Margin="30,11.6,0,10.6" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="43">State</Label>
-                                <TextBox x:Name="txtState" Text="{Binding State,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0.8,10.6,19.4,9.6" MinHeight="30"/>
+                                <ComboBox x:Name="cmbstate" Text="{Binding State,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0.8,11.2,19.4,9" MinHeight="30"/>
+
+                                <!--<TextBox x:Name="txtState" Text="{Binding State,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0.8,10.6,19.4,9.6" MinHeight="30"/>-->
                                 <Label x:Name="lblZip" Margin="30,11.4,0,10.8" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="31">Zip</Label>
                                 <TextBox x:Name="txtZip" Text="{Binding Zip,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="0.8,10.4,19.4,9.8" MinHeight="30"/>
                                 <Label x:Name="lblEmail" Margin="30,11.2,0,11" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="102">Email Address</Label>

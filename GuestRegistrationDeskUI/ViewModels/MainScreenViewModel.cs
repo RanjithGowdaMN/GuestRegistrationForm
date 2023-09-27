@@ -673,6 +673,7 @@ namespace GuestRegistrationDeskUI.ViewModels
                 caPurposeforVisit = cmdData.VisitorVisitPurpose;
                 CCompanyName = cmdData.VisitorCompanyName;
                 CcFelony = cmdData.Felony;
+                cmbstate = cmdData.State;
             }
             catch (Exception ex)
             {
@@ -712,7 +713,16 @@ namespace GuestRegistrationDeskUI.ViewModels
             }
         }
 
-
+        private List<string> _State;
+        public List<string> cmbstate
+        {
+            get { return _State; }
+            set
+            {
+                _State = value;
+                NotifyOfPropertyChange(() =>cmbstate);
+            }
+        }
 
 
 

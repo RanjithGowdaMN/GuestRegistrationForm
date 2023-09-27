@@ -13,6 +13,8 @@ namespace GuestRegistrationDeskUI.Models
         public List<string> DepartmentNames { get; set; }
         public List<string> Felony { get; set; }
 
+        public List<string> State { get; set; }
+
         public List<string> Production { get; set; }
         public List<string> ITandSecurity { get; set; }
         public List<string> Management { get; set; }
