@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Guest Registration Form"  Height="auto" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center">
     <DockPanel>
-        <ScrollViewer Width = "1500"  
+        <ScrollViewer Width = "1500"  Height="1200"
             HorizontalScrollBarVisibility = "Visible" VerticalScrollBarVisibility = "Visible">
             <Grid>
                 <Grid.ColumnDefinitions>
