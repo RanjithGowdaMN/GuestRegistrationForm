@@ -28,6 +28,7 @@ namespace GuestRegistrationDeskUI.Models
         public string PassportValidity { get; set; }
         public string PurposeOfVisit { get; set; }
         public string Duration { get; set; }
+        //public string Durationto { get; set; }
         public string EmergencyContactNo { get; set; }
         public string CcFelony { get; set; }
     }

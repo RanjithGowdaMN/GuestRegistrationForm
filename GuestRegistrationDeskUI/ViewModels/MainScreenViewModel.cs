@@ -247,6 +247,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.CompanyName = CompanyName;
             consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
             consultantApplicationForm.Duration = Duration;
+           // consultantApplicationForm.Durationto = Durationto;
             consultantApplicationForm.Email = Email;
             consultantApplicationForm.EmergencyContactNo = EmergencyContactNo;
             consultantApplicationForm.FirstName = caFirstName;
