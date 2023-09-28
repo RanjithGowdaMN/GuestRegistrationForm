@@ -32,6 +32,8 @@ namespace GuestRegistrationDeskUI.Views
             txtCompany.Visibility = Visibility.Hidden;
             txtCompanyName.Visibility = Visibility.Hidden;
             txtcavCompany.Visibility = Visibility.Hidden;
+            
+
         }
 
         public void LoadImage()
@@ -151,7 +153,7 @@ namespace GuestRegistrationDeskUI.Views
                 //txtPersontobeVisited.Text = string.Empty; replaced with cmb
                 //txtAreaVisited.Text = string.Empty;
                 txtVisitDateTime.Text = string.Empty;
-                txtVisitDuration.Text = string.Empty;
+                //txtVisitDuration.Text = string.Empty;
                 //txtDepartmentManager.Text = string.Empty;
                 //txtProductionManager.Text = string.Empty;
                 txtSecurityController.Text = string.Empty;
