@@ -9,6 +9,7 @@
     <DockPanel>
         <ScrollViewer Width = "1500"  Height="1200"
             HorizontalScrollBarVisibility = "Visible" VerticalScrollBarVisibility = "Visible">
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>

@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:GuestRegistrationDeskUI.Views"
              mc:Ignorable="d" Background="White" FontSize="24"
-             Width="400" Height="400">
+             Width="400" Height="400"
+              VerticalAlignment="Center" HorizontalAlignment="Center">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -23,16 +24,16 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 20"
-                   HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light">
+                   HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light">
             Login Form
         </TextBlock>
 
-        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0 0 5 10" VerticalAlignment="Center">
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0 0 5 10" VerticalAlignment="Center" HorizontalAlignment="Center">
             Username:
         </TextBlock>
         <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" Width="200" Margin="0 0 0 10" FontSize="16"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0 0 5 10" VerticalAlignment="Center">
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0 0 5 10" VerticalAlignment="Center" HorizontalAlignment="Center">
             Password:
         </TextBlock>
         <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" Width="200" Margin="0 0 0 10" FontSize="16"/>
@@ -42,7 +43,7 @@
                    Foreground="Red" MaxWidth="300" TextWrapping="Wrap" Margin="0 0 0 20"/>
 
         <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Padding="20 5"
-                HorizontalAlignment="Center" x:Name="Login">
+                HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="Login">
             Log In
         </Button>
     </Grid>
