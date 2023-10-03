@@ -163,7 +163,9 @@
 
 
                                 <Label x:Name="lblVisitDateTime" Margin="30,11,0,11" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Visit Date and Time</Label>
-                                <TextBox x:Name="txtVisitDateTime" Text="{Binding VisitDateTime,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>
+                               <!-- <TextBox x:Name="txtVisitDateTime" Text="{Binding VisitDateTime,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
+                                <DatePicker x:Name="vdatepicker1" Text="{Binding VisitDateTime,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="0.8,11,19.4,9.2" MinHeight="30"/>
+
 
                                 <Label x:Name="lblVisitDuration" Margin="30,11,0,11" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="101" Grid.ColumnSpan="2">Visit Duration</Label>
                               <!--  <TextBox x:Name="txtVisitDuration" Text="{Binding VisitDuration,Mode=TwoWay}" Grid.Row="6" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
