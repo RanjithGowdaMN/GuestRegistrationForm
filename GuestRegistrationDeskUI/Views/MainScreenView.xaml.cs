@@ -334,12 +334,29 @@ namespace GuestRegistrationDeskUI.Views
             {
                 //txtCompany.IsEnabled = true;
                 txtCompany.Visibility = Visibility.Visible;
-               
+                string jsonFilePath = CONSTANTS.CONFIGURATION_FILE; ;
+                string jsonContent = File.ReadAllText(jsonFilePath);
+
+                dynamic jsonData = JsonConvert.DeserializeObject(jsonContent);
+
+
+                string newCompanyName = txtCompany.Text;
+                if (!string.IsNullOrWhiteSpace(newCompanyName))
+                {
+
+                    // Insert the new value at the beginning of the "VisitorCompanyName" array
+                    jsonData["VisitorCompanyName"].Insert(0, txtCompany.Text);
+
+                    string updatedJsonContent = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
+
+                    File.WriteAllText(jsonFilePath, updatedJsonContent);
+                }
             }
+
             else
             {
                 txtCompany.Visibility = Visibility.Hidden;
-             
+
 
             }
 
