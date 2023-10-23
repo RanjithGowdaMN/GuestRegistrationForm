@@ -251,6 +251,7 @@ namespace GuestRegistrationDeskUI.ViewModels
            // consultantApplicationForm.Durationto = Durationto;
             consultantApplicationForm.Email = Email;
             consultantApplicationForm.EmergencyContactNo = EmergencyContactNo;
+            consultantApplicationForm.PResidence = PResidence;
             consultantApplicationForm.FirstName = caFirstName;
             consultantApplicationForm.Homephone = Homephone;
             consultantApplicationForm.IdNo = IdNo;
@@ -656,6 +657,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _caPurposeOfVisit; public string caPurposeOfVisit { get { return _caPurposeOfVisit; } set { if (_caPurposeOfVisit != value) { _caPurposeOfVisit = value; } } }
         private string _duration; public string Duration { get { return _duration; } set { if (_duration != value) { _duration = value; } } }
         private string _emergencyContactNo; public string EmergencyContactNo { get { return _emergencyContactNo; } set { if (_emergencyContactNo != value) { _emergencyContactNo = value; } } }
+        private string _presidences; public string PResidence { get { return _presidences; }set { if (_presidences!=value) { _presidences = value; } } }
+        
         #endregion
         private void LoadData()
         {

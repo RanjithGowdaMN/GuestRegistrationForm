@@ -110,6 +110,7 @@ namespace GenerateDocument.Library
 
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
 
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 190, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
                 textForSecondPage.Add(new Tuple<float, float, string>(425, 73, DateTime.Now.ToString("dd-MM-yyyy")));
 
                 //confidentiality Agreement For Contractors
