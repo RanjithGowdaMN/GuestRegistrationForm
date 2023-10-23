@@ -246,6 +246,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.City = City;
             consultantApplicationForm.CompanyName = CompanyName;
             consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
+            consultantApplicationForm.PDateofIssue = PDateofIssue;
             consultantApplicationForm.Duration = Duration;
            // consultantApplicationForm.Durationto = Durationto;
             consultantApplicationForm.Email = Email;
@@ -649,6 +650,8 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _idNo; public string IdNo { get { return _idNo; } set { if (_idNo != value) { _idNo = value; } } }
         private string _passportNo; public string PassportNo { get { return _passportNo; } set { if (_passportNo != value) { _passportNo = value; } } }
         private string _dateandPlaceofIssue; public string DateandPlaceofIssue { get { return _dateandPlaceofIssue; } set { if (_dateandPlaceofIssue != value) { _dateandPlaceofIssue = value; } } }
+
+        private string _pdateofissue;public string PDateofIssue { get { return _pdateofissue; } set { if (_pdateofissue != value) {_pdateofissue = value; } } }        
         private string _passportValidity; public string PassportValidity { get { return _passportValidity; } set { if (_passportValidity != value) { _passportValidity = value; } } }
         private string _caPurposeOfVisit; public string caPurposeOfVisit { get { return _caPurposeOfVisit; } set { if (_caPurposeOfVisit != value) { _caPurposeOfVisit = value; } } }
         private string _duration; public string Duration { get { return _duration; } set { if (_duration != value) { _duration = value; } } }

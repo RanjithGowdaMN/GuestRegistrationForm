@@ -221,6 +221,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.City = concatenatedDataBinding.consultantApplicationForm.City;
             guestDataBinding.consultantApplicationForm.CompanyName = concatenatedDataBinding.consultantApplicationForm.CompanyName;
             guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue;
+            guestDataBinding.consultantApplicationForm.PDateofIssue = concatenatedDataBinding.consultantApplicationForm.PDateofIssue;
             guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Duration;
            // guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Durationto;
             guestDataBinding.consultantApplicationForm.Email = concatenatedDataBinding.consultantApplicationForm.Email;

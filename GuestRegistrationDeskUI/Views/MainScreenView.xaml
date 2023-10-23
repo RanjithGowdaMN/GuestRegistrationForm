@@ -182,10 +182,15 @@
                                 <TextBox x:Name="txtIdNo" Text="{Binding IdNo,Mode=TwoWay}" Grid.Row="12" Grid.Column="1" Margin="0.8,10.6,19.4,9.6" MinHeight="30" />-->
                                 <Label x:Name="lblPassportNo" Margin="30,12.2,0,10.6" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="125" Grid.ColumnSpan="2">Passport Number</Label>
                                 <TextBox x:Name="txtPassportNo" Text="{Binding PassportNo,Mode=TwoWay}" Grid.Row="8" Grid.Column="2" Margin="1,10.2,19.2,9.6" MinHeight="30"/>
-                                <Label x:Name="lblDateandPlaceofIssue" Margin="29.8,11.4,0,10.8" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="227">Passport Date And Place Of Issue</Label>
+                                <Label x:Name="lblDateandPlaceofIssue" Margin="29.8,11.4,0,10.8" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="227">Passport Place Of Issue</Label>
                                 <TextBox x:Name="txtDateandPlaceofIssue" Text="{Binding DateandPlaceofIssue,Mode=TwoWay}" Grid.Row="7" Grid.Column="4" Margin="1.2,10.4,19,9.8" MinHeight="30"/>
+                                <Label x:Name="lblDateandPlaceofIssue1" Margin="29.8,11.4,0,10.8" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="227">Passport Date Of Issue</Label>
+                                <DatePicker x:Name="datepicker1" Text="{Binding PDateofIssue,Mode=TwoWay}" Grid.Row="8" Grid.Column="4" Margin="1.2,11,19,8.6" MinHeight="30"/>
+
+
                                 <Label x:Name="lblPassportValidity" Margin="30,12.4,0,10.8" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="127" Grid.ColumnSpan="2">Passport Valid Till</Label>
                                 <TextBox x:Name="txtPassportValidty" Text="{Binding PassportValidity,Mode=TwoWay}" Grid.Row="9" Grid.Column="2" Margin="1,10.4,19.2,8.8" MinHeight="30"/>
+                               
                                 <Label x:Name="lblPurposeOfVisit1" Margin="29.8,12.2,0,10" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="116">Purpose Of Visit</Label>
                                 <ComboBox x:Name="caPurposeforVisit" Text="{Binding caPurposeOfVisit,Mode=TwoWay}" Grid.Row="5" Grid.Column="4" Margin="1.2,11.2,19,9" MinHeight="30"/>
 
@@ -196,8 +201,8 @@
                                 <DatePicker x:Name="datepicker" Text="{Binding Duration,Mode=TwoWay}" Grid.Row="6" Grid.Column="4" Margin="1.2,11,19,8.6" MinHeight="30"/>
                                 <!--  <DatePicker x:Name="datepicker1" Text="{Binding Durationto,Mode=TwoWay}" Grid.Row="17" Grid.Column="2" Margin="0.8,11,19.4,9.2" MinHeight="30"/>-->
 
-                                <Label x:Name="lblEmergencyContactNo" Margin="29.8,13.2,0,10.6" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="161">Emergency Contact No</Label>
-                                <TextBox x:Name="txtEmergencyContactNo" Text="{Binding EmergencyContactNo,Mode=TwoWay}" Grid.Row="8" Grid.Column="4" Margin="1.2,11.2,19,8.6" MinHeight="30"/>
+                                <Label x:Name="lblEmergencyContactNo" Margin="29.8,13.2,0,10.6" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="161">Emergency Contact No</Label>
+                                <TextBox x:Name="txtEmergencyContactNo" Text="{Binding EmergencyContactNo,Mode=TwoWay}" Grid.Row="9" Grid.Column="4" Margin="1.2,11.2,19,8.6" MinHeight="30"/>
                             </Grid>
                         </TabItem.Content>
                     </TabItem>
