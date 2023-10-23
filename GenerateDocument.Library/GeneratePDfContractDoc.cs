@@ -65,8 +65,8 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(310,353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
                 textForSecondPage.Add(new Tuple<float, float, string>(150,317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 190, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
 
-                
 
                 //confidentiality Agreement Form
 
