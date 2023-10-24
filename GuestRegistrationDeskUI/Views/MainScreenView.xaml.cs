@@ -372,6 +372,23 @@ namespace GuestRegistrationDeskUI.Views
             if (CCompanyName.Text=="other")
             {
                 txtCompanyName.Visibility = Visibility.Visible;
+                string jsonFilePath = CONSTANTS.CONFIGURATION_FILE; ;
+                string jsonContent = File.ReadAllText(jsonFilePath);
+
+                dynamic jsonData = JsonConvert.DeserializeObject(jsonContent);
+
+
+                string newCompanyName1 = txtCompanyName.Text;
+                if (!string.IsNullOrWhiteSpace(newCompanyName1))
+                {
+
+                    // Insert the new value at the beginning of the "VisitorCompanyName" array
+                    jsonData["VisitorCompanyName"].Insert(0, txtCompanyName.Text);
+
+                    string updatedJsonContent = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
+
+                    File.WriteAllText(jsonFilePath, updatedJsonContent);
+                }
 
             }
 
