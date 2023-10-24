@@ -36,5 +36,6 @@ namespace GuestRegistrationDeskUI.Models
         public string EmergencyContactNo { get; set; }
 
         public string PResidence { get; set; }
+        public string Alias { get; set; }
     }
 }

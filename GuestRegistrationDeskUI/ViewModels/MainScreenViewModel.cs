@@ -252,6 +252,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.Email = Email;
             consultantApplicationForm.EmergencyContactNo = EmergencyContactNo;
             consultantApplicationForm.PResidence = PResidence;
+            consultantApplicationForm.Alias = Alias;
             consultantApplicationForm.FirstName = caFirstName;
             consultantApplicationForm.Homephone = Homephone;
             consultantApplicationForm.IdNo = IdNo;
@@ -658,6 +659,7 @@ namespace GuestRegistrationDeskUI.ViewModels
         private string _duration; public string Duration { get { return _duration; } set { if (_duration != value) { _duration = value; } } }
         private string _emergencyContactNo; public string EmergencyContactNo { get { return _emergencyContactNo; } set { if (_emergencyContactNo != value) { _emergencyContactNo = value; } } }
         private string _presidences; public string PResidence { get { return _presidences; }set { if (_presidences!=value) { _presidences = value; } } }
+        private string _alias; public string Alias { get { return _alias; } set { if (_alias!=value) { _alias = value; } } }
         
         #endregion
         private void LoadData()

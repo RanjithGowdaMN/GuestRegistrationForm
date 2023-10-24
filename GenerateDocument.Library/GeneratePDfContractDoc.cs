@@ -65,7 +65,8 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(310,353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
                 textForSecondPage.Add(new Tuple<float, float, string>(150,317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
-                textForSecondPage.Add(new Tuple<float, float, string>(65, 190, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 192, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 262, gConcatenatedDataBinding.consultantApplicationForm.Alias));
 
 
                 //confidentiality Agreement Form
@@ -106,13 +107,15 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PDateofIssue));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(365, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
+
                // textForSecondPage.Add(new Tuple<float, float, string>(340, 317, gConcatenatedDataBinding.consultantApplicationForm.Durationto));
 
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 262, gConcatenatedDataBinding.consultantApplicationForm.Alias));
 
-                textForSecondPage.Add(new Tuple<float, float, string>(65, 190, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
+                textForSecondPage.Add(new Tuple<float, float, string>(65, 192, gConcatenatedDataBinding.consultantApplicationForm.PResidence));
                 textForSecondPage.Add(new Tuple<float, float, string>(425, 73, DateTime.Now.ToString("dd-MM-yyyy")));
-
+                
                 //confidentiality Agreement For Contractors
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
