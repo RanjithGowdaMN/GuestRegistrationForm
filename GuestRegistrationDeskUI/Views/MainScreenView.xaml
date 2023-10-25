@@ -462,13 +462,13 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" Padding="10 5" Width="178" Height="35" Margin="-202,53,0,468"
+                    <Button Grid.Row="0" Width="178" Height="35" Margin="0,10,0,511" Padding="10 5"
                                  HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" Click="PrintVisitorIdCard_Click" RenderTransformOrigin="0.52,0.06" />
-                    <Button Grid.Row="0" Padding="10 5" Width="178" Height="34" Margin="10,54,0,468"
+                    <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="178" Height="34" Margin="10,10,0,512"
                                  HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" Click="PrintContractIdCard_Click" />
-                    <ComboBox Grid.Row="0" Name="cmbPrinterSelectionCard" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" Margin="10,56,33,468" RenderTransformOrigin="-0.126,0.78" Grid.Column="1" Grid.ColumnSpan="2"   />
+                    <ComboBox Grid.Row="0" Grid.Column="2" Name="cmbPrinterSelectionCard" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" Margin="10,10,33,514" RenderTransformOrigin="-0.126,0.78"   />
                     <Button Grid.Row="0" Grid.Column="3"
-                                 HorizontalAlignment="Center" x:Name="PrintIDCard" Click="PrintIDCard_Click" Margin="66,53,-18,468" Width="152">
+                                 HorizontalAlignment="Center" x:Name="PrintIDCard" Click="PrintIDCard_Click" Margin="10,10,38,511" Width="152">
                         Print Card
                     </Button>
 
