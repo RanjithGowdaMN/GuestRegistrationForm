@@ -442,5 +442,10 @@ namespace GuestRegistrationDeskUI.Views
         {
 
         }
+
+        private void GenerateContractDocument_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
