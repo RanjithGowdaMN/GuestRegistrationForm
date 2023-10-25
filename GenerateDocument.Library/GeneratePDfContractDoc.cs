@@ -107,8 +107,10 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PDateofIssue));
                 textForSecondPage.Add(new Tuple<float, float, string>(400, 353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(365, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
+                textForSecondPage.Add(new Tuple<float, float, string>(150, 385, gConcatenatedDataBinding.consultantApplicationForm.PassportValidity));
 
-               // textForSecondPage.Add(new Tuple<float, float, string>(340, 317, gConcatenatedDataBinding.consultantApplicationForm.Durationto));
+
+                // textForSecondPage.Add(new Tuple<float, float, string>(340, 317, gConcatenatedDataBinding.consultantApplicationForm.Durationto));
 
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
                 textForSecondPage.Add(new Tuple<float, float, string>(65, 262, gConcatenatedDataBinding.consultantApplicationForm.Alias));
