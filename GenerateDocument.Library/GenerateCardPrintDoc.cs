@@ -47,11 +47,11 @@ namespace GenerateDocument.Library
 
             //Load the Logo
 
-            iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
+          //  iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
 
             // image1.ScaleToFit(50, 750);
-            float imageScalingFactor = .10f; // You can adjust this value as needed
-            image1.ScaleToFit(image1.Width * imageScalingFactor, image1.Height * imageScalingFactor);
+            //float imageScalingFactor = .10f; // You can adjust this value as needed
+            //image1.ScaleToFit(image1.Width * imageScalingFactor, image1.Height * imageScalingFactor);
 
             // Position the image
             image.SetAbsolutePosition(10, 40);
@@ -59,8 +59,8 @@ namespace GenerateDocument.Library
             
 
             //position of Logo
-            image1.SetAbsolutePosition(100, 120);
-            contentByte.AddImage(image1);
+          //  image1.SetAbsolutePosition(100, 120);
+            //contentByte.AddImage(image1);
 
 
             

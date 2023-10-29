@@ -174,7 +174,7 @@
                                 </StackPanel>-->
                                 <ComboBox x:Name="CcFelony" Text="{Binding CFelony,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30" Grid.ColumnSpan="2"/>
                                 <Label x:Name="lblCompanyName" Margin="30,20,0,16.6" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="115" Grid.ColumnSpan="2">Company Name</Label>
-                                <ComboBox x:Name="CCompanyName" Text="{Binding CompanyName, Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30" SelectionChanged="VisitorCompanyName_SelectionChanged" ContextMenuClosing="VisitorCompanyName_ContextMenuClosing" DropDownClosed="VisitorCompanyName_DropDownClosed" Grid.ColumnSpan="2"/>
+                                <ComboBox x:Name="CCompanyName" Text="{Binding CompanyName, Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Margin="105.6,14,86.4,16.6" MinHeight="30" SelectionChanged="VisitorCompanyName_SelectionChanged" ContextMenuClosing="VisitorCompanyName_ContextMenuClosing" DropDownClosed="VisitorCompanyName_DropDownClosed" Grid.ColumnSpan="2"/>
                                 <TextBox x:Name="txtCompanyName" Text="{Binding CompanyName,Mode=TwoWay}" Grid.Row="7" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30" Grid.ColumnSpan="2"/>
                                 <!--  <Label x:Name="lblIdNo" Margin="30,11.6,0,10.6" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="115">Id Card Number</Label>
                                 <TextBox x:Name="txtIdNo" Text="{Binding IdNo,Mode=TwoWay}" Grid.Row="12" Grid.Column="1" Margin="0.8,10.6,19.4,9.6" MinHeight="30" />-->
@@ -465,9 +465,9 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" Width="178" Height="35" Margin="0,10,0,511" Padding="10 5"
-                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Print Visitor ID" Click="PrintVisitorIdCard_Click" RenderTransformOrigin="0.52,0.06" />
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintVisitorIdCard" Content="Visitor ID" Click="PrintVisitorIdCard_Click" RenderTransformOrigin="0.52,0.06" />
                     <Button Grid.Row="0" Grid.Column="1" Padding="10 5" Width="178" Height="34" Margin="10,10,0,512"
-                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Print Contract ID" Click="PrintContractIdCard_Click" />
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="PrintContractIdCard" Content="Contractor ID" Click="PrintContractIdCard_Click" />
                     <ComboBox Grid.Row="0" Grid.Column="2" Name="cmbPrinterSelectionCard" ItemsSource="{x:Static Printing:PrinterSettings.InstalledPrinters}" Margin="10,10,33,514" RenderTransformOrigin="-0.126,0.78"   />
                     <Button Grid.Row="0" Grid.Column="3"
                                  HorizontalAlignment="Center" x:Name="PrintIDCard" Click="PrintIDCard_Click" Margin="10,10,38,511" Width="152">
