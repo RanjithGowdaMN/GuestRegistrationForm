@@ -287,8 +287,8 @@
                                 <!--><Label x:Name="lblDate" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="41" Grid.ColumnSpan="2">Date</Label>
                                 <TextBox x:Name="txtDate" Text="{Binding vdsDate, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
                                 <Label x:Name="lblCompany" Margin="30,11,0,11" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="72" Grid.ColumnSpan="2">Company</Label>
-                                <TextBox x:Name="txtCompany" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="3" Margin="1,10,19,10" MinHeight="30" />
-                                <ComboBox x:Name="VisitorCompanyName" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30" SelectionChanged="VisitorCompanyName_SelectionChanged" ContextMenuClosing="VisitorCompanyName_ContextMenuClosing" DropDownClosed="VisitorCompanyName_DropDownClosed"/>
+                                <TextBox x:Name="txtCompany" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="3" Margin="1,10,19,10" MinHeight="30" MinWidth="200" />
+                                <ComboBox x:Name="VisitorCompanyName" Text="{Binding Company, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="1,10,19,10" MinHeight="30" MinWidth="200" SelectionChanged="VisitorCompanyName_SelectionChanged" ContextMenuClosing="VisitorCompanyName_ContextMenuClosing" DropDownClosed="VisitorCompanyName_DropDownClosed"/>
                                 <!--  <Label x:Name="lblVisitorsIdNo" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="103" Grid.ColumnSpan="2">Visitor's Id No</Label>
                                 <TextBox x:Name="txtVisitorsIdNo" Text="{Binding VisitorIdNo, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
                                 <Label x:Name="lblReasonforVisit" Margin="30,11,0,11" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="139" Grid.ColumnSpan="2">Reason for the Visit</Label>
@@ -301,7 +301,7 @@
 
                                 <ComboBox x:Name="DepartmentNames" Grid.Row="3" Grid.Column="2" Margin="1,10,19,10" MinHeight="30" SelectionChanged="DepartmentNames_SelectionChanged"/>
 
-                                <ComboBox x:Name="EmpToBeVisited" ItemsSource="{Binding EmpToBeVisited, Mode=TwoWay}" SelectedItem="{Binding PersontobeVisited}" Grid.Row="3" Grid.Column="3" Margin="1,10,0,10" MinHeight="30"/>
+                                <ComboBox x:Name="EmpToBeVisited" ItemsSource="{Binding EmpToBeVisited, Mode=TwoWay}" SelectedItem="{Binding PersontobeVisited}" Grid.Row="3" Grid.Column="3" Margin="1.2,10.4,18.8,9.8" MinHeight="30"/>
 
                                 <Label x:Name="lblAreaVisited" Margin="30,11,0,11" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="123" Grid.ColumnSpan="2">Area to be Visted</Label>
                                 <!--<TextBox x:Name="txtAreaVisited" Text="{Binding AreaVisited,Mode=TwoWay}" Grid.Row="5" Grid.Column="2" Margin="1,10,19,10" MinHeight="30"/>-->
