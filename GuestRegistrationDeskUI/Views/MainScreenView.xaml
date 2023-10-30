@@ -34,11 +34,11 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >Name:</Label>
-                        <Label Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >ID number:</Label>
-                        <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >DOB:</Label>
-                        <Label Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >ID Expiry:</Label>
-                        <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >Nationality:</Label>
+                        <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >Name</Label>
+                        <Label Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >ID number</Label>
+                        <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >DOB</Label>
+                        <Label Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="92" Margin="25,10,0,10" Height="34" >ID Expiry</Label>
+                        <Label Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5 5" Width="130" Margin="25,10,0,10" Height="34" >Nationality</Label>
 
                         <TextBox x:Name="Name"  Text="{Binding visitorName, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="490" />
                         <TextBox x:Name="IDNo" Text="{Binding visitorIDNo, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="28,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
