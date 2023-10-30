@@ -150,9 +150,9 @@
                                 <Label x:Name="lblLastName" Margin="30,11,0,11" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="79">Last Name</Label>
                                 <TextBox x:Name="txtLastName" Text="{Binding caLastName,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="1,10,19,10" MinHeight="30"/> -->
                                 <Label x:Name="lblAddress" Margin="30,11,0,11.2" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="63">Address</Label>
-                                <TextBox x:Name="txtAddress" Text="{Binding Address,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="txtAddress" Text="{Binding Address,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30"  MinWidth="200"/>
                                 <Label x:Name="lblCity" Margin="29.8,12,0,10.2" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="36">City</Label>
-                                <TextBox x:Name="txtCity" Text="{Binding City,Mode=TwoWay}" Grid.Row="1" Grid.Column="4" Margin="1.2,10,19,9.2" MinHeight="30"/>
+                                <TextBox x:Name="txtCity" Text="{Binding City,Mode=TwoWay}" Grid.Row="1" Grid.Column="4" Margin="1.2,10,19,9.2" MinHeight="30" MinWidth="200"/>
                                 <Label x:Name="lblState" Margin="30,11.8,0,10.4" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Width="43">State</Label>
                                 <ComboBox x:Name="cmbstate" Text="{Binding State,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="105.2,8,86.8,11.2" MinHeight="30" Grid.ColumnSpan="2"/>
 
