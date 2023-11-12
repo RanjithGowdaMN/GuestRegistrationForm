@@ -53,7 +53,7 @@
                         </StackPanel>
 
                         <Button Grid.Row="7" Grid.Column="1"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="ScanIDCard" Padding="0 0" Height="35" Width="125" Margin="20,5,0,0" Click="ScanIDCard_Click" >
+                                 HorizontalAlignment="Left" x:Name="ScanIDCard" Padding="0 0" Width="125" Margin="20,5,0,0" Click="ScanIDCard_Click" Height="35" VerticalAlignment="Top" >
                             Scan Front
                         </Button>
 
