@@ -21,7 +21,7 @@ namespace GenerateDocument.Library
 
              new Tuple<float, float, string>(105, 638, guestDataModel.Name),
              new Tuple<float, float, string>(100,603,gConcatenatedDataBinding.CAforVisitor.Title),
-             new Tuple<float, float, string>(355,603,gConcatenatedDataBinding.CAforVisitor.Company),
+             new Tuple<float, float, string>(355,603,gConcatenatedDataBinding.visitorDataSheet.Company),
              new Tuple<float, float, string>(400,430,DateTime.Now.ToString("dd-MM-yyyy")),
 
              };

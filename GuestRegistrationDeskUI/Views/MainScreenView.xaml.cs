@@ -31,7 +31,7 @@ namespace GuestRegistrationDeskUI.Views
             //txtCompany.IsEnabled = false;
             txtCompany.Visibility = Visibility.Hidden;
             txtCompanyName.Visibility = Visibility.Hidden;
-            txtcavCompany.Visibility = Visibility.Hidden;
+            //txtcavCompany.Visibility = Visibility.Hidden;
             
 
         }
@@ -215,7 +215,36 @@ namespace GuestRegistrationDeskUI.Views
 
         private void VisitorCompanyName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
+
+
+            if (CCompanyName.SelectedItem != null)
+            {
+
+               // string selectedValue = CCompanyName.SelectedItem.ToString();
+
+               /* if (selectedValue == "other")
+                {
+                    txtName.Text = txtCompanyName.Text;
+                }
+
+                else
+                {//*/
+                //Get the selected item's content and set it in the AnotherTextBox
+                    txtName.Text = CCompanyName.SelectedItem.ToString();
+                
+
+            }
+            else if (VisitorCompanyName.SelectedItem != null)
+            {
+                txtName.Text = VisitorCompanyName.SelectedItem.ToString();
+            }
+
+            else
+            {
+                // If nothing is selected or the selection is cleared, you can set the TextBox to an empty string or handle it as needed.
+                txtName.Text = string.Empty;
+            }
         }
 
         private void cmbPrinterSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -330,6 +359,7 @@ namespace GuestRegistrationDeskUI.Views
 
         private void VisitorCompanyName_DropDownClosed(object sender, EventArgs e)
         {
+
             if (VisitorCompanyName.Text == "other")
             {
                 //txtCompany.IsEnabled = true;
@@ -350,6 +380,7 @@ namespace GuestRegistrationDeskUI.Views
                     string updatedJsonContent = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
 
                     File.WriteAllText(jsonFilePath, updatedJsonContent);
+                   txtName.Text = txtCompanyName.Text.ToString();
                 }
             }
 
@@ -360,14 +391,14 @@ namespace GuestRegistrationDeskUI.Views
 
             }
 
-            if(cavCompanyName.Text=="other")
-            {
-                txtcavCompany.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                txtcavCompany.Visibility = Visibility.Hidden;
-            }
+            /*  if(cavCompanyName.Text=="other")
+              {
+                  txtcavCompany.Visibility = Visibility.Visible;
+              }
+              else
+              {
+                  txtcavCompany.Visibility = Visibility.Hidden;
+              }*/
 
             if (CCompanyName.Text=="other")
             {
@@ -389,7 +420,7 @@ namespace GuestRegistrationDeskUI.Views
 
                     File.WriteAllText(jsonFilePath, updatedJsonContent);
                 }
-
+           //    txtName.Text = txtCompanyName.Text.ToString();
             }
 
             else
@@ -446,6 +477,16 @@ namespace GuestRegistrationDeskUI.Views
         private void GenerateContractDocument_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void txtCompanyName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           txtName.Text = txtCompanyName.Text.ToString();
+        }
+
+        private void txtCompany_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtName.Text = txtCompany.Text.ToString();
         }
     }
 }
