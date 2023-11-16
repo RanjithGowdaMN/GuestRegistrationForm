@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationWinForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +12,16 @@ using System.Windows.Forms;
 
 namespace gui
 {
+    
+
     public partial class FormMain : Form
     {
-
+        private readonly DependencyInjectionContainer _container;
         private Form activeForm;
         public FormMain()
         {
+            _container = new DependencyInjectionContainer();
+            //_container.Register<ICentralHub>(new CentralHub());
             InitializeComponent();
         }
 
@@ -34,6 +40,7 @@ namespace gui
             childForm.BringToFront();
             childForm.Show();
             
+
 
         }
 
