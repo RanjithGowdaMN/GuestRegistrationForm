@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationWinForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,17 @@ namespace gui
 {
     public partial class FormContractor : Form
     {
-        public FormContractor()
+        public static ICentralHub _centralHub;
+
+        public FormContractor(ICentralHub centralHub)
         {
+            _centralHub = centralHub;
             InitializeComponent();
         }
 
         private void Contractor_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panelcontrator_Paint(object sender, PaintEventArgs e)

@@ -20,12 +20,13 @@ namespace gui
 
     public partial class FormMain : Form
     {
-        private readonly DependencyInjectionContainer _container;
+        public static DependencyInjectionContainer _container;
         private Form activeForm;
 
         private CameraStatus cameraStatus;
         private ScannedFileModel scannedFileInfo;
 
+        public ICentralHub centralHub;
 
         public FormMain()
         {
@@ -44,6 +45,10 @@ namespace gui
 
             cameraStatus = new CameraStatus();
             scannedFileInfo = new ScannedFileModel();
+
+            centralHub = _container.Resolve<ICentralHub>();
+            //(var result, string fileName) = centalHub.StartScanning(1);
+
         }
 
 
@@ -61,17 +66,12 @@ namespace gui
             childForm.BringToFront();
             childForm.Show();
 
-
-
-            var centalHub = _container.Resolve<ICentralHub>();
-            centalHub.StartScanning(1);
-
-
         }
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(), sender);
+
+            OpenChildForm(new FormScan(centralHub), sender);
 
             
 
@@ -79,17 +79,17 @@ namespace gui
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(), sender);
+            OpenChildForm(new FormContractor(centralHub), sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(), sender);
+            OpenChildForm(new FormVisitor(centralHub), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDoc(), sender);
+            OpenChildForm(new FormDoc(centralHub), sender);
         }
 
         private void btnlgt_Click(object sender, EventArgs e)
