@@ -470,10 +470,11 @@ namespace gui
             this.panelcontrator.Controls.Add(this.lblChomphn);
             this.panelcontrator.Controls.Add(this.txtChomephn);
             this.panelcontrator.Controls.Add(this.lblCcompname);
+            this.panelcontrator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcontrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelcontrator.Location = new System.Drawing.Point(0, 0);
             this.panelcontrator.Name = "panelcontrator";
-            this.panelcontrator.Size = new System.Drawing.Size(1700, 714);
+            this.panelcontrator.Size = new System.Drawing.Size(1700, 744);
             this.panelcontrator.TabIndex = 42;
             this.panelcontrator.Paint += new System.Windows.Forms.PaintEventHandler(this.panelcontrator_Paint);
             // 
@@ -481,7 +482,7 @@ namespace gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1700, 714);
+            this.ClientSize = new System.Drawing.Size(1700, 744);
             this.Controls.Add(this.panelcontrator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormContractor";
