@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace GuestRegistrationWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegistrationWinForm());
+            Application.Run(new FormMain());
         }
     }
 }
