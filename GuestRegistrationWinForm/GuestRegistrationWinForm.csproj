@@ -151,10 +151,6 @@
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>
       <Name>GuestRegistrationDesktopUI.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GuestRegistrationDeskUI\GuestRegistrationDeskUI.csproj">
-      <Project>{9bf3568a-ac30-4c8e-953c-e5b043ae9ee0}</Project>
-      <Name>GuestRegistrationDeskUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IronOCR.Library\IronOCR.Library.csproj">
       <Project>{d21bbb0a-ca79-4d71-8731-72dd9531a330}</Project>
       <Name>IronOCR.Library</Name>
