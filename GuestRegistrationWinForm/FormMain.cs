@@ -1,5 +1,6 @@
 ﻿using GenerateDocument.Library;
 using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationWinForm;
 using System;
@@ -21,6 +22,11 @@ namespace gui
     {
         private readonly DependencyInjectionContainer _container;
         private Form activeForm;
+
+        private CameraStatus cameraStatus;
+        private ScannedFileModel scannedFileInfo;
+
+
         public FormMain()
         {
             _container = new DependencyInjectionContainer();
@@ -36,7 +42,8 @@ namespace gui
             
             InitializeComponent();
 
-            
+            cameraStatus = new CameraStatus();
+            scannedFileInfo = new ScannedFileModel();
         }
 
 
@@ -54,8 +61,11 @@ namespace gui
             childForm.BringToFront();
             childForm.Show();
 
+
+
             var centalHub = _container.Resolve<ICentralHub>();
             centalHub.StartScanning(1);
+
 
         }
 
