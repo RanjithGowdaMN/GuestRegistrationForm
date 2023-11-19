@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONSTANTS.cs" />
     <Compile Include="DependencyInjectionContainer.cs" />
     <Compile Include="FormCard.cs">
       <SubType>Form</SubType>
