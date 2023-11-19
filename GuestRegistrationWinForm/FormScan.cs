@@ -25,6 +25,7 @@ namespace gui
         public FormScan(ICentralHub centralHub)
         {
             _centralHub = centralHub;
+            _centralHub.CanonImageDownload += UpdatePhotoImage;
             InitializeComponent();
         }
 
@@ -71,15 +72,23 @@ namespace gui
                 pbback.Image = Image.FromFile(fileName);
             }
         }
-
      
         private void btnphoto_Click(object sender, EventArgs e)
         {
-            var result = _centralHub.TakePhoto();
-            Task.WaitAll();
+            try
+            {
+                _centralHub.TakePhoto();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, Please check the camera");
+            }
+        }
+
+        public void UpdatePhotoImage(string path)
+        {
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
-            pbphoto.Image = Image.FromFile(result.ImagePath);
-           
+            pbphoto.Image = Image.FromFile(path);
         }
     }
 }
