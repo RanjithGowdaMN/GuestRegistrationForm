@@ -1,7 +1,9 @@
 ﻿//using GuestRegistrationDeskUI.ViewModels;
 using GenerateDocument.Library;
 using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
+//using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
 using System;
 using System.Collections.Generic;
@@ -20,12 +22,22 @@ namespace gui
     public partial class FormScan : Form
     {
         public static ICentralHub _centralHub;
-       
-        public FormScan(ICentralHub centralHub)
+        private ScannedFileModel _scannedFileInfo;
+        private CameraStatus _cameraStatus;
+        private ConsultantApplicationForm _consultantApplicationForm;
+        private VisitorDataSheet _visitorDataSheet;
+        public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, CameraStatus cameraStatus,
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
             _centralHub.CanonImageDownload += UpdatePhotoImage;
+            
             InitializeComponent();
+
+            _scannedFileInfo = scannedFileInfo;
+            _cameraStatus = cameraStatus;
+            _consultantApplicationForm = consultantApplicationForm;
+            _visitorDataSheet = visitorDataSheet;
         }
 
         private void btnfront_Click(object sender, EventArgs e)
@@ -54,7 +66,6 @@ namespace gui
             else
             {
                 MessageBox.Show("Please select the ID Type");
-
             }
         }
 

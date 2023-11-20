@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestRegistrationDeskUI.Models
+namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class ConsultantApplicationForm
     {
+        public string Title { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }

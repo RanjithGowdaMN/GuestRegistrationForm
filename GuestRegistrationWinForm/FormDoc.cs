@@ -1,4 +1,6 @@
 ﻿using GuestRegistrationDesktopUI.Library.CentralHub;
+using GuestRegistrationDesktopUI.Library.Models;
+using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
 using System;
 using System.Collections.Generic;
@@ -15,10 +17,20 @@ namespace gui
     public partial class FormDoc : Form
     {
         public static ICentralHub _centralHub;
-        public FormDoc(ICentralHub centralHub)
+        private ScannedFileModel _scannedFileInfo;
+        private CameraStatus _cameraStatus;
+        private ConsultantApplicationForm _consultantApplicationForm;
+        private VisitorDataSheet _visitorDataSheet;
+        public FormDoc(ICentralHub centralHub, ScannedFileModel scannedFileInfo, CameraStatus cameraStatus,
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
             InitializeComponent();
+
+            _scannedFileInfo = scannedFileInfo;
+            _cameraStatus = cameraStatus;
+            _consultantApplicationForm = consultantApplicationForm;
+            _visitorDataSheet = visitorDataSheet;
         }
 
         public void testMethod() {

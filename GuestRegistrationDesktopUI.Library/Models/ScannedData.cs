@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.Models
 {
-    public class ConfidentialityAgreementForVisitor
+    public class ScannedData
     {
         public string Name { get; set; }
-        public string Title { get; set; }
-        public string Company { get; set; }
-        public string Date { get; set; }
+        public string IDno { get; set; }
+        public string DateOfBirth { get; set; }
+        public string Expiry { get; set; }
+        public string Nationality { get; set; }
     }
 }

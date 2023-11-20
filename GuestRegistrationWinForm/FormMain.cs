@@ -2,6 +2,7 @@
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
+using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,11 @@ namespace gui
         public static DependencyInjectionContainer _container;
         private Form activeForm;
 
-        private CameraStatus cameraStatus;
-        private ScannedFileModel scannedFileInfo;
+        public CameraStatus cameraStatus;
+        public ScannedFileModel scannedFileInfo;
+
+        public VisitorDataSheet visitorDataSheet;
+        public ConsultantApplicationForm consultantApplicationForm;
 
         public ICentralHub centralHub;
 
@@ -43,10 +47,11 @@ namespace gui
 
             cameraStatus = new CameraStatus();
             scannedFileInfo = new ScannedFileModel();
+            visitorDataSheet = new VisitorDataSheet();
+            consultantApplicationForm = new ConsultantApplicationForm();
 
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
-
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -62,27 +67,26 @@ namespace gui
             this.panelform.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
         }
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub), sender);
+            OpenChildForm(new FormScan(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(centralHub), sender);
+            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(centralHub), sender);
+            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDoc(centralHub), sender);
+            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btnlgt_Click(object sender, EventArgs e)

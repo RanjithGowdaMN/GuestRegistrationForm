@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestRegistrationDeskUI.Models
+namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class VisitorDataSheet
     {
-        public string VisitorName { get; set; }
+        public string  Title { get; set; }
+        public string VisitorName { get; set; }  //scan form
         public string Date { get; set; }
         public string Company { get; set; }
         public string VisitorIdNo { get; set; }

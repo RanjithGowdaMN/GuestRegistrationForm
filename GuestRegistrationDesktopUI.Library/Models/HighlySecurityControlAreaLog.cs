@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestRegistrationDeskUI.Models
+namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class HighlySecurityControlAreaLog
     {
