@@ -21,7 +21,6 @@ namespace gui
     {
         public static ICentralHub _centralHub;
        
-
         public FormScan(ICentralHub centralHub)
         {
             _centralHub = centralHub;
@@ -29,7 +28,6 @@ namespace gui
             InitializeComponent();
         }
 
-    
         private void btnfront_Click(object sender, EventArgs e)
         {
             //MainScreenViewModel mainscreenVM = new MainScreenViewModel();
@@ -43,19 +41,16 @@ namespace gui
                 txtexpiry.Text = result.Expiry.ToString();
                 txtnationality.Text = result.Nationality.ToString();
 
-
                 pbfront.SizeMode = PictureBoxSizeMode.Zoom;
                 pbfront.Image = Image.FromFile(fileName);
     
             }
             else if (rbpass.Checked)
-
             {
                 (var result, string fileName) = _centralHub.StartScanning(2);
                 pbfront.SizeMode = PictureBoxSizeMode.Zoom;
                 pbfront.Image = Image.FromFile(fileName);
             }
-
             else
             {
                 MessageBox.Show("Please select the ID Type");

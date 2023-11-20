@@ -16,8 +16,6 @@ using TesseractOCR.Library;
 
 namespace gui
 {
-    
-
     public partial class FormMain : Form
     {
         public static DependencyInjectionContainer _container;
@@ -51,14 +49,13 @@ namespace gui
 
         }
 
-
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
                 activeForm.Close();
           
             activeForm = childForm;
-          childForm.TopLevel = false;
+            childForm.TopLevel = false;
             //childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             this.panelform.Controls.Add(childForm);
@@ -70,11 +67,7 @@ namespace gui
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-
             OpenChildForm(new FormScan(centralHub), sender);
-
-            
-
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
