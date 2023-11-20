@@ -24,9 +24,10 @@ namespace gui
 
         public CameraStatus cameraStatus;
         public ScannedFileModel scannedFileInfo;
-
+        public ScannedData scannedData;
         public VisitorDataSheet visitorDataSheet;
         public ConsultantApplicationForm consultantApplicationForm;
+
 
         public ICentralHub centralHub;
 
@@ -49,7 +50,7 @@ namespace gui
             scannedFileInfo = new ScannedFileModel();
             visitorDataSheet = new VisitorDataSheet();
             consultantApplicationForm = new ConsultantApplicationForm();
-
+            scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
         }
@@ -71,22 +72,22 @@ namespace gui
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btnlgt_Click(object sender, EventArgs e)

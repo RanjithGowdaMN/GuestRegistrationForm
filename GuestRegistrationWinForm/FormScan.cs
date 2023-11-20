@@ -21,12 +21,13 @@ namespace gui
 {
     public partial class FormScan : Form
     {
-        public static ICentralHub _centralHub;
+        public  ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
+        private ScannedData _scannedData;
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
-        public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, CameraStatus cameraStatus,
+        public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
@@ -38,6 +39,12 @@ namespace gui
             _cameraStatus = cameraStatus;
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
+            _scannedData = scannedData;
+            txtname.TextChanged += TextChanged;
+            txtdob.TextChanged += TextChanged;
+            txtexpiry.TextChanged += TextChanged;
+            txtid.TextChanged += TextChanged;
+            txtnationality.TextChanged += TextChanged;
         }
 
         private void btnfront_Click(object sender, EventArgs e)
@@ -52,6 +59,8 @@ namespace gui
                 txtdob.Text = result.DateOfBirth.ToString();
                 txtexpiry.Text = result.Expiry.ToString();
                 txtnationality.Text = result.Nationality.ToString();
+
+                
 
                 pbfront.SizeMode = PictureBoxSizeMode.Zoom;
                 pbfront.Image = Image.FromFile(fileName);
@@ -106,6 +115,31 @@ namespace gui
         {
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = Image.FromFile(path);
+        }
+
+        private void TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Name == txtname.Name)
+            {
+                _scannedData.Name = txtname.Text;
+            }
+            if (tb.Name == txtnationality.Name)
+            {
+                _scannedData.Nationality = txtnationality.Text;
+            }
+            if (tb.Name == txtid.Name)
+            {
+                _scannedData.IDno = txtid.Text;
+            }
+            if (tb.Name == txtexpiry.Name)
+            {
+                _scannedData.Expiry = txtexpiry.Text;
+            }
+            if (tb.Name == txtdob.Name)
+            {
+                _scannedData.DateOfBirth = txtdob.Text;
+            }
         }
     }
 }
