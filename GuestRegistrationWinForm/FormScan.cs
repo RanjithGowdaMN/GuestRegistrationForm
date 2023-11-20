@@ -45,6 +45,13 @@ namespace gui
             txtexpiry.TextChanged += TextChanged;
             txtid.TextChanged += TextChanged;
             txtnationality.TextChanged += TextChanged;
+
+            txtname.Text = _scannedData.Name;
+            txtid.Text = _scannedData.IDno;
+            txtexpiry.Text = _scannedData.Expiry;
+            txtdob.Text = _scannedData.DateOfBirth;
+            txtnationality.Text = _scannedData.Nationality;
+
         }
 
         private void btnfront_Click(object sender, EventArgs e)
