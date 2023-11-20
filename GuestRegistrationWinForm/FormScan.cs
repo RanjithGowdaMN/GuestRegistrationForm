@@ -35,8 +35,15 @@ namespace gui
             //MainScreenViewModel mainscreenVM = new MainScreenViewModel();
             if (rbid.Checked)
             {
-
+                //rbpass.Visible = false;
                 (var result, string fileName) = _centralHub.StartScanning(1);
+                txtname.Text = result.Name.ToString();
+                txtid.Text = result.IDno.ToString();
+                txtdob.Text = result.DateOfBirth.ToString();
+                txtexpiry.Text = result.Expiry.ToString();
+                txtnationality.Text = result.Nationality.ToString();
+
+
                 pbfront.SizeMode = PictureBoxSizeMode.Zoom;
                 pbfront.Image = Image.FromFile(fileName);
     
@@ -70,6 +77,10 @@ namespace gui
 
                 pbback.SizeMode = PictureBoxSizeMode.Zoom;
                 pbback.Image = Image.FromFile(fileName);
+            }
+            else
+            {
+                MessageBox.Show("Please select the ID type");
             }
         }
      
