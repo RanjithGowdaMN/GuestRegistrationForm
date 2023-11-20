@@ -25,8 +25,8 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string CompanyName { get; set; }
         public string IdNo { get; set; }
         public string PassportNo { get; set; }
-        public string DateandPlaceofIssue { get; set; }
-
+        public string PlaceofIssue { get; set; }
+        public string  DateOfIssue { get; set; }
         public string PDateofIssue { get; set; }
         public string PassportValidity { get; set; }
         public string PurposeOfVisit { get; set; }
