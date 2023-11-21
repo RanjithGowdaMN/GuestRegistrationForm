@@ -68,5 +68,6 @@
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="Stored Procedures\spUserLookup.sql" />
+    <Build Include="dbo\Tables\RetrivePreviousInfo.sql" />
   </ItemGroup>
 </Project>

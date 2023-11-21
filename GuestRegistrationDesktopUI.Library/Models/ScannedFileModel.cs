@@ -8,8 +8,8 @@ namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class ScannedFileModel
     {
-        public string FrontSideFileName { get; set; }
-        public string BackSideFileName { get; set; }
+        public string FrontSideFileName { get; set; } = "D:\\VisitorData\\temp\\IDCardFront.jpg";
+        public string BackSideFileName { get; set; } = "D:\\VisitorData\\temp\\IDCardBack.jpg";
         public bool IsSecondSide { get; set; }
     }
 }
