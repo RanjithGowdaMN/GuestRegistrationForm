@@ -36,7 +36,37 @@ namespace gui
         }
 
         public void testMethod() {
-            _centralHub.StartScanning(2);
+            
+        }
+
+        private void GenerateContractDoc_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.Expiry = _scannedData.Expiry;
+            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.Nationality = _scannedData.Nationality;
+
+            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+
+            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
         }
     }
 }
+//public string GenerateVisitorDocument(
+//GuestDataModel guestDataModel,
+//gScannedFileModel gScannedFileModel,
+//gConcatenatedDataBinding gConcatenatedDataBinding,
+//string inputFilePath,
+//string outputFilePath,
+//string imagePath)
+
+//public string GenerateContractDocument(
+//GuestDataModel guestDataModel,
+//gScannedFileModel gScannedFileModel,
+//gConcatenatedDataBinding gConcatenatedDataBinding,
+//string inputFilePath,
+//string outputFilePath,
+//string imagePath)

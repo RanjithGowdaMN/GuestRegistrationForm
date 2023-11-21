@@ -145,7 +145,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public string GenerateDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
-            GenerateVisitorIDnumber();
+            //GenerateVisitorIDnumber();
             return sendDataForDocGeneration("visitor", visitorDataFromUI, concatenatedDataBinding);
 
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
@@ -153,7 +153,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         }
         public string GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding)
         {
-            GenerateVisitorIDnumber();
+            //GenerateVisitorIDnumber();
             return sendDataForDocGeneration("contractor", visitorDataFromUI, concatenatedDataBinding);
             //_generateWordDocument.GenerateWordDoc(guestDataModel, "", "", cameraStatus.ImagePath);
             //_generatePDFdocument.GeneratePdfDoc(guestDataModel, "", "", cameraStatus.ImagePath, "contract");

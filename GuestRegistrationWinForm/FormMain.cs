@@ -27,7 +27,7 @@ namespace gui
         public ScannedData scannedData;
         public VisitorDataSheet visitorDataSheet;
         public ConsultantApplicationForm consultantApplicationForm;
-
+        public IGeneratePDFdocument _generatePDFdocument;
 
         public ICentralHub centralHub;
 
@@ -39,6 +39,7 @@ namespace gui
             _container.Register<IGenerateWordDocument>(new GenerateWordDocument());
             _container.Register<IGeneratePDFdocument>(new GeneratePDFdocument());
             _container.Register<IGenerateCardPrintDoc>(new GenerateCardPrintDoc());
+            
             _container.Register<ICentralHub>(new CentralHub(_container.Resolve<IOCRhelper>(),
                                             _container.Resolve<IGenerateWordDocument>(),
                                             _container.Resolve<IGeneratePDFdocument>(),
