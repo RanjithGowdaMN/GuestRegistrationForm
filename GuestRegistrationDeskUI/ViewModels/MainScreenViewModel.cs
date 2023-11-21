@@ -245,7 +245,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.CellPhone = CellPhone;
             consultantApplicationForm.City = City;
             consultantApplicationForm.CompanyName = CompanyName;
-            consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
+           // consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
             consultantApplicationForm.PDateofIssue = PDateofIssue;
             consultantApplicationForm.Duration = Duration;
            // consultantApplicationForm.Durationto = Durationto;
