@@ -34,24 +34,24 @@ namespace gui
             this.lblVrsnvst = new System.Windows.Forms.Label();
             this.lblVcomp = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dtpVdate = new System.Windows.Forms.DateTimePicker();
-            this.dtpVduration = new System.Windows.Forms.DateTimePicker();
-            this.txtVssc = new System.Windows.Forms.TextBox();
+            this.txtVisitorTitle = new System.Windows.Forms.TextBox();
+            this.dtVisitorVisitDate = new System.Windows.Forms.DateTimePicker();
+            this.dtVisitorDuration = new System.Windows.Forms.DateTimePicker();
+            this.txtVisitorSecutityController = new System.Windows.Forms.TextBox();
             this.lblVsc = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbVarea = new System.Windows.Forms.ComboBox();
-            this.cbVprsnvisit = new System.Windows.Forms.ComboBox();
+            this.cmbVisitorProductionManager = new System.Windows.Forms.ComboBox();
+            this.cmbVisitorPersonToVisited = new System.Windows.Forms.ComboBox();
+            this.cmbVisitorAreaVisited = new System.Windows.Forms.ComboBox();
+            this.cmbvisitorDeptManager = new System.Windows.Forms.ComboBox();
             this.lblVprodmangr = new System.Windows.Forms.Label();
             this.lblVdeptmang = new System.Windows.Forms.Label();
             this.lblVduration = new System.Windows.Forms.Label();
             this.lblVdate = new System.Windows.Forms.Label();
             this.lblVarea = new System.Windows.Forms.Label();
             this.lblVprsnvisit = new System.Windows.Forms.Label();
-            this.cbVreason = new System.Windows.Forms.ComboBox();
-            this.cbVcomp = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
+            this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
+            this.txtVisitorComp = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,24 +88,24 @@ namespace gui
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dtpVdate);
-            this.panel1.Controls.Add(this.dtpVduration);
-            this.panel1.Controls.Add(this.txtVssc);
+            this.panel1.Controls.Add(this.txtVisitorTitle);
+            this.panel1.Controls.Add(this.dtVisitorVisitDate);
+            this.panel1.Controls.Add(this.dtVisitorDuration);
+            this.panel1.Controls.Add(this.txtVisitorSecutityController);
             this.panel1.Controls.Add(this.lblVsc);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.cbVarea);
-            this.panel1.Controls.Add(this.cbVprsnvisit);
+            this.panel1.Controls.Add(this.cmbVisitorProductionManager);
+            this.panel1.Controls.Add(this.cmbVisitorPersonToVisited);
+            this.panel1.Controls.Add(this.cmbVisitorAreaVisited);
+            this.panel1.Controls.Add(this.cmbvisitorDeptManager);
             this.panel1.Controls.Add(this.lblVprodmangr);
             this.panel1.Controls.Add(this.lblVdeptmang);
             this.panel1.Controls.Add(this.lblVduration);
             this.panel1.Controls.Add(this.lblVdate);
             this.panel1.Controls.Add(this.lblVarea);
             this.panel1.Controls.Add(this.lblVprsnvisit);
-            this.panel1.Controls.Add(this.cbVreason);
-            this.panel1.Controls.Add(this.cbVcomp);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.cmbVistorReasonForVisit);
+            this.panel1.Controls.Add(this.cmbVisitorComp);
+            this.panel1.Controls.Add(this.txtVisitorComp);
             this.panel1.Controls.Add(this.lblVtitle);
             this.panel1.Controls.Add(this.lblVrsnvst);
             this.panel1.Controls.Add(this.lblVcomp);
@@ -115,33 +115,33 @@ namespace gui
             this.panel1.Size = new System.Drawing.Size(1583, 723);
             this.panel1.TabIndex = 3;
             // 
-            // textBox1
+            // txtVisitorTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(839, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 22);
-            this.textBox1.TabIndex = 22;
+            this.txtVisitorTitle.Location = new System.Drawing.Point(839, 59);
+            this.txtVisitorTitle.Name = "txtVisitorTitle";
+            this.txtVisitorTitle.Size = new System.Drawing.Size(214, 22);
+            this.txtVisitorTitle.TabIndex = 22;
             // 
-            // dtpVdate
+            // dtVisitorVisitDate
             // 
-            this.dtpVdate.Location = new System.Drawing.Point(839, 361);
-            this.dtpVdate.Name = "dtpVdate";
-            this.dtpVdate.Size = new System.Drawing.Size(244, 22);
-            this.dtpVdate.TabIndex = 21;
+            this.dtVisitorVisitDate.Location = new System.Drawing.Point(839, 361);
+            this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
+            this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
+            this.dtVisitorVisitDate.TabIndex = 21;
             // 
-            // dtpVduration
+            // dtVisitorDuration
             // 
-            this.dtpVduration.Location = new System.Drawing.Point(839, 421);
-            this.dtpVduration.Name = "dtpVduration";
-            this.dtpVduration.Size = new System.Drawing.Size(244, 22);
-            this.dtpVduration.TabIndex = 20;
+            this.dtVisitorDuration.Location = new System.Drawing.Point(839, 421);
+            this.dtVisitorDuration.Name = "dtVisitorDuration";
+            this.dtVisitorDuration.Size = new System.Drawing.Size(244, 22);
+            this.dtVisitorDuration.TabIndex = 20;
             // 
-            // txtVssc
+            // txtVisitorSecutityController
             // 
-            this.txtVssc.Location = new System.Drawing.Point(839, 599);
-            this.txtVssc.Name = "txtVssc";
-            this.txtVssc.Size = new System.Drawing.Size(214, 22);
-            this.txtVssc.TabIndex = 19;
+            this.txtVisitorSecutityController.Location = new System.Drawing.Point(839, 599);
+            this.txtVisitorSecutityController.Name = "txtVisitorSecutityController";
+            this.txtVisitorSecutityController.Size = new System.Drawing.Size(214, 22);
+            this.txtVisitorSecutityController.TabIndex = 19;
             // 
             // lblVsc
             // 
@@ -153,37 +153,37 @@ namespace gui
             this.lblVsc.TabIndex = 18;
             this.lblVsc.Text = "Security Controller";
             // 
-            // comboBox2
+            // cmbVisitorProductionManager
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(839, 537);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(214, 24);
-            this.comboBox2.TabIndex = 17;
+            this.cmbVisitorProductionManager.FormattingEnabled = true;
+            this.cmbVisitorProductionManager.Location = new System.Drawing.Point(839, 537);
+            this.cmbVisitorProductionManager.Name = "cmbVisitorProductionManager";
+            this.cmbVisitorProductionManager.Size = new System.Drawing.Size(214, 24);
+            this.cmbVisitorProductionManager.TabIndex = 17;
             // 
-            // comboBox1
+            // cmbVisitorPersonToVisited
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(839, 237);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 24);
-            this.comboBox1.TabIndex = 16;
+            this.cmbVisitorPersonToVisited.FormattingEnabled = true;
+            this.cmbVisitorPersonToVisited.Location = new System.Drawing.Point(839, 237);
+            this.cmbVisitorPersonToVisited.Name = "cmbVisitorPersonToVisited";
+            this.cmbVisitorPersonToVisited.Size = new System.Drawing.Size(214, 24);
+            this.cmbVisitorPersonToVisited.TabIndex = 16;
             // 
-            // cbVarea
+            // cmbVisitorAreaVisited
             // 
-            this.cbVarea.FormattingEnabled = true;
-            this.cbVarea.Location = new System.Drawing.Point(839, 297);
-            this.cbVarea.Name = "cbVarea";
-            this.cbVarea.Size = new System.Drawing.Size(214, 24);
-            this.cbVarea.TabIndex = 14;
+            this.cmbVisitorAreaVisited.FormattingEnabled = true;
+            this.cmbVisitorAreaVisited.Location = new System.Drawing.Point(839, 297);
+            this.cmbVisitorAreaVisited.Name = "cmbVisitorAreaVisited";
+            this.cmbVisitorAreaVisited.Size = new System.Drawing.Size(214, 24);
+            this.cmbVisitorAreaVisited.TabIndex = 14;
             // 
-            // cbVprsnvisit
+            // cmbvisitorDeptManager
             // 
-            this.cbVprsnvisit.FormattingEnabled = true;
-            this.cbVprsnvisit.Location = new System.Drawing.Point(839, 481);
-            this.cbVprsnvisit.Name = "cbVprsnvisit";
-            this.cbVprsnvisit.Size = new System.Drawing.Size(214, 24);
-            this.cbVprsnvisit.TabIndex = 13;
+            this.cmbvisitorDeptManager.FormattingEnabled = true;
+            this.cmbvisitorDeptManager.Location = new System.Drawing.Point(839, 481);
+            this.cmbvisitorDeptManager.Name = "cmbvisitorDeptManager";
+            this.cmbvisitorDeptManager.Size = new System.Drawing.Size(214, 24);
+            this.cmbvisitorDeptManager.TabIndex = 13;
             // 
             // lblVprodmangr
             // 
@@ -245,28 +245,28 @@ namespace gui
             this.lblVprsnvisit.TabIndex = 7;
             this.lblVprsnvisit.Text = "Person(s) To Be Visited";
             // 
-            // cbVreason
+            // cmbVistorReasonForVisit
             // 
-            this.cbVreason.FormattingEnabled = true;
-            this.cbVreason.Location = new System.Drawing.Point(839, 177);
-            this.cbVreason.Name = "cbVreason";
-            this.cbVreason.Size = new System.Drawing.Size(214, 24);
-            this.cbVreason.TabIndex = 6;
+            this.cmbVistorReasonForVisit.FormattingEnabled = true;
+            this.cmbVistorReasonForVisit.Location = new System.Drawing.Point(839, 177);
+            this.cmbVistorReasonForVisit.Name = "cmbVistorReasonForVisit";
+            this.cmbVistorReasonForVisit.Size = new System.Drawing.Size(214, 24);
+            this.cmbVistorReasonForVisit.TabIndex = 6;
             // 
-            // cbVcomp
+            // cmbVisitorComp
             // 
-            this.cbVcomp.FormattingEnabled = true;
-            this.cbVcomp.Location = new System.Drawing.Point(839, 117);
-            this.cbVcomp.Name = "cbVcomp";
-            this.cbVcomp.Size = new System.Drawing.Size(214, 24);
-            this.cbVcomp.TabIndex = 5;
+            this.cmbVisitorComp.FormattingEnabled = true;
+            this.cmbVisitorComp.Location = new System.Drawing.Point(839, 117);
+            this.cmbVisitorComp.Name = "cmbVisitorComp";
+            this.cmbVisitorComp.Size = new System.Drawing.Size(214, 24);
+            this.cmbVisitorComp.TabIndex = 5;
             // 
-            // textBox2
+            // txtVisitorComp
             // 
-            this.textBox2.Location = new System.Drawing.Point(1089, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 22);
-            this.textBox2.TabIndex = 4;
+            this.txtVisitorComp.Location = new System.Drawing.Point(1089, 119);
+            this.txtVisitorComp.Name = "txtVisitorComp";
+            this.txtVisitorComp.Size = new System.Drawing.Size(214, 22);
+            this.txtVisitorComp.TabIndex = 4;
             // 
             // FormVisitor
             // 
@@ -290,23 +290,23 @@ namespace gui
         private System.Windows.Forms.Label lblVrsnvst;
         private System.Windows.Forms.Label lblVcomp;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dtpVdate;
-        private System.Windows.Forms.DateTimePicker dtpVduration;
-        private System.Windows.Forms.TextBox txtVssc;
+        private System.Windows.Forms.TextBox txtVisitorComp;
+        private System.Windows.Forms.DateTimePicker dtVisitorVisitDate;
+        private System.Windows.Forms.DateTimePicker dtVisitorDuration;
+        private System.Windows.Forms.TextBox txtVisitorSecutityController;
         private System.Windows.Forms.Label lblVsc;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cbVarea;
-        private System.Windows.Forms.ComboBox cbVprsnvisit;
+        private System.Windows.Forms.ComboBox cmbVisitorProductionManager;
+        private System.Windows.Forms.ComboBox cmbVisitorPersonToVisited;
+        private System.Windows.Forms.ComboBox cmbVisitorAreaVisited;
+        private System.Windows.Forms.ComboBox cmbvisitorDeptManager;
         private System.Windows.Forms.Label lblVprodmangr;
         private System.Windows.Forms.Label lblVdeptmang;
         private System.Windows.Forms.Label lblVduration;
         private System.Windows.Forms.Label lblVdate;
         private System.Windows.Forms.Label lblVarea;
         private System.Windows.Forms.Label lblVprsnvisit;
-        private System.Windows.Forms.ComboBox cbVreason;
-        private System.Windows.Forms.ComboBox cbVcomp;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbVistorReasonForVisit;
+        private System.Windows.Forms.ComboBox cmbVisitorComp;
+        private System.Windows.Forms.TextBox txtVisitorTitle;
     }
 }

@@ -34,6 +34,37 @@ namespace gui
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
 
+            txtVisitorTitle.TextChanged += TextChanged;
+            txtVisitorComp.TextChanged += TextChanged;
+            txtVisitorSecutityController.TextChanged += TextChanged;
+
+
+        }
+        private void TextcChanged(Object sender,EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if(tb.Name==txtVisitorTitle.Name)
+            {
+                _visitorDataSheet.Title = txtVisitorTitle.Text;
+            }
+            if(tb.Name==txtVisitorComp.Name)
+            {
+                _visitorDataSheet.Company = txtVisitorComp.Text;
+
+            }
+            if(tb.Name==txtVisitorSecutityController.Name)
+            {
+                _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
+            }
+            if(tb.Name== dtVisitorVisitDate.Name)
+            {
+                _visitorDataSheet.VisitDateTime = dtVisitorVisitDate.Text.ToString();
+
+            }
+            if(tb.Name==dtVisitorDuration.Name)
+            {
+                _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
+            }
         }
     }
 }
