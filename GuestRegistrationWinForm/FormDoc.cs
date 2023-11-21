@@ -51,7 +51,15 @@ namespace gui
 
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
 
-            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+            VisitorsLogBook vlBook = new VisitorsLogBook();
+            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+            concatenatedDataBinding.CAforVisitor = CAforVisitor;
+            concatenatedDataBinding.hsaLog = hsaLog;
+            concatenatedDataBinding.vlBook = vlBook;
+            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+        _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace gui
 
 
         }
-        private void TextcChanged(Object sender,EventArgs e)
+        private void TextChanged(Object sender,EventArgs e)
         {
             TextBox tb = (TextBox)sender;
             if(tb.Name==txtVisitorTitle.Name)
@@ -66,5 +66,7 @@ namespace gui
                 _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
             }
         }
+
+
     }
 }
