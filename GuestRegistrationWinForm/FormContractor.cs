@@ -34,6 +34,25 @@ namespace gui
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
 
+            txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
+            txtContractorAddress.Text = _consultantApplicationForm.Address;
+            txtContractorAliasName.Text = _consultantApplicationForm.Alias;
+            txtContractorCellPhn.Text = _consultantApplicationForm.CellPhone;
+            txtContractorCity.Text = _consultantApplicationForm.City;
+            txtContractorEmail.Text = _consultantApplicationForm.Email;
+            txtContractorEmergencyNo.Text = _consultantApplicationForm.EmergencyContactNo;
+            txtContractorHomePhn.Text = _consultantApplicationForm.Homephone;
+            txtContractorPassportNo.Text = _consultantApplicationForm.PassportNo;
+            txtContractorPassportPlaceOfIssue.Text = _consultantApplicationForm.PlaceofIssue;
+            txtContractorSecurityNo.Text = _consultantApplicationForm.SecurityNo;
+            txtContractorZip.Text = _consultantApplicationForm.Zip;
+            txtContratorTitle.Text = _consultantApplicationForm.Title;
+            rtxtContractorPreResidence.Text = _consultantApplicationForm.PResidence;
+            //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
+            //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
+            //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
+
+
             txtContractorAddress.TextChanged += TextChanged;
             txtContractorAliasName.TextChanged += TextChanged;
             txtContractorCellPhn.TextChanged += TextChanged;
@@ -47,7 +66,9 @@ namespace gui
             txtContractorSecurityNo.TextChanged += TextChanged;
             txtContratorTitle.TextChanged += TextChanged;
             txtContractorZip.TextChanged += TextChanged;
-            rtxtContractorPreResidence.TextChanged += TextChanged;
+            rtxtContractorPreResidence.TextChanged += RichTextChanged;
+
+
 
         }
 
@@ -59,6 +80,15 @@ namespace gui
         private void panelcontrator_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void RichTextChanged(object sender, EventArgs e)
+        {
+            RichTextBox rtb = (RichTextBox)sender;
+            if (rtb.Name == rtxtContractorPreResidence.Name)
+            {
+                _consultantApplicationForm.PResidence = rtxtContractorPreResidence.Text;
+            }
         }
 
         private void TextChanged(object sender, EventArgs e)
@@ -117,11 +147,6 @@ namespace gui
             {
                 _consultantApplicationForm.Title = txtContratorTitle.Text;
             }
-            if (tb.Name == rtxtContractorPreResidence.Name)
-            {
-                _consultantApplicationForm.PResidence = rtxtContractorPreResidence.Text;
-
-            }
             if (tb.Name == dtContractorDuration.Name)
             {
                 _consultantApplicationForm.Duration = dtContractorDuration.Text.ToString();
@@ -136,7 +161,6 @@ namespace gui
             {
                 _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Text.ToString();
             }
-
         }
     }
 }
