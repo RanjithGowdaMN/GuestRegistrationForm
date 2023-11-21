@@ -64,6 +64,7 @@ namespace gui
             this.GenerateVisitorDoc.TabIndex = 1;
             this.GenerateVisitorDoc.Text = "Generate Visitor Document";
             this.GenerateVisitorDoc.UseVisualStyleBackColor = true;
+            this.GenerateVisitorDoc.Click += new System.EventHandler(this.GenerateVisitorDoc_Click);
             // 
             // FormDoc
             // 
