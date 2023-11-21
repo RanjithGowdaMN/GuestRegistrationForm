@@ -21,5 +21,12 @@ namespace GuestRegistration.Controllers
             return data.GetUserById(userId).First();
 
         }
+        [HttpGet]
+        public List<CompanyNameList> GetCompanyNames()
+        {
+            RetriveCompanyName retriveCompanyName = new RetriveCompanyName();
+
+            return retriveCompanyName.GetCompanyname();
+        }
     }
 }

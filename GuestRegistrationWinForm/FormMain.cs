@@ -1,4 +1,5 @@
 ﻿using GenerateDocument.Library;
+using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
@@ -30,7 +31,8 @@ namespace gui
         public IGeneratePDFdocument _generatePDFdocument;
 
         public ICentralHub centralHub;
-
+        private IAPIconnector _apiHelper;
+       
         public FormMain()
         {
             _container = new DependencyInjectionContainer();
@@ -39,12 +41,12 @@ namespace gui
             _container.Register<IGenerateWordDocument>(new GenerateWordDocument());
             _container.Register<IGeneratePDFdocument>(new GeneratePDFdocument());
             _container.Register<IGenerateCardPrintDoc>(new GenerateCardPrintDoc());
-            
+            _container.Register<IAPIconnector>(new APIconnector());
             _container.Register<ICentralHub>(new CentralHub(_container.Resolve<IOCRhelper>(),
                                             _container.Resolve<IGenerateWordDocument>(),
                                             _container.Resolve<IGeneratePDFdocument>(),
                                             _container.Resolve<IGenerateCardPrintDoc>()));
-            
+            _apiHelper = _container.Resolve<IAPIconnector>();
             InitializeComponent();
 
             cameraStatus = new CameraStatus();
@@ -60,8 +62,8 @@ namespace gui
         {
             if (activeForm != null)
                 activeForm.Close();
-          
-            activeForm = childForm;
+            
+              activeForm = childForm;
             childForm.TopLevel = false;
             //childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;

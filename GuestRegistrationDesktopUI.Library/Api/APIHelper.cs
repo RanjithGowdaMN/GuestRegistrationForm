@@ -20,6 +20,11 @@ namespace GuestRegistrationDesktopUI.Library.Api
             _loggedInUserModel = loggedInUserModel;
         }
 
+        public APIconnector()
+        {
+            InitializeClient();
+        }
+
         private void InitializeClient()
         {
             string api = ConfigurationManager.AppSettings["api"];
@@ -76,9 +81,7 @@ namespace GuestRegistrationDesktopUI.Library.Api
                 {
                     throw new Exception(response.ReasonPhrase);
                 }
-
             }
-
         }
     }
 }
