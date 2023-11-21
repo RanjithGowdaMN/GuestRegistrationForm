@@ -51,12 +51,8 @@ namespace gui
             txtexpiry.Text = _scannedData.Expiry;
             txtdob.Text = _scannedData.DateOfBirth;
             txtnationality.Text = _scannedData.Nationality;
-            UpdatePhotoImage(_cameraStatus.ImagePath);
-            updatePictures(pbfront, _scannedFileInfo.FrontSideFileName);
-            updatePictures(pbback, _scannedFileInfo.BackSideFileName);
-        }
 
-        
+        }
 
         private void btnfront_Click(object sender, EventArgs e)
         {
@@ -71,22 +67,17 @@ namespace gui
                 txtexpiry.Text = result.Expiry.ToString();
                 txtnationality.Text = result.Nationality.ToString();
 
-                _scannedFileInfo.FrontSideFileName = fileName;
-                updatePictures(pbfront, fileName);
+                
 
-
+                pbfront.SizeMode = PictureBoxSizeMode.Zoom;
+                pbfront.Image = Image.FromFile(fileName);
+    
             }
             else if (rbpass.Checked)
             {
                 (var result, string fileName) = _centralHub.StartScanning(2);
-                txtname.Text = result.Name.ToString();
-                txtid.Text = result.IDno.ToString();
-                txtdob.Text = result.DateOfBirth.ToString();
-                txtexpiry.Text = result.Expiry.ToString();
-                txtnationality.Text = result.Nationality.ToString();
-
-                _scannedFileInfo.FrontSideFileName = fileName;
-                updatePictures(pbfront, fileName);
+                pbfront.SizeMode = PictureBoxSizeMode.Zoom;
+                pbfront.Image = Image.FromFile(fileName);
             }
             else
             {
@@ -94,25 +85,20 @@ namespace gui
             }
         }
 
-        private void updatePictures(PictureBox pictureBox, string filePath)
-        {
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.Image = Image.FromFile(filePath);
-        }
-
         private void btnback_Click(object sender, EventArgs e)
         {
             if (rbid.Checked)
             {
                 string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
-                _scannedFileInfo.BackSideFileName = fileName;
-                updatePictures(pbback, fileName);
+                pbback.SizeMode = PictureBoxSizeMode.Zoom;
+                pbback.Image = Image.FromFile(fileName);
             }
             else if (rbpass.Checked)
             {
                 string fileName = _centralHub.ScanBackSide(2);
-                _scannedFileInfo.BackSideFileName = fileName;
-                updatePictures(pbback, fileName);
+
+                pbback.SizeMode = PictureBoxSizeMode.Zoom;
+                pbback.Image = Image.FromFile(fileName);
             }
             else
             {
@@ -134,7 +120,6 @@ namespace gui
 
         public void UpdatePhotoImage(string path)
         {
-            _cameraStatus.ImagePath = path;
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = Image.FromFile(path);
         }

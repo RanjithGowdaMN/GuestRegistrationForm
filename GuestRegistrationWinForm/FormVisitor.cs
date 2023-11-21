@@ -38,11 +38,7 @@ namespace gui
             txtVisitorComp.TextChanged += TextChanged;
             txtVisitorSecutityController.TextChanged += TextChanged;
 
-            txtVisitorTitle.Text = _visitorDataSheet.Title;
-            txtVisitorComp.Text = _visitorDataSheet.Company;
-            txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
-            dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
-            _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
+
         }
         private void TextChanged(Object sender,EventArgs e)
         {
