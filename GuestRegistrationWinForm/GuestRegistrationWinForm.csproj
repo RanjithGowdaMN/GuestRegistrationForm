@@ -90,6 +90,7 @@
     <Compile Include="GuestRegisration.Designer.cs">
       <DependentUpon>GuestRegisration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataBindings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\VisitorData.cs" />
@@ -148,6 +149,10 @@
     <ProjectReference Include="..\GenerateDocument.Library\GenerateDocument.Library.csproj">
       <Project>{a60ffa33-c667-47a9-8c96-2d0817b636d3}</Project>
       <Name>GenerateDocument.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuestDataManager.Library\GuestDataManager.Library.csproj">
+      <Project>{0c5936bd-d56e-4f34-97a1-ddef0e9a3542}</Project>
+      <Name>GuestDataManager.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
       <Project>{66e111c1-5521-4c17-bd50-c71b73b1b4f7}</Project>

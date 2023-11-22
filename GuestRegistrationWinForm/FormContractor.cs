@@ -23,9 +23,9 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
-        private IAPIconnector _apiHelper;
+        //private IAPIconnector _apiHelper;
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, IAPIconnector apiHelper)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
-            _apiHelper = apiHelper;
+            //_apiHelper = apiHelper;
             txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
             txtContractorAddress.Text = _consultantApplicationForm.Address;
             txtContractorAliasName.Text = _consultantApplicationForm.Alias;
@@ -76,9 +76,14 @@ namespace gui
             getCompanyName();
         }
 
+        public void LoadComboxBoxData()
+        {
+
+        }
+
         private async Task getCompanyName()
         {
-            await _apiHelper.GetRegistredCompanyNames();
+            //await _apiHelper.GetRegistredCompanyNames();
         }
 
         private void panelcontrator_Paint(object sender, PaintEventArgs e)

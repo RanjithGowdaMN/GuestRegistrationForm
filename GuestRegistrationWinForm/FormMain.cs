@@ -56,6 +56,13 @@ namespace gui
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
+
+            LoadComponentsData();
+        }
+
+        private void LoadComponentsData()
+        {
+            
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -75,22 +82,23 @@ namespace gui
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
+            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
+            Form formContractor = new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            OpenChildForm(formContractor, sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
+            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
+            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btnlgt_Click(object sender, EventArgs e)

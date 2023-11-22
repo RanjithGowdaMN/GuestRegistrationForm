@@ -23,9 +23,9 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
-        private IAPIconnector _apiHelper;
+        //private IAPIconnector _apiHelper;
         public FormVisitor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, IAPIconnector apiHelper)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
-            _apiHelper = apiHelper;
+            //_apiHelper = apiHelper;
 
             txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
