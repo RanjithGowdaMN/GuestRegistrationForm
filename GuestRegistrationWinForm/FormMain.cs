@@ -75,22 +75,22 @@ namespace gui
 
         private void btnscan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormDoc(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, _apiHelper), sender);
         }
 
         private void btnlgt_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.CentralHub;
+﻿using GuestRegistrationDesktopUI.Library.Api;
+using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
@@ -22,8 +23,9 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        private IAPIconnector _apiHelper;
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, IAPIconnector apiHelper)
         {
             _centralHub = centralHub;
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
-
+            _apiHelper = apiHelper;
             txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
             txtContractorAddress.Text = _consultantApplicationForm.Address;
             txtContractorAliasName.Text = _consultantApplicationForm.Alias;
@@ -52,7 +54,6 @@ namespace gui
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
 
-
             txtContractorAddress.TextChanged += TextChanged;
             txtContractorAliasName.TextChanged += TextChanged;
             txtContractorCellPhn.TextChanged += TextChanged;
@@ -68,13 +69,16 @@ namespace gui
             txtContractorZip.TextChanged += TextChanged;
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
 
-
-
         }
 
         private void Contractor_Load(object sender, EventArgs e)
         {
+            getCompanyName();
+        }
 
+        private async Task getCompanyName()
+        {
+            await _apiHelper.GetRegistredCompanyNames();
         }
 
         private void panelcontrator_Paint(object sender, PaintEventArgs e)

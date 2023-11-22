@@ -20,7 +20,7 @@ namespace GuestRegistration.Controllers
             return new string[] { "value1", "value2", userId };
         }
         //[HttpGet]
-        [Route("GetCompanyNames")]
+        [Route("api/GetCompanyNames")]
         public List<CompanyNameList> GetCompanyNames()
         {
             RetriveCompanyName retriveCompanyName = new RetriveCompanyName();

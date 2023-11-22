@@ -120,6 +120,7 @@
     <Compile Include="FiScanner\IFiScanHelper.cs" />
     <Compile Include="GenerateDocument\DocumentGenerator.cs" />
     <Compile Include="ImageCrop\CropImages.cs" />
+    <Compile Include="Models\ArrayOfCompanyNameList.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\CameraStatus.cs" />
     <Compile Include="Models\ConcatenatedDataBinding.cs" />

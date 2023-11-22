@@ -1,5 +1,6 @@
 ﻿//using GuestRegistrationDeskUI.ViewModels;
 using GenerateDocument.Library;
+using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
@@ -27,8 +28,9 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        private IAPIconnector _apiHelper;
         public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, IAPIconnector apiHelper)
         {
             _centralHub = centralHub;
             _centralHub.CanonImageDownload += UpdatePhotoImage;
@@ -40,6 +42,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
+            _apiHelper = apiHelper;
             txtname.TextChanged += TextChanged;
             txtdob.TextChanged += TextChanged;
             txtexpiry.TextChanged += TextChanged;
