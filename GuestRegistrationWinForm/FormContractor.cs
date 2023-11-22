@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.Api;
+﻿using GuestDataManager.Library.DataAccess;
+using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Models;
@@ -69,6 +70,9 @@ namespace gui
             txtContractorZip.TextChanged += TextChanged;
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
 
+            LoadComboxBoxData();
+
+
         }
 
         private void Contractor_Load(object sender, EventArgs e)
@@ -78,7 +82,9 @@ namespace gui
 
         public void LoadComboxBoxData()
         {
-
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            cmbContractorCompName.DataSource = retriveDBinfo.GetCompanyname().Select(x=> x.CompanyNames).ToList();
+            cmbContractorPurposeOfVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x=>x.Purpose).ToList();
         }
 
         private async Task getCompanyName()

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationWinForm.Models
 {
-    class DataBindings
+    public class DataBindings
     {
+        public List<string> companyNames { get; set; }
     }
 }

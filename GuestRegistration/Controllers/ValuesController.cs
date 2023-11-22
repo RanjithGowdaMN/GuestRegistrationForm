@@ -21,9 +21,9 @@ namespace GuestRegistration.Controllers
         }
         //[HttpGet]
         [Route("api/GetCompanyNames")]
-        public List<CompanyNameList> GetCompanyNames()
+        public List<GenericListItems> GetCompanyNames()
         {
-            RetriveCompanyName retriveCompanyName = new RetriveCompanyName();
+            RetriveDBinfo retriveCompanyName = new RetriveDBinfo();
             var companyNames = retriveCompanyName.GetCompanyname();
             return companyNames.ToList();
         }

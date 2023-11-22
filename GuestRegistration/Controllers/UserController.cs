@@ -22,9 +22,9 @@ namespace GuestRegistration.Controllers
 
         }
         [HttpGet]
-        public List<CompanyNameList> GetCompanyNames()
+        public List<GenericListItems> GetCompanyNames()
         {
-            RetriveCompanyName retriveCompanyName = new RetriveCompanyName();
+            RetriveDBinfo retriveCompanyName = new RetriveDBinfo();
 
             return retriveCompanyName.GetCompanyname();
         }

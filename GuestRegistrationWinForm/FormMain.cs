@@ -1,4 +1,5 @@
 ﻿using GenerateDocument.Library;
+using GuestDataManager.Library.DataAccess;
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
@@ -56,7 +57,7 @@ namespace gui
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
-
+            
             LoadComponentsData();
         }
 

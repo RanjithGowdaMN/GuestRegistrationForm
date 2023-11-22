@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.Api;
+﻿using GuestDataManager.Library.DataAccess;
+using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Models;
@@ -46,6 +47,19 @@ namespace gui
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
+
+            LoadComboxBoxData();
+        }
+
+        public void LoadComboxBoxData()
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            cmbVisitorComp.DataSource = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
+            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
+            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList();
+            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList();
+            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList();
+            cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
         }
         private void TextChanged(Object sender, EventArgs e)
         {
