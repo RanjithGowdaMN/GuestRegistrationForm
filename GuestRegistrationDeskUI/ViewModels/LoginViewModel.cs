@@ -98,10 +98,10 @@ namespace GuestRegistrationDeskUI.ViewModels
             {
                 ErrorMessage = string.Empty;
                 
-                //var result = await _apiHelper.Authenticate(UserName, Password);
+                var result = await _apiHelper.Authenticate(UserName, Password);
 
                 //capture more information about the user
-                //await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
                 await _events.PublishOnUIThreadAsync(new LogOnEvent());
 

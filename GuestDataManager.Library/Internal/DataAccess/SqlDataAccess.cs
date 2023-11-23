@@ -14,7 +14,17 @@ namespace GuestDataManager.Library.Internal.DataAccess
     {
         public string GetConnectionString(string name)
         {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            //ExeConfigurationFileMap configFileMap = new ExeConfigurationFileMap
+            //{
+            //    ExeConfigFilename = "D:\\00 Project Repository\\GuestRegistrationForm\\GuestRegistrationForm\\GuestRegistration\\Web.config"
+            //};
+            //Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configFileMap, ConfigurationUserLevel.PerUserRoaming);
+
+            //return config.AppSettings.CurrentConfiguration.ConnectionStrings.ConnectionStrings[name].ConnectionString;
+
+            return CONSTANTS.connString;
+
+            //return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
         public List<T> LoadData<T, U>(string storedProcedure, U parameter, string connectionStringName)

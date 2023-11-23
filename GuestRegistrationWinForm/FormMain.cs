@@ -1,4 +1,6 @@
 ﻿using GenerateDocument.Library;
+using GuestDataManager.Library.DataAccess;
+using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
@@ -30,7 +32,8 @@ namespace gui
         public IGeneratePDFdocument _generatePDFdocument;
 
         public ICentralHub centralHub;
-
+        private IAPIconnector _apiHelper;
+       
         public FormMain()
         {
             _container = new DependencyInjectionContainer();
@@ -39,12 +42,12 @@ namespace gui
             _container.Register<IGenerateWordDocument>(new GenerateWordDocument());
             _container.Register<IGeneratePDFdocument>(new GeneratePDFdocument());
             _container.Register<IGenerateCardPrintDoc>(new GenerateCardPrintDoc());
-            
+            _container.Register<IAPIconnector>(new APIconnector());
             _container.Register<ICentralHub>(new CentralHub(_container.Resolve<IOCRhelper>(),
                                             _container.Resolve<IGenerateWordDocument>(),
                                             _container.Resolve<IGeneratePDFdocument>(),
                                             _container.Resolve<IGenerateCardPrintDoc>()));
-            
+            _apiHelper = _container.Resolve<IAPIconnector>();
             InitializeComponent();
 
             cameraStatus = new CameraStatus();
@@ -54,14 +57,21 @@ namespace gui
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
+            
+            LoadComponentsData();
+        }
+
+        private void LoadComponentsData()
+        {
+            
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
                 activeForm.Close();
-          
-            activeForm = childForm;
+            
+              activeForm = childForm;
             childForm.TopLevel = false;
             //childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -78,7 +88,8 @@ namespace gui
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            Form formContractor = new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            OpenChildForm(formContractor, sender);
         }
 
         private void button1_Click(object sender, EventArgs e)

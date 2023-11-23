@@ -1,0 +1,65 @@
+﻿using GuestDataManager.Library.Internal.DataAccess;
+using GuestDataManager.Library.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GuestDataManager.Library.DataAccess
+{
+    public class RetriveDBinfo
+    {
+        SqlDataAccess sql;
+        public RetriveDBinfo()
+        {
+            sql = new SqlDataAccess();
+        }
+        
+        public List<CompanyNameList> GetCompanyname()
+        {
+            var p = new { };
+            return sql.LoadData<CompanyNameList, dynamic>("dbo.spRetriveCompanyName", p, "GuestData");
+        }
+
+        public List<VisitorVisitPurpose> GetVisitorVisitPurpose()
+        {
+            var p = new { };
+            return sql.LoadData<VisitorVisitPurpose, dynamic>("dbo.spVisitorVisitPurpose", p, "GuestData");
+        }
+
+        public List<PersonToBeVisited> GetPersontobeVisited()
+        {
+            var p = new { };
+            return sql.LoadData<PersonToBeVisited, dynamic>("dbo.spPersontobeVisited", p, "GuestData");
+        }
+
+        public List<AreaToBeVisited> GetAreatobeVisited()
+        {
+            var p = new { };
+            return sql.LoadData<AreaToBeVisited, dynamic>("dbo.spAreatobeVisited", p, "GuestData");
+        }
+
+        public List<DepartmentManager> GetDepartmentManager()
+        {
+            var p = new { };
+            return sql.LoadData<DepartmentManager, dynamic>("dbo.spDepartmentManager", p, "GuestData");
+        }
+        public List<DepartmentNames> GetDepartmentNames()
+        {
+            var p = new { };
+            return sql.LoadData<DepartmentNames, dynamic>("dbo.spDepartmentNames", p, "GuestData");
+        }
+
+        public List<SecurityController> GetSecurityController()
+        {
+            var p = new { };
+            return sql.LoadData<SecurityController, dynamic>("dbo.spSecurityController", p, "GuestData");
+        }
+        public List<ProductionManagers> GetProductionManagers()
+        {
+            var p = new { };
+            return sql.LoadData<ProductionManagers, dynamic>("dbo.spProductionManagers", p, "GuestData");
+        }
+    }
+}

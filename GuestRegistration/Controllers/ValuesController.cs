@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GuestDataManager.Library.DataAccess;
+using GuestDataManager.Library.Models;
 using Microsoft.AspNet.Identity;
 
 namespace GuestRegistration.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -17,7 +19,14 @@ namespace GuestRegistration.Controllers
             string userId = RequestContext.Principal.Identity.GetUserId();
             return new string[] { "value1", "value2", userId };
         }
-
+        //[HttpGet]
+        [Route("api/GetCompanyNames")]
+        public List<GenericListItems> GetCompanyNames()
+        {
+            RetriveDBinfo retriveCompanyName = new RetriveDBinfo();
+            var companyNames = retriveCompanyName.GetCompanyname();
+            return companyNames.ToList();
+        }
         // GET api/values/5
         public string Get(int id)
         {

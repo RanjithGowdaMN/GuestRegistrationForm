@@ -20,10 +20,18 @@ namespace GuestRegistrationDesktopUI.Library.Api
             _loggedInUserModel = loggedInUserModel;
         }
 
+        public APIconnector()
+        {
+            InitializeClient();
+        }
+
         private void InitializeClient()
         {
             string api = ConfigurationManager.AppSettings["api"];
-
+            if (api == null)
+            {
+                api = "https://localhost:44382/";
+            }
             apiClient = new HttpClient();
             apiClient.BaseAddress = new Uri(api);
             apiClient.DefaultRequestHeaders.Accept.Clear();
@@ -76,9 +84,30 @@ namespace GuestRegistrationDesktopUI.Library.Api
                 {
                     throw new Exception(response.ReasonPhrase);
                 }
-
             }
+        }
 
+        
+
+        public async Task GetRegistredCompanyNames()
+        {
+            apiClient.DefaultRequestHeaders.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+            using (HttpResponseMessage response = await apiClient.GetAsync("api/GetCompanyNames"))
+            {
+                                                                           
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<ArrayOfCompanyNameList>();
+                    //var result = response;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
         }
     }
 }

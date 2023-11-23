@@ -1,4 +1,5 @@
-﻿using GuestRegistrationDesktopUI.Library.CentralHub;
+﻿using GuestRegistrationDesktopUI.Library.Api;
+using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
@@ -22,6 +23,7 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        //private IAPIconnector _apiHelper;
         public FormDoc(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
@@ -33,6 +35,7 @@ namespace gui
             _cameraStatus = cameraStatus;
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
+            //_apiHelper = apiHelper;
         }
 
         public void testMethod() {

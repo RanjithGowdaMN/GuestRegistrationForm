@@ -8,5 +8,7 @@ namespace GuestRegistrationDesktopUI.Library.Api
         Task<AuthenticatedUser> Authenticate(string username, string password);
         
         Task GetLoggedInUserInfo(string token);
+
+        Task GetRegistredCompanyNames();
     }
 }
