@@ -78,7 +78,7 @@ namespace gui
             // 
             this.lblCtitle.AutoSize = true;
             this.lblCtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCtitle.Location = new System.Drawing.Point(254, 25);
+            this.lblCtitle.Location = new System.Drawing.Point(247, 25);
             this.lblCtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCtitle.Name = "lblCtitle";
             this.lblCtitle.Size = new System.Drawing.Size(35, 17);
@@ -89,7 +89,7 @@ namespace gui
             // 
             this.lblCemail.AutoSize = true;
             this.lblCemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCemail.Location = new System.Drawing.Point(254, 163);
+            this.lblCemail.Location = new System.Drawing.Point(247, 163);
             this.lblCemail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCemail.Name = "lblCemail";
             this.lblCemail.Size = new System.Drawing.Size(42, 17);
@@ -100,7 +100,7 @@ namespace gui
             // 
             this.lblCstate.AutoSize = true;
             this.lblCstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCstate.Location = new System.Drawing.Point(254, 123);
+            this.lblCstate.Location = new System.Drawing.Point(247, 123);
             this.lblCstate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCstate.Name = "lblCstate";
             this.lblCstate.Size = new System.Drawing.Size(41, 17);
@@ -111,7 +111,7 @@ namespace gui
             // 
             this.lblCcompname.AutoSize = true;
             this.lblCcompname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcompname.Location = new System.Drawing.Point(254, 261);
+            this.lblCcompname.Location = new System.Drawing.Point(242, 261);
             this.lblCcompname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCcompname.Name = "lblCcompname";
             this.lblCcompname.Size = new System.Drawing.Size(108, 17);
@@ -122,7 +122,7 @@ namespace gui
             // 
             this.lblChomphn.AutoSize = true;
             this.lblChomphn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChomphn.Location = new System.Drawing.Point(254, 212);
+            this.lblChomphn.Location = new System.Drawing.Point(245, 212);
             this.lblChomphn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChomphn.Name = "lblChomphn";
             this.lblChomphn.Size = new System.Drawing.Size(90, 17);
@@ -144,7 +144,7 @@ namespace gui
             // 
             this.lblCalias.AutoSize = true;
             this.lblCalias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalias.Location = new System.Drawing.Point(254, 456);
+            this.lblCalias.Location = new System.Drawing.Point(235, 456);
             this.lblCalias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCalias.Name = "lblCalias";
             this.lblCalias.Size = new System.Drawing.Size(164, 17);
@@ -155,7 +155,7 @@ namespace gui
             // 
             this.lblCpassvalid.AutoSize = true;
             this.lblCpassvalid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassvalid.Location = new System.Drawing.Point(254, 407);
+            this.lblCpassvalid.Location = new System.Drawing.Point(236, 407);
             this.lblCpassvalid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassvalid.Name = "lblCpassvalid";
             this.lblCpassvalid.Size = new System.Drawing.Size(121, 17);
@@ -166,7 +166,7 @@ namespace gui
             // 
             this.lblCpassno.AutoSize = true;
             this.lblCpassno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassno.Location = new System.Drawing.Point(254, 358);
+            this.lblCpassno.Location = new System.Drawing.Point(239, 358);
             this.lblCpassno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassno.Name = "lblCpassno";
             this.lblCpassno.Size = new System.Drawing.Size(118, 17);
@@ -177,7 +177,7 @@ namespace gui
             // 
             this.lblCadrs.AutoSize = true;
             this.lblCadrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadrs.Location = new System.Drawing.Point(254, 74);
+            this.lblCadrs.Location = new System.Drawing.Point(247, 74);
             this.lblCadrs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCadrs.Name = "lblCadrs";
             this.lblCadrs.Size = new System.Drawing.Size(60, 17);
@@ -442,6 +442,7 @@ namespace gui
             this.dtContractorDuration.Name = "dtContractorDuration";
             this.dtContractorDuration.Size = new System.Drawing.Size(247, 23);
             this.dtContractorDuration.TabIndex = 38;
+            this.dtContractorDuration.ValueChanged += new System.EventHandler(this.dtContractorDuration_ValueChanged);
             // 
             // dtContractorPassportDateOfIssue
             // 
@@ -456,7 +457,7 @@ namespace gui
             // 
             this.lblCpreres.AutoSize = true;
             this.lblCpreres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpreres.Location = new System.Drawing.Point(355, 506);
+            this.lblCpreres.Location = new System.Drawing.Point(348, 506);
             this.lblCpreres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpreres.Name = "lblCpreres";
             this.lblCpreres.Size = new System.Drawing.Size(282, 17);
