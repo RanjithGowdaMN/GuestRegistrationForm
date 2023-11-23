@@ -85,6 +85,17 @@ namespace gui
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             cmbContractorCompName.DataSource = retriveDBinfo.GetCompanyname().Select(x=> x.CompanyNames).ToList();
             cmbContractorPurposeOfVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x=>x.Purpose).ToList();
+
+            //load passport validity previous value
+            if (_consultantApplicationForm.PassportValidity != null)
+            {
+                dtContractorPassportValid.Value = DateTime.Parse(_consultantApplicationForm.PassportValidity);
+            }
+            if (_consultantApplicationForm.PDateofIssue != null)
+            {
+                dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PDateofIssue);
+            }
+
         }
 
         private async Task getCompanyName()
@@ -176,6 +187,16 @@ namespace gui
             {
                 _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Text.ToString();
             }
+        }
+
+        private void dtContractorPassportValid_ValueChanged(object sender, EventArgs e)
+        {
+            _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Value.ToString();
+        }
+
+        private void dtContractorPassportDateOfIssue_ValueChanged(object sender, EventArgs e)
+        {
+            _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.ToString();
         }
     }
 }
