@@ -51,6 +51,7 @@ namespace gui
             txtContractorZip.Text = _consultantApplicationForm.Zip;
             txtContratorTitle.Text = _consultantApplicationForm.Title;
             rtxtContractorPreResidence.Text = _consultantApplicationForm.PResidence;
+            txtContractorState.Text = _consultantApplicationForm.State;
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
@@ -68,6 +69,7 @@ namespace gui
             txtContractorSecurityNo.TextChanged += TextChanged;
             txtContratorTitle.TextChanged += TextChanged;
             txtContractorZip.TextChanged += TextChanged;
+            txtContractorState.TextChanged += TextChanged; 
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
 
             LoadComboxBoxData();
@@ -190,6 +192,10 @@ namespace gui
             {
                 _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Text.ToString();
             }
+            if(tb.Name==txtContractorState.Name)
+            {
+                _consultantApplicationForm.State = txtContractorState.Text;
+            }
         }
 
         private void dtContractorPassportValid_ValueChanged(object sender, EventArgs e)
@@ -210,6 +216,29 @@ namespace gui
         private void dtContractorDuration_ValueChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.Duration = dtContractorDuration.Value.ToString();
+        }
+
+        private void btContractorPdf_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.Expiry = _scannedData.Expiry;
+            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.Nationality = _scannedData.Nationality;
+
+            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+
+            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+            VisitorsLogBook vlBook = new VisitorsLogBook();
+            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+            concatenatedDataBinding.CAforVisitor = CAforVisitor;
+            concatenatedDataBinding.hsaLog = hsaLog;
+            concatenatedDataBinding.vlBook = vlBook;
+            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
         }
     }
 }

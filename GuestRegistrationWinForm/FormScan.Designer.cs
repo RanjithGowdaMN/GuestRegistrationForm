@@ -47,9 +47,11 @@ namespace gui
             this.pbfront = new System.Windows.Forms.PictureBox();
             this.pbback = new System.Windows.Forms.PictureBox();
             this.btnphoto = new System.Windows.Forms.Button();
+            this.panelScan = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
+            this.panelScan.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblname
@@ -57,7 +59,7 @@ namespace gui
             this.lblname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblname.AutoSize = true;
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(381, 84);
+            this.lblname.Location = new System.Drawing.Point(470, 40);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(53, 20);
             this.lblname.TabIndex = 0;
@@ -68,7 +70,7 @@ namespace gui
             this.lblid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblid.AutoSize = true;
             this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblid.Location = new System.Drawing.Point(381, 144);
+            this.lblid.Location = new System.Drawing.Point(470, 100);
             this.lblid.Name = "lblid";
             this.lblid.Size = new System.Drawing.Size(90, 20);
             this.lblid.TabIndex = 1;
@@ -79,7 +81,7 @@ namespace gui
             this.lbldob.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldob.AutoSize = true;
             this.lbldob.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldob.Location = new System.Drawing.Point(381, 204);
+            this.lbldob.Location = new System.Drawing.Point(470, 160);
             this.lbldob.Name = "lbldob";
             this.lbldob.Size = new System.Drawing.Size(47, 20);
             this.lbldob.TabIndex = 2;
@@ -90,7 +92,7 @@ namespace gui
             this.lblexp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblexp.AutoSize = true;
             this.lblexp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblexp.Location = new System.Drawing.Point(381, 263);
+            this.lblexp.Location = new System.Drawing.Point(470, 220);
             this.lblexp.Name = "lblexp";
             this.lblexp.Size = new System.Drawing.Size(77, 20);
             this.lblexp.TabIndex = 3;
@@ -101,7 +103,7 @@ namespace gui
             this.lblnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblnationality.AutoSize = true;
             this.lblnationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnationality.Location = new System.Drawing.Point(381, 324);
+            this.lblnationality.Location = new System.Drawing.Point(470, 280);
             this.lblnationality.Name = "lblnationality";
             this.lblnationality.Size = new System.Drawing.Size(87, 20);
             this.lblnationality.TabIndex = 4;
@@ -110,7 +112,7 @@ namespace gui
             // txtname
             // 
             this.txtname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtname.Location = new System.Drawing.Point(521, 84);
+            this.txtname.Location = new System.Drawing.Point(630, 40);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(281, 22);
@@ -119,7 +121,7 @@ namespace gui
             // txtid
             // 
             this.txtid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtid.Location = new System.Drawing.Point(521, 144);
+            this.txtid.Location = new System.Drawing.Point(630, 100);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(183, 22);
@@ -128,7 +130,7 @@ namespace gui
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Location = new System.Drawing.Point(521, 324);
+            this.txtnationality.Location = new System.Drawing.Point(630, 280);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
             this.txtnationality.Size = new System.Drawing.Size(183, 22);
@@ -137,7 +139,7 @@ namespace gui
             // txtexpiry
             // 
             this.txtexpiry.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtexpiry.Location = new System.Drawing.Point(521, 263);
+            this.txtexpiry.Location = new System.Drawing.Point(630, 220);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
             this.txtexpiry.Size = new System.Drawing.Size(183, 22);
@@ -146,7 +148,7 @@ namespace gui
             // txtdob
             // 
             this.txtdob.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtdob.Location = new System.Drawing.Point(521, 204);
+            this.txtdob.Location = new System.Drawing.Point(630, 160);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
             this.txtdob.Size = new System.Drawing.Size(183, 22);
@@ -157,7 +159,7 @@ namespace gui
             this.rbid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbid.AutoSize = true;
             this.rbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbid.Location = new System.Drawing.Point(560, 384);
+            this.rbid.Location = new System.Drawing.Point(545, 340);
             this.rbid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbid.Name = "rbid";
             this.rbid.Size = new System.Drawing.Size(47, 24);
@@ -171,7 +173,7 @@ namespace gui
             this.rbpass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbpass.AutoSize = true;
             this.rbpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbpass.Location = new System.Drawing.Point(651, 384);
+            this.rbpass.Location = new System.Drawing.Point(677, 340);
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
             this.rbpass.Size = new System.Drawing.Size(97, 24);
@@ -184,7 +186,7 @@ namespace gui
             // 
             this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnfront.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnfront.Location = new System.Drawing.Point(521, 420);
+            this.btnfront.Location = new System.Drawing.Point(511, 400);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(143, 33);
@@ -197,7 +199,7 @@ namespace gui
             // 
             this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnback.Location = new System.Drawing.Point(731, 420);
+            this.btnback.Location = new System.Drawing.Point(770, 400);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(143, 33);
@@ -210,7 +212,7 @@ namespace gui
             // 
             this.pbphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbphoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbphoto.Location = new System.Drawing.Point(1035, 65);
+            this.pbphoto.Location = new System.Drawing.Point(1030, 42);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbphoto.Name = "pbphoto";
             this.pbphoto.Size = new System.Drawing.Size(160, 183);
@@ -220,7 +222,7 @@ namespace gui
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(296, 459);
+            this.pbfront.Location = new System.Drawing.Point(289, 452);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbfront.Name = "pbfront";
             this.pbfront.Size = new System.Drawing.Size(408, 197);
@@ -230,7 +232,7 @@ namespace gui
             // pbback
             // 
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(781, 459);
+            this.pbback.Location = new System.Drawing.Point(791, 452);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbback.Name = "pbback";
             this.pbback.Size = new System.Drawing.Size(408, 197);
@@ -240,7 +242,7 @@ namespace gui
             // btnphoto
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnphoto.Location = new System.Drawing.Point(1075, 263);
+            this.btnphoto.Location = new System.Drawing.Point(1056, 254);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(104, 33);
@@ -249,30 +251,39 @@ namespace gui
             this.btnphoto.UseVisualStyleBackColor = true;
             this.btnphoto.Click += new System.EventHandler(this.btnphoto_Click);
             // 
+            // panelScan
+            // 
+            this.panelScan.Controls.Add(this.lblname);
+            this.panelScan.Controls.Add(this.pbback);
+            this.panelScan.Controls.Add(this.btnphoto);
+            this.panelScan.Controls.Add(this.pbfront);
+            this.panelScan.Controls.Add(this.lblid);
+            this.panelScan.Controls.Add(this.lbldob);
+            this.panelScan.Controls.Add(this.lblexp);
+            this.panelScan.Controls.Add(this.pbphoto);
+            this.panelScan.Controls.Add(this.lblnationality);
+            this.panelScan.Controls.Add(this.txtnationality);
+            this.panelScan.Controls.Add(this.txtexpiry);
+            this.panelScan.Controls.Add(this.txtdob);
+            this.panelScan.Controls.Add(this.btnback);
+            this.panelScan.Controls.Add(this.rbid);
+            this.panelScan.Controls.Add(this.btnfront);
+            this.panelScan.Controls.Add(this.txtid);
+            this.panelScan.Controls.Add(this.rbpass);
+            this.panelScan.Controls.Add(this.txtname);
+            this.panelScan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScan.Location = new System.Drawing.Point(0, 0);
+            this.panelScan.Name = "panelScan";
+            this.panelScan.Size = new System.Drawing.Size(1528, 677);
+            this.panelScan.TabIndex = 18;
+            // 
             // FormScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1528, 677);
-            this.Controls.Add(this.btnphoto);
-            this.Controls.Add(this.pbback);
-            this.Controls.Add(this.pbfront);
-            this.Controls.Add(this.pbphoto);
-            this.Controls.Add(this.btnback);
-            this.Controls.Add(this.btnfront);
-            this.Controls.Add(this.rbpass);
-            this.Controls.Add(this.rbid);
-            this.Controls.Add(this.txtdob);
-            this.Controls.Add(this.txtexpiry);
-            this.Controls.Add(this.txtnationality);
-            this.Controls.Add(this.txtid);
-            this.Controls.Add(this.txtname);
-            this.Controls.Add(this.lblnationality);
-            this.Controls.Add(this.lblexp);
-            this.Controls.Add(this.lbldob);
-            this.Controls.Add(this.lblid);
-            this.Controls.Add(this.lblname);
+            this.Controls.Add(this.panelScan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormScan";
@@ -280,8 +291,9 @@ namespace gui
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).EndInit();
+            this.panelScan.ResumeLayout(false);
+            this.panelScan.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -305,5 +317,6 @@ namespace gui
         private System.Windows.Forms.PictureBox pbfront;
         private System.Windows.Forms.PictureBox pbback;
         private System.Windows.Forms.Button btnphoto;
+        private System.Windows.Forms.Panel panelScan;
     }
 }
