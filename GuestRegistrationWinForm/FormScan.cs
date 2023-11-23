@@ -135,8 +135,22 @@ namespace gui
         public void UpdatePhotoImage(string path)
         {
             _cameraStatus.ImagePath = path;
+
+            // Load the original image
+            Image originalImage = Image.FromFile(path);
+
+            // Resize the image to fit the PictureBox
+            Bitmap resizedImage = new Bitmap(pbphoto.Width, pbphoto.Height);
+
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(originalImage, 0, 0, pbphoto.Width, pbphoto.Height);
+            }
+
+            // Set the PictureBox properties
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
-            pbphoto.Image = Image.FromFile(path);
+            pbphoto.Image = resizedImage;
         }
 
         private void TextChanged(object sender, EventArgs e)

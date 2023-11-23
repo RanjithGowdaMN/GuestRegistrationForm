@@ -213,7 +213,7 @@ namespace gui
             this.pbphoto.Location = new System.Drawing.Point(1035, 65);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbphoto.Name = "pbphoto";
-            this.pbphoto.Size = new System.Drawing.Size(178, 183);
+            this.pbphoto.Size = new System.Drawing.Size(160, 183);
             this.pbphoto.TabIndex = 14;
             this.pbphoto.TabStop = false;
             // 
