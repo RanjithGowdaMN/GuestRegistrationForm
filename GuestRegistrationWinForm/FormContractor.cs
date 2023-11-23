@@ -95,10 +95,7 @@ namespace gui
             {
                 dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PDateofIssue);
             }
-            if (_consultantApplicationForm.Duration != null)
-            {
-                dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
-            }
+
         }
 
         private async Task getCompanyName()
@@ -192,6 +189,7 @@ namespace gui
             }
         }
 
+
         private void dtContractorPassportValid_ValueChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Value.ToString();
@@ -200,16 +198,6 @@ namespace gui
         private void dtContractorPassportDateOfIssue_ValueChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.ToString();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtContractorDuration_ValueChanged(object sender, EventArgs e)
-        {
-            _consultantApplicationForm.Duration = dtContractorDuration.Value.ToString();
         }
     }
 }

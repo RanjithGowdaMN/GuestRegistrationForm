@@ -33,7 +33,7 @@ namespace gui
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblVrsnvst = new System.Windows.Forms.Label();
             this.lblVcomp = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelVisitor = new System.Windows.Forms.Panel();
             this.txtVisitorTitle = new System.Windows.Forms.TextBox();
             this.dtVisitorVisitDate = new System.Windows.Forms.DateTimePicker();
             this.dtVisitorDuration = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +52,8 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelVisitor.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblVtitle
@@ -85,35 +86,36 @@ namespace gui
             this.lblVcomp.TabIndex = 2;
             this.lblVcomp.Text = "Comapany";
             // 
-            // panel1
+            // panelVisitor
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.txtVisitorTitle);
-            this.panel1.Controls.Add(this.dtVisitorVisitDate);
-            this.panel1.Controls.Add(this.dtVisitorDuration);
-            this.panel1.Controls.Add(this.txtVisitorSecutityController);
-            this.panel1.Controls.Add(this.lblVsc);
-            this.panel1.Controls.Add(this.cmbVisitorProductionManager);
-            this.panel1.Controls.Add(this.cmbVisitorPersonToVisited);
-            this.panel1.Controls.Add(this.cmbVisitorAreaVisited);
-            this.panel1.Controls.Add(this.cmbvisitorDeptManager);
-            this.panel1.Controls.Add(this.lblVprodmangr);
-            this.panel1.Controls.Add(this.lblVdeptmang);
-            this.panel1.Controls.Add(this.lblVduration);
-            this.panel1.Controls.Add(this.lblVdate);
-            this.panel1.Controls.Add(this.lblVarea);
-            this.panel1.Controls.Add(this.lblVprsnvisit);
-            this.panel1.Controls.Add(this.cmbVistorReasonForVisit);
-            this.panel1.Controls.Add(this.cmbVisitorComp);
-            this.panel1.Controls.Add(this.txtVisitorComp);
-            this.panel1.Controls.Add(this.lblVtitle);
-            this.panel1.Controls.Add(this.lblVrsnvst);
-            this.panel1.Controls.Add(this.lblVcomp);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1583, 723);
-            this.panel1.TabIndex = 3;
+            this.panelVisitor.BackColor = System.Drawing.Color.White;
+            this.panelVisitor.Controls.Add(this.button1);
+            this.panelVisitor.Controls.Add(this.txtVisitorTitle);
+            this.panelVisitor.Controls.Add(this.dtVisitorVisitDate);
+            this.panelVisitor.Controls.Add(this.dtVisitorDuration);
+            this.panelVisitor.Controls.Add(this.txtVisitorSecutityController);
+            this.panelVisitor.Controls.Add(this.lblVsc);
+            this.panelVisitor.Controls.Add(this.cmbVisitorProductionManager);
+            this.panelVisitor.Controls.Add(this.cmbVisitorPersonToVisited);
+            this.panelVisitor.Controls.Add(this.cmbVisitorAreaVisited);
+            this.panelVisitor.Controls.Add(this.cmbvisitorDeptManager);
+            this.panelVisitor.Controls.Add(this.lblVprodmangr);
+            this.panelVisitor.Controls.Add(this.lblVdeptmang);
+            this.panelVisitor.Controls.Add(this.lblVduration);
+            this.panelVisitor.Controls.Add(this.lblVdate);
+            this.panelVisitor.Controls.Add(this.lblVarea);
+            this.panelVisitor.Controls.Add(this.lblVprsnvisit);
+            this.panelVisitor.Controls.Add(this.cmbVistorReasonForVisit);
+            this.panelVisitor.Controls.Add(this.cmbVisitorComp);
+            this.panelVisitor.Controls.Add(this.txtVisitorComp);
+            this.panelVisitor.Controls.Add(this.lblVtitle);
+            this.panelVisitor.Controls.Add(this.lblVrsnvst);
+            this.panelVisitor.Controls.Add(this.lblVcomp);
+            this.panelVisitor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelVisitor.Location = new System.Drawing.Point(0, 0);
+            this.panelVisitor.Name = "panelVisitor";
+            this.panelVisitor.Size = new System.Drawing.Size(1583, 723);
+            this.panelVisitor.TabIndex = 3;
             // 
             // txtVisitorTitle
             // 
@@ -268,17 +270,26 @@ namespace gui
             this.txtVisitorComp.Size = new System.Drawing.Size(214, 22);
             this.txtVisitorComp.TabIndex = 4;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1001, 657);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 35);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1583, 723);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelVisitor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormVisitor";
             this.Text = "FormVisitor";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelVisitor.ResumeLayout(false);
+            this.panelVisitor.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -289,7 +300,7 @@ namespace gui
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label lblVrsnvst;
         private System.Windows.Forms.Label lblVcomp;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelVisitor;
         private System.Windows.Forms.TextBox txtVisitorComp;
         private System.Windows.Forms.DateTimePicker dtVisitorVisitDate;
         private System.Windows.Forms.DateTimePicker dtVisitorDuration;
@@ -308,5 +319,6 @@ namespace gui
         private System.Windows.Forms.ComboBox cmbVistorReasonForVisit;
         private System.Windows.Forms.ComboBox cmbVisitorComp;
         private System.Windows.Forms.TextBox txtVisitorTitle;
+        private System.Windows.Forms.Button button1;
     }
 }
