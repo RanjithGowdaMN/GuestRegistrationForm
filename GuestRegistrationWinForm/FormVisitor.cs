@@ -115,5 +115,10 @@ namespace gui
             txtVisitorComp.Visible = false;
             cmbVisitorComp.SelectedIndexChanged += CmbVisitorComp_SelectedIndexChanged;
         }
+
+        private void cmbVistorReasonForVisit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.ReasonForVisit = cmbVistorReasonForVisit.SelectedItem.ToString();
+        }
     }
 }

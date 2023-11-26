@@ -253,6 +253,7 @@ namespace gui
             this.cmbVistorReasonForVisit.Name = "cmbVistorReasonForVisit";
             this.cmbVistorReasonForVisit.Size = new System.Drawing.Size(214, 24);
             this.cmbVistorReasonForVisit.TabIndex = 6;
+            this.cmbVistorReasonForVisit.SelectedIndexChanged += new System.EventHandler(this.cmbVistorReasonForVisit_SelectedIndexChanged);
             // 
             // cmbVisitorComp
             // 
