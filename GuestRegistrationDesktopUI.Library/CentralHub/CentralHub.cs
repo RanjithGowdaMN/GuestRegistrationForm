@@ -185,6 +185,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
             guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateTime;
             guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;
+            guestDataBinding.visitorDataSheet.Title = concatenatedDataBinding.visitorDataSheet.Title;
 
             if (String.IsNullOrEmpty(concatenatedDataBinding.visitorDataSheet.VisitorIdNo))
             {
@@ -222,7 +223,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.CompanyName = concatenatedDataBinding.consultantApplicationForm.CompanyName;
             guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.DateOfIssue;
             guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.PlaceofIssue;
-
+            guestDataBinding.consultantApplicationForm.Title = concatenatedDataBinding.consultantApplicationForm.Title;
             guestDataBinding.consultantApplicationForm.PDateofIssue = concatenatedDataBinding.consultantApplicationForm.PDateofIssue;
             guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Duration;
            // guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Durationto;
