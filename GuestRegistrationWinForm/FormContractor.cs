@@ -80,6 +80,8 @@ namespace gui
         private void Contractor_Load(object sender, EventArgs e)
         {
             getCompanyName();
+            txtContractorCompName.Visible = false;
+            cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
         }
 
         public void LoadComboxBoxData()
@@ -110,7 +112,21 @@ namespace gui
 
         private void panelcontrator_Paint(object sender, PaintEventArgs e)
         {
+          //  txtContractorCompName.Visible = false;
+           // cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
+        }
 
+        private void CmbContractorCompName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if(cmbContractorCompName.SelectedItem.ToString()=="other")
+            {
+                txtContractorCompName.Visible = true;
+            }
+            else
+            {
+                txtContractorCompName.Visible = false;
+            }
         }
 
         private void RichTextChanged(object sender, EventArgs e)

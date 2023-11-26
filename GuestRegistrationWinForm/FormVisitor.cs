@@ -51,6 +51,23 @@ namespace gui
             LoadComboxBoxData();
         }
 
+     
+
+        private void CmbVisitorComp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           if(cmbVisitorComp.SelectedItem.ToString()=="other")
+            {
+                txtVisitorComp.Visible = true;
+
+            }
+            else
+            {
+                txtVisitorComp.Visible = false;
+
+            }
+        }
+
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -88,6 +105,15 @@ namespace gui
             }
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void FormVisitor_Load(object sender, EventArgs e)
+        {
+            txtVisitorComp.Visible = false;
+            cmbVisitorComp.SelectedIndexChanged += CmbVisitorComp_SelectedIndexChanged;
+        }
     }
 }
