@@ -87,7 +87,8 @@ namespace gui
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            cmbContractorCompName.DataSource = retriveDBinfo.GetCompanyname().Select(x=> x.CompanyNames).ToList();
+            List<string> CompanyNames = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
+            cmbContractorCompName.DataSource = CompanyNames;
             cmbContractorPurposeOfVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x=>x.Purpose).ToList();
 
             //load passport validity previous value
@@ -103,6 +104,16 @@ namespace gui
             {
                 dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
             }
+            if ((!CompanyNames.Contains(_consultantApplicationForm.CompanyName) && (_consultantApplicationForm.CompanyName!=null)))
+            {
+                txtContractorCompName.Visible = true;
+                txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
+                cmbContractorCompName.Text = "other";
+            } else
+            {
+                cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
+            }
+
         }
 
         private async Task getCompanyName()
@@ -112,8 +123,15 @@ namespace gui
 
         private void panelcontrator_Paint(object sender, PaintEventArgs e)
         {
-          //  txtContractorCompName.Visible = false;
-           // cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
+            if (cmbContractorCompName.Text == "other")
+            {
+                txtContractorCompName.Visible = true;
+            }
+            else
+            {
+                txtContractorCompName.Visible = false;
+            }
+
         }
 
         private void CmbContractorCompName_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,6 +144,7 @@ namespace gui
             else
             {
                 txtContractorCompName.Visible = false;
+                _consultantApplicationForm.CompanyName = cmbContractorCompName.SelectedItem.ToString();
             }
         }
 
@@ -255,6 +274,11 @@ namespace gui
             concatenatedDataBinding.vlBook = vlBook;
             concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
             _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+        }
+
+        private void txtContractorCompName_TextChanged(object sender, EventArgs e)
+        {
+            _consultantApplicationForm.CompanyName = txtContractorCompName.Text;
         }
     }
 }
