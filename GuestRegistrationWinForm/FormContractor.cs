@@ -84,9 +84,19 @@ namespace gui
             txtContractorCompName.Visible = false;
             cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
+            cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
         }
 
-       private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  throw new NotImplementedException();
+          if(cmbContractorFelony!=null)
+            {
+                _consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
+            }
+        }
+
+        private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
         {
             // throw new NotImplementedException();
             if (cmbContractorPurposeOfVisit != null)
@@ -106,9 +116,7 @@ namespace gui
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
 
-
-
-
+            cmbContractorFelony.Text = _consultantApplicationForm.CcFelony;
 
             //load passport validity previous value
             if (_consultantApplicationForm.PassportValidity != null)
