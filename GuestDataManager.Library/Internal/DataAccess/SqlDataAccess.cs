@@ -48,5 +48,26 @@ namespace GuestDataManager.Library.Internal.DataAccess
             }
         }
 
+        public void SaveData(string storedProcedure, Dictionary<string, object> parameter, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(storedProcedure, connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                foreach (var kvp in parameter)
+                {
+                    command.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                }
+                //output parameter
+                //SqlParameter resultParameter = new SqlParameter("@Result", System.Data.SqlDbType.Int);
+                //resultParameter.Direction = System.Data.ParameterDirection.Output;
+                //command.Parameters.Add(resultParameter);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }
