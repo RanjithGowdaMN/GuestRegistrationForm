@@ -37,5 +37,6 @@ namespace GuestRegistrationDeskUI.Models
 
         public string PResidence { get; set; }
         public string Alias { get; set; }
+        public string Title { get; set; }
     }
 }
