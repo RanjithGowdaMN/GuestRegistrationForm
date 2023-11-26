@@ -16,17 +16,6 @@ namespace GuestDataManager.Library.DataAccess
         {
             sql = new SqlDataAccess();
         }
-        public void GetUserById(string Id)
-        {
-            SqlDataAccess sql = new SqlDataAccess();
-
-            var p = new { Id = Id };
-
-            //var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "GuestData");
-
-            //return output;
-        }
-
         public void InsertVisitorRecord(ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
@@ -64,6 +53,7 @@ namespace GuestDataManager.Library.DataAccess
             p.Add("IdNumber");
             p.Add("Dob");
             p.Add("IdType");
+
             sql.SaveData<List<string>>("dbo.spUserLookup", p, "GuestData");
         }
     }

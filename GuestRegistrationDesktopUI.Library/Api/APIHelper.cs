@@ -100,7 +100,7 @@ namespace GuestRegistrationDesktopUI.Library.Api
                                                                            
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<ArrayOfCompanyNameList>();
+                    //var result = await response.Content.ReadAsAsync<ArrayOfCompanyNameList>();
                     //var result = response;
                 }
                 else

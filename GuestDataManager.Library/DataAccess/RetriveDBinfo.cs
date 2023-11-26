@@ -1,5 +1,6 @@
 ﻿using GuestDataManager.Library.Internal.DataAccess;
 using GuestDataManager.Library.Models;
+using GuestRegistrationDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,31 +16,38 @@ namespace GuestDataManager.Library.DataAccess
         {
             sql = new SqlDataAccess();
         }
-        
+        public VisitorInformation GetVisitorByIdNumber(string Id)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var p = new { IdNumber = Id };
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@IdNumber", Id },
+            };
+            return sql.LoadData("dbo.spGetVisitorByIdNumber", parameters, "GuestData");
+        }
         public List<CompanyNameList> GetCompanyname()
         {
             var p = new { };
             return sql.LoadData<CompanyNameList, dynamic>("dbo.spRetriveCompanyName", p, "GuestData");
         }
-
         public List<VisitorVisitPurpose> GetVisitorVisitPurpose()
         {
             var p = new { };
             return sql.LoadData<VisitorVisitPurpose, dynamic>("dbo.spVisitorVisitPurpose", p, "GuestData");
         }
-
         public List<PersonToBeVisited> GetPersontobeVisited()
         {
             var p = new { };
             return sql.LoadData<PersonToBeVisited, dynamic>("dbo.spPersontobeVisited", p, "GuestData");
         }
-
         public List<AreaToBeVisited> GetAreatobeVisited()
         {
             var p = new { };
             return sql.LoadData<AreaToBeVisited, dynamic>("dbo.spAreatobeVisited", p, "GuestData");
         }
-
         public List<DepartmentManager> GetDepartmentManager()
         {
             var p = new { };
@@ -50,7 +58,6 @@ namespace GuestDataManager.Library.DataAccess
             var p = new { };
             return sql.LoadData<DepartmentNames, dynamic>("dbo.spDepartmentNames", p, "GuestData");
         }
-
         public List<SecurityController> GetSecurityController()
         {
             var p = new { };

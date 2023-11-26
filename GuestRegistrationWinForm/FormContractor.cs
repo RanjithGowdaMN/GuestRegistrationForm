@@ -73,10 +73,7 @@ namespace gui
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
 
             LoadComboxBoxData();
-
-
         }
-
         private void Contractor_Load(object sender, EventArgs e)
         {
             getCompanyName();

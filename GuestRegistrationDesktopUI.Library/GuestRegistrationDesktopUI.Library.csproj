@@ -133,6 +133,7 @@
     <Compile Include="Models\ScannedFileModel.cs" />
     <Compile Include="Models\VisitorDataModel.cs" />
     <Compile Include="Models\VisitorDataSheet.cs" />
+    <Compile Include="Models\VisitorInformation.cs" />
     <Compile Include="Models\VisitorsLogBook.cs" />
     <Compile Include="OCR\IOCRhelper.cs" />
     <Compile Include="OCR\OCRhelper.cs" />

@@ -1,5 +1,6 @@
 ﻿//using GuestRegistrationDeskUI.ViewModels;
 using GenerateDocument.Library;
+using GuestDataManager.Library.DataAccess;
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
@@ -179,6 +180,23 @@ namespace gui
             {
                 _scannedData.DateOfBirth = txtdob.Text;
             }
+        }
+
+        private void SearchVisitor_Click(object sender, EventArgs e)
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            try
+            {
+               VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtid.Text);
+                //_consultantApplicationForm.Address = visitor.Address;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No Previous Visit Information!!");
+            }
+             //List<List<string>> CompanyNames = 
+
         }
     }
 }
