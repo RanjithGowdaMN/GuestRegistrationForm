@@ -43,5 +43,28 @@ namespace GuestDataManager.Library.DataAccess
             };
             sql.SaveData("dbo.spUserLookup", parameters, "GuestData");
         }
+
+        public void InsertVisitorRecordTest(ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
+        {
+            byte[] imageFrontSide = File.ReadAllBytes("D:\\VisitorData\\ScannedID\\image00001.jpg");
+            byte[] imageBackSide = File.ReadAllBytes(scannedFileInfo.BackSideFileName);
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@Name", scannedData.Name },
+                { "@IdNumber", scannedData.IDno},
+                { "@Dob", scannedData.DateOfBirth},
+                { "@IdType", 2},
+                { "@IdFrontSide", imageFrontSide},
+            };
+
+            List<string> p = new List<string>();
+            p.Add("Name1");
+            p.Add("IdNumber");
+            p.Add("Dob");
+            p.Add("IdType");
+            sql.SaveData<List<string>>("dbo.spUserLookup", p, "GuestData");
+        }
     }
 }
