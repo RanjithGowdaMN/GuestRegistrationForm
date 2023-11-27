@@ -38,15 +38,17 @@ namespace gui
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
 
-            txtVisitorTitle.TextChanged += TextChanged;
-            txtVisitorComp.TextChanged += TextChanged;
-            txtVisitorSecutityController.TextChanged += TextChanged;
-
+           
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.Company;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
+
+
+            txtVisitorTitle.TextChanged += TextChanged;
+            txtVisitorComp.TextChanged += TextChanged;
+            txtVisitorSecutityController.TextChanged += TextChanged;
 
             LoadComboxBoxData();
         }
@@ -111,6 +113,18 @@ namespace gui
             {
                 cmbVisitorComp.Text = _visitorDataSheet.Company;
             }
+
+            //load dates
+
+            if(_visitorDataSheet.VisitDateTime!=null)
+            {
+                dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateTime);
+            }
+        /*  if(_visitorDataSheet.VisitDuration!=null)
+            {
+                dtVisitorDuration.Value = DateTime.Parse(_visitorDataSheet.VisitDuration);
+            }*/
+
         }
         private void TextChanged(Object sender, EventArgs e)
         {
@@ -203,6 +217,14 @@ namespace gui
             }
         }
 
-     
+        private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitDuration = dtVisitorVisitDate.Value.ToString();
+        }
+
+        private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitDuration = dtVisitorDuration.Value.ToString();
+        }
     }
 }

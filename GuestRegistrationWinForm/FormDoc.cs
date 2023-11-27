@@ -75,16 +75,18 @@ namespace gui
             visitorDataModel.IDno = _scannedData.IDno;
             visitorDataModel.Nationality = _scannedData.Nationality;
 
-            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+            concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
 
-            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+            //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
             ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
             VisitorsLogBook vlBook = new VisitorsLogBook();
             HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
             concatenatedDataBinding.CAforVisitor = CAforVisitor;
             concatenatedDataBinding.hsaLog = hsaLog;
             concatenatedDataBinding.vlBook = vlBook;
-            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+           // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
             _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
         }
     }
