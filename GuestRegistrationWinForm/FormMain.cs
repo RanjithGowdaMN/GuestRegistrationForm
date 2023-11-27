@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TesseractOCR.Library;
+using System.Runtime.InteropServices;
 
 namespace gui
 {
@@ -33,7 +34,13 @@ namespace gui
 
         public ICentralHub centralHub;
         private IAPIconnector _apiHelper;
-       
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         public FormMain()
         {
             _container = new DependencyInjectionContainer();
@@ -57,7 +64,8 @@ namespace gui
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
-            
+          
+
             LoadComponentsData();
         }
 
@@ -110,6 +118,12 @@ namespace gui
         private void btncard_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormCard(), sender);
+        }
+
+        private void panelhome_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
 }

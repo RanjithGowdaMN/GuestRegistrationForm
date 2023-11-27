@@ -53,6 +53,7 @@ namespace gui
             this.panelhome.Name = "panelhome";
             this.panelhome.Size = new System.Drawing.Size(1765, 73);
             this.panelhome.TabIndex = 0;
+            this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
             // 
             // lblhome
             // 
@@ -196,6 +197,7 @@ namespace gui
             this.Controls.Add(this.panelhome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             this.panelhome.ResumeLayout(false);
             this.panelhome.PerformLayout();
