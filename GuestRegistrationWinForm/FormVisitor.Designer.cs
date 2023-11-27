@@ -52,6 +52,7 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
+            this.btnVisitorDocument = new System.Windows.Forms.Button();
             this.panelVisitor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +89,7 @@ namespace gui
             // panelVisitor
             // 
             this.panelVisitor.BackColor = System.Drawing.Color.White;
+            this.panelVisitor.Controls.Add(this.btnVisitorDocument);
             this.panelVisitor.Controls.Add(this.txtVisitorTitle);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDate);
             this.panelVisitor.Controls.Add(this.dtVisitorDuration);
@@ -271,6 +273,16 @@ namespace gui
             this.txtVisitorComp.Size = new System.Drawing.Size(214, 22);
             this.txtVisitorComp.TabIndex = 4;
             // 
+            // btnVisitorDocument
+            // 
+            this.btnVisitorDocument.Location = new System.Drawing.Point(821, 668);
+            this.btnVisitorDocument.Name = "btnVisitorDocument";
+            this.btnVisitorDocument.Size = new System.Drawing.Size(125, 32);
+            this.btnVisitorDocument.TabIndex = 23;
+            this.btnVisitorDocument.Text = "Print";
+            this.btnVisitorDocument.UseVisualStyleBackColor = true;
+            this.btnVisitorDocument.Click += new System.EventHandler(this.btnVisitorDocument_Click);
+            // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,5 +324,6 @@ namespace gui
         private System.Windows.Forms.ComboBox cmbVistorReasonForVisit;
         private System.Windows.Forms.ComboBox cmbVisitorComp;
         private System.Windows.Forms.TextBox txtVisitorTitle;
+        private System.Windows.Forms.Button btnVisitorDocument;
     }
 }

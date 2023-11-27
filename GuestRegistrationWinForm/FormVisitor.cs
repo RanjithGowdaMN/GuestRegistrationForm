@@ -226,5 +226,30 @@ namespace gui
         {
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Value.ToString();
         }
+
+        private void btnVisitorDocument_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.Expiry = _scannedData.Expiry;
+            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.Nationality = _scannedData.Nationality;
+
+            concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
+
+            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+            //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+            VisitorsLogBook vlBook = new VisitorsLogBook();
+            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+            concatenatedDataBinding.CAforVisitor = CAforVisitor;
+            concatenatedDataBinding.hsaLog = hsaLog;
+            concatenatedDataBinding.vlBook = vlBook;
+            // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+            _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+        }
     }
 }
