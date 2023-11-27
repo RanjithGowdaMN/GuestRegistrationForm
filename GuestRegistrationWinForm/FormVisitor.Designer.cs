@@ -129,6 +129,7 @@ namespace gui
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorVisitDate.TabIndex = 21;
+            this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
             // dtVisitorDuration
             // 
@@ -136,6 +137,7 @@ namespace gui
             this.dtVisitorDuration.Name = "dtVisitorDuration";
             this.dtVisitorDuration.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorDuration.TabIndex = 20;
+            this.dtVisitorDuration.ValueChanged += new System.EventHandler(this.dtVisitorDuration_ValueChanged);
             // 
             // txtVisitorSecutityController
             // 
@@ -253,7 +255,6 @@ namespace gui
             this.cmbVistorReasonForVisit.Name = "cmbVistorReasonForVisit";
             this.cmbVistorReasonForVisit.Size = new System.Drawing.Size(214, 24);
             this.cmbVistorReasonForVisit.TabIndex = 6;
-         //   this.cmbVistorReasonForVisit.SelectedIndexChanged += new System.EventHandler(this.cmbVistorReasonForVisit_SelectedIndexChanged);
             // 
             // cmbVisitorComp
             // 

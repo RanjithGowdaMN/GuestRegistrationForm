@@ -217,7 +217,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.hsaLog.VisitorsBadgeNo = concatenatedDataBinding.hsaLog.VisitorsBadgeNo;
             guestDataBinding.hsaLog.VistorsAndCompanyName = concatenatedDataBinding.hsaLog.VistorsAndCompanyName;
 
-            guestDataBinding.consultantApplicationForm.Address = concatenatedDataBinding.consultantApplicationForm.Address;
+           guestDataBinding.consultantApplicationForm.Address = concatenatedDataBinding.consultantApplicationForm.Address;
             guestDataBinding.consultantApplicationForm.CellPhone = concatenatedDataBinding.consultantApplicationForm.CellPhone;
             guestDataBinding.consultantApplicationForm.City = concatenatedDataBinding.consultantApplicationForm.City;
             guestDataBinding.consultantApplicationForm.CompanyName = concatenatedDataBinding.consultantApplicationForm.CompanyName;
