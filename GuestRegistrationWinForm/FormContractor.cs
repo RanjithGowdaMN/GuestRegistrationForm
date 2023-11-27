@@ -83,7 +83,6 @@ namespace gui
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
             cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
         }
-
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {
           //  throw new NotImplementedException();
@@ -92,7 +91,6 @@ namespace gui
                 _consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
             }
         }
-
         private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
         {
             // throw new NotImplementedException();
@@ -101,7 +99,6 @@ namespace gui
                 _consultantApplicationForm.PurposeOfVisit = cmbContractorPurposeOfVisit.SelectedItem.ToString();
             }
         }
-
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -165,7 +162,6 @@ namespace gui
             }
 
         }
-
         private void CmbContractorCompName_SelectedIndexChanged(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -179,8 +175,6 @@ namespace gui
                 _consultantApplicationForm.CompanyName = cmbContractorCompName.SelectedItem.ToString();
             }
         }
-        
-
         private void RichTextChanged(object sender, EventArgs e)
         {
             RichTextBox rtb = (RichTextBox)sender;
@@ -189,7 +183,6 @@ namespace gui
                 _consultantApplicationForm.PResidence = rtxtContractorPreResidence.Text;
             }
         }
-
         private void TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -297,24 +290,19 @@ namespace gui
             visitorDataModel.Nationality = _scannedData.Nationality;
 
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
-
-            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
-            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
-            VisitorsLogBook vlBook = new VisitorsLogBook();
-            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
-            concatenatedDataBinding.CAforVisitor = CAforVisitor;
-            concatenatedDataBinding.hsaLog = hsaLog;
-            concatenatedDataBinding.vlBook = vlBook;
+            concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
+            concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
+            concatenatedDataBinding.vlBook = new VisitorsLogBook();
             concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
             _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+            InsertData insertData = new InsertData();
+            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.CompanyName = txtContractorCompName.Text;
         }
-       
-       
-      
     }
-    }
+}

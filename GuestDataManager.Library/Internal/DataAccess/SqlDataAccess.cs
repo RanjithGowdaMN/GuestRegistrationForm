@@ -72,6 +72,10 @@ namespace GuestDataManager.Library.Internal.DataAccess
                                 {
                                     value = ((DateTime)value).ToString("yyyy-MM-dd");
                                 }
+                                if (value is false || value is bool)
+                                {
+                                    value = Convert.ToBoolean(value) ? 0 : 1;
+                                }
 
                                 property.SetValue(visitor, value);
                             }
