@@ -44,13 +44,13 @@ namespace gui
             txtContractorCity.Text = _consultantApplicationForm.City;
             txtContractorEmail.Text = _consultantApplicationForm.Email;
             txtContractorEmergencyNo.Text = _consultantApplicationForm.EmergencyContactNo;
-            txtContractorHomePhn.Text = _consultantApplicationForm.Homephone;
-            txtContractorPassportNo.Text = _consultantApplicationForm.PassportNo;
+            txtContractorHomePhn.Text = _consultantApplicationForm.HomePhoneNo;
+            txtContractorPassportNo.Text = _consultantApplicationForm.PassportNumber;
             txtContractorPassportPlaceOfIssue.Text = _consultantApplicationForm.PlaceofIssue;
-            txtContractorSecurityNo.Text = _consultantApplicationForm.SecurityNo;
+            txtContractorSecurityNo.Text = _consultantApplicationForm.SocialSecurityNumber;
             txtContractorZip.Text = _consultantApplicationForm.Zip;
             txtContratorTitle.Text = _consultantApplicationForm.Title;
-            rtxtContractorPreResidence.Text = _consultantApplicationForm.PResidence;
+            rtxtContractorPreResidence.Text = _consultantApplicationForm.Previous7YrResidency;
             txtContractorState.Text = _consultantApplicationForm.State;
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
@@ -88,7 +88,7 @@ namespace gui
           //  throw new NotImplementedException();
           if(cmbContractorFelony!=null)
             {
-                _consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
+                //_consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
             }
         }
         private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace gui
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
 
-            cmbContractorFelony.Text = _consultantApplicationForm.CcFelony;
+            //cmbContractorFelony.Text = _consultantApplicationForm.CcFelony.ToString();
 
             //load passport validity previous value
             if (_consultantApplicationForm.PassportValidity != null)
@@ -180,7 +180,7 @@ namespace gui
             RichTextBox rtb = (RichTextBox)sender;
             if (rtb.Name == rtxtContractorPreResidence.Name)
             {
-                _consultantApplicationForm.PResidence = rtxtContractorPreResidence.Text;
+                _consultantApplicationForm.Previous7YrResidency = rtxtContractorPreResidence.Text;
             }
         }
         private void TextChanged(object sender, EventArgs e)
@@ -216,12 +216,12 @@ namespace gui
             }
             if (tb.Name == txtContractorHomePhn.Name)
             {
-                _consultantApplicationForm.Homephone = txtContractorHomePhn.Text;
+                _consultantApplicationForm.HomePhoneNo = txtContractorHomePhn.Text;
 
             }
             if (tb.Name == txtContractorPassportNo.Name)
             {
-                _consultantApplicationForm.PassportNo = txtContractorPassportNo.Text;
+                _consultantApplicationForm.PassportNumber = txtContractorPassportNo.Text;
             }
             if (tb.Name == txtContractorPassportPlaceOfIssue.Name)
             {
@@ -229,7 +229,7 @@ namespace gui
             }
             if (tb.Name == txtContractorSecurityNo.Name)
             {
-                _consultantApplicationForm.SecurityNo = txtContractorSecurityNo.Text;
+                _consultantApplicationForm.SocialSecurityNumber = txtContractorSecurityNo.Text;
             }
             if (tb.Name == txtContractorZip.Name)
             {
@@ -297,7 +297,6 @@ namespace gui
             _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
             InsertData insertData = new InsertData();
             insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
-
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)

@@ -18,13 +18,13 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Zip { get; set; }
         public string Email { get; set; }
         public string CellPhone { get; set; }
-        public string Homephone { get; set; }
-        public string SecurityNo { get; set; }
+        public string HomePhoneNo { get; set; }
+        public string SocialSecurityNumber { get; set; }
         public bool IsYes { get; set; }
         public bool IsNo { get; set; }
         public string CompanyName { get; set; }
         public string IdNo { get; set; }
-        public string PassportNo { get; set; }
+        public string PassportNumber { get; set; }
         public string PlaceofIssue { get; set; }
         public string  DateOfIssue { get; set; }
         public string PDateofIssue { get; set; }
@@ -34,7 +34,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         //public string Durationto { get; set; }
         public string EmergencyContactNo { get; set; }
 
-        public string PResidence { get; set; }
+        public string Previous7YrResidency { get; set; }
         public string CcFelony { get; set; }
         public string Alias { get; set; }
     }

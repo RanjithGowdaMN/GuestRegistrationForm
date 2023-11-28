@@ -38,13 +38,11 @@ namespace gui
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
 
-           
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.Company;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
-
 
             txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
@@ -52,8 +50,6 @@ namespace gui
 
             LoadComboxBoxData();
         }
-
-     
 
         private void CmbVisitorComp_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -77,29 +73,20 @@ namespace gui
             List<string>CompanyNames=retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
             cmbVisitorComp.DataSource = CompanyNames;
 
-
-           List<string>Reasons= retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
-            cmbVistorReasonForVisit.DataSource = Reasons;
+            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList(); ;
             cmbVistorReasonForVisit.Text = _visitorDataSheet.ReasonForVisit;
 
-
-            List<String> ProductionManagers = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList();
-            cmbVisitorProductionManager.DataSource = ProductionManagers;
+            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList(); ;
             cmbVisitorProductionManager.Text = _visitorDataSheet.ProductionManager;
 
-            
-            
-            List<string>Areas= retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList();
-            cmbVisitorAreaVisited.DataSource = Areas;
+
+            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList(); ;
             cmbVisitorAreaVisited.Text = _visitorDataSheet.AreaVisited;
 
-            List<string>DeptManagers = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList();
-            cmbvisitorDeptManager.DataSource = DeptManagers;
+            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList(); ;
             cmbvisitorDeptManager.Text = _visitorDataSheet.DepartmentManager;
 
-
-            List<string>PersonsToVisited = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
-            cmbVisitorPersonToVisited.DataSource = PersonsToVisited;
+            cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
             cmbVisitorPersonToVisited.Text = _visitorDataSheet.PersontobeVisited;
 
 
@@ -120,11 +107,6 @@ namespace gui
             {
                 dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateTime);
             }
-        /*  if(_visitorDataSheet.VisitDuration!=null)
-            {
-                dtVisitorDuration.Value = DateTime.Parse(_visitorDataSheet.VisitDuration);
-            }*/
-
         }
         private void TextChanged(Object sender, EventArgs e)
         {
@@ -152,8 +134,6 @@ namespace gui
                 _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
             }
         }
-
-       
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -168,7 +148,6 @@ namespace gui
             cmbVisitorPersonToVisited.SelectedIndexChanged += CmbVisitorPersonToVisited_SelectedIndexChanged;
             cmbVisitorProductionManager.SelectedIndexChanged += CmbVisitorProductionManager_SelectedIndexChanged;
             cmbVistorReasonForVisit.SelectedIndexChanged += CmbVistorReasonForVisit_SelectedIndexChanged;
-
         }
 
         private void CmbVistorReasonForVisit_SelectedIndexChanged(object sender, EventArgs e)

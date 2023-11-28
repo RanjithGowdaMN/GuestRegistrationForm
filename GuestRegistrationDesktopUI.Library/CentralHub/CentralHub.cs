@@ -229,11 +229,11 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
            // guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Durationto;
             guestDataBinding.consultantApplicationForm.Email = concatenatedDataBinding.consultantApplicationForm.Email;
             guestDataBinding.consultantApplicationForm.EmergencyContactNo = concatenatedDataBinding.consultantApplicationForm.EmergencyContactNo;
-            guestDataBinding.consultantApplicationForm.PResidence = concatenatedDataBinding.consultantApplicationForm.PResidence;
+            guestDataBinding.consultantApplicationForm.PResidence = concatenatedDataBinding.consultantApplicationForm.Previous7YrResidency;
             guestDataBinding.consultantApplicationForm.Alias = concatenatedDataBinding.consultantApplicationForm.Alias;
 
             guestDataBinding.consultantApplicationForm.FirstName = concatenatedDataBinding.consultantApplicationForm.FirstName;
-            guestDataBinding.consultantApplicationForm.Homephone = concatenatedDataBinding.consultantApplicationForm.Homephone;
+            guestDataBinding.consultantApplicationForm.Homephone = concatenatedDataBinding.consultantApplicationForm.HomePhoneNo;
             guestDataBinding.consultantApplicationForm.Zip = concatenatedDataBinding.consultantApplicationForm.Zip;
             guestDataBinding.consultantApplicationForm.IdNo = concatenatedDataBinding.consultantApplicationForm.IdNo;
             guestDataBinding.consultantApplicationForm.IsNo = concatenatedDataBinding.consultantApplicationForm.IsNo;
@@ -241,10 +241,10 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.CcFelony = concatenatedDataBinding.consultantApplicationForm.CcFelony;
             guestDataBinding.consultantApplicationForm.LastName = concatenatedDataBinding.consultantApplicationForm.LastName;
             guestDataBinding.consultantApplicationForm.MiddleName = concatenatedDataBinding.consultantApplicationForm.MiddleName;
-            guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNo;
+            guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNumber;
             guestDataBinding.consultantApplicationForm.PassportValidity = concatenatedDataBinding.consultantApplicationForm.PassportValidity;
             guestDataBinding.consultantApplicationForm.PurposeOfVisit = concatenatedDataBinding.consultantApplicationForm.PurposeOfVisit;
-            guestDataBinding.consultantApplicationForm.SecurityNo = concatenatedDataBinding.consultantApplicationForm.SecurityNo;
+            guestDataBinding.consultantApplicationForm.SecurityNo = concatenatedDataBinding.consultantApplicationForm.SocialSecurityNumber;
             guestDataBinding.consultantApplicationForm.State = concatenatedDataBinding.consultantApplicationForm.State;
 
             return _generatePDFdocument.GeneratePdfDoc(guestDataModel, gscannedFileModel, guestDataBinding, "", "", cameraStatus.ImagePath, visitorType);

@@ -2,9 +2,8 @@
 	@IdNumber int = 0
 AS
 BEGIN
-	SELECT TOP 1 *
-FROM VisitorInformation WHERE IdNumber = @IdNumber
-ORDER BY COALESCE(VisitFromDate, DurationStart) DESC;
+
+SELECT TOP 1 * FROM VisitorInformation WHERE Id = (SELECT MAX(Id) FROM VisitorInformation WHERE IdNumber = @IdNumber)
 
 END;
 
