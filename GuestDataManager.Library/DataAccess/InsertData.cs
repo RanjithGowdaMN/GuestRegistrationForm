@@ -83,7 +83,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@Duration",               string.Empty},//[nvarchar](15)
 
                 //Fields specific to Visitor
-                {"@PersonToBeVisited",      visitorDataSheet.PersontobeVisited??string.Empty},//[nvarchar](150)
+                {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)
                 {"@AreaToBeVisited",        visitorDataSheet.AreaVisited??string.Empty},//[nvarchar](50)
                 {"@VisitDate",              visitorDataSheet.VisitDateTime??string.Empty},//[nvarchar](15)
                 {"@VisitTime",              string.Empty},//[nvarchar](15)
@@ -112,8 +112,8 @@ namespace GuestDataManager.Library.DataAccess
             parameters.Add("@IdType", 2); //TBD
 
             parameters.Add("@Title", consultantApplicationForm.Title ?? visitorDataSheet.Title ?? null);
-            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.ReasonForVisit ?? null);
-            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.Company ?? null);
+            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? null);
+            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? null);
 
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {

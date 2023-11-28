@@ -176,12 +176,12 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
             gConcatenatedDataBinding guestDataBinding = new gConcatenatedDataBinding();
             guestDataBinding.visitorDataSheet.AreaVisited = concatenatedDataBinding.visitorDataSheet.AreaVisited;
-            guestDataBinding.visitorDataSheet.Company = concatenatedDataBinding.visitorDataSheet.Company;
+            guestDataBinding.visitorDataSheet.Company = concatenatedDataBinding.visitorDataSheet.CompanyName;
             guestDataBinding.visitorDataSheet.Date = concatenatedDataBinding.visitorDataSheet.Date;
             guestDataBinding.visitorDataSheet.DepartmentManager = concatenatedDataBinding.visitorDataSheet.DepartmentManager;
-            guestDataBinding.visitorDataSheet.PersontobeVisited = concatenatedDataBinding.visitorDataSheet.PersontobeVisited;
+            guestDataBinding.visitorDataSheet.PersontobeVisited = concatenatedDataBinding.visitorDataSheet.PersonToBeVisited;
             guestDataBinding.visitorDataSheet.ProductionManager = concatenatedDataBinding.visitorDataSheet.ProductionManager;
-            guestDataBinding.visitorDataSheet.ReasonForVisit = concatenatedDataBinding.visitorDataSheet.ReasonForVisit;
+            guestDataBinding.visitorDataSheet.ReasonForVisit = concatenatedDataBinding.visitorDataSheet.PurposeOfVisit;
             guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
             guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateTime;
             guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;

@@ -200,12 +200,12 @@ namespace GuestRegistrationDeskUI.ViewModels
 
             VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
             visitorDataSheet.AreaVisited = AreaVisited;
-            visitorDataSheet.Company = Company;
+            visitorDataSheet.CompanyName = Company;
             visitorDataSheet.Date = vdsDate;
             visitorDataSheet.DepartmentManager = DepartmentManager;
-            visitorDataSheet.PersontobeVisited = PersontobeVisited;
+            visitorDataSheet.PersonToBeVisited = PersontobeVisited;
             visitorDataSheet.ProductionManager = ProductionManager;
-            visitorDataSheet.ReasonForVisit = ReasonForVisit;
+            visitorDataSheet.PurposeOfVisit = ReasonForVisit;
             visitorDataSheet.SecurityController = SecurityController;
             visitorDataSheet.VisitDateTime = VisitDateTime;
             visitorDataSheet.VisitDuration = VisitDuration;

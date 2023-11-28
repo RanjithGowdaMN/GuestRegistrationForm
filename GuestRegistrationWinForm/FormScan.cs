@@ -205,7 +205,6 @@ namespace gui
             {
                 //scannedData
 
-
                 //consultantApplicationForm
                 _consultantApplicationForm.Address = visitor.Address ?? string.Empty;
                 _consultantApplicationForm.Alias = visitor.AliasName ?? string.Empty;
@@ -226,8 +225,15 @@ namespace gui
                 //Passport IssuedData etc...
 
                 //visitorDataSheet
-                
-
+                _visitorDataSheet.Title = visitor.Title;
+                _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;
+                _visitorDataSheet.CompanyName = visitor.CompanyName;
+                _visitorDataSheet.DepartmentManager = visitor.DepartmentManager;
+                _visitorDataSheet.PersonToBeVisited = visitor.PersonToBeVisited;
+                _visitorDataSheet.ProductionManager = visitor.ProductionManager;
+                _visitorDataSheet.SecurityController = visitor.SecurityController;
+                _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
+                //TBD 
             }
         }
     }

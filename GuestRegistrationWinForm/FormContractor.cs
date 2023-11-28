@@ -77,7 +77,6 @@ namespace gui
         private void Contractor_Load(object sender, EventArgs e)
         {
             getCompanyName();
-            getPurpose();
             txtContractorCompName.Visible = false;
             cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
@@ -140,15 +139,9 @@ namespace gui
                 cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
             }*/
         }
-
         private async Task getCompanyName()
         {
             //await _apiHelper.GetRegistredCompanyNames();
-        }
-
-        private async Task getPurpose()
-        {
-
         }
         private void panelcontrator_Paint(object sender, PaintEventArgs e)
         {
@@ -160,7 +153,6 @@ namespace gui
             {
                 txtContractorCompName.Visible = false;
             }
-
         }
         private void CmbContractorCompName_SelectedIndexChanged(object sender, EventArgs e)
         {

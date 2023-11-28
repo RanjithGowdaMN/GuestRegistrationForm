@@ -39,7 +39,7 @@ namespace gui
             //_apiHelper = apiHelper;
 
             txtVisitorTitle.Text = _visitorDataSheet.Title;
-            txtVisitorComp.Text = _visitorDataSheet.Company;
+            txtVisitorComp.Text = _visitorDataSheet.CompanyName;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
@@ -50,7 +50,6 @@ namespace gui
 
             LoadComboxBoxData();
         }
-
         private void CmbVisitorComp_SelectedIndexChanged(object sender, EventArgs e)
         {
            // throw new NotImplementedException();
@@ -62,7 +61,7 @@ namespace gui
             else
             {
                 txtVisitorComp.Visible = false;
-                _visitorDataSheet.Company = cmbVisitorComp.SelectedItem.ToString();
+                _visitorDataSheet.CompanyName = cmbVisitorComp.SelectedItem.ToString();
 
             }
         }
@@ -74,11 +73,10 @@ namespace gui
             cmbVisitorComp.DataSource = CompanyNames;
 
             cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList(); ;
-            cmbVistorReasonForVisit.Text = _visitorDataSheet.ReasonForVisit;
+            cmbVistorReasonForVisit.Text = _visitorDataSheet.PurposeOfVisit;
 
             cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList(); ;
             cmbVisitorProductionManager.Text = _visitorDataSheet.ProductionManager;
-
 
             cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList(); ;
             cmbVisitorAreaVisited.Text = _visitorDataSheet.AreaVisited;
@@ -87,18 +85,16 @@ namespace gui
             cmbvisitorDeptManager.Text = _visitorDataSheet.DepartmentManager;
 
             cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
-            cmbVisitorPersonToVisited.Text = _visitorDataSheet.PersontobeVisited;
+            cmbVisitorPersonToVisited.Text = _visitorDataSheet.PersonToBeVisited;
 
-
-            if ((!CompanyNames.Contains(_visitorDataSheet.Company) && (_visitorDataSheet.Company != null)))
+            if ((!CompanyNames.Contains(_visitorDataSheet.CompanyName) && (_visitorDataSheet.CompanyName != null)))
             {
-               txtVisitorComp.Visible = true;
-                txtVisitorComp.Text = _visitorDataSheet.Company;
+                txtVisitorComp.Text = _visitorDataSheet.CompanyName;
                 cmbVisitorComp.Text = "other";
             }
             else
             {
-                cmbVisitorComp.Text = _visitorDataSheet.Company;
+                cmbVisitorComp.Text = _visitorDataSheet.CompanyName;
             }
 
             //load dates
@@ -117,7 +113,7 @@ namespace gui
             }
             if (tb.Name == txtVisitorComp.Name)
             {
-                _visitorDataSheet.Company = txtVisitorComp.Text;
+                _visitorDataSheet.CompanyName = txtVisitorComp.Text;
 
             }
             if (tb.Name == txtVisitorSecutityController.Name)
@@ -136,7 +132,13 @@ namespace gui
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            if (cmbVisitorComp.Text == "other")
+            {
+                txtVisitorComp.Visible = true;
+            } else
+            {
+                txtVisitorComp.Visible = false;
+            }
         }
 
         private void FormVisitor_Load(object sender, EventArgs e)
@@ -149,16 +151,14 @@ namespace gui
             cmbVisitorProductionManager.SelectedIndexChanged += CmbVisitorProductionManager_SelectedIndexChanged;
             cmbVistorReasonForVisit.SelectedIndexChanged += CmbVistorReasonForVisit_SelectedIndexChanged;
         }
-
         private void CmbVistorReasonForVisit_SelectedIndexChanged(object sender, EventArgs e)
         {
           //  throw new NotImplementedException();
           if(cmbVistorReasonForVisit!=null)
             {
-                _visitorDataSheet.ReasonForVisit = cmbVistorReasonForVisit.SelectedItem.ToString();
+                _visitorDataSheet.PurposeOfVisit = cmbVistorReasonForVisit.SelectedItem.ToString();
             }
         }
-
         private void CmbVisitorProductionManager_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbVisitorProductionManager!=null)
@@ -166,17 +166,15 @@ namespace gui
                 _visitorDataSheet.ProductionManager = cmbVisitorProductionManager.SelectedItem.ToString();
             }
         }
-
         private void CmbVisitorPersonToVisited_SelectedIndexChanged(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             if(cmbVisitorPersonToVisited!=null)
             {
-                _visitorDataSheet.PersontobeVisited = cmbVisitorPersonToVisited.SelectedItem.ToString();
+                _visitorDataSheet.PersonToBeVisited = cmbVisitorPersonToVisited.SelectedItem.ToString();
 
             }
         }
-
         private void CmbvisitorDeptManager_SelectedIndexChanged(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -195,17 +193,14 @@ namespace gui
 
             }
         }
-
         private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitDuration = dtVisitorVisitDate.Value.ToString();
         }
-
         private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Value.ToString();
         }
-
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
@@ -229,6 +224,9 @@ namespace gui
             // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
             concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
             _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+
+            InsertData insertData = new InsertData();
+            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
         }
     }
 }
