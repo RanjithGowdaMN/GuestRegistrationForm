@@ -185,9 +185,9 @@ namespace gui
                VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtid.Text);
                ReloadDataToUi(visitor);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("No Previous Visit Information!!");
+                MessageBox.Show($"No Previous Visit Information!! {ex.Message }");
             }
              //List<List<string>> CompanyNames = 
 
