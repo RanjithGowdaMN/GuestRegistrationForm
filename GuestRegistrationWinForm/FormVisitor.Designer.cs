@@ -34,6 +34,7 @@ namespace gui
             this.lblVrsnvst = new System.Windows.Forms.Label();
             this.lblVcomp = new System.Windows.Forms.Label();
             this.panelVisitor = new System.Windows.Forms.Panel();
+            this.btnVisitorDocument = new System.Windows.Forms.Button();
             this.txtVisitorTitle = new System.Windows.Forms.TextBox();
             this.dtVisitorVisitDate = new System.Windows.Forms.DateTimePicker();
             this.dtVisitorDuration = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +53,6 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
-            this.btnVisitorDocument = new System.Windows.Forms.Button();
             this.panelVisitor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,19 +118,29 @@ namespace gui
             this.panelVisitor.TabIndex = 3;
             this.panelVisitor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnVisitorDocument
+            // 
+            this.btnVisitorDocument.Location = new System.Drawing.Point(821, 668);
+            this.btnVisitorDocument.Name = "btnVisitorDocument";
+            this.btnVisitorDocument.Size = new System.Drawing.Size(125, 32);
+            this.btnVisitorDocument.TabIndex = 12;
+            this.btnVisitorDocument.Text = "Print";
+            this.btnVisitorDocument.UseVisualStyleBackColor = true;
+            this.btnVisitorDocument.Click += new System.EventHandler(this.btnVisitorDocument_Click);
+            // 
             // txtVisitorTitle
             // 
             this.txtVisitorTitle.Location = new System.Drawing.Point(839, 59);
             this.txtVisitorTitle.Name = "txtVisitorTitle";
             this.txtVisitorTitle.Size = new System.Drawing.Size(214, 22);
-            this.txtVisitorTitle.TabIndex = 22;
+            this.txtVisitorTitle.TabIndex = 1;
             // 
             // dtVisitorVisitDate
             // 
             this.dtVisitorVisitDate.Location = new System.Drawing.Point(839, 361);
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
-            this.dtVisitorVisitDate.TabIndex = 21;
+            this.dtVisitorVisitDate.TabIndex = 7;
             this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
             // dtVisitorDuration
@@ -138,7 +148,7 @@ namespace gui
             this.dtVisitorDuration.Location = new System.Drawing.Point(839, 421);
             this.dtVisitorDuration.Name = "dtVisitorDuration";
             this.dtVisitorDuration.Size = new System.Drawing.Size(244, 22);
-            this.dtVisitorDuration.TabIndex = 20;
+            this.dtVisitorDuration.TabIndex = 8;
             this.dtVisitorDuration.ValueChanged += new System.EventHandler(this.dtVisitorDuration_ValueChanged);
             // 
             // txtVisitorSecutityController
@@ -146,7 +156,7 @@ namespace gui
             this.txtVisitorSecutityController.Location = new System.Drawing.Point(839, 599);
             this.txtVisitorSecutityController.Name = "txtVisitorSecutityController";
             this.txtVisitorSecutityController.Size = new System.Drawing.Size(214, 22);
-            this.txtVisitorSecutityController.TabIndex = 19;
+            this.txtVisitorSecutityController.TabIndex = 11;
             // 
             // lblVsc
             // 
@@ -164,7 +174,7 @@ namespace gui
             this.cmbVisitorProductionManager.Location = new System.Drawing.Point(839, 537);
             this.cmbVisitorProductionManager.Name = "cmbVisitorProductionManager";
             this.cmbVisitorProductionManager.Size = new System.Drawing.Size(214, 24);
-            this.cmbVisitorProductionManager.TabIndex = 17;
+            this.cmbVisitorProductionManager.TabIndex = 10;
             // 
             // cmbVisitorPersonToVisited
             // 
@@ -172,7 +182,7 @@ namespace gui
             this.cmbVisitorPersonToVisited.Location = new System.Drawing.Point(839, 237);
             this.cmbVisitorPersonToVisited.Name = "cmbVisitorPersonToVisited";
             this.cmbVisitorPersonToVisited.Size = new System.Drawing.Size(214, 24);
-            this.cmbVisitorPersonToVisited.TabIndex = 16;
+            this.cmbVisitorPersonToVisited.TabIndex = 5;
             // 
             // cmbVisitorAreaVisited
             // 
@@ -180,7 +190,7 @@ namespace gui
             this.cmbVisitorAreaVisited.Location = new System.Drawing.Point(839, 297);
             this.cmbVisitorAreaVisited.Name = "cmbVisitorAreaVisited";
             this.cmbVisitorAreaVisited.Size = new System.Drawing.Size(214, 24);
-            this.cmbVisitorAreaVisited.TabIndex = 14;
+            this.cmbVisitorAreaVisited.TabIndex = 6;
             // 
             // cmbvisitorDeptManager
             // 
@@ -188,7 +198,7 @@ namespace gui
             this.cmbvisitorDeptManager.Location = new System.Drawing.Point(839, 481);
             this.cmbvisitorDeptManager.Name = "cmbvisitorDeptManager";
             this.cmbvisitorDeptManager.Size = new System.Drawing.Size(214, 24);
-            this.cmbvisitorDeptManager.TabIndex = 13;
+            this.cmbvisitorDeptManager.TabIndex = 9;
             // 
             // lblVprodmangr
             // 
@@ -256,7 +266,7 @@ namespace gui
             this.cmbVistorReasonForVisit.Location = new System.Drawing.Point(839, 177);
             this.cmbVistorReasonForVisit.Name = "cmbVistorReasonForVisit";
             this.cmbVistorReasonForVisit.Size = new System.Drawing.Size(214, 24);
-            this.cmbVistorReasonForVisit.TabIndex = 6;
+            this.cmbVistorReasonForVisit.TabIndex = 4;
             // 
             // cmbVisitorComp
             // 
@@ -264,24 +274,14 @@ namespace gui
             this.cmbVisitorComp.Location = new System.Drawing.Point(839, 117);
             this.cmbVisitorComp.Name = "cmbVisitorComp";
             this.cmbVisitorComp.Size = new System.Drawing.Size(214, 24);
-            this.cmbVisitorComp.TabIndex = 5;
+            this.cmbVisitorComp.TabIndex = 2;
             // 
             // txtVisitorComp
             // 
             this.txtVisitorComp.Location = new System.Drawing.Point(1089, 119);
             this.txtVisitorComp.Name = "txtVisitorComp";
             this.txtVisitorComp.Size = new System.Drawing.Size(214, 22);
-            this.txtVisitorComp.TabIndex = 4;
-            // 
-            // btnVisitorDocument
-            // 
-            this.btnVisitorDocument.Location = new System.Drawing.Point(821, 668);
-            this.btnVisitorDocument.Name = "btnVisitorDocument";
-            this.btnVisitorDocument.Size = new System.Drawing.Size(125, 32);
-            this.btnVisitorDocument.TabIndex = 23;
-            this.btnVisitorDocument.Text = "Print";
-            this.btnVisitorDocument.UseVisualStyleBackColor = true;
-            this.btnVisitorDocument.Click += new System.EventHandler(this.btnVisitorDocument_Click);
+            this.txtVisitorComp.TabIndex = 3;
             // 
             // FormVisitor
             // 

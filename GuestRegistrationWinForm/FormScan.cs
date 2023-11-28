@@ -76,7 +76,7 @@ namespace gui
                 txtnationality.Text = result.Nationality.ToString();
 
                 _scannedFileInfo.FrontSideFileName = fileName;
-                updatePictures(pbfront, fileName);
+              updatePictures(pbfront, fileName);
 
 
             }
