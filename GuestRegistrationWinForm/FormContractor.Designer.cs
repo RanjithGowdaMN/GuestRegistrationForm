@@ -181,7 +181,7 @@ namespace gui
             this.txtContratorTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContratorTitle.Name = "txtContratorTitle";
             this.txtContratorTitle.Size = new System.Drawing.Size(215, 26);
-            this.txtContratorTitle.TabIndex = 1;
+            this.txtContratorTitle.TabIndex = 10;
             // 
             // txtContractorAddress
             // 
@@ -189,7 +189,7 @@ namespace gui
             this.txtContractorAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorAddress.Name = "txtContractorAddress";
             this.txtContractorAddress.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorAddress.TabIndex = 2;
+            this.txtContractorAddress.TabIndex = 11;
             // 
             // txtContractorEmail
             // 
@@ -197,7 +197,7 @@ namespace gui
             this.txtContractorEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorEmail.Name = "txtContractorEmail";
             this.txtContractorEmail.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorEmail.TabIndex = 4;
+            this.txtContractorEmail.TabIndex = 12;
             // 
             // txtContractorHomePhn
             // 
@@ -205,7 +205,7 @@ namespace gui
             this.txtContractorHomePhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorHomePhn.Name = "txtContractorHomePhn";
             this.txtContractorHomePhn.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorHomePhn.TabIndex = 5;
+            this.txtContractorHomePhn.TabIndex = 13;
             // 
             // txtContractorCompName
             // 
@@ -213,7 +213,7 @@ namespace gui
             this.txtContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCompName.Name = "txtContractorCompName";
             this.txtContractorCompName.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorCompName.TabIndex = 7;
+            this.txtContractorCompName.TabIndex = 14;
             this.txtContractorCompName.TextChanged += new System.EventHandler(this.txtContractorCompName_TextChanged);
             // 
             // txtContractorPassportNo
@@ -222,7 +222,7 @@ namespace gui
             this.txtContractorPassportNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorPassportNo.Name = "txtContractorPassportNo";
             this.txtContractorPassportNo.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorPassportNo.TabIndex = 8;
+            this.txtContractorPassportNo.TabIndex = 15;
             // 
             // txtContractorAliasName
             // 
@@ -230,7 +230,7 @@ namespace gui
             this.txtContractorAliasName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorAliasName.Name = "txtContractorAliasName";
             this.txtContractorAliasName.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorAliasName.TabIndex = 10;
+            this.txtContractorAliasName.TabIndex = 16;
             // 
             // cmbContractorCompName
             // 
@@ -239,7 +239,7 @@ namespace gui
             this.cmbContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorCompName.Name = "cmbContractorCompName";
             this.cmbContractorCompName.Size = new System.Drawing.Size(215, 28);
-            this.cmbContractorCompName.TabIndex = 6;
+            this.cmbContractorCompName.TabIndex = 18;
             // 
             // lblCcity
             // 
@@ -337,7 +337,7 @@ namespace gui
             this.txtContractorCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCity.Name = "txtContractorCity";
             this.txtContractorCity.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorCity.TabIndex = 11;
+            this.txtContractorCity.TabIndex = 29;
             // 
             // txtContractorZip
             // 
@@ -345,7 +345,7 @@ namespace gui
             this.txtContractorZip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorZip.Name = "txtContractorZip";
             this.txtContractorZip.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorZip.TabIndex = 12;
+            this.txtContractorZip.TabIndex = 30;
             // 
             // txtContractorCellPhn
             // 
@@ -353,7 +353,7 @@ namespace gui
             this.txtContractorCellPhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCellPhn.Name = "txtContractorCellPhn";
             this.txtContractorCellPhn.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorCellPhn.TabIndex = 13;
+            this.txtContractorCellPhn.TabIndex = 31;
             // 
             // txtContractorSecurityNo
             // 
@@ -361,7 +361,7 @@ namespace gui
             this.txtContractorSecurityNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorSecurityNo.Name = "txtContractorSecurityNo";
             this.txtContractorSecurityNo.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorSecurityNo.TabIndex = 14;
+            this.txtContractorSecurityNo.TabIndex = 32;
             // 
             // txtContractorPassportPlaceOfIssue
             // 
@@ -369,7 +369,7 @@ namespace gui
             this.txtContractorPassportPlaceOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorPassportPlaceOfIssue.Name = "txtContractorPassportPlaceOfIssue";
             this.txtContractorPassportPlaceOfIssue.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorPassportPlaceOfIssue.TabIndex = 17;
+            this.txtContractorPassportPlaceOfIssue.TabIndex = 33;
             // 
             // txtContractorEmergencyNo
             // 
@@ -377,7 +377,7 @@ namespace gui
             this.txtContractorEmergencyNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorEmergencyNo.Name = "txtContractorEmergencyNo";
             this.txtContractorEmergencyNo.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorEmergencyNo.TabIndex = 19;
+            this.txtContractorEmergencyNo.TabIndex = 34;
             // 
             // cmbContractorPurposeOfVisit
             // 
@@ -386,7 +386,8 @@ namespace gui
             this.cmbContractorPurposeOfVisit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorPurposeOfVisit.Name = "cmbContractorPurposeOfVisit";
             this.cmbContractorPurposeOfVisit.Size = new System.Drawing.Size(215, 28);
-            this.cmbContractorPurposeOfVisit.TabIndex = 15;
+            this.cmbContractorPurposeOfVisit.TabIndex = 35;
+           //this.cmbContractorPurposeOfVisit.SelectedIndexChanged += new System.EventHandler(this.cmbContractorPurposeOfVisit_SelectedIndexChanged);
             // 
             // cmbContractorFelony
             // 
@@ -398,7 +399,7 @@ namespace gui
             this.cmbContractorFelony.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorFelony.Name = "cmbContractorFelony";
             this.cmbContractorFelony.Size = new System.Drawing.Size(159, 28);
-            this.cmbContractorFelony.TabIndex = 20;
+            this.cmbContractorFelony.TabIndex = 36;
             // 
             // dtContractorPassportValid
             // 
@@ -406,7 +407,7 @@ namespace gui
             this.dtContractorPassportValid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
             this.dtContractorPassportValid.Size = new System.Drawing.Size(324, 26);
-            this.dtContractorPassportValid.TabIndex = 9;
+            this.dtContractorPassportValid.TabIndex = 37;
             this.dtContractorPassportValid.ValueChanged += new System.EventHandler(this.dtContractorPassportValid_ValueChanged);
             // 
             // dtContractorDuration
@@ -415,7 +416,7 @@ namespace gui
             this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorDuration.Name = "dtContractorDuration";
             this.dtContractorDuration.Size = new System.Drawing.Size(328, 26);
-            this.dtContractorDuration.TabIndex = 16;
+            this.dtContractorDuration.TabIndex = 38;
             this.dtContractorDuration.ValueChanged += new System.EventHandler(this.dtContractorDuration_ValueChanged);
             // 
             // dtContractorPassportDateOfIssue
@@ -424,7 +425,7 @@ namespace gui
             this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorPassportDateOfIssue.Name = "dtContractorPassportDateOfIssue";
             this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(328, 26);
-            this.dtContractorPassportDateOfIssue.TabIndex = 18;
+            this.dtContractorPassportDateOfIssue.TabIndex = 39;
             this.dtContractorPassportDateOfIssue.ValueChanged += new System.EventHandler(this.dtContractorPassportDateOfIssue_ValueChanged);
             // 
             // lblCpreres
@@ -443,7 +444,7 @@ namespace gui
             this.rtxtContractorPreResidence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtContractorPreResidence.Name = "rtxtContractorPreResidence";
             this.rtxtContractorPreResidence.Size = new System.Drawing.Size(583, 101);
-            this.rtxtContractorPreResidence.TabIndex = 21;
+            this.rtxtContractorPreResidence.TabIndex = 41;
             this.rtxtContractorPreResidence.Text = "";
             // 
             // panelcontrator
@@ -506,7 +507,7 @@ namespace gui
             this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btContractorPdf.Name = "btContractorPdf";
             this.btContractorPdf.Size = new System.Drawing.Size(137, 39);
-            this.btContractorPdf.TabIndex = 22;
+            this.btContractorPdf.TabIndex = 43;
             this.btContractorPdf.Text = "Print";
             this.btContractorPdf.UseVisualStyleBackColor = true;
             this.btContractorPdf.Click += new System.EventHandler(this.btContractorPdf_Click);
@@ -517,7 +518,7 @@ namespace gui
             this.txtContractorState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorState.Name = "txtContractorState";
             this.txtContractorState.Size = new System.Drawing.Size(215, 26);
-            this.txtContractorState.TabIndex = 3;
+            this.txtContractorState.TabIndex = 42;
             // 
             // FormContractor
             // 
