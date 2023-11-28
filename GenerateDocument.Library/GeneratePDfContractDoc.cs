@@ -61,7 +61,7 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(90, 353, guestDataModel.Nationality));
 
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 385, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue));
-                textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PDateofIssue));
+                textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PassportIssuedOn));
                 textForSecondPage.Add(new Tuple<float, float, string>(400,353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
                 textForSecondPage.Add(new Tuple<float, float, string>(150,317, gConcatenatedDataBinding.consultantApplicationForm.EmergencyContactNo));
@@ -73,7 +73,7 @@ namespace GenerateDocument.Library
 
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
-                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.consultantApplicationForm.Title));
+                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.CAforVisitor.Title));
                 textForThirdPage.Add(new Tuple<float, float, string>(350, 680, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                 textForThirdPage.Add(new Tuple<float, float, string>(410, 500, DateTime.Now.ToString("dd-MM-YYYY")));
             }
@@ -100,11 +100,11 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(197, 515, gConcatenatedDataBinding.consultantApplicationForm.CellPhone));
                 textForSecondPage.Add(new Tuple<float, float, string>(65, 515, gConcatenatedDataBinding.consultantApplicationForm.Homephone));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 483, gConcatenatedDataBinding.consultantApplicationForm.SecurityNo));
-                textForSecondPage.Add(new Tuple<float, float, string>(85, 483, gConcatenatedDataBinding.consultantApplicationForm.CcFelony.ToString()));
+                textForSecondPage.Add(new Tuple<float, float, string>(85, 483, gConcatenatedDataBinding.consultantApplicationForm.ConvictedFelony == true? "Yes": "No"));
                 textForSecondPage.Add(new Tuple<float, float, string>(307, 450, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 417, gConcatenatedDataBinding.consultantApplicationForm.PassportNo));
                 textForSecondPage.Add(new Tuple<float, float, string>(310, 385, gConcatenatedDataBinding.consultantApplicationForm.DateandPlaceofIssue));
-                textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PDateofIssue));
+                textForSecondPage.Add(new Tuple<float, float, string>(370, 385, gConcatenatedDataBinding.consultantApplicationForm.PassportIssuedOn));
                 textForSecondPage.Add(new Tuple<float, float, string>(400, 353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(365, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 385, gConcatenatedDataBinding.consultantApplicationForm.PassportValidity));
@@ -121,7 +121,7 @@ namespace GenerateDocument.Library
                 //confidentiality Agreement For Contractors
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
-                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.consultantApplicationForm.Title));
+                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.CAforVisitor.Title));
                 textForThirdPage.Add(new Tuple<float, float, string>(350, 680, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                textForThirdPage.Add(new Tuple<float, float, string>(400, 505, DateTime.Now.ToString("dd-MM-yyyy")));
             }

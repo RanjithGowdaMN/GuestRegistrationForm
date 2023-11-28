@@ -224,7 +224,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.DateOfIssue;
             guestDataBinding.consultantApplicationForm.DateandPlaceofIssue = concatenatedDataBinding.consultantApplicationForm.PlaceofIssue;
             guestDataBinding.consultantApplicationForm.Title = concatenatedDataBinding.consultantApplicationForm.Title;
-            guestDataBinding.consultantApplicationForm.PDateofIssue = concatenatedDataBinding.consultantApplicationForm.PDateofIssue;
+            guestDataBinding.consultantApplicationForm.PassportIssuedOn = concatenatedDataBinding.consultantApplicationForm.PDateofIssue;
             guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Duration;
            // guestDataBinding.consultantApplicationForm.Duration = concatenatedDataBinding.consultantApplicationForm.Durationto;
             guestDataBinding.consultantApplicationForm.Email = concatenatedDataBinding.consultantApplicationForm.Email;
@@ -238,7 +238,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.consultantApplicationForm.IdNo = concatenatedDataBinding.consultantApplicationForm.IdNo;
             guestDataBinding.consultantApplicationForm.IsNo = concatenatedDataBinding.consultantApplicationForm.IsNo;
             guestDataBinding.consultantApplicationForm.IsYes = concatenatedDataBinding.consultantApplicationForm.IsYes;
-            guestDataBinding.consultantApplicationForm.CcFelony = concatenatedDataBinding.consultantApplicationForm.CcFelony;
+            guestDataBinding.consultantApplicationForm.ConvictedFelony = concatenatedDataBinding.consultantApplicationForm.ConvictedFelony;
             guestDataBinding.consultantApplicationForm.LastName = concatenatedDataBinding.consultantApplicationForm.LastName;
             guestDataBinding.consultantApplicationForm.MiddleName = concatenatedDataBinding.consultantApplicationForm.MiddleName;
             guestDataBinding.consultantApplicationForm.PassportNo = concatenatedDataBinding.consultantApplicationForm.PassportNumber;

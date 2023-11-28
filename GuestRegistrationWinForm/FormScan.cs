@@ -213,7 +213,8 @@ namespace gui
                 _consultantApplicationForm.Previous7YrResidency = visitor.Previous7YrResidency;
                 _consultantApplicationForm.State = visitor.State;
                 _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
-                //_consultantApplicationForm.CcFelony = Convert.ToBoolean( visitor.Convicted); TBD
+                _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean( visitor.Convicted); 
+
                 //Passport IssuedData etc...
 
                 //visitorDataSheet

@@ -84,10 +84,9 @@ namespace gui
         }
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  throw new NotImplementedException();
           if(cmbContractorFelony!=null)
             {
-                //_consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
+                _consultantApplicationForm.ConvictedFelony = (cmbContractorFelony.SelectedItem.ToString() == "No" || string.IsNullOrEmpty(cmbContractorFelony.SelectedItem.ToString())) ?false:true;
             }
         }
         private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,7 +108,7 @@ namespace gui
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
 
-            //cmbContractorFelony.Text = _consultantApplicationForm.CcFelony.ToString();
+            cmbContractorFelony.Text = _consultantApplicationForm.ConvictedFelony? "Yes":"No";
 
             //load passport validity previous value
             if (_consultantApplicationForm.PassportValidity != null)

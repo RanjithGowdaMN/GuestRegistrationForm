@@ -257,7 +257,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.HomePhoneNo = Homephone;
             consultantApplicationForm.IdNo = IdNo;
             consultantApplicationForm.IsNo = IsNo;
-            consultantApplicationForm.CcFelony = CFelony;
+            consultantApplicationForm.ConvictedFelony = CFelony;
             consultantApplicationForm.IsYes = IsYes;
             consultantApplicationForm.LastName = caLastName;
             consultantApplicationForm.MiddleName = caMiddleName;

@@ -35,7 +35,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string EmergencyContactNo { get; set; }
 
         public string Previous7YrResidency { get; set; }
-        public string CcFelony { get; set; }
+        public bool ConvictedFelony { get; set; }
         public string Alias { get; set; }
     }
 }

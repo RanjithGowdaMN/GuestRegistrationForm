@@ -20,7 +20,7 @@ namespace GuestRegistrationDeskUI.Models
         public string Homephone { get; set; }
         public string SecurityNo { get; set; }
 
-        public string CcFelony { get; set; }
+        public bool ConvictedFelony { get; set; }
         public bool IsYes { get; set; }
         public bool IsNo { get; set; }
         public string CompanyName { get; set; }
@@ -28,7 +28,7 @@ namespace GuestRegistrationDeskUI.Models
         public string PassportNo { get; set; }
         public string DateandPlaceofIssue { get; set; }
 
-        public string PDateofIssue { get; set; }
+        public string PassportIssuedOn { get; set; }
         public string PassportValidity { get; set; }
         public string PurposeOfVisit { get; set; }
         public string Duration { get; set; }

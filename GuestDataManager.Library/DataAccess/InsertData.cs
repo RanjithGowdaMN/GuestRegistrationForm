@@ -111,9 +111,9 @@ namespace GuestDataManager.Library.DataAccess
             parameters.Add("@Convicted", false);
             parameters.Add("@IdType", 2); //TBD
 
-            parameters.Add("@Title", consultantApplicationForm.Title ?? visitorDataSheet.Title ?? null);
-            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? null);
-            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? null);
+            parameters.Add("@Title", consultantApplicationForm.Title ?? visitorDataSheet.Title ?? string.Empty);
+            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? string.Empty);
+            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? string.Empty);
 
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {
