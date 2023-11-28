@@ -8,6 +8,6 @@ namespace GuestDataManager.Library
 {
     public class CONSTANTS
     {
-        public static string connString { get; set; } = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GuestData;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static string connString { get; set; } = "Data Source=.;Initial Catalog=GuestData;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }
