@@ -73,7 +73,7 @@ namespace GenerateDocument.Library
 
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
-                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.CAforVisitor.Title));
+                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.consultantApplicationForm.Title));
                 textForThirdPage.Add(new Tuple<float, float, string>(350, 680, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                 textForThirdPage.Add(new Tuple<float, float, string>(410, 500, DateTime.Now.ToString("dd-MM-YYYY")));
             }
@@ -121,7 +121,7 @@ namespace GenerateDocument.Library
                 //confidentiality Agreement For Contractors
 
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
-                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.CAforVisitor.Title));
+                textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.consultantApplicationForm.Title));
                 textForThirdPage.Add(new Tuple<float, float, string>(350, 680, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
                textForThirdPage.Add(new Tuple<float, float, string>(400, 505, DateTime.Now.ToString("dd-MM-yyyy")));
             }
