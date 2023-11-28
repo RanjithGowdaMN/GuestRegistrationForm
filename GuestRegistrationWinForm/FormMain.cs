@@ -128,7 +128,8 @@ namespace gui
 
         private void btnWindowClsoe_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+            //this.Close();
         }
 
         private void btnWindowMax_Click(object sender, EventArgs e)

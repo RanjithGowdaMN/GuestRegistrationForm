@@ -78,8 +78,6 @@ namespace gui
 
                 _scannedFileInfo.FrontSideFileName = fileName;
                 updatePictures(pbfront, fileName);
-
-
             }
             else if (rbpass.Checked)
             {
@@ -104,7 +102,6 @@ namespace gui
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.Image = Image.FromFile(filePath);
         }
-
         private void btnback_Click(object sender, EventArgs e)
         {
             if (rbid.Checked)
@@ -124,7 +121,6 @@ namespace gui
                 MessageBox.Show("Please select the ID type");
             }
         }
-
         private void btnphoto_Click(object sender, EventArgs e)
         {
             try
@@ -136,7 +132,6 @@ namespace gui
                 MessageBox.Show("Error, Please check the camera");
             }
         }
-
         public void UpdatePhotoImage(string path)
         {
             _cameraStatus.ImagePath = path;
@@ -157,7 +152,6 @@ namespace gui
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = resizedImage;
         }
-
         private void TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -182,7 +176,6 @@ namespace gui
                 _scannedData.DateOfBirth = txtdob.Text;
             }
         }
-
         private void SearchVisitor_Click(object sender, EventArgs e)
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -198,7 +191,6 @@ namespace gui
              //List<List<string>> CompanyNames = 
 
         }
-
         public void ReloadDataToUi(VisitorInformation visitor)
         {
             if (!string.IsNullOrEmpty(visitor.IdNumber))
