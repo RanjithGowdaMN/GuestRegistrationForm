@@ -11,10 +11,10 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Title { get; set; }
         public string VisitorName { get; set; }  //scan form
         public string Date { get; set; }
-        public string Company { get; set; }
+        public string CompanyName { get; set; }
         public string VisitorIdNo { get; set; }
-        public string ReasonForVisit { get; set; }
-        public string PersontobeVisited { get; set; }
+        public string PurposeOfVisit { get; set; }
+        public string PersonToBeVisited { get; set; }
         public string AreaVisited { get; set; }
         public string VisitDateTime { get; set; }
         public string VisitDuration { get; set; }

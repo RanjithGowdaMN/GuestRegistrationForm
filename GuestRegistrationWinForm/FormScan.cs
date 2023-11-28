@@ -21,7 +21,7 @@ using TesseractOCR.Library;
 
 namespace gui
 {
-    public partial class FormScan : Form
+    public partial class FormScan : Form, INotifyPropertyChanged
     {
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
@@ -29,6 +29,9 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         //private IAPIconnector _apiHelper;
         public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
@@ -60,8 +63,6 @@ namespace gui
             updatePictures(pbback, _scannedFileInfo.BackSideFileName);
         }
 
-
-
         private void btnfront_Click(object sender, EventArgs e)
         {
             //MainScreenViewModel mainscreenVM = new MainScreenViewModel();
@@ -77,8 +78,6 @@ namespace gui
 
                 _scannedFileInfo.FrontSideFileName = fileName;
                 updatePictures(pbfront, fileName);
-
-
             }
             else if (rbpass.Checked)
             {
@@ -103,7 +102,6 @@ namespace gui
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.Image = Image.FromFile(filePath);
         }
-
         private void btnback_Click(object sender, EventArgs e)
         {
             if (rbid.Checked)
@@ -123,7 +121,6 @@ namespace gui
                 MessageBox.Show("Please select the ID type");
             }
         }
-
         private void btnphoto_Click(object sender, EventArgs e)
         {
             try
@@ -135,7 +132,6 @@ namespace gui
                 MessageBox.Show("Error, Please check the camera");
             }
         }
-
         public void UpdatePhotoImage(string path)
         {
             _cameraStatus.ImagePath = path;
@@ -156,7 +152,6 @@ namespace gui
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = resizedImage;
         }
-
         private void TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -181,22 +176,57 @@ namespace gui
                 _scannedData.DateOfBirth = txtdob.Text;
             }
         }
-
         private void SearchVisitor_Click(object sender, EventArgs e)
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             try
             {
                VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtid.Text);
-                //_consultantApplicationForm.Address = visitor.Address;
+               ReloadDataToUi(visitor);
             }
             catch (Exception)
             {
-
                 MessageBox.Show("No Previous Visit Information!!");
             }
              //List<List<string>> CompanyNames = 
 
+        }
+        public void ReloadDataToUi(VisitorInformation visitor)
+        {
+            if (!string.IsNullOrEmpty(visitor.IdNumber))
+            {
+                //scannedData
+
+                //consultantApplicationForm
+                _consultantApplicationForm.Address = visitor.Address ?? string.Empty;
+                _consultantApplicationForm.Alias = visitor.AliasName ?? string.Empty;
+                _consultantApplicationForm.CellPhone = visitor.CellPhone ?? string.Empty;
+                _consultantApplicationForm.City = visitor.City ?? string.Empty;
+                _consultantApplicationForm.CompanyName = visitor.CompanyName ?? string.Empty;
+                _consultantApplicationForm.Email = visitor.Email;
+                _consultantApplicationForm.EmergencyContactNo = visitor.EmergencyContact;
+                _consultantApplicationForm.HomePhoneNo = visitor.HomePhoneNo;
+                _consultantApplicationForm.PassportNumber = visitor.PassportNumber;
+                _consultantApplicationForm.SocialSecurityNumber = visitor.SocialSecurityNumber;
+                _consultantApplicationForm.Zip = visitor.Zip;
+                _consultantApplicationForm.Title = visitor.Title;
+                _consultantApplicationForm.Previous7YrResidency = visitor.Previous7YrResidency;
+                _consultantApplicationForm.State = visitor.State;
+                _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
+                //_consultantApplicationForm.CcFelony = Convert.ToBoolean( visitor.Convicted); TBD
+                //Passport IssuedData etc...
+
+                //visitorDataSheet
+                _visitorDataSheet.Title = visitor.Title;
+                _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;
+                _visitorDataSheet.CompanyName = visitor.CompanyName;
+                _visitorDataSheet.DepartmentManager = visitor.DepartmentManager;
+                _visitorDataSheet.PersonToBeVisited = visitor.PersonToBeVisited;
+                _visitorDataSheet.ProductionManager = visitor.ProductionManager;
+                _visitorDataSheet.SecurityController = visitor.SecurityController;
+                _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
+                //TBD 
+            }
         }
     }
 }

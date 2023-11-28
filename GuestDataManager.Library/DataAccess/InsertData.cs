@@ -69,21 +69,21 @@ namespace GuestDataManager.Library.DataAccess
                 {"@State",                  consultantApplicationForm.State ?? string.Empty},//[nvarchar](25)
                 {"@CellPhone",              consultantApplicationForm.CellPhone ?? string.Empty},//[nvarchar](25)
                 {"@Email",                  consultantApplicationForm.Email ??string.Empty},//[nvarchar](25)
-                {"@SocialSecurityNumber",   consultantApplicationForm.SecurityNo ?? string.Empty},//[nvarchar](25)
-                {"@HomePhoneNo",            consultantApplicationForm.Homephone??string.Empty},//[nvarchar](25)
-                {"@PassportNumber",         consultantApplicationForm.PassportNo??string.Empty},//[nvarchar](25)
+                {"@SocialSecurityNumber",   consultantApplicationForm.SocialSecurityNumber ?? string.Empty},//[nvarchar](25)
+                {"@HomePhoneNo",            consultantApplicationForm.HomePhoneNo??string.Empty},//[nvarchar](25)
+                {"@PassportNumber",         consultantApplicationForm.PassportNumber??string.Empty},//[nvarchar](25)
                 {"@PassportIssuePlace",     consultantApplicationForm.PlaceofIssue??string.Empty},//[nvarchar](50)
                 {"@PassportIssuedOn",       consultantApplicationForm.PDateofIssue??string.Empty},//[nvarchar](25)
                 {"@PassportValidity",       consultantApplicationForm.PassportValidity??string.Empty},//[nvarchar](25)
                 {"@EmergencyContact",       consultantApplicationForm.EmergencyContactNo??string.Empty},//[nvarchar](25)
                 {"@AliasName",              consultantApplicationForm.Alias??string.Empty},//[nvarchar](50)
-                {"@Previous7YrResidency",   consultantApplicationForm.PResidence??string.Empty},//[nvarchar](150)
+                {"@Previous7YrResidency",   consultantApplicationForm.Previous7YrResidency??string.Empty},//[nvarchar](150)
                 {"@DurationStart",          string.Empty},//[nvarchar](15)
                 {"@DurationEnd",            string.Empty},//[nvarchar](15)
                 {"@Duration",               string.Empty},//[nvarchar](15)
 
                 //Fields specific to Visitor
-                {"@PersonToBeVisited",      visitorDataSheet.PersontobeVisited??string.Empty},//[nvarchar](150)
+                {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)
                 {"@AreaToBeVisited",        visitorDataSheet.AreaVisited??string.Empty},//[nvarchar](50)
                 {"@VisitDate",              visitorDataSheet.VisitDateTime??string.Empty},//[nvarchar](15)
                 {"@VisitTime",              string.Empty},//[nvarchar](15)
@@ -112,8 +112,8 @@ namespace GuestDataManager.Library.DataAccess
             parameters.Add("@IdType", 2); //TBD
 
             parameters.Add("@Title", consultantApplicationForm.Title ?? visitorDataSheet.Title ?? null);
-            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.ReasonForVisit ?? null);
-            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.Company ?? null);
+            parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? null);
+            parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? null);
 
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {

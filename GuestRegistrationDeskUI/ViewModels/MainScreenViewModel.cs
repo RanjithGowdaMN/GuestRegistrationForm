@@ -200,12 +200,12 @@ namespace GuestRegistrationDeskUI.ViewModels
 
             VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
             visitorDataSheet.AreaVisited = AreaVisited;
-            visitorDataSheet.Company = Company;
+            visitorDataSheet.CompanyName = Company;
             visitorDataSheet.Date = vdsDate;
             visitorDataSheet.DepartmentManager = DepartmentManager;
-            visitorDataSheet.PersontobeVisited = PersontobeVisited;
+            visitorDataSheet.PersonToBeVisited = PersontobeVisited;
             visitorDataSheet.ProductionManager = ProductionManager;
-            visitorDataSheet.ReasonForVisit = ReasonForVisit;
+            visitorDataSheet.PurposeOfVisit = ReasonForVisit;
             visitorDataSheet.SecurityController = SecurityController;
             visitorDataSheet.VisitDateTime = VisitDateTime;
             visitorDataSheet.VisitDuration = VisitDuration;
@@ -251,20 +251,20 @@ namespace GuestRegistrationDeskUI.ViewModels
            // consultantApplicationForm.Durationto = Durationto;
             consultantApplicationForm.Email = Email;
             consultantApplicationForm.EmergencyContactNo = EmergencyContactNo;
-            consultantApplicationForm.PResidence = PResidence;
+            consultantApplicationForm.Previous7YrResidency = PResidence;
             consultantApplicationForm.Alias = Alias;
             consultantApplicationForm.FirstName = caFirstName;
-            consultantApplicationForm.Homephone = Homephone;
+            consultantApplicationForm.HomePhoneNo = Homephone;
             consultantApplicationForm.IdNo = IdNo;
             consultantApplicationForm.IsNo = IsNo;
             consultantApplicationForm.CcFelony = CFelony;
             consultantApplicationForm.IsYes = IsYes;
             consultantApplicationForm.LastName = caLastName;
             consultantApplicationForm.MiddleName = caMiddleName;
-            consultantApplicationForm.PassportNo = PassportNo;
+            consultantApplicationForm.PassportNumber = PassportNo;
             consultantApplicationForm.PassportValidity = PassportValidity;
             consultantApplicationForm.PurposeOfVisit = caPurposeOfVisit;
-            consultantApplicationForm.SecurityNo = SecurityNo;
+            consultantApplicationForm.SocialSecurityNumber = SecurityNo;
             consultantApplicationForm.State = State;
             consultantApplicationForm.Zip = Zip;
 
