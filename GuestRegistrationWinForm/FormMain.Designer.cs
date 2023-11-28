@@ -30,6 +30,9 @@ namespace gui
         private void InitializeComponent()
         {
             this.panelhome = new System.Windows.Forms.Panel();
+            this.btnWindowMin = new System.Windows.Forms.Button();
+            this.btnWindowMaxm = new System.Windows.Forms.Button();
+            this.btnWindowClsoe = new System.Windows.Forms.Button();
             this.lblhome = new System.Windows.Forms.Label();
             this.panelbuttons = new System.Windows.Forms.Panel();
             this.btndoc = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@ namespace gui
             this.btncontractor = new System.Windows.Forms.Button();
             this.btnscan = new System.Windows.Forms.Button();
             this.panelform = new System.Windows.Forms.Panel();
-            this.btnWindowClsoe = new System.Windows.Forms.Button();
-            this.btnWindowMin = new System.Windows.Forms.Button();
-            this.btnWindowMax = new System.Windows.Forms.Button();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.SuspendLayout();
@@ -49,8 +49,8 @@ namespace gui
             // panelhome
             // 
             this.panelhome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelhome.Controls.Add(this.btnWindowMax);
             this.panelhome.Controls.Add(this.btnWindowMin);
+            this.panelhome.Controls.Add(this.btnWindowMaxm);
             this.panelhome.Controls.Add(this.btnWindowClsoe);
             this.panelhome.Controls.Add(this.lblhome);
             this.panelhome.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,6 +60,48 @@ namespace gui
             this.panelhome.Size = new System.Drawing.Size(1765, 73);
             this.panelhome.TabIndex = 0;
             this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
+            // 
+            // btnWindowMin
+            // 
+            this.btnWindowMin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnWindowMin.FlatAppearance.BorderSize = 0;
+            this.btnWindowMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWindowMin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWindowMin.Location = new System.Drawing.Point(1675, 0);
+            this.btnWindowMin.Name = "btnWindowMin";
+            this.btnWindowMin.Size = new System.Drawing.Size(30, 73);
+            this.btnWindowMin.TabIndex = 2;
+            this.btnWindowMin.Text = "-";
+            this.btnWindowMin.UseVisualStyleBackColor = true;
+            this.btnWindowMin.Click += new System.EventHandler(this.btnWindowMax_Click);
+            // 
+            // btnWindowMaxm
+            // 
+            this.btnWindowMaxm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnWindowMaxm.FlatAppearance.BorderSize = 0;
+            this.btnWindowMaxm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWindowMaxm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWindowMaxm.Location = new System.Drawing.Point(1705, 0);
+            this.btnWindowMaxm.Name = "btnWindowMaxm";
+            this.btnWindowMaxm.Size = new System.Drawing.Size(30, 73);
+            this.btnWindowMaxm.TabIndex = 3;
+            this.btnWindowMaxm.Text = "O";
+            this.btnWindowMaxm.UseVisualStyleBackColor = true;
+            this.btnWindowMaxm.Click += new System.EventHandler(this.btnWindowMin_Click);
+            // 
+            // btnWindowClsoe
+            // 
+            this.btnWindowClsoe.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnWindowClsoe.FlatAppearance.BorderSize = 0;
+            this.btnWindowClsoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWindowClsoe.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWindowClsoe.Location = new System.Drawing.Point(1735, 0);
+            this.btnWindowClsoe.Name = "btnWindowClsoe";
+            this.btnWindowClsoe.Size = new System.Drawing.Size(30, 73);
+            this.btnWindowClsoe.TabIndex = 1;
+            this.btnWindowClsoe.Text = "X";
+            this.btnWindowClsoe.UseVisualStyleBackColor = true;
+            this.btnWindowClsoe.Click += new System.EventHandler(this.btnWindowClsoe_Click);
             // 
             // lblhome
             // 
@@ -193,45 +235,6 @@ namespace gui
             this.panelform.Size = new System.Drawing.Size(1765, 813);
             this.panelform.TabIndex = 2;
             // 
-            // btnWindowClsoe
-            // 
-            this.btnWindowClsoe.FlatAppearance.BorderSize = 0;
-            this.btnWindowClsoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWindowClsoe.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowClsoe.Location = new System.Drawing.Point(1471, 12);
-            this.btnWindowClsoe.Name = "btnWindowClsoe";
-            this.btnWindowClsoe.Size = new System.Drawing.Size(30, 35);
-            this.btnWindowClsoe.TabIndex = 1;
-            this.btnWindowClsoe.Text = "X";
-            this.btnWindowClsoe.UseVisualStyleBackColor = true;
-            this.btnWindowClsoe.Click += new System.EventHandler(this.btnWindowClsoe_Click);
-            // 
-            // btnWindowMin
-            // 
-            this.btnWindowMin.FlatAppearance.BorderSize = 0;
-            this.btnWindowMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWindowMin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMin.Location = new System.Drawing.Point(1399, 12);
-            this.btnWindowMin.Name = "btnWindowMin";
-            this.btnWindowMin.Size = new System.Drawing.Size(30, 35);
-            this.btnWindowMin.TabIndex = 2;
-            this.btnWindowMin.Text = "-";
-            this.btnWindowMin.UseVisualStyleBackColor = true;
-            this.btnWindowMin.Click += new System.EventHandler(this.btnWindowMin_Click);
-            // 
-            // btnWindowMax
-            // 
-            this.btnWindowMax.FlatAppearance.BorderSize = 0;
-            this.btnWindowMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWindowMax.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMax.Location = new System.Drawing.Point(1435, 12);
-            this.btnWindowMax.Name = "btnWindowMax";
-            this.btnWindowMax.Size = new System.Drawing.Size(30, 35);
-            this.btnWindowMax.TabIndex = 3;
-            this.btnWindowMax.Text = "0";
-            this.btnWindowMax.UseVisualStyleBackColor = true;
-            this.btnWindowMax.Click += new System.EventHandler(this.btnWindowMax_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -263,8 +266,8 @@ namespace gui
         private System.Windows.Forms.Button btndoc;
         private System.Windows.Forms.Button btnlgt;
         private System.Windows.Forms.Button btncard;
-        private System.Windows.Forms.Button btnWindowMax;
         private System.Windows.Forms.Button btnWindowMin;
+        private System.Windows.Forms.Button btnWindowMaxm;
         private System.Windows.Forms.Button btnWindowClsoe;
     }
 }

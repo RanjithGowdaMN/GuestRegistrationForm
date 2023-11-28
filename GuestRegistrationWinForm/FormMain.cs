@@ -130,18 +130,20 @@ namespace gui
         {
             this.Close();
         }
-
+//Minimize
         private void btnWindowMax_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+        //maximize
+        private void btnWindowMin_Click(object sender, EventArgs e)
+        {
+           
             if (WindowState == FormWindowState.Normal)
                 WindowState = FormWindowState.Maximized;
             else
                 WindowState = FormWindowState.Normal;
-        }
-
-        private void btnWindowMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
