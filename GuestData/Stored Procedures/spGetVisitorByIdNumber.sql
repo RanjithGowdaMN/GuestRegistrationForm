@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spGetVisitorByIdNumber]
-	@IdNumber int = 0
+	@IdNumber nvarchar(15)
 AS
 BEGIN
 

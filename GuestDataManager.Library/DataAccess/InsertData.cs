@@ -29,7 +29,7 @@ namespace GuestDataManager.Library.DataAccess
         public void InsertVisitorRecordTest(ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
-            byte[] imageFrontSide = File.ReadAllBytes("D:\\VisitorData\\ScannedID\\image00001.jpg");
+            byte[] imageFrontSide = File.ReadAllBytes(scannedFileInfo.FrontSideFileName);
             byte[] imageBackSide = File.ReadAllBytes(scannedFileInfo.BackSideFileName);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
