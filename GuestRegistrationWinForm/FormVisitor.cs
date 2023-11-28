@@ -38,28 +38,75 @@ namespace gui
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
 
-            txtVisitorTitle.TextChanged += TextChanged;
-            txtVisitorComp.TextChanged += TextChanged;
-            txtVisitorSecutityController.TextChanged += TextChanged;
-
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.Company;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
 
+            txtVisitorTitle.TextChanged += TextChanged;
+            txtVisitorComp.TextChanged += TextChanged;
+            txtVisitorSecutityController.TextChanged += TextChanged;
+
             LoadComboxBoxData();
+        }
+
+        private void CmbVisitorComp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           if(cmbVisitorComp.SelectedItem.ToString()=="other")
+            {
+                txtVisitorComp.Visible = true;
+
+            }
+            else
+            {
+                txtVisitorComp.Visible = false;
+                _visitorDataSheet.Company = cmbVisitorComp.SelectedItem.ToString();
+
+            }
         }
 
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            cmbVisitorComp.DataSource = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
-            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
-            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList();
-            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList();
-            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList();
+            List<string>CompanyNames=retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
+            cmbVisitorComp.DataSource = CompanyNames;
+
+            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList(); ;
+            cmbVistorReasonForVisit.Text = _visitorDataSheet.ReasonForVisit;
+
+            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList(); ;
+            cmbVisitorProductionManager.Text = _visitorDataSheet.ProductionManager;
+
+
+            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList(); ;
+            cmbVisitorAreaVisited.Text = _visitorDataSheet.AreaVisited;
+
+            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList(); ;
+            cmbvisitorDeptManager.Text = _visitorDataSheet.DepartmentManager;
+
             cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
+            cmbVisitorPersonToVisited.Text = _visitorDataSheet.PersontobeVisited;
+
+
+            if ((!CompanyNames.Contains(_visitorDataSheet.Company) && (_visitorDataSheet.Company != null)))
+            {
+               txtVisitorComp.Visible = true;
+                txtVisitorComp.Text = _visitorDataSheet.Company;
+                cmbVisitorComp.Text = "other";
+            }
+            else
+            {
+                cmbVisitorComp.Text = _visitorDataSheet.Company;
+            }
+
+            //load dates
+
+            if(_visitorDataSheet.VisitDateTime!=null)
+            {
+                dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateTime);
+            }
         }
         private void TextChanged(Object sender, EventArgs e)
         {
@@ -87,7 +134,101 @@ namespace gui
                 _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
             }
         }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void FormVisitor_Load(object sender, EventArgs e)
+        {
+            txtVisitorComp.Visible = false;
+            cmbVisitorComp.SelectedIndexChanged += CmbVisitorComp_SelectedIndexChanged;
+            cmbVisitorAreaVisited.SelectedIndexChanged += CmbVisitorAreaVisited_SelectedIndexChanged;
+            cmbvisitorDeptManager.SelectedIndexChanged += CmbvisitorDeptManager_SelectedIndexChanged;
+            cmbVisitorPersonToVisited.SelectedIndexChanged += CmbVisitorPersonToVisited_SelectedIndexChanged;
+            cmbVisitorProductionManager.SelectedIndexChanged += CmbVisitorProductionManager_SelectedIndexChanged;
+            cmbVistorReasonForVisit.SelectedIndexChanged += CmbVistorReasonForVisit_SelectedIndexChanged;
+        }
+
+        private void CmbVistorReasonForVisit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  throw new NotImplementedException();
+          if(cmbVistorReasonForVisit!=null)
+            {
+                _visitorDataSheet.ReasonForVisit = cmbVistorReasonForVisit.SelectedItem.ToString();
+            }
+        }
+
+        private void CmbVisitorProductionManager_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbVisitorProductionManager!=null)
+            {
+                _visitorDataSheet.ProductionManager = cmbVisitorProductionManager.SelectedItem.ToString();
+            }
+        }
+
+        private void CmbVisitorPersonToVisited_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if(cmbVisitorPersonToVisited!=null)
+            {
+                _visitorDataSheet.PersontobeVisited = cmbVisitorPersonToVisited.SelectedItem.ToString();
+
+            }
+        }
+
+        private void CmbvisitorDeptManager_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if(cmbvisitorDeptManager!=null)
+            {
+                _visitorDataSheet.DepartmentManager = cmbvisitorDeptManager.SelectedItem.ToString();
+            }
+        }
+
+        private void CmbVisitorAreaVisited_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           if(cmbVisitorAreaVisited!=null)
+            {
+                _visitorDataSheet.AreaVisited = cmbVisitorAreaVisited.SelectedItem.ToString();
+
+            }
+        }
+
+        private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitDuration = dtVisitorVisitDate.Value.ToString();
+        }
+
+        private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitDuration = dtVisitorDuration.Value.ToString();
+        }
+
+        private void btnVisitorDocument_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.Expiry = _scannedData.Expiry;
+            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.Nationality = _scannedData.Nationality;
+
+            concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
+
+            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+            //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+            VisitorsLogBook vlBook = new VisitorsLogBook();
+            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+            concatenatedDataBinding.CAforVisitor = CAforVisitor;
+            concatenatedDataBinding.hsaLog = hsaLog;
+            concatenatedDataBinding.vlBook = vlBook;
+            // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+            _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+        }
     }
 }

@@ -44,13 +44,14 @@ namespace gui
             txtContractorCity.Text = _consultantApplicationForm.City;
             txtContractorEmail.Text = _consultantApplicationForm.Email;
             txtContractorEmergencyNo.Text = _consultantApplicationForm.EmergencyContactNo;
-            txtContractorHomePhn.Text = _consultantApplicationForm.Homephone;
-            txtContractorPassportNo.Text = _consultantApplicationForm.PassportNo;
+            txtContractorHomePhn.Text = _consultantApplicationForm.HomePhoneNo;
+            txtContractorPassportNo.Text = _consultantApplicationForm.PassportNumber;
             txtContractorPassportPlaceOfIssue.Text = _consultantApplicationForm.PlaceofIssue;
-            txtContractorSecurityNo.Text = _consultantApplicationForm.SecurityNo;
+            txtContractorSecurityNo.Text = _consultantApplicationForm.SocialSecurityNumber;
             txtContractorZip.Text = _consultantApplicationForm.Zip;
             txtContratorTitle.Text = _consultantApplicationForm.Title;
-            rtxtContractorPreResidence.Text = _consultantApplicationForm.PResidence;
+            rtxtContractorPreResidence.Text = _consultantApplicationForm.Previous7YrResidency;
+            txtContractorState.Text = _consultantApplicationForm.State;
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
@@ -68,23 +69,48 @@ namespace gui
             txtContractorSecurityNo.TextChanged += TextChanged;
             txtContratorTitle.TextChanged += TextChanged;
             txtContractorZip.TextChanged += TextChanged;
+            txtContractorState.TextChanged += TextChanged;
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
 
             LoadComboxBoxData();
-
-
         }
-
         private void Contractor_Load(object sender, EventArgs e)
         {
             getCompanyName();
+            getPurpose();
+            txtContractorCompName.Visible = false;
+            cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
+            cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
+            cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
         }
-
+        private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  throw new NotImplementedException();
+          if(cmbContractorFelony!=null)
+            {
+                //_consultantApplicationForm.CcFelony = cmbContractorFelony.SelectedItem.ToString();
+            }
+        }
+        private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+            if (cmbContractorPurposeOfVisit != null)
+            {
+                _consultantApplicationForm.PurposeOfVisit = cmbContractorPurposeOfVisit.SelectedItem.ToString();
+            }
+        }
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            cmbContractorCompName.DataSource = retriveDBinfo.GetCompanyname().Select(x=> x.CompanyNames).ToList();
-            cmbContractorPurposeOfVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x=>x.Purpose).ToList();
+            List<string> CompanyNames = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
+            cmbContractorCompName.DataSource = CompanyNames;
+            
+            
+            List<string> PurposeOfVisits = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
+            cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
+            cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
+
+            //cmbContractorFelony.Text = _consultantApplicationForm.CcFelony.ToString();
 
             //load passport validity previous value
             if (_consultantApplicationForm.PassportValidity != null)
@@ -95,7 +121,24 @@ namespace gui
             {
                 dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PDateofIssue);
             }
-
+            if (_consultantApplicationForm.Duration != null)
+            {
+                dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
+            }
+            if ((!CompanyNames.Contains(_consultantApplicationForm.CompanyName) && (_consultantApplicationForm.CompanyName != null)))
+            {
+                txtContractorCompName.Visible = true;
+                txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
+                cmbContractorCompName.Text = "other";
+            } else
+            {
+                cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
+            }
+            
+           /* if((PurposeOfVisits.Contains(_consultantApplicationForm.PurposeOfVisit)&&(_consultantApplicationForm.PurposeOfVisit!=null)))
+                    {
+                cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
+            }*/
         }
 
         private async Task getCompanyName()
@@ -103,20 +146,43 @@ namespace gui
             //await _apiHelper.GetRegistredCompanyNames();
         }
 
-        private void panelcontrator_Paint(object sender, PaintEventArgs e)
+        private async Task getPurpose()
         {
 
         }
+        private void panelcontrator_Paint(object sender, PaintEventArgs e)
+        {
+            if (cmbContractorCompName.Text == "other")
+            {
+                txtContractorCompName.Visible = true;
+            }
+            else
+            {
+                txtContractorCompName.Visible = false;
+            }
 
+        }
+        private void CmbContractorCompName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (cmbContractorCompName.SelectedItem.ToString() == "other")
+            {
+                txtContractorCompName.Visible = true;
+            }
+            else
+            {
+                txtContractorCompName.Visible = false;
+                _consultantApplicationForm.CompanyName = cmbContractorCompName.SelectedItem.ToString();
+            }
+        }
         private void RichTextChanged(object sender, EventArgs e)
         {
             RichTextBox rtb = (RichTextBox)sender;
             if (rtb.Name == rtxtContractorPreResidence.Name)
             {
-                _consultantApplicationForm.PResidence = rtxtContractorPreResidence.Text;
+                _consultantApplicationForm.Previous7YrResidency = rtxtContractorPreResidence.Text;
             }
         }
-
         private void TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -150,12 +216,12 @@ namespace gui
             }
             if (tb.Name == txtContractorHomePhn.Name)
             {
-                _consultantApplicationForm.Homephone = txtContractorHomePhn.Text;
+                _consultantApplicationForm.HomePhoneNo = txtContractorHomePhn.Text;
 
             }
             if (tb.Name == txtContractorPassportNo.Name)
             {
-                _consultantApplicationForm.PassportNo = txtContractorPassportNo.Text;
+                _consultantApplicationForm.PassportNumber = txtContractorPassportNo.Text;
             }
             if (tb.Name == txtContractorPassportPlaceOfIssue.Name)
             {
@@ -163,7 +229,7 @@ namespace gui
             }
             if (tb.Name == txtContractorSecurityNo.Name)
             {
-                _consultantApplicationForm.SecurityNo = txtContractorSecurityNo.Text;
+                _consultantApplicationForm.SocialSecurityNumber = txtContractorSecurityNo.Text;
             }
             if (tb.Name == txtContractorZip.Name)
             {
@@ -183,9 +249,13 @@ namespace gui
                 _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Text.ToString();
 
             }
-            if(tb.Name ==dtContractorPassportValid.Name)
+            if (tb.Name == dtContractorPassportValid.Name)
             {
                 _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Text.ToString();
+            }
+            if (tb.Name == txtContractorState.Name)
+            {
+                _consultantApplicationForm.State = txtContractorState.Text;
             }
         }
 
@@ -198,6 +268,41 @@ namespace gui
         private void dtContractorPassportDateOfIssue_ValueChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtContractorDuration_ValueChanged(object sender, EventArgs e)
+        {
+            _consultantApplicationForm.Duration = dtContractorDuration.Value.ToString();
+        }
+
+        private void btContractorPdf_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.Expiry = _scannedData.Expiry;
+            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.Nationality = _scannedData.Nationality;
+
+            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+            concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
+            concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
+            concatenatedDataBinding.vlBook = new VisitorsLogBook();
+            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+            InsertData insertData = new InsertData();
+            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+        }
+
+        private void txtContractorCompName_TextChanged(object sender, EventArgs e)
+        {
+            _consultantApplicationForm.CompanyName = txtContractorCompName.Text;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class VisitorDataSheet
     {
-        public string  Title { get; set; }
+        public string Title { get; set; }
         public string VisitorName { get; set; }  //scan form
         public string Date { get; set; }
         public string Company { get; set; }

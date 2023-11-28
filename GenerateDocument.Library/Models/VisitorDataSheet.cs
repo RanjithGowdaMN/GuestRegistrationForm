@@ -20,5 +20,6 @@ namespace GuestRegistrationDeskUI.Models
         public string DepartmentManager { get; set; }
         public string ProductionManager { get; set; }
         public string SecurityController { get; set; }
+        public string Title { get; set; }
     }
 }

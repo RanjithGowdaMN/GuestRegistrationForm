@@ -72,7 +72,12 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GuestRegistrationDesktopUI.Library\GuestRegistrationDesktopUI.Library.csproj">
+      <Project>{66E111C1-5521-4C17-BD50-C71B73B1B4F7}</Project>
+      <Name>GuestRegistrationDesktopUI.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

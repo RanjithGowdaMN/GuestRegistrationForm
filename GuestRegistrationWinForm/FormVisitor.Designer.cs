@@ -52,7 +52,7 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVisitorDocument = new System.Windows.Forms.Button();
             this.panelVisitor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +89,7 @@ namespace gui
             // panelVisitor
             // 
             this.panelVisitor.BackColor = System.Drawing.Color.White;
-            this.panelVisitor.Controls.Add(this.button1);
+            this.panelVisitor.Controls.Add(this.btnVisitorDocument);
             this.panelVisitor.Controls.Add(this.txtVisitorTitle);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDate);
             this.panelVisitor.Controls.Add(this.dtVisitorDuration);
@@ -116,6 +116,7 @@ namespace gui
             this.panelVisitor.Name = "panelVisitor";
             this.panelVisitor.Size = new System.Drawing.Size(1583, 723);
             this.panelVisitor.TabIndex = 3;
+            this.panelVisitor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtVisitorTitle
             // 
@@ -130,6 +131,7 @@ namespace gui
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorVisitDate.TabIndex = 21;
+            this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
             // dtVisitorDuration
             // 
@@ -137,6 +139,7 @@ namespace gui
             this.dtVisitorDuration.Name = "dtVisitorDuration";
             this.dtVisitorDuration.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorDuration.TabIndex = 20;
+            this.dtVisitorDuration.ValueChanged += new System.EventHandler(this.dtVisitorDuration_ValueChanged);
             // 
             // txtVisitorSecutityController
             // 
@@ -270,14 +273,15 @@ namespace gui
             this.txtVisitorComp.Size = new System.Drawing.Size(214, 22);
             this.txtVisitorComp.TabIndex = 4;
             // 
-            // button1
+            // btnVisitorDocument
             // 
-            this.button1.Location = new System.Drawing.Point(1001, 657);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 35);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVisitorDocument.Location = new System.Drawing.Point(821, 668);
+            this.btnVisitorDocument.Name = "btnVisitorDocument";
+            this.btnVisitorDocument.Size = new System.Drawing.Size(125, 32);
+            this.btnVisitorDocument.TabIndex = 23;
+            this.btnVisitorDocument.Text = "Print";
+            this.btnVisitorDocument.UseVisualStyleBackColor = true;
+            this.btnVisitorDocument.Click += new System.EventHandler(this.btnVisitorDocument_Click);
             // 
             // FormVisitor
             // 
@@ -288,6 +292,7 @@ namespace gui
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormVisitor";
             this.Text = "FormVisitor";
+            this.Load += new System.EventHandler(this.FormVisitor_Load);
             this.panelVisitor.ResumeLayout(false);
             this.panelVisitor.PerformLayout();
             this.ResumeLayout(false);
@@ -319,6 +324,6 @@ namespace gui
         private System.Windows.Forms.ComboBox cmbVistorReasonForVisit;
         private System.Windows.Forms.ComboBox cmbVisitorComp;
         private System.Windows.Forms.TextBox txtVisitorTitle;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVisitorDocument;
     }
 }
