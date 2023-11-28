@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -213,10 +214,10 @@ namespace gui
                 _consultantApplicationForm.Previous7YrResidency = visitor.Previous7YrResidency;
                 _consultantApplicationForm.State = visitor.State;
                 _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
-                _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean( visitor.Convicted); 
+                _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean( visitor.Convicted);
 
                 //Passport IssuedData etc...
-
+                 pbfront.Image = ConvertBinaryToImage(visitor.IdFrontSide);
                 //visitorDataSheet
                 _visitorDataSheet.Title = visitor.Title;
                 _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;
@@ -227,6 +228,15 @@ namespace gui
                 _visitorDataSheet.SecurityController = visitor.SecurityController;
                 _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
                 //TBD 
+            }
+        }
+        public Image ConvertBinaryToImage(byte[] binaryData)
+        {
+            using (MemoryStream memoryStream = new MemoryStream(binaryData))
+            {
+                // Create Image from binary data
+                Image image = Image.FromStream(memoryStream);
+                return image;
             }
         }
     }
