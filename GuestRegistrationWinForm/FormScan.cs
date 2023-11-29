@@ -31,7 +31,6 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         //private IAPIconnector _apiHelper;
@@ -84,11 +83,11 @@ namespace gui
             else if (rbpass.Checked)
             {
                 (var result, string fileName) = _centralHub.StartScanning(2);
-                txtname.Text = result.Name.ToString();
-                txtid.Text = result.IDno.ToString();
-                txtdob.Text = result.DateOfBirth.ToString();
-                txtexpiry.Text = result.Expiry.ToString();
-                txtnationality.Text = result.Nationality.ToString();
+                txtname.Text = result.Name?.ToString();
+                txtid.Text = result.IDno?.ToString();
+                txtdob.Text = result.DateOfBirth?.ToString();
+                txtexpiry.Text = result.Expiry?.ToString();
+                txtnationality.Text = result.Nationality?.ToString();
 
                 _scannedFileInfo.FrontSideFileName = fileName;
                 updatePictures(pbfront, fileName);
@@ -199,7 +198,7 @@ namespace gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"No Previous Visit Information!! {ex.Message }");
+                MessageBox.Show($"No Previous Visit Information!!");
             }
              //List<List<string>> CompanyNames = 
 
@@ -209,7 +208,11 @@ namespace gui
             if (!string.IsNullOrEmpty(visitor.IdNumber))
             {
                 //scannedData
-
+                txtname.Text = visitor.Name?.ToString();
+                txtid.Text = visitor.IdNumber?.ToString();
+                txtdob.Text = visitor.Dob?.ToString();
+                txtexpiry.Text = visitor.IdExpiry?.ToString();
+                txtnationality.Text = visitor.RFU9?.ToString();
                 if (visitor.RFU10 == "contract")
                 {
                     //consultantApplicationForm
@@ -246,6 +249,9 @@ namespace gui
                     _visitorDataSheet.ProductionManager = visitor.ProductionManager;
                     _visitorDataSheet.SecurityController = visitor.SecurityController;
                     _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
+                    pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
+                    pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
+                    UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
                     //TBD 
                 } else
                 {

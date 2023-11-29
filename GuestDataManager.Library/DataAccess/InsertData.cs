@@ -103,7 +103,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@RFU6",                   string.Empty},//[nvarchar](100)
                 {"@RFU7",                   string.Empty},//[nvarchar](100)
                 {"@RFU8",                   string.Empty},//[nvarchar](100)
-                {"@RFU9",                   string.Empty},//[nvarchar](100)
+                {"@RFU9",                   scannedData.Nationality},//[nvarchar](100)
                 {"@RFU10",                  scannedFileInfo.VisitorType},//[nvarchar](100)
             };
             //byte[] nullValue = new byte[0];
