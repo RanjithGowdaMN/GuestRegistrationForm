@@ -21,11 +21,12 @@ namespace GuestRegistrationDesktopUI.Library.FiScanner
             }
 
             // Get all files in the directory
-            string[] files = Directory.GetFiles(ImageDir, "*.jpg");
+            //string[] files = Directory.GetFiles(ImageDir, "*.jpg;*.tif");
+            string[] files = Directory.GetFiles(ImageDir);
 
             if (files.Length == 0)
             {
-                Console.WriteLine("No files found in the directory.");
+                //Console.WriteLine("No files found in the directory.");
                 return "00001";
             }
 
