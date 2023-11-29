@@ -88,7 +88,10 @@ namespace gui
             childForm.BringToFront();
             childForm.Show();
         }
-
+        public void ClearData() { 
+        
+        
+        }
         private void btnscan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);

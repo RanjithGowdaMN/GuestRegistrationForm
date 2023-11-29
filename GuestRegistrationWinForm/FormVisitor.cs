@@ -24,6 +24,7 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        string VisitorGeneratedFile = string.Empty;
         //private IAPIconnector _apiHelper;
         public FormVisitor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
@@ -210,11 +211,9 @@ namespace gui
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
             visitorDataModel.IDno = _scannedData.IDno;
             visitorDataModel.Nationality = _scannedData.Nationality;
-
+            _scannedFileInfo.VisitorType = "visitor";
             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
 
-            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
-            //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
             ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
             VisitorsLogBook vlBook = new VisitorsLogBook();
             HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
@@ -223,10 +222,41 @@ namespace gui
             concatenatedDataBinding.vlBook = vlBook;
             // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
             concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
-            _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+            try
+            {
+                VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Generating File:",ex.Message);
+            }
+            try
+            {
+                InsertData insertData = new InsertData();
+                insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                MessageBox.Show("Recored Inserted to DB");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.Message);
+            }
+            //Open Generated PDF File
+            try
+            {
+                if (!string.IsNullOrEmpty(VisitorGeneratedFile))
+                {
+                    System.Diagnostics.Process.Start(VisitorGeneratedFile);
+                }
+                else {
+                    MessageBox.Show("File Not Generated, Please check folder!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:", ex.Message);
+            }
 
-            InsertData insertData = new InsertData();
-            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+
         }
     }
 }

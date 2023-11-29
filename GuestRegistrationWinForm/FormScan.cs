@@ -210,39 +210,47 @@ namespace gui
             {
                 //scannedData
 
-                //consultantApplicationForm
-                _consultantApplicationForm.Address = visitor.Address ?? string.Empty;
-                _consultantApplicationForm.Alias = visitor.AliasName ?? string.Empty;
-                _consultantApplicationForm.CellPhone = visitor.CellPhone ?? string.Empty;
-                _consultantApplicationForm.City = visitor.City ?? string.Empty;
-                _consultantApplicationForm.CompanyName = visitor.CompanyName ?? string.Empty;
-                _consultantApplicationForm.Email = visitor.Email;
-                _consultantApplicationForm.EmergencyContactNo = visitor.EmergencyContact;
-                _consultantApplicationForm.HomePhoneNo = visitor.HomePhoneNo;
-                _consultantApplicationForm.PassportNumber = visitor.PassportNumber;
-                _consultantApplicationForm.SocialSecurityNumber = visitor.SocialSecurityNumber;
-                _consultantApplicationForm.Zip = visitor.Zip;
-                _consultantApplicationForm.Title = visitor.Title;
-                _consultantApplicationForm.Previous7YrResidency = visitor.Previous7YrResidency;
-                _consultantApplicationForm.State = visitor.State;
-                _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
-                _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean( visitor.Convicted);
+                if (visitor.RFU10 == "contract")
+                {
+                    //consultantApplicationForm
+                    _consultantApplicationForm.Address = visitor.Address ?? string.Empty;
+                    _consultantApplicationForm.Alias = visitor.AliasName ?? string.Empty;
+                    _consultantApplicationForm.CellPhone = visitor.CellPhone ?? string.Empty;
+                    _consultantApplicationForm.City = visitor.City ?? string.Empty;
+                    _consultantApplicationForm.CompanyName = visitor.CompanyName ?? string.Empty;
+                    _consultantApplicationForm.Email = visitor.Email;
+                    _consultantApplicationForm.EmergencyContactNo = visitor.EmergencyContact;
+                    _consultantApplicationForm.HomePhoneNo = visitor.HomePhoneNo;
+                    _consultantApplicationForm.PassportNumber = visitor.PassportNumber;
+                    _consultantApplicationForm.SocialSecurityNumber = visitor.SocialSecurityNumber;
+                    _consultantApplicationForm.Zip = visitor.Zip;
+                    _consultantApplicationForm.Title = visitor.Title;
+                    _consultantApplicationForm.Previous7YrResidency = visitor.Previous7YrResidency;
+                    _consultantApplicationForm.State = visitor.State;
+                    _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
+                    _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean(visitor.Convicted);
+                    _consultantApplicationForm.PlaceofIssue = visitor.PassportIssuePlace;
+                    pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
+                    pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
+                    UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
+                    //Passport IssuedData etc...
 
-                pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
-                pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
-                UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
-                //Passport IssuedData etc...
-
-                //visitorDataSheet
-                _visitorDataSheet.Title = visitor.Title;
-                _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;
-                _visitorDataSheet.CompanyName = visitor.CompanyName;
-                _visitorDataSheet.DepartmentManager = visitor.DepartmentManager;
-                _visitorDataSheet.PersonToBeVisited = visitor.PersonToBeVisited;
-                _visitorDataSheet.ProductionManager = visitor.ProductionManager;
-                _visitorDataSheet.SecurityController = visitor.SecurityController;
-                _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
-                //TBD 
+                }
+                else if(visitor.RFU10 == "visitor") {
+                    //visitorDataSheet
+                    _visitorDataSheet.Title = visitor.Title;
+                    _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;
+                    _visitorDataSheet.CompanyName = visitor.CompanyName;
+                    _visitorDataSheet.DepartmentManager = visitor.DepartmentManager;
+                    _visitorDataSheet.PersonToBeVisited = visitor.PersonToBeVisited;
+                    _visitorDataSheet.ProductionManager = visitor.ProductionManager;
+                    _visitorDataSheet.SecurityController = visitor.SecurityController;
+                    _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
+                    //TBD 
+                } else
+                {
+                    MessageBox.Show("No information matched in Database!");
+                }
             }
         }
         public Image ConvertBinaryToImage(byte[] binaryData)

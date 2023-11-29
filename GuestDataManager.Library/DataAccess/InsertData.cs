@@ -104,7 +104,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@RFU7",                   string.Empty},//[nvarchar](100)
                 {"@RFU8",                   string.Empty},//[nvarchar](100)
                 {"@RFU9",                   string.Empty},//[nvarchar](100)
-                {"@RFU10",                  string.Empty},//[nvarchar](100)
+                {"@RFU10",                  scannedFileInfo.VisitorType},//[nvarchar](100)
             };
             //byte[] nullValue = new byte[0];
 

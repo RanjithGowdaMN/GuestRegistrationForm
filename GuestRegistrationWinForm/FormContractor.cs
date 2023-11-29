@@ -24,6 +24,7 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        string ContractorGeneratedFile = string.Empty;
         //private IAPIconnector _apiHelper;
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
@@ -279,15 +280,48 @@ namespace gui
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
             visitorDataModel.IDno = _scannedData.IDno;
             visitorDataModel.Nationality = _scannedData.Nationality;
-
+            _scannedFileInfo.VisitorType = "contract";
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
             concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
             concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
             concatenatedDataBinding.vlBook = new VisitorsLogBook();
             concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
-            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
-            InsertData insertData = new InsertData();
-            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+            try
+            {
+                ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error in Generating File:", ex.Message);
+            }
+            //Insert record to DB
+            try
+            {
+                InsertData insertData = new InsertData();
+                insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                MessageBox.Show("Recored Inserted to DB");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.Message);
+            }
+            //Open Generated PDF File
+            try
+            {
+                if (!string.IsNullOrEmpty(ContractorGeneratedFile))
+                {
+                    System.Diagnostics.Process.Start(ContractorGeneratedFile);
+                }
+                else
+                {
+                    MessageBox.Show("File Not Generated, Please check folder!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:", ex.Message);
+            }
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)

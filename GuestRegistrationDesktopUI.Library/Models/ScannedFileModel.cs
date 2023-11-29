@@ -11,5 +11,6 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string FrontSideFileName { get; set; } = "D:\\VisitorData\\temp\\IDCardFront.jpg";
         public string BackSideFileName { get; set; } = "D:\\VisitorData\\temp\\IDCardBack.jpg";
         public bool IsSecondSide { get; set; }
+        public string VisitorType { get; set; } = string.Empty;
     }
 }
