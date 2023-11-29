@@ -13,9 +13,9 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Dob { get; set; }
         public string IdExpiry { get; set; }
         public int IdType { get; set; }
-        public byte[] IdFrontSide { get; set; }
-        public byte[] IdBackSide { get; set; }
-        public byte[] Photo { get; set; }
+        public string IdFrontSide { get; set; }
+        public string IdBackSide { get; set; }
+        public string Photo { get; set; }
         public string Title { get; set; }
         public string CompanyName { get; set; }
         public string PurposeOfVisit { get; set; }

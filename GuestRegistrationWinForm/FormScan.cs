@@ -14,6 +14,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -71,11 +72,11 @@ namespace gui
             {
                 //rbpass.Visible = false;
                 (var result, string fileName) = _centralHub.StartScanning(1);
-                txtname.Text = result.Name.ToString();
-                txtid.Text = result.IDno.ToString();
-                txtdob.Text = result.DateOfBirth.ToString();
-                txtexpiry.Text = result.Expiry.ToString();
-                txtnationality.Text = result.Nationality.ToString();
+                txtname.Text = result.Name?.ToString();
+                txtid.Text = result.IDno?.ToString();
+                txtdob.Text = result.DateOfBirth?.ToString();
+                txtexpiry.Text = result.Expiry?.ToString();
+                txtnationality.Text = result.Nationality?.ToString();
 
                 _scannedFileInfo.FrontSideFileName = fileName;
                 updatePictures(pbfront, fileName);
@@ -136,17 +137,28 @@ namespace gui
         public void UpdatePhotoImage(string path)
         {
             _cameraStatus.ImagePath = path;
-
-            // Load the original image
-            Image originalImage = Image.FromFile(path);
-
             // Resize the image to fit the PictureBox
             Bitmap resizedImage = new Bitmap(pbphoto.Width, pbphoto.Height);
 
             using (Graphics g = Graphics.FromImage(resizedImage))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(originalImage, 0, 0, pbphoto.Width, pbphoto.Height);
+                g.DrawImage(Image.FromFile(path), 0, 0, pbphoto.Width, pbphoto.Height);
+            }
+
+            // Set the PictureBox properties
+            pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
+            pbphoto.Image = resizedImage;
+        }
+        public void UpdatePhotoImageFromDb(Image image)
+        {
+            // Resize the image to fit the PictureBox
+            Bitmap resizedImage = new Bitmap(pbphoto.Width, pbphoto.Height);
+
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(image, 0, 0, pbphoto.Width, pbphoto.Height);
             }
 
             // Set the PictureBox properties
@@ -216,8 +228,11 @@ namespace gui
                 _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
                 _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean( visitor.Convicted);
 
+                pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
+                pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
+                UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
                 //Passport IssuedData etc...
-                 pbfront.Image = ConvertBinaryToImage(visitor.IdFrontSide);
+
                 //visitorDataSheet
                 _visitorDataSheet.Title = visitor.Title;
                 _visitorDataSheet.AreaVisited = visitor.AreaToBeVisited;

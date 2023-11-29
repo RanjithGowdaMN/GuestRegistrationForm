@@ -117,28 +117,29 @@ namespace GuestDataManager.Library.DataAccess
 
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {
-                parameters.Add("@IdFrontSide", File.ReadAllBytes(scannedFileInfo.FrontSideFileName));
+                parameters.Add("@IdFrontSide", Convert.ToBase64String(File.ReadAllBytes(scannedFileInfo.FrontSideFileName)));
             }
             else
             {
-                parameters.Add("@IdFrontSide", SqlDbType.VarBinary);
+                parameters.Add("@IdFrontSide", string.Empty);
             }
 
             if (!string.IsNullOrEmpty(scannedFileInfo.BackSideFileName))
             {
-                parameters.Add("@IdBackSide", File.ReadAllBytes(scannedFileInfo.BackSideFileName));
+                parameters.Add("@IdBackSide", Convert.ToBase64String(File.ReadAllBytes(scannedFileInfo.BackSideFileName)));
             }
             else
             {
-                parameters.Add("@IdBackSide", SqlDbType.VarBinary);
+                parameters.Add("@IdBackSide", string.Empty);
             }
 
-            if (!string.IsNullOrEmpty(scannedFileInfo.BackSideFileName))
+            if (!string.IsNullOrEmpty(cameraStatus.ImagePath))
             {
-                parameters.Add("@Photo", File.ReadAllBytes(scannedFileInfo.BackSideFileName));
-            } else
+                parameters.Add("@Photo", Convert.ToBase64String(File.ReadAllBytes(cameraStatus.ImagePath)));
+            } 
+            else
             {
-                parameters.Add("@Photo", SqlDbType.VarBinary);
+                parameters.Add("@Photo", string.Empty);
             }
 
             return parameters;
