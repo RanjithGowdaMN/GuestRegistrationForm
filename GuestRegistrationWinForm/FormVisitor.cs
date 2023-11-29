@@ -209,8 +209,9 @@ namespace gui
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
+            visitorDataModel.isDataFromDb[0] = _scannedData.isDataFromDb[0];
             _scannedFileInfo.VisitorType = "visitor";
             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
 

@@ -14,6 +14,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Expiry { get; set; }
         public string Nationality { get; set; }
         public bool IsPassport { get; set; }
+        public List<bool> isDataFromDb { get; set; }
         //TBD
     }
 }

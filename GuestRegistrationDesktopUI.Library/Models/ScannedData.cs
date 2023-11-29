@@ -8,10 +8,15 @@ namespace GuestRegistrationDesktopUI.Library.Models
 {
     public class ScannedData
     {
+        public ScannedData()
+        {
+            isDataFromDb = new List<bool>() { false, false, false, false };
+        }
         public string Name { get; set; }
-        public string IDno { get; set; }
+        public string IdNumber { get; set; }
         public string DateOfBirth { get; set; }
         public string Expiry { get; set; }
         public string Nationality { get; set; }
+        public List<bool> isDataFromDb { get; set; } 
     }
 }

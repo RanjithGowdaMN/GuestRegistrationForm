@@ -111,6 +111,7 @@
     <Compile Include="Api\APIHelper.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
     <Compile Include="CentralHub\ICentralHub.cs" />
+    <Compile Include="CONSTANTS.cs" />
     <Compile Include="FileHandler\FileHelper.cs" />
     <Compile Include="CentralHub\CentralHub.cs" />
     <Compile Include="FiScanner\FiScanHelper.cs">

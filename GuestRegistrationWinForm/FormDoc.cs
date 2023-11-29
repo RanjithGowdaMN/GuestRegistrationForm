@@ -49,7 +49,7 @@ namespace gui
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
 
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
@@ -72,7 +72,7 @@ namespace gui
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
 
             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;

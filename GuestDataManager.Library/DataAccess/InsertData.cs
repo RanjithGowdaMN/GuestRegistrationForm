@@ -35,7 +35,7 @@ namespace GuestDataManager.Library.DataAccess
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 { "@Name", scannedData.Name },
-                { "@IdNumber", scannedData.IDno},
+                { "@IdNumber", scannedData.IdNumber},
                 { "@Dob", scannedData.DateOfBirth},
                 { "@IdType", 2},
                 { "@IdFrontSide", imageFrontSide},
@@ -58,7 +58,7 @@ namespace GuestDataManager.Library.DataAccess
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 {"@Name",scannedData.Name},//[nvarchar](50)         -- Mandatory
-                {"@IdNumber",scannedData.IDno},//[nvarchar](15)     -- Mandatory
+                {"@IdNumber",scannedData.IdNumber},//[nvarchar](15)     -- Mandatory
                 {"@Dob",scannedData.DateOfBirth},//[nvarchar](15) 
                 {"@IdExpiry",scannedData.Expiry},//[nvarchar](15)   -- Mandatory
 

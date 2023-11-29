@@ -170,9 +170,29 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataModel.IsPassport = visitorDataFromUI.IsPassport;
 
             gScannedFileModel gscannedFileModel = new gScannedFileModel();
-            gscannedFileModel.BackSideFileName = scannedFileInfo.BackSideFileName;
-            gscannedFileModel.FrontSideFileName = scannedFileInfo.FrontSideFileName;
-            gscannedFileModel.IsSecondSide = scannedFileInfo.IsSecondSide;
+
+            if (visitorDataFromUI.isDataFromDb[0])
+            {
+                if (visitorDataFromUI.isDataFromDb[1])
+                {
+                    gscannedFileModel.FrontSideFileName = gCONSTANTS.TEMPIDFRONTFILEPATH;
+                }
+                if (visitorDataFromUI.isDataFromDb[2])
+                {
+                    gscannedFileModel.BackSideFileName = gCONSTANTS.TEMPIDBACKSIDEFILEPATH;
+                }
+                if (visitorDataFromUI.isDataFromDb[3])
+                {
+                    cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+                }
+            } else
+            {
+                gscannedFileModel.BackSideFileName = scannedFileInfo.BackSideFileName;
+                gscannedFileModel.FrontSideFileName = scannedFileInfo.FrontSideFileName;
+                gscannedFileModel.IsSecondSide = scannedFileInfo.IsSecondSide;
+            }
+
+            
 
             gConcatenatedDataBinding guestDataBinding = new gConcatenatedDataBinding();
             guestDataBinding.visitorDataSheet.AreaVisited = concatenatedDataBinding.visitorDataSheet.AreaVisited;

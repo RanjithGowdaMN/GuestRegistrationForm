@@ -278,8 +278,9 @@ namespace gui
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IDno;
+            visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
+            visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
             _scannedFileInfo.VisitorType = "contract";
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
             concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;

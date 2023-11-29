@@ -1,6 +1,7 @@
 ﻿//using GuestRegistrationDeskUI.ViewModels;
 using GenerateDocument.Library;
 using GuestDataManager.Library.DataAccess;
+using GuestRegistrationDesktopUI.Library;
 using GuestRegistrationDesktopUI.Library.Api;
 using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
@@ -55,7 +56,7 @@ namespace gui
             txtnationality.TextChanged += TextChanged;
 
             txtname.Text = _scannedData.Name;
-            txtid.Text = _scannedData.IDno;
+            txtid.Text = _scannedData.IdNumber;
             txtexpiry.Text = _scannedData.Expiry;
             txtdob.Text = _scannedData.DateOfBirth;
             txtnationality.Text = _scannedData.Nationality;
@@ -66,7 +67,7 @@ namespace gui
 
         private void btnfront_Click(object sender, EventArgs e)
         {
-            //MainScreenViewModel mainscreenVM = new MainScreenViewModel();
+            _scannedData.isDataFromDb[0] = false;
             if (rbid.Checked)
             {
                 //rbpass.Visible = false;
@@ -177,7 +178,7 @@ namespace gui
             }
             if (tb.Name == txtid.Name)
             {
-                _scannedData.IDno = txtid.Text;
+                _scannedData.IdNumber = txtid.Text;
             }
             if (tb.Name == txtexpiry.Name)
             {
@@ -195,6 +196,7 @@ namespace gui
             {
                VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtid.Text);
                ReloadDataToUi(visitor);
+               //_scannedData.isDataFromDb[0] = true;
             }
             catch (Exception ex)
             {
@@ -208,11 +210,12 @@ namespace gui
             if (!string.IsNullOrEmpty(visitor.IdNumber))
             {
                 //scannedData
-                txtname.Text = visitor.Name?.ToString();
-                txtid.Text = visitor.IdNumber?.ToString();
-                txtdob.Text = visitor.Dob?.ToString();
-                txtexpiry.Text = visitor.IdExpiry?.ToString();
-                txtnationality.Text = visitor.RFU9?.ToString();
+                txtname.Text = _scannedData.Name = visitor.Name?.ToString();
+                txtid.Text = _scannedData.IdNumber = visitor.IdNumber?.ToString();
+                txtdob.Text = _scannedData.DateOfBirth = visitor.Dob?.ToString();
+                txtexpiry.Text = _scannedData.Expiry  = visitor.IdExpiry?.ToString();
+                txtnationality.Text = _scannedData.Nationality  =  visitor.RFU9?.ToString();
+                _scannedData.isDataFromDb[0] = true;
                 if (visitor.RFU10 == "contract")
                 {
                     //consultantApplicationForm
@@ -236,6 +239,8 @@ namespace gui
                     pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
+
+                    UpdateImageDetails(visitor);
                     //Passport IssuedData etc...
 
                 }
@@ -252,11 +257,32 @@ namespace gui
                     pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
+
+                    UpdateImageDetails(visitor);
                     //TBD 
                 } else
                 {
                     MessageBox.Show("No information matched in Database!");
                 }
+            }
+        }
+        public void UpdateImageDetails(VisitorInformation visitor)
+        {
+            
+            if (visitor.IdFrontSide.Length > 100)
+            {
+                _scannedData.isDataFromDb[1] = true;
+                File.WriteAllBytes(gCONSTANTS.TEMPIDFRONTFILEPATH, Convert.FromBase64String(visitor.IdFrontSide));
+            }
+            if (visitor.IdBackSide.Length > 100)
+            {
+                _scannedData.isDataFromDb[2] = true;
+                File.WriteAllBytes(gCONSTANTS.TEMPIDBACKSIDEFILEPATH, Convert.FromBase64String(visitor.IdBackSide));
+            }
+            if (visitor.Photo.Length > 100)
+            {
+                _scannedData.isDataFromDb[2] = true;
+                File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(visitor.Photo));
             }
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
