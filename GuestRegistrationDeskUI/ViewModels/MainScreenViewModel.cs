@@ -207,7 +207,10 @@ namespace GuestRegistrationDeskUI.ViewModels
             visitorDataSheet.ProductionManager = ProductionManager;
             visitorDataSheet.PurposeOfVisit = ReasonForVisit;
             visitorDataSheet.SecurityController = SecurityController;
-            visitorDataSheet.VisitDateTime = VisitDateTime;
+            visitorDataSheet.VisitDateFrom = VisitDateTime;
+            //TBD
+
+
             visitorDataSheet.VisitDuration = VisitDuration;
             visitorDataSheet.VisitorIdNo = VisitorIdNo;
             visitorDataSheet.VisitorName = vdsVisitorName;

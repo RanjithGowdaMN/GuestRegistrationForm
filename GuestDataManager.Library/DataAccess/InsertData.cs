@@ -93,7 +93,7 @@ namespace GuestDataManager.Library.DataAccess
                 //Fields specific to Visitor
                 {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)
                 {"@AreaToBeVisited",        visitorDataSheet.AreaVisited??string.Empty},//[nvarchar](50)
-                {"@VisitDate",              visitorDataSheet.VisitDateTime??string.Empty},//[nvarchar](15)
+                {"@VisitDate",              visitorDataSheet.VisitDateFrom??string.Empty},//[nvarchar](15)
                 {"@VisitTime",              string.Empty},//[nvarchar](15)
                 {"@VisitFromDate",          string.Empty},//[nvarchar](15)
                 {"@VisitToDuration",        string.Empty},//[nvarchar](15)

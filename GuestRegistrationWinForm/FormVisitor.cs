@@ -44,7 +44,7 @@ namespace gui
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.CompanyName;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
-            dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateTime;
+            dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
             _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
 
             txtVisitorTitle.TextChanged += TextChanged;
@@ -101,9 +101,9 @@ namespace gui
 
             //load dates
 
-            if(_visitorDataSheet.VisitDateTime!=null)
+            if(_visitorDataSheet.VisitDateFrom!=null)
             {
-                dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateTime);
+                dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateFrom);
             }
         }
         private void TextChanged(Object sender, EventArgs e)
@@ -122,11 +122,14 @@ namespace gui
             {
                 _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
             }
+
+
             if (tb.Name == dtVisitorVisitDate.Name)
             {
-                _visitorDataSheet.VisitDateTime = dtVisitorVisitDate.Text.ToString();
-
+                _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Text.ToString();
             }
+
+
             if (tb.Name == dtVisitorDuration.Name)
             {
                 _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
@@ -174,7 +177,6 @@ namespace gui
             if(cmbVisitorPersonToVisited!=null)
             {
                 _visitorDataSheet.PersonToBeVisited = cmbVisitorPersonToVisited.SelectedItem.ToString();
-
             }
         }
         private void CmbvisitorDeptManager_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,7 +194,6 @@ namespace gui
            if(cmbVisitorAreaVisited!=null)
             {
                 _visitorDataSheet.AreaVisited = cmbVisitorAreaVisited.SelectedItem.ToString();
-                
             }
         }
         private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
@@ -271,6 +272,27 @@ namespace gui
             {
                 Logger.Error($"{ex.Message}");
             }
+        }
+        private void cmbVisitTimeFromHr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeFrom = cmbVisitTimeFromHr.Text + cmbVisitTimeFromMinutes.Text;
+        }
+        private void cmbVisitorVisitTimeToHr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeTo = cmbVisitorVisitTimeToHr.Text + cmbVisitorVisitTimeToMinutes.Text;
+        }
+        private void cmbVisitTimeFromMinutes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeFrom = cmbVisitTimeFromHr.Text + cmbVisitTimeFromMinutes.Text;
+        }
+        private void cmbVisitorVisitTimeToMinutes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeTo = cmbVisitorVisitTimeToHr.Text + cmbVisitorVisitTimeToMinutes.Text;
+        }
+
+        private string CalculateDuration(string From, string To)
+        {
+            return string.Empty;
         }
     }
 }

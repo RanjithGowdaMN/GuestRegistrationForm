@@ -16,7 +16,10 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string PurposeOfVisit { get; set; }
         public string PersonToBeVisited { get; set; }
         public string AreaVisited { get; set; }
-        public string VisitDateTime { get; set; }
+        public string VisitDateFrom { get; set; }
+        public string VisitDateTo { get; set; }
+        public string VisitTimeFrom { get; set; }
+        public string VisitTimeTo { get; set; }
         public string VisitDuration { get; set; }
         public string DepartmentManager { get; set; }
         public string ProductionManager { get; set; }
