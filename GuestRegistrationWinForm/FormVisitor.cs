@@ -64,26 +64,26 @@ namespace gui
             {
                 txtVisitorComp.Visible = false;
                 _visitorDataSheet.CompanyName = cmbVisitorComp.SelectedItem.ToString();
-
             }
         }
 
         public void LoadComboxBoxData()
         {
+            
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             List<string>CompanyNames=retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
             cmbVisitorComp.DataSource = CompanyNames;
 
-            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList(); ;
+            cmbVistorReasonForVisit.DataSource = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
             cmbVistorReasonForVisit.Text = _visitorDataSheet.PurposeOfVisit;
 
-            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList(); ;
+            cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList();
             cmbVisitorProductionManager.Text = _visitorDataSheet.ProductionManager;
 
-            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList(); ;
+            cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList();
             cmbVisitorAreaVisited.Text = _visitorDataSheet.AreaVisited;
 
-            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList(); ;
+            cmbvisitorDeptManager.DataSource = retriveDBinfo.GetDepartmentManager().Select(x => x.Managers).ToList();
             cmbvisitorDeptManager.Text = _visitorDataSheet.DepartmentManager;
 
             cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
@@ -98,13 +98,16 @@ namespace gui
             {
                 cmbVisitorComp.Text = _visitorDataSheet.CompanyName;
             }
-
             //load dates
-
             if(_visitorDataSheet.VisitDateFrom!=null)
             {
                 dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateFrom);
             }
+
+            cmbVisitTimeFromHr.Text = (_visitorDataSheet.VisitTimeHrFrom != "00") ? _visitorDataSheet.VisitTimeHrFrom : "00";
+            cmbVisitTimeFromMinutes.Text = (_visitorDataSheet.VisitTimeMinFrom != "00") ? _visitorDataSheet.VisitTimeMinFrom : "00";
+            cmbVisitorVisitTimeToHr.Text = (_visitorDataSheet.VisitTimeHrTo != "00") ? _visitorDataSheet.VisitTimeHrTo : "00";
+            cmbVisitorVisitTimeToMinutes.Text = (_visitorDataSheet.VisitTimeMinTo != "00") ? _visitorDataSheet.VisitTimeMinTo : "00";
         }
         private void TextChanged(Object sender, EventArgs e)
         {
@@ -116,20 +119,15 @@ namespace gui
             if (tb.Name == txtVisitorComp.Name)
             {
                 _visitorDataSheet.CompanyName = txtVisitorComp.Text;
-
             }
             if (tb.Name == txtVisitorSecutityController.Name)
             {
                 _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
             }
-
-
             if (tb.Name == dtVisitorVisitDate.Name)
             {
                 _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Text.ToString();
             }
-
-
             if (tb.Name == dtVisitorDuration.Name)
             {
                 _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
@@ -145,7 +143,6 @@ namespace gui
                 txtVisitorComp.Visible = false;
             }
         }
-
         private void FormVisitor_Load(object sender, EventArgs e)
         {
             txtVisitorComp.Visible = false;
@@ -273,26 +270,28 @@ namespace gui
                 Logger.Error($"{ex.Message}");
             }
         }
-        private void cmbVisitTimeFromHr_SelectedValueChanged(object sender, EventArgs e)
-        {
-            _visitorDataSheet.VisitTimeFrom = cmbVisitTimeFromHr.Text + cmbVisitTimeFromMinutes.Text;
-        }
-        private void cmbVisitorVisitTimeToHr_SelectedValueChanged(object sender, EventArgs e)
-        {
-            _visitorDataSheet.VisitTimeTo = cmbVisitorVisitTimeToHr.Text + cmbVisitorVisitTimeToMinutes.Text;
-        }
-        private void cmbVisitTimeFromMinutes_SelectedValueChanged(object sender, EventArgs e)
-        {
-            _visitorDataSheet.VisitTimeFrom = cmbVisitTimeFromHr.Text + cmbVisitTimeFromMinutes.Text;
-        }
-        private void cmbVisitorVisitTimeToMinutes_SelectedValueChanged(object sender, EventArgs e)
-        {
-            _visitorDataSheet.VisitTimeTo = cmbVisitorVisitTimeToHr.Text + cmbVisitorVisitTimeToMinutes.Text;
-        }
-
         private string CalculateDuration(string From, string To)
         {
             return string.Empty;
+        }
+        private void cmbVisitTimeFromHr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeHrFrom = cmbVisitTimeFromHr.Text;
+        }
+
+        private void cmbVisitTimeFromMinutes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeMinFrom = cmbVisitTimeFromMinutes.Text;
+        }
+
+        private void cmbVisitorVisitTimeToHr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeHrTo = cmbVisitorVisitTimeToHr.Text;
+        }
+
+        private void cmbVisitorVisitTimeToMinutes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitTimeMinTo = cmbVisitorVisitTimeToMinutes.Text;
         }
     }
 }
