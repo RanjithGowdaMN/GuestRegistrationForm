@@ -217,7 +217,7 @@ namespace gui
             this.pbphoto.Location = new System.Drawing.Point(1029, 42);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbphoto.Name = "pbphoto";
-            this.pbphoto.Size = new System.Drawing.Size(159, 183);
+            this.pbphoto.Size = new System.Drawing.Size(219, 208);
             this.pbphoto.TabIndex = 14;
             this.pbphoto.TabStop = false;
             // 
@@ -244,7 +244,7 @@ namespace gui
             // btnphoto
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnphoto.Location = new System.Drawing.Point(1056, 254);
+            this.btnphoto.Location = new System.Drawing.Point(1095, 276);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(104, 33);

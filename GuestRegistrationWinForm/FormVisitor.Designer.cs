@@ -66,7 +66,7 @@ namespace gui
             // 
             this.lblVtitle.AutoSize = true;
             this.lblVtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVtitle.Location = new System.Drawing.Point(605, 62);
+            this.lblVtitle.Location = new System.Drawing.Point(581, 61);
             this.lblVtitle.Name = "lblVtitle";
             this.lblVtitle.Size = new System.Drawing.Size(35, 17);
             this.lblVtitle.TabIndex = 0;
@@ -76,7 +76,7 @@ namespace gui
             // 
             this.lblVrsnvst.AutoSize = true;
             this.lblVrsnvst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVrsnvst.Location = new System.Drawing.Point(605, 181);
+            this.lblVrsnvst.Location = new System.Drawing.Point(581, 181);
             this.lblVrsnvst.Name = "lblVrsnvst";
             this.lblVrsnvst.Size = new System.Drawing.Size(141, 17);
             this.lblVrsnvst.TabIndex = 1;
@@ -86,7 +86,7 @@ namespace gui
             // 
             this.lblVcomp.AutoSize = true;
             this.lblVcomp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVcomp.Location = new System.Drawing.Point(605, 121);
+            this.lblVcomp.Location = new System.Drawing.Point(581, 121);
             this.lblVcomp.Name = "lblVcomp";
             this.lblVcomp.Size = new System.Drawing.Size(75, 17);
             this.lblVcomp.TabIndex = 2;
@@ -369,7 +369,7 @@ namespace gui
             // 
             // btnVisitorDocument
             // 
-            this.btnVisitorDocument.Location = new System.Drawing.Point(816, 668);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(742, 651);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(268, 32);
@@ -418,7 +418,7 @@ namespace gui
             // 
             this.lblVsc.AutoSize = true;
             this.lblVsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVsc.Location = new System.Drawing.Point(605, 601);
+            this.lblVsc.Location = new System.Drawing.Point(581, 601);
             this.lblVsc.Name = "lblVsc";
             this.lblVsc.Size = new System.Drawing.Size(124, 17);
             this.lblVsc.TabIndex = 18;
@@ -468,7 +468,7 @@ namespace gui
             // 
             this.lblVprodmangr.AutoSize = true;
             this.lblVprodmangr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVprodmangr.Location = new System.Drawing.Point(605, 542);
+            this.lblVprodmangr.Location = new System.Drawing.Point(581, 542);
             this.lblVprodmangr.Name = "lblVprodmangr";
             this.lblVprodmangr.Size = new System.Drawing.Size(185, 17);
             this.lblVprodmangr.TabIndex = 12;
@@ -478,7 +478,7 @@ namespace gui
             // 
             this.lblVdeptmang.AutoSize = true;
             this.lblVdeptmang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVdeptmang.Location = new System.Drawing.Point(605, 485);
+            this.lblVdeptmang.Location = new System.Drawing.Point(581, 482);
             this.lblVdeptmang.Name = "lblVdeptmang";
             this.lblVdeptmang.Size = new System.Drawing.Size(142, 17);
             this.lblVdeptmang.TabIndex = 11;
@@ -488,7 +488,7 @@ namespace gui
             // 
             this.lblVduration.AutoSize = true;
             this.lblVduration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVduration.Location = new System.Drawing.Point(605, 421);
+            this.lblVduration.Location = new System.Drawing.Point(581, 422);
             this.lblVduration.Name = "lblVduration";
             this.lblVduration.Size = new System.Drawing.Size(113, 17);
             this.lblVduration.TabIndex = 10;
@@ -498,7 +498,7 @@ namespace gui
             // 
             this.lblVdate.AutoSize = true;
             this.lblVdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVdate.Location = new System.Drawing.Point(605, 361);
+            this.lblVdate.Location = new System.Drawing.Point(581, 362);
             this.lblVdate.Name = "lblVdate";
             this.lblVdate.Size = new System.Drawing.Size(104, 17);
             this.lblVdate.TabIndex = 9;
@@ -508,7 +508,7 @@ namespace gui
             // 
             this.lblVarea.AutoSize = true;
             this.lblVarea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVarea.Location = new System.Drawing.Point(605, 302);
+            this.lblVarea.Location = new System.Drawing.Point(581, 302);
             this.lblVarea.Name = "lblVarea";
             this.lblVarea.Size = new System.Drawing.Size(126, 17);
             this.lblVarea.TabIndex = 8;
@@ -518,7 +518,7 @@ namespace gui
             // 
             this.lblVprsnvisit.AutoSize = true;
             this.lblVprsnvisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVprsnvisit.Location = new System.Drawing.Point(605, 241);
+            this.lblVprsnvisit.Location = new System.Drawing.Point(581, 242);
             this.lblVprsnvisit.Name = "lblVprsnvisit";
             this.lblVprsnvisit.Size = new System.Drawing.Size(158, 17);
             this.lblVprsnvisit.TabIndex = 7;
