@@ -88,6 +88,7 @@
     <Build Include="dbo\Tables\VisitorInformation.sql" />
     <Build Include="Stored Procedures\spInsertVisitorInformation.sql" />
     <Build Include="Stored Procedures\spGetVisitorByIdNumber.sql" />
+    <Build Include="Stored Procedures\spInsertInToCompanyName.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />

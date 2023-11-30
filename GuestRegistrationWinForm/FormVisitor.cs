@@ -59,7 +59,6 @@ namespace gui
            if(cmbVisitorComp.SelectedItem.ToString()=="other")
             {
                 txtVisitorComp.Visible = true;
-
             }
             else
             {
@@ -193,7 +192,7 @@ namespace gui
            if(cmbVisitorAreaVisited!=null)
             {
                 _visitorDataSheet.AreaVisited = cmbVisitorAreaVisited.SelectedItem.ToString();
-
+                
             }
         }
         private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
@@ -241,7 +240,8 @@ namespace gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: ", ex.Message);
+                MessageBox.Show("Error in Data Insert");
+                Logger.Error($"Error Data Insert {ex.Message}");
             }
             //Open Generated PDF File
             try
@@ -256,7 +256,20 @@ namespace gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:", ex.Message);
+                MessageBox.Show("Error in Opening PDF");
+                Logger.Error($"Error in Opening PDF {ex.Message}");
+            }
+            try
+            {
+                if (!string.IsNullOrEmpty(txtVisitorComp.Text))
+                {
+                    InsertData insertData = new InsertData();
+                    insertData.InsertNewCompanyNames(txtVisitorComp.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{ex.Message}");
             }
         }
     }

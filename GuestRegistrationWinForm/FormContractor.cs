@@ -325,6 +325,18 @@ namespace gui
             {
                 MessageBox.Show("Error:", ex.Message);
             }
+            try
+            {
+                if (!string.IsNullOrEmpty(txtContractorCompName.Text))
+                {
+                    InsertData insertData = new InsertData();
+                    insertData.InsertNewCompanyNames(txtContractorCompName.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{ex.Message}");
+            }
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)

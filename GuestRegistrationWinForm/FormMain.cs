@@ -178,22 +178,22 @@ namespace gui
                         {
                             // Kill the process
                             process.Kill();
-                            MessageBox.Show($"Process '{process.ProcessName}' with ID {process.Id} killed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show($"Process '{process.ProcessName}' with ID {process.Id} killed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Error killing process: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Logger.Error("Error", $"Error killing process: {ex.Message}");
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"No processes found with the name '{processName}'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show($"No processes found with the name '{processName}'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Please enter a valid process name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Please enter a valid process name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Application.Exit();
             //this.Close();

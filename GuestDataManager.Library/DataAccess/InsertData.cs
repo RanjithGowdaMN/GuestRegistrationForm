@@ -17,6 +17,14 @@ namespace GuestDataManager.Library.DataAccess
         {
             sql = new SqlDataAccess();
         }
+
+        public void InsertNewCompanyNames(string CompnayName)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@CompanyNames", CompnayName);
+            sql.SaveData("dbo.spInsertInToCompanyName", parameters, "GuestData");
+        }
+
         public void InsertVisitorRecord(ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
