@@ -253,12 +253,12 @@ namespace gui
 
         private void dtContractorPassportValid_ValueChanged(object sender, EventArgs e)
         {
-            _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Value.ToString();
+            _consultantApplicationForm.PassportValidity = dtContractorPassportValid.Value.Date.ToString("dd/MM/yyyy");
         }
 
         private void dtContractorPassportDateOfIssue_ValueChanged(object sender, EventArgs e)
         {
-            _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.ToString();
+            _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.Date.ToString("dd/MM/yyyy");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -268,7 +268,7 @@ namespace gui
 
         private void dtContractorDuration_ValueChanged(object sender, EventArgs e)
         {
-            _consultantApplicationForm.Duration = dtContractorDuration.Value.ToString();
+            _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
         private void btContractorPdf_Click(object sender, EventArgs e)
