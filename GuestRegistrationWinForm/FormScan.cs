@@ -8,6 +8,7 @@ using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 //using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,7 @@ namespace gui
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
         public event PropertyChangedEventHandler PropertyChanged;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         //private IAPIconnector _apiHelper;
         public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
@@ -127,7 +129,11 @@ namespace gui
         {
             try
             {
-                _centralHub.TakePhoto();
+                _cameraStatus = _centralHub.TakePhoto();
+                if (!_cameraStatus.CameraSessionActive)
+                {
+                    MessageBox.Show($"Camera is off or not connected!! \n photo not taken!");
+                }
             }
             catch (Exception ex)
             {
@@ -242,7 +248,6 @@ namespace gui
 
                     UpdateImageDetails(visitor);
                     //Passport IssuedData etc...
-
                 }
                 else if(visitor.RFU10 == "visitor") {
                     //visitorDataSheet

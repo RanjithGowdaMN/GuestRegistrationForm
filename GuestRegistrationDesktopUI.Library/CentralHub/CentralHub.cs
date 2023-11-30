@@ -362,12 +362,16 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         }
         public CameraStatus TakePhoto()
         {
+            //if (_canonSDKHelper.MainCamera?.SessionOpen == true) _canonSDKHelper.CloseSession();
+            //else _canonSDKHelper.OpenSession();
+
             try
             {
+                //_canonSDKHelper.OpenSession();
                 //Check for session access
                 if (_canonSDKHelper.MainCamera?.SessionOpen == true)
                 {
-                    //_canonSDKHelper.OpenSession();
+                    
                     _canonSDKHelper.TakePhotoButton_Click(_canonSDKHelper.MainCamera, EventArgs.Empty);
                     cameraStatus.CameraSessionActive = true;
                     return cameraStatus;
@@ -375,17 +379,14 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 else
                 {
                     cameraStatus.CameraSessionActive = false;
-                    cameraStatus.ErrorMessage = "Camera is in sleep mode or not connected!! \n photo not taken!";
+                    cameraStatus.ErrorMessage = "Camera is off or not connected!! \n photo not taken!";
                     return cameraStatus;
-
                 }
             }
             catch (Exception)
             {
                 logger.Error($"camera sleep mode!!");
-                //throw;
             }
-
             return cameraStatus;
         }
 

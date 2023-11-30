@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TesseractOCR.Library;
 using System.Runtime.InteropServices;
+using NLog;
 
 namespace gui
 {
@@ -34,6 +35,7 @@ namespace gui
 
         public ICentralHub centralHub;
         private IAPIconnector _apiHelper;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -43,6 +45,7 @@ namespace gui
 
         public FormMain()
         {
+            Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
             _container.Register<IOCRhelper>(new OCRhelper(_container.Resolve<ITesseractHelper>()));

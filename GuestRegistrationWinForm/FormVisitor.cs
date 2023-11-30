@@ -25,6 +25,7 @@ namespace gui
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
         string VisitorGeneratedFile = string.Empty;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
         public FormVisitor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
