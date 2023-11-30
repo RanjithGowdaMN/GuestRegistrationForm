@@ -4,6 +4,7 @@ using GuestRegistrationDesktopUI.Library.CentralHub;
 using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDeskUI.Models;
 using GuestRegistrationWinForm;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
