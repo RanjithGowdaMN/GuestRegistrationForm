@@ -118,7 +118,7 @@ namespace gui
             this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhome.Location = new System.Drawing.Point(712, 23);
             this.lblhome.Name = "lblhome";
-            this.lblhome.Size = new System.Drawing.Size(354, 37);
+            this.lblhome.Size = new System.Drawing.Size(284, 30);
             this.lblhome.TabIndex = 0;
             this.lblhome.Text = "SECURITY PRINTING PRESS";
             this.lblhome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -169,7 +169,7 @@ namespace gui
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnlgt.Size = new System.Drawing.Size(175, 65);
             this.btnlgt.TabIndex = 5;
-            this.btnlgt.Text = "Logout";
+            this.btnlgt.Text = "Archive";
             this.btnlgt.UseVisualStyleBackColor = true;
             this.btnlgt.Click += new System.EventHandler(this.btnlgt_Click);
             // 

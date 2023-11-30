@@ -213,7 +213,7 @@ namespace gui
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
             visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
-            visitorDataModel.isDataFromDb[0] = _scannedData.isDataFromDb[0];
+            visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
             _scannedFileInfo.VisitorType = "visitor";
             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
 
