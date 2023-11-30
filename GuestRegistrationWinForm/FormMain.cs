@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using TesseractOCR.Library;
 using System.Runtime.InteropServices;
 using NLog;
+using System.Diagnostics;
 
 namespace gui
 {
@@ -25,7 +26,7 @@ namespace gui
     {
         public static DependencyInjectionContainer _container;
         private Form activeForm;
-
+        private Process myProcess;
         public CameraStatus cameraStatus;
         public ScannedFileModel scannedFileInfo;
         public ScannedData scannedData;
@@ -67,9 +68,36 @@ namespace gui
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
             //(var result, string fileName) = centalHub.StartScanning(1);
-          
 
+            //HandleProcess();
             LoadComponentsData();
+        }
+
+        private void HandleProcess()
+        {
+            string processName = "GuestRegistrationWinForm.exe";
+
+            // Check if the process is already running
+            Process[] processes = Process.GetProcessesByName(processName);
+            if (processes.Length == 0)
+            {
+                // Start the process if it's not already running
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = processName,
+                    // Add any additional settings if needed
+                };
+
+                myProcess = Process.Start(startInfo);
+            }
+            else
+            {
+                // Use the existing process if it's already running
+                myProcess = processes[0];
+            }
+
+            // Subscribe to the FormClosing event to stop the process when the form is closed
+            this.FormClosing += btnWindowClsoe_Click;
         }
 
         private void LoadComponentsData()
@@ -134,6 +162,39 @@ namespace gui
 
         private void btnWindowClsoe_Click(object sender, EventArgs e)
         {
+
+            string processName = "GuestRegistrationWinForm";
+
+            if (!string.IsNullOrEmpty(processName))
+            {
+                // Get all processes with the specified name
+                Process[] processes = Process.GetProcessesByName(processName);
+
+                if (processes.Length > 0)
+                {
+                    foreach (Process process in processes)
+                    {
+                        try
+                        {
+                            // Kill the process
+                            process.Kill();
+                            MessageBox.Show($"Process '{process.ProcessName}' with ID {process.Id} killed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error killing process: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"No processes found with the name '{processName}'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid process name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             Application.Exit();
             //this.Close();
         }

@@ -237,7 +237,7 @@ namespace gui
             {
                 InsertData insertData = new InsertData();
                 insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
-                MessageBox.Show("Recored Inserted to DB");
+                MessageBox.Show("Recored Inserted to DataBase");
             }
             catch (Exception ex)
             {
@@ -258,8 +258,6 @@ namespace gui
             {
                 MessageBox.Show("Error:", ex.Message);
             }
-
-
         }
     }
 }
