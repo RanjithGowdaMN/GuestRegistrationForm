@@ -260,7 +260,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.HomePhoneNo = Homephone;
             consultantApplicationForm.IdNo = IdNo;
             consultantApplicationForm.IsNo = IsNo;
-            consultantApplicationForm.ConvictedFelony = CFelony;
+            consultantApplicationForm.ConvictedFelony = false;
             consultantApplicationForm.IsYes = IsYes;
             consultantApplicationForm.LastName = caLastName;
             consultantApplicationForm.MiddleName = caMiddleName;

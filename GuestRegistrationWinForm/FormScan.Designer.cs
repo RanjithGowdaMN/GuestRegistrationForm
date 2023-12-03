@@ -233,8 +233,9 @@ namespace gui
             this.pbfront.Location = new System.Drawing.Point(217, 367);
             this.pbfront.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbfront.MaximumSize = new System.Drawing.Size(360, 160);
+            this.pbfront.MinimumSize = new System.Drawing.Size(360, 160);
             this.pbfront.Name = "pbfront";
-            this.pbfront.Size = new System.Drawing.Size(306, 160);
+            this.pbfront.Size = new System.Drawing.Size(360, 160);
             this.pbfront.TabIndex = 15;
             this.pbfront.TabStop = false;
             // 
@@ -244,6 +245,7 @@ namespace gui
             this.pbback.Location = new System.Drawing.Point(593, 367);
             this.pbback.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbback.MaximumSize = new System.Drawing.Size(306, 160);
+            this.pbback.MinimumSize = new System.Drawing.Size(306, 160);
             this.pbback.Name = "pbback";
             this.pbback.Size = new System.Drawing.Size(306, 160);
             this.pbback.TabIndex = 16;
@@ -288,6 +290,7 @@ namespace gui
             this.panelScan.Name = "panelScan";
             this.panelScan.Size = new System.Drawing.Size(1146, 550);
             this.panelScan.TabIndex = 18;
+            this.panelScan.AutoSizeChanged += new System.EventHandler(this.panelScan_AutoSizeChanged);
             // 
             // SearchVisitor
             // 

@@ -58,8 +58,11 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                     () => _fiScanHelper = FiScanHelper.GetFormInstance,
                     ()=> _canonSDKHelper = CanonSDKHelper.GetFormInstance
                 );
-            
+
             //initialize Fi Scanner
+            _fiScanHelper.AutoSize = false;
+            _fiScanHelper.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            
             _fiScanHelper.ScanCompleted += OnScanCompleted;
             _fiScanHelper.FormScan_Load();
             _fiScanHelper.OpenScanner();

@@ -99,6 +99,8 @@ namespace gui
             {
                 MessageBox.Show("Please select the ID Type");
             }
+            this.AutoScaleDimensions = Program.originalSize;
+            this.Size = Program.originalSize;
         }
 
         private void updatePictures(PictureBox pictureBox, string filePath)
@@ -299,6 +301,11 @@ namespace gui
                 Image image = Image.FromStream(memoryStream);
                 return image;
             }
+        }
+
+        private void panelScan_AutoSizeChanged(object sender, EventArgs e)
+        {
+            this.Size = Program.originalSize;
         }
     }
 }

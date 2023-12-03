@@ -46,6 +46,7 @@ namespace gui
 
         public FormMain()
         {
+            
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
@@ -107,8 +108,8 @@ namespace gui
 
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            //if (activeForm != null)
+            //    activeForm.Close();
             
               activeForm = childForm;
             childForm.TopLevel = false;
@@ -125,7 +126,9 @@ namespace gui
         }
         private void btnScan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            Form scanForm = new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            scanForm.AutoScaleMode = AutoScaleMode.None;
+            OpenChildForm(scanForm, sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
