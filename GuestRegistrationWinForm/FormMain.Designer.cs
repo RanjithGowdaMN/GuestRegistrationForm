@@ -205,7 +205,7 @@ namespace gui
             this.btnvisitor.TabIndex = 2;
             this.btnvisitor.Text = "Visitor";
             this.btnvisitor.UseVisualStyleBackColor = true;
-            this.btnvisitor.Click += new System.EventHandler(this.button1_Click);
+            this.btnvisitor.Click += new System.EventHandler(this.btnVisitorTab_Click);
             // 
             // btncontractor
             // 
@@ -239,7 +239,7 @@ namespace gui
             this.btnscan.TabIndex = 0;
             this.btnscan.Text = "Scan";
             this.btnscan.UseVisualStyleBackColor = true;
-            this.btnscan.Click += new System.EventHandler(this.btnscan_Click);
+            this.btnscan.Click += new System.EventHandler(this.btnScan_Click);
             // 
             // panelform
             // 

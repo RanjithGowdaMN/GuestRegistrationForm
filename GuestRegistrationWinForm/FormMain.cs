@@ -123,7 +123,7 @@ namespace gui
         
         
         }
-        private void btnscan_Click(object sender, EventArgs e)
+        private void btnScan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
@@ -134,7 +134,7 @@ namespace gui
             OpenChildForm(formContractor, sender);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnVisitorTab_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
