@@ -292,6 +292,7 @@ namespace gui
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
         {
+            
             using (MemoryStream memoryStream = new MemoryStream(binaryData))
             {
                 // Create Image from binary data
