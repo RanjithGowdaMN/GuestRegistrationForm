@@ -44,8 +44,9 @@ namespace gui
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.CompanyName;
             txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
-            dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
-            _visitorDataSheet.VisitDuration = dtVisitorDuration.Text;
+           // dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
+           // _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Text;
+
 
             txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
@@ -103,6 +104,10 @@ namespace gui
             {
                 dtVisitorVisitDate.Value = DateTime.Parse(_visitorDataSheet.VisitDateFrom);
             }
+            if(_visitorDataSheet.VisitDuration!=null)
+            {
+                dtVisitorVisitDuration.Value = DateTime.Parse(_visitorDataSheet.VisitDuration);
+            }
 
             cmbVisitTimeFromHr.Text = (_visitorDataSheet.VisitTimeHrFrom != "00") ? _visitorDataSheet.VisitTimeHrFrom : "00";
             cmbVisitTimeFromMinutes.Text = (_visitorDataSheet.VisitTimeMinFrom != "00") ? _visitorDataSheet.VisitTimeMinFrom : "00";
@@ -126,11 +131,11 @@ namespace gui
             }
             if (tb.Name == dtVisitorVisitDate.Name)
             {
-                _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Text.ToString();
+                _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.Date.ToString("dd/MM/yyyy");
             }
-            if (tb.Name == dtVisitorDuration.Name)
+            if (tb.Name == dtVisitorVisitDuration.Name)
             {
-                _visitorDataSheet.VisitDuration = dtVisitorDuration.Text.ToString();
+                _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -195,11 +200,11 @@ namespace gui
         }
         private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
         {
-            _visitorDataSheet.VisitDuration = dtVisitorVisitDate.Value.ToString();
+            _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.ToString();
         }
         private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
         {
-            _visitorDataSheet.VisitDuration = dtVisitorDuration.Value.ToString();
+            _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.ToString();
         }
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {

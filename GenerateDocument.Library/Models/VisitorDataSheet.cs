@@ -21,5 +21,7 @@ namespace GuestRegistrationDeskUI.Models
         public string ProductionManager { get; set; }
         public string SecurityController { get; set; }
         public string Title { get; set; }
+        public string VisitorDuration { get; set; }
+        public string VisitDateFrom { get; set; }
     }
 }
