@@ -30,9 +30,16 @@ namespace GuestRegistrationWinForm
             formMain.AutoSize = false;
             formMain.AutoScaleDimensions = originalSize;
             formMain.AutoSizeMode = AutoSizeMode.GrowOnly;
+            formMain.AutoScaleMode = AutoScaleMode.Dpi;
+            formMain.Resize += FormMain_Resize;
             originalSize = formMain.Size;
             Application.Run(formMain);
 
+        }
+
+        private static void FormMain_Resize(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

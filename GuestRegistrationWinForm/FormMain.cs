@@ -108,8 +108,8 @@ namespace gui
 
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            //if (activeForm != null)
+            //    activeForm.Close();
             
               activeForm = childForm;
             childForm.TopLevel = false;
@@ -215,61 +215,6 @@ namespace gui
                 WindowState = FormWindowState.Maximized;
             else
                 WindowState = FormWindowState.Normal;
-        }
-
-        private void panelform_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_AutoSizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_LocationChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_DpiChangedAfterParent(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_DpiChangedBeforeParent(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_Layout(object sender, LayoutEventArgs e)
-        {
-
-        }
-
-        private void panelform_MarginChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_Move(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_PaddingChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelform_Resize(object sender, EventArgs e)
-        {
-
         }
     }
 }
