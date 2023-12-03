@@ -300,6 +300,11 @@ namespace gui
                 return image;
             }
         }
+
+        private void panelScan_AutoSizeChanged(object sender, EventArgs e)
+        {
+            this.Size = Program.originalSize;
+        }
     }
 }
 

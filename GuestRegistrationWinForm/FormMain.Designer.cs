@@ -59,9 +59,9 @@ namespace gui
             this.panelhome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelhome.ForeColor = System.Drawing.Color.White;
             this.panelhome.Location = new System.Drawing.Point(0, 0);
-            this.panelhome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelhome.Margin = new System.Windows.Forms.Padding(2);
             this.panelhome.Name = "panelhome";
-            this.panelhome.Size = new System.Drawing.Size(1324, 59);
+            this.panelhome.Size = new System.Drawing.Size(1324, 55);
             this.panelhome.TabIndex = 0;
             this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
             // 
@@ -72,9 +72,9 @@ namespace gui
             this.btnWindowMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWindowMin.Location = new System.Drawing.Point(1218, 0);
-            this.btnWindowMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWindowMin.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowMin.Name = "btnWindowMin";
-            this.btnWindowMin.Size = new System.Drawing.Size(32, 59);
+            this.btnWindowMin.Size = new System.Drawing.Size(32, 55);
             this.btnWindowMin.TabIndex = 2;
             this.btnWindowMin.Text = "-";
             this.btnWindowMin.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@ namespace gui
             this.btnWindowMaxm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMaxm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWindowMaxm.Location = new System.Drawing.Point(1250, 0);
-            this.btnWindowMaxm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWindowMaxm.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowMaxm.Name = "btnWindowMaxm";
-            this.btnWindowMaxm.Size = new System.Drawing.Size(34, 59);
+            this.btnWindowMaxm.Size = new System.Drawing.Size(34, 55);
             this.btnWindowMaxm.TabIndex = 3;
             this.btnWindowMaxm.Text = "O";
             this.btnWindowMaxm.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@ namespace gui
             this.btnWindowClsoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowClsoe.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWindowClsoe.Location = new System.Drawing.Point(1284, 0);
-            this.btnWindowClsoe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWindowClsoe.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowClsoe.Name = "btnWindowClsoe";
-            this.btnWindowClsoe.Size = new System.Drawing.Size(40, 59);
+            this.btnWindowClsoe.Size = new System.Drawing.Size(40, 55);
             this.btnWindowClsoe.TabIndex = 1;
             this.btnWindowClsoe.Text = "X";
             this.btnWindowClsoe.UseVisualStyleBackColor = true;
@@ -134,8 +134,8 @@ namespace gui
             this.panelbuttons.Controls.Add(this.btncontractor);
             this.panelbuttons.Controls.Add(this.btnscan);
             this.panelbuttons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelbuttons.Location = new System.Drawing.Point(0, 59);
-            this.panelbuttons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelbuttons.Location = new System.Drawing.Point(0, 55);
+            this.panelbuttons.Margin = new System.Windows.Forms.Padding(2);
             this.panelbuttons.Name = "panelbuttons";
             this.panelbuttons.Size = new System.Drawing.Size(1324, 54);
             this.panelbuttons.TabIndex = 1;
@@ -148,7 +148,7 @@ namespace gui
             this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
             this.btndoc.Location = new System.Drawing.Point(676, 0);
-            this.btndoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btndoc.Margin = new System.Windows.Forms.Padding(2);
             this.btndoc.Name = "btndoc";
             this.btndoc.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btndoc.Size = new System.Drawing.Size(131, 53);
@@ -165,7 +165,7 @@ namespace gui
             this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
             this.btnlgt.Location = new System.Drawing.Point(929, 0);
-            this.btnlgt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlgt.Margin = new System.Windows.Forms.Padding(2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnlgt.Size = new System.Drawing.Size(131, 53);
@@ -182,7 +182,7 @@ namespace gui
             this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
             this.btncard.Location = new System.Drawing.Point(801, 0);
-            this.btncard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncard.Margin = new System.Windows.Forms.Padding(2);
             this.btncard.Name = "btncard";
             this.btncard.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btncard.Size = new System.Drawing.Size(131, 53);
@@ -199,7 +199,7 @@ namespace gui
             this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
             this.btnvisitor.Location = new System.Drawing.Point(547, 0);
-            this.btnvisitor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnvisitor.Margin = new System.Windows.Forms.Padding(2);
             this.btnvisitor.Name = "btnvisitor";
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnvisitor.Size = new System.Drawing.Size(131, 53);
@@ -216,7 +216,7 @@ namespace gui
             this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Location = new System.Drawing.Point(418, 0);
-            this.btncontractor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btncontractor.Margin = new System.Windows.Forms.Padding(2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btncontractor.Size = new System.Drawing.Size(131, 53);
@@ -233,7 +233,7 @@ namespace gui
             this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Location = new System.Drawing.Point(290, 0);
-            this.btnscan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnscan.Margin = new System.Windows.Forms.Padding(2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnscan.Size = new System.Drawing.Size(131, 53);
@@ -245,19 +245,29 @@ namespace gui
             // panelform
             // 
             this.panelform.Controls.Add(this.pictureBox1);
-            this.panelform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelform.Location = new System.Drawing.Point(0, 113);
-            this.panelform.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelform.Location = new System.Drawing.Point(0, 110);
+            this.panelform.Margin = new System.Windows.Forms.Padding(2);
             this.panelform.Name = "panelform";
             this.panelform.Size = new System.Drawing.Size(1324, 661);
             this.panelform.TabIndex = 2;
+            this.panelform.AutoSizeChanged += new System.EventHandler(this.panelform_AutoSizeChanged);
+            this.panelform.LocationChanged += new System.EventHandler(this.panelform_LocationChanged);
+            this.panelform.MarginChanged += new System.EventHandler(this.panelform_MarginChanged);
+            this.panelform.SizeChanged += new System.EventHandler(this.panelform_SizeChanged);
+            this.panelform.VisibleChanged += new System.EventHandler(this.panelform_VisibleChanged);
+            this.panelform.PaddingChanged += new System.EventHandler(this.panelform_PaddingChanged);
+            this.panelform.Layout += new System.Windows.Forms.LayoutEventHandler(this.panelform_Layout);
+            this.panelform.DpiChangedBeforeParent += new System.EventHandler(this.panelform_DpiChangedBeforeParent);
+            this.panelform.DpiChangedAfterParent += new System.EventHandler(this.panelform_DpiChangedAfterParent);
+            this.panelform.Move += new System.EventHandler(this.panelform_Move);
+            this.panelform.Resize += new System.EventHandler(this.panelform_Resize);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
             this.pictureBox1.Location = new System.Drawing.Point(220, 150);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(794, 374);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -273,7 +283,7 @@ namespace gui
             this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.panelhome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";

@@ -46,6 +46,7 @@ namespace gui
 
         public FormMain()
         {
+            
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
@@ -125,7 +126,9 @@ namespace gui
         }
         private void btnScan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            Form scanForm = new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            scanForm.AutoScaleMode = AutoScaleMode.None;
+            OpenChildForm(scanForm, sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
@@ -212,6 +215,61 @@ namespace gui
                 WindowState = FormWindowState.Maximized;
             else
                 WindowState = FormWindowState.Normal;
+        }
+
+        private void panelform_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_AutoSizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_LocationChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_DpiChangedAfterParent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_DpiChangedBeforeParent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_Layout(object sender, LayoutEventArgs e)
+        {
+
+        }
+
+        private void panelform_MarginChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_Move(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_PaddingChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelform_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }
