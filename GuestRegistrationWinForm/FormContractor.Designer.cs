@@ -445,10 +445,10 @@ namespace gui
             // 
             // rtxtContractorPreResidence
             // 
-            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(732, 615);
+            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(726, 614);
             this.rtxtContractorPreResidence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtContractorPreResidence.Name = "rtxtContractorPreResidence";
-            this.rtxtContractorPreResidence.Size = new System.Drawing.Size(583, 101);
+            this.rtxtContractorPreResidence.Size = new System.Drawing.Size(402, 118);
             this.rtxtContractorPreResidence.TabIndex = 21;
             this.rtxtContractorPreResidence.Text = "";
             // 
@@ -508,7 +508,7 @@ namespace gui
             // 
             // btContractorPdf
             // 
-            this.btContractorPdf.Location = new System.Drawing.Point(1341, 676);
+            this.btContractorPdf.Location = new System.Drawing.Point(1152, 676);
             this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btContractorPdf.Name = "btContractorPdf";
             this.btContractorPdf.Size = new System.Drawing.Size(291, 39);
