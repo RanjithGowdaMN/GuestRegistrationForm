@@ -199,7 +199,7 @@ namespace gui
             "60"});
             this.cmbVisitorVisitTimeToMinutes.Location = new System.Drawing.Point(1256, 421);
             this.cmbVisitorVisitTimeToMinutes.Name = "cmbVisitorVisitTimeToMinutes";
-            this.cmbVisitorVisitTimeToMinutes.Size = new System.Drawing.Size(48, 24);
+            this.cmbVisitorVisitTimeToMinutes.Size = new System.Drawing.Size(62, 24);
             this.cmbVisitorVisitTimeToMinutes.TabIndex = 12;
             this.cmbVisitorVisitTimeToMinutes.SelectedValueChanged += new System.EventHandler(this.cmbVisitorVisitTimeToMinutes_SelectedValueChanged);
             // 
@@ -235,7 +235,7 @@ namespace gui
             "24"});
             this.cmbVisitorVisitTimeToHr.Location = new System.Drawing.Point(1172, 421);
             this.cmbVisitorVisitTimeToHr.Name = "cmbVisitorVisitTimeToHr";
-            this.cmbVisitorVisitTimeToHr.Size = new System.Drawing.Size(48, 24);
+            this.cmbVisitorVisitTimeToHr.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitorVisitTimeToHr.TabIndex = 11;
             this.cmbVisitorVisitTimeToHr.SelectedValueChanged += new System.EventHandler(this.cmbVisitorVisitTimeToHr_SelectedValueChanged);
             // 
@@ -317,7 +317,7 @@ namespace gui
             "60"});
             this.cmbVisitTimeFromMinutes.Location = new System.Drawing.Point(1256, 361);
             this.cmbVisitTimeFromMinutes.Name = "cmbVisitTimeFromMinutes";
-            this.cmbVisitTimeFromMinutes.Size = new System.Drawing.Size(48, 24);
+            this.cmbVisitTimeFromMinutes.Size = new System.Drawing.Size(62, 24);
             this.cmbVisitTimeFromMinutes.TabIndex = 9;
             this.cmbVisitTimeFromMinutes.SelectedValueChanged += new System.EventHandler(this.cmbVisitTimeFromMinutes_SelectedValueChanged);
             // 
@@ -353,7 +353,7 @@ namespace gui
             "24"});
             this.cmbVisitTimeFromHr.Location = new System.Drawing.Point(1172, 361);
             this.cmbVisitTimeFromHr.Name = "cmbVisitTimeFromHr";
-            this.cmbVisitTimeFromHr.Size = new System.Drawing.Size(48, 24);
+            this.cmbVisitTimeFromHr.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitTimeFromHr.TabIndex = 8;
             this.cmbVisitTimeFromHr.SelectedValueChanged += new System.EventHandler(this.cmbVisitTimeFromHr_SelectedValueChanged);
             // 
