@@ -40,6 +40,26 @@ namespace gui
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
+            Initialize();
+            txtContractorAddress.TextChanged += TextChanged;
+            txtContractorAliasName.TextChanged += TextChanged;
+            txtContractorCellPhn.TextChanged += TextChanged;
+            txtContractorCity.TextChanged += TextChanged;
+            txtContractorCompName.TextChanged += TextChanged;
+            txtContractorEmail.TextChanged += TextChanged;
+            txtContractorEmergencyNo.TextChanged += TextChanged;
+            txtContractorHomePhn.TextChanged += TextChanged;
+            txtContractorPassportNo.TextChanged += TextChanged;
+            txtContractorPassportPlaceOfIssue.TextChanged += TextChanged;
+            txtContractorSecurityNo.TextChanged += TextChanged;
+            txtContratorTitle.TextChanged += TextChanged;
+            txtContractorZip.TextChanged += TextChanged;
+            txtContractorState.TextChanged += TextChanged;
+            rtxtContractorPreResidence.TextChanged += RichTextChanged;
+        }
+
+        private void Initialize()
+        {
             txtContractorCompName.Text = _consultantApplicationForm.CompanyName;
             txtContractorAddress.Text = _consultantApplicationForm.Address;
             txtContractorAliasName.Text = _consultantApplicationForm.Alias;
@@ -59,24 +79,9 @@ namespace gui
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
 
-            txtContractorAddress.TextChanged += TextChanged;
-            txtContractorAliasName.TextChanged += TextChanged;
-            txtContractorCellPhn.TextChanged += TextChanged;
-            txtContractorCity.TextChanged += TextChanged;
-            txtContractorCompName.TextChanged += TextChanged;
-            txtContractorEmail.TextChanged += TextChanged;
-            txtContractorEmergencyNo.TextChanged += TextChanged;
-            txtContractorHomePhn.TextChanged += TextChanged;
-            txtContractorPassportNo.TextChanged += TextChanged;
-            txtContractorPassportPlaceOfIssue.TextChanged += TextChanged;
-            txtContractorSecurityNo.TextChanged += TextChanged;
-            txtContratorTitle.TextChanged += TextChanged;
-            txtContractorZip.TextChanged += TextChanged;
-            txtContractorState.TextChanged += TextChanged;
-            rtxtContractorPreResidence.TextChanged += RichTextChanged;
-
             LoadComboxBoxData();
         }
+
         private void Contractor_Load(object sender, EventArgs e)
         {
             getCompanyName();
@@ -135,7 +140,6 @@ namespace gui
             {
                 cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
             }
-            
            /* if((PurposeOfVisits.Contains(_consultantApplicationForm.PurposeOfVisit)&&(_consultantApplicationForm.PurposeOfVisit!=null)))
                     {
                 cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
@@ -292,11 +296,24 @@ namespace gui
             try
             {
                 ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+                DialogResult dialogResult = MessageBox.Show("Document Generated, Do you want clear the data ?", "Clear Data", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _scannedData = new ScannedData();
+                    _visitorDataSheet = new VisitorDataSheet();
+                    _consultantApplicationForm = new ConsultantApplicationForm();
+                    Initialize();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    
+                }
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error in Generating File:", ex.Message);
+                MessageBox.Show("Error in Generating File:");
+                Logger.Error(ex.Message, "Error in generating Document:");
             }
             //Insert record to DB
             try
@@ -307,7 +324,8 @@ namespace gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: ", ex.Message);
+                MessageBox.Show("Error: in data insert to database !");
+                Logger.Error(ex.Message, "data insert error!");
             }
             //Open Generated PDF File
             try
@@ -319,11 +337,13 @@ namespace gui
                 else
                 {
                     MessageBox.Show("File Not Generated, Please check folder!!");
+                    Logger.Error("File Not Generated");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:", ex.Message);
+                MessageBox.Show("Error: in file generation");
+                Logger.Error(ex.Message, "Error in file generation");
             }
             try
             {
@@ -335,7 +355,7 @@ namespace gui
             }
             catch (Exception ex)
             {
-                Logger.Error($"{ex.Message}");
+                Logger.Error($"{ex.Message}", "Error in inserting new company!");
             }
         }
 

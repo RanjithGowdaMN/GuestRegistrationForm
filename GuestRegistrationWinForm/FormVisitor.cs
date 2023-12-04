@@ -40,20 +40,22 @@ namespace gui
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
-
-            txtVisitorTitle.Text = _visitorDataSheet.Title;
-            txtVisitorComp.Text = _visitorDataSheet.CompanyName;
-            txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
-           // dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
-           // _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Text;
-
-
+            Initialize();
             txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
             txtVisitorSecutityController.TextChanged += TextChanged;
+        }
 
+        private void Initialize()
+        {
+            txtVisitorTitle.Text = _visitorDataSheet.Title;
+            txtVisitorComp.Text = _visitorDataSheet.CompanyName;
+            txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
+            // dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
+            // _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Text;
             LoadComboxBoxData();
         }
+
         private void CmbVisitorComp_SelectedIndexChanged(object sender, EventArgs e)
         {
            // throw new NotImplementedException();
@@ -67,7 +69,6 @@ namespace gui
                 _visitorDataSheet.CompanyName = cmbVisitorComp.SelectedItem.ToString();
             }
         }
-
         public void LoadComboxBoxData()
         {
             
@@ -230,6 +231,18 @@ namespace gui
             try
             {
                 VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+                DialogResult dialogResult = MessageBox.Show("Document Generated, Do you want clear the data ?", "Clear Data", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _scannedData = new ScannedData();
+                    _visitorDataSheet = new VisitorDataSheet();
+                    _consultantApplicationForm = new ConsultantApplicationForm();
+                    Initialize();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
             }
             catch (Exception ex)
             {
@@ -255,6 +268,7 @@ namespace gui
                 }
                 else {
                     MessageBox.Show("File Not Generated, Please check folder!!");
+                    Logger.Error("File Not Generated");
                 }
             }
             catch (Exception ex)
@@ -277,6 +291,8 @@ namespace gui
         }
         private string CalculateDuration(string From, string To)
         {
+            
+            
             return string.Empty;
         }
         private void cmbVisitTimeFromHr_SelectedValueChanged(object sender, EventArgs e)
