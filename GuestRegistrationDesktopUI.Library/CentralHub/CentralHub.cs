@@ -205,7 +205,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             guestDataBinding.visitorDataSheet.ProductionManager = concatenatedDataBinding.visitorDataSheet.ProductionManager;
             guestDataBinding.visitorDataSheet.ReasonForVisit = concatenatedDataBinding.visitorDataSheet.PurposeOfVisit;
             guestDataBinding.visitorDataSheet.SecurityController = concatenatedDataBinding.visitorDataSheet.SecurityController;
-            guestDataBinding.visitorDataSheet.VisitDateTime = concatenatedDataBinding.visitorDataSheet.VisitDateFrom;
+            guestDataBinding.visitorDataSheet.VisitDateFrom = concatenatedDataBinding.visitorDataSheet.VisitDateFrom;
             guestDataBinding.visitorDataSheet.VisitDuration = concatenatedDataBinding.visitorDataSheet.VisitDuration;
             guestDataBinding.visitorDataSheet.Title = concatenatedDataBinding.visitorDataSheet.Title;
 

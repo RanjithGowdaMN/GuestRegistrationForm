@@ -200,12 +200,12 @@ namespace gui
         }
         private void dtVisitorVisitDate_ValueChanged(object sender, EventArgs e)
         {
-            _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.ToString();
+            _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.Date.ToString("dd/MM/yyyy");
         }
-        private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
-        {
-            _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.ToString();
-        }
+      //  private void dtVisitorDuration_ValueChanged(object sender, EventArgs e)
+        //{
+          //  _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.ToString();
+       // }
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
@@ -297,6 +297,11 @@ namespace gui
         private void cmbVisitorVisitTimeToMinutes_SelectedValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitTimeMinTo = cmbVisitorVisitTimeToMinutes.Text;
+        }
+
+        private void dtVisitorVisitDuration_ValueChanged(object sender, EventArgs e)
+        {
+            _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
         }
     }
 }

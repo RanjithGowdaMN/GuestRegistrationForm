@@ -41,7 +41,7 @@ namespace GenerateDocument.Library
                 new Tuple<float, float, string>(182,550,gConcatenatedDataBinding.visitorDataSheet.ReasonForVisit),
                 new Tuple<float, float, string>(182,503,gConcatenatedDataBinding.visitorDataSheet.PersontobeVisited),
                 new Tuple<float, float, string>(182,455,gConcatenatedDataBinding.visitorDataSheet.AreaVisited),
-                new Tuple<float, float, string>(470,410,gConcatenatedDataBinding.visitorDataSheet.VisitorDuration),
+                new Tuple<float, float, string>(470,410,gConcatenatedDataBinding.visitorDataSheet.VisitDuration),
                 new Tuple<float, float, string>(182,410,gConcatenatedDataBinding.visitorDataSheet.VisitDateFrom),
                 new Tuple<float, float, string>(182,370,gConcatenatedDataBinding.visitorDataSheet.DepartmentManager),
                 new Tuple<float, float, string>(182,326,gConcatenatedDataBinding.visitorDataSheet.ProductionManager),

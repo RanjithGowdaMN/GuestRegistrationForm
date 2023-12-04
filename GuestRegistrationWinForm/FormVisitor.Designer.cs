@@ -34,6 +34,7 @@ namespace gui
             this.lblVrsnvst = new System.Windows.Forms.Label();
             this.lblVcomp = new System.Windows.Forms.Label();
             this.panelVisitor = new System.Windows.Forms.Panel();
+            this.dtVisitorVisitDuration = new System.Windows.Forms.DateTimePicker();
             this.cmbVisitorVisitTimeToMinutes = new System.Windows.Forms.ComboBox();
             this.cmbVisitorVisitTimeToHr = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
-            this.dtVisitorVisitDuration = new System.Windows.Forms.DateTimePicker();
             this.panelVisitor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,6 +133,16 @@ namespace gui
             this.panelVisitor.Size = new System.Drawing.Size(1583, 722);
             this.panelVisitor.TabIndex = 3;
             this.panelVisitor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dtVisitorVisitDuration
+            // 
+            this.dtVisitorVisitDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtVisitorVisitDuration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtVisitorVisitDuration.Location = new System.Drawing.Point(766, 422);
+            this.dtVisitorVisitDuration.Name = "dtVisitorVisitDuration";
+            this.dtVisitorVisitDuration.Size = new System.Drawing.Size(244, 22);
+            this.dtVisitorVisitDuration.TabIndex = 23;
+            this.dtVisitorVisitDuration.ValueChanged += new System.EventHandler(this.dtVisitorVisitDuration_ValueChanged);
             // 
             // cmbVisitorVisitTimeToMinutes
             // 
@@ -568,15 +578,6 @@ namespace gui
             this.txtVisitorComp.Name = "txtVisitorComp";
             this.txtVisitorComp.Size = new System.Drawing.Size(215, 22);
             this.txtVisitorComp.TabIndex = 3;
-            // 
-            // dtVisitorVisitDuration
-            // 
-            this.dtVisitorVisitDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtVisitorVisitDuration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVisitorVisitDuration.Location = new System.Drawing.Point(766, 422);
-            this.dtVisitorVisitDuration.Name = "dtVisitorVisitDuration";
-            this.dtVisitorVisitDuration.Size = new System.Drawing.Size(244, 22);
-            this.dtVisitorVisitDuration.TabIndex = 23;
             // 
             // FormVisitor
             // 
