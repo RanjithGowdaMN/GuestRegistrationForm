@@ -65,42 +65,62 @@ namespace gui
             UpdatePhotoImage(_cameraStatus.ImagePath);
             updatePictures(pbfront, _scannedFileInfo.FrontSideFileName);
             updatePictures(pbback, _scannedFileInfo.BackSideFileName);
+            updateRadioButtons();
         }
 
-        private void btnfront_Click(object sender, EventArgs e)
+        private void updateRadioButtons()
         {
-            _scannedData.isDataFromDb[0] = false;
-            if (rbid.Checked)
+            if (_scannedData.IdType == 2)
             {
-                //rbpass.Visible = false;
-                (var result, string fileName) = _centralHub.StartScanning(1);
-                txtname.Text = result.Name?.ToString();
-                txtid.Text = result.IDno?.ToString();
-                txtdob.Text = result.DateOfBirth?.ToString();
-                txtexpiry.Text = result.Expiry?.ToString();
-                txtnationality.Text = result.Nationality?.ToString();
+                rbpass.Checked = true;
+            }
+            else {
+                rbid.Checked = true;
+            }
+        }
 
-                _scannedFileInfo.FrontSideFileName = fileName;
-                updatePictures(pbfront, fileName);
-            }
-            else if (rbpass.Checked)
+        private void btnScanIdFront_Click(object sender, EventArgs e)
+        {
+            try
             {
-                (var result, string fileName) = _centralHub.StartScanning(2);
-                txtname.Text = result.Name?.ToString();
-                txtid.Text = result.IDno?.ToString();
-                txtdob.Text = result.DateOfBirth?.ToString();
-                txtexpiry.Text = result.Expiry?.ToString();
-                txtnationality.Text = result.Nationality?.ToString();
-
-                _scannedFileInfo.FrontSideFileName = fileName;
-                updatePictures(pbfront, fileName);
+                _scannedData.isDataFromDb[0] = false;
+                if (rbid.Checked)
+                {
+                    //rbpass.Visible = false;
+                    (var result, string fileName) = _centralHub.StartScanning(1);
+                    txtname.Text = result.Name?.ToString();
+                    txtid.Text = result.IDno?.ToString();
+                    txtdob.Text = result.DateOfBirth?.ToString();
+                    txtexpiry.Text = result.Expiry?.ToString();
+                    txtnationality.Text = result.Nationality?.ToString();
+                    _scannedData.IdType = 1;
+                    _scannedFileInfo.FrontSideFileName = fileName;
+                    updatePictures(pbfront, fileName);
+                }
+                else if (rbpass.Checked)
+                {
+                    (var result, string fileName) = _centralHub.StartScanning(2);
+                    txtname.Text = result.Name?.ToString();
+                    txtid.Text = result.IDno?.ToString();
+                    txtdob.Text = result.DateOfBirth?.ToString();
+                    txtexpiry.Text = result.Expiry?.ToString();
+                    txtnationality.Text = result.Nationality?.ToString();
+                    _scannedData.IdType = 2;
+                    _scannedFileInfo.FrontSideFileName = fileName;
+                    updatePictures(pbfront, fileName);
+                }
+                else
+                {
+                    MessageBox.Show("Please select the ID Type");
+                }
+                this.AutoScaleDimensions = Program.originalSize;
+                this.Size = Program.originalSize;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select the ID Type");
+                MessageBox.Show("Please check the scanner!");
+                Logger.Error("scan error", ex.Message);
             }
-            this.AutoScaleDimensions = Program.originalSize;
-            this.Size = Program.originalSize;
         }
 
         private void updatePictures(PictureBox pictureBox, string filePath)
@@ -110,24 +130,32 @@ namespace gui
         }
         private void btnback_Click(object sender, EventArgs e)
         {
-            if (rbid.Checked)
+            try
             {
-                string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
-                _scannedFileInfo.BackSideFileName = fileName;
-                updatePictures(pbback, fileName);
+                if (rbid.Checked)
+                {
+                    string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
+                    _scannedFileInfo.BackSideFileName = fileName;
+                    updatePictures(pbback, fileName);
+                }
+                else if (rbpass.Checked)
+                {
+                    string fileName = _centralHub.ScanBackSide(2);
+                    _scannedFileInfo.BackSideFileName = fileName;
+                    updatePictures(pbback, fileName);
+                }
+                else
+                {
+                    MessageBox.Show("Please select the ID type");
+                }
             }
-            else if (rbpass.Checked)
+            catch (Exception ex)
             {
-                string fileName = _centralHub.ScanBackSide(2);
-                _scannedFileInfo.BackSideFileName = fileName;
-                updatePictures(pbback, fileName);
-            }
-            else
-            {
-                MessageBox.Show("Please select the ID type");
+                MessageBox.Show("Please check the scanner!");
+                Logger.Error("scan error", ex.Message);
             }
         }
-        private void btnphoto_Click(object sender, EventArgs e)
+        private void btnPhoto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -223,10 +251,13 @@ namespace gui
                 txtdob.Text = _scannedData.DateOfBirth = visitor.Dob?.ToString();
                 txtexpiry.Text = _scannedData.Expiry  = visitor.IdExpiry?.ToString();
                 txtnationality.Text = _scannedData.Nationality  =  visitor.RFU9?.ToString();
+                rbid.Checked = _scannedData.IdType == 1 ? true: rbpass.Checked = true;
+
                 _scannedData.isDataFromDb[0] = true;
                 if (visitor.RFU10 == "contract")
                 {
                     //consultantApplicationForm
+                    _consultantApplicationForm.Title = visitor.Title ?? string.Empty;
                     _consultantApplicationForm.Address = visitor.Address ?? string.Empty;
                     _consultantApplicationForm.Alias = visitor.AliasName ?? string.Empty;
                     _consultantApplicationForm.CellPhone = visitor.CellPhone ?? string.Empty;
@@ -306,6 +337,11 @@ namespace gui
         private void panelScan_AutoSizeChanged(object sender, EventArgs e)
         {
             this.Size = Program.originalSize;
+        }
+
+        private void rbpass_Click(object sender, EventArgs e)
+        {
+            _scannedData.IdType = 2;
         }
     }
 }

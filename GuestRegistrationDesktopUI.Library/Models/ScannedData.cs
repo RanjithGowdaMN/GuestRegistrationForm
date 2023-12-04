@@ -17,6 +17,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string DateOfBirth { get; set; }
         public string Expiry { get; set; }
         public string Nationality { get; set; }
-        public List<bool> isDataFromDb { get; set; } 
+        public List<bool> isDataFromDb { get; set; }
+        public int IdType { get; set; }
     }
 }
