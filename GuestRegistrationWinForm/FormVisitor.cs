@@ -231,9 +231,21 @@ namespace gui
             try
             {
                 VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
-                DialogResult dialogResult = MessageBox.Show("Document Generated, Do you want clear the data ?", "Clear Data", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //Insert record to DB
+                    try
+                    {
+                        InsertData insertData = new InsertData();
+                        insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                        MessageBox.Show("Recored Inserted to DataBase");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error in Data Insert");
+                        Logger.Error($"Error Data Insert {ex.Message}");
+                    }
                     _scannedData = new ScannedData();
                     _visitorDataSheet = new VisitorDataSheet();
                     _consultantApplicationForm = new ConsultantApplicationForm();
@@ -247,17 +259,6 @@ namespace gui
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Generating File:",ex.Message);
-            }
-            try
-            {
-                InsertData insertData = new InsertData();
-                insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
-                MessageBox.Show("Recored Inserted to DataBase");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error in Data Insert");
-                Logger.Error($"Error Data Insert {ex.Message}");
             }
             //Open Generated PDF File
             try

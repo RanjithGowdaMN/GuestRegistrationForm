@@ -296,9 +296,21 @@ namespace gui
             try
             {
                 ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
-                DialogResult dialogResult = MessageBox.Show("Document Generated, Do you want clear the data ?", "Clear Data", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //Insert record to DB
+                    try
+                    {
+                        InsertData insertData = new InsertData();
+                        insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                        MessageBox.Show("Recored Inserted to DB");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: in data insert to database !");
+                        Logger.Error(ex.Message, "data insert error!");
+                    }
                     _scannedData = new ScannedData();
                     _visitorDataSheet = new VisitorDataSheet();
                     _consultantApplicationForm = new ConsultantApplicationForm();
@@ -314,18 +326,6 @@ namespace gui
 
                 MessageBox.Show("Error in Generating File:");
                 Logger.Error(ex.Message, "Error in generating Document:");
-            }
-            //Insert record to DB
-            try
-            {
-                InsertData insertData = new InsertData();
-                insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
-                MessageBox.Show("Recored Inserted to DB");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: in data insert to database !");
-                Logger.Error(ex.Message, "data insert error!");
             }
             //Open Generated PDF File
             try
