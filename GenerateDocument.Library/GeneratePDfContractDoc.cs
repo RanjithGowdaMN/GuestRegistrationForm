@@ -76,7 +76,7 @@ namespace GenerateDocument.Library
                 textForThirdPage.Add(new Tuple<float, float, string>(110, 710, guestDataModel.Name));
                 textForThirdPage.Add(new Tuple<float, float, string>(100, 680, gConcatenatedDataBinding.consultantApplicationForm.Title));
                 textForThirdPage.Add(new Tuple<float, float, string>(350, 680, gConcatenatedDataBinding.consultantApplicationForm.CompanyName));
-                textForThirdPage.Add(new Tuple<float, float, string>(410, 500, DateTime.Now.ToString("dd-MM-YYYY")));
+                textForThirdPage.Add(new Tuple<float, float, string>(410, 500, DateTime.Now.ToString("dd-MM-yyyy")));
             }
             else
             {
@@ -109,6 +109,7 @@ namespace GenerateDocument.Library
                 textForSecondPage.Add(new Tuple<float, float, string>(400, 353, gConcatenatedDataBinding.consultantApplicationForm.PurposeOfVisit));
                 textForSecondPage.Add(new Tuple<float, float, string>(365, 317, gConcatenatedDataBinding.consultantApplicationForm.Duration));
                 textForSecondPage.Add(new Tuple<float, float, string>(150, 385, gConcatenatedDataBinding.consultantApplicationForm.PassportValidity));
+                textForSecondPage.Add(new Tuple<float, float, string>(425, 73, DateTime.Now.ToString("dd-MM-yyyy")));
 
 
                 // textForSecondPage.Add(new Tuple<float, float, string>(340, 317, gConcatenatedDataBinding.consultantApplicationForm.Durationto));
