@@ -217,6 +217,10 @@ namespace gui
             visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
             visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+            if (_scannedData.IdType == 2)
+            {
+                visitorDataModel.IsPassport = true;
+            }
             _scannedFileInfo.VisitorType = "visitor";
             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
 
@@ -239,6 +243,10 @@ namespace gui
                     {
                         InsertData insertData = new InsertData();
                         insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                        if (!string.IsNullOrEmpty(txtVisitorComp.Text))
+                        {
+                            insertNewCompnayNameToList(txtVisitorComp.Text);
+                        }
                         MessageBox.Show("Recored Inserted to DataBase");
                     }
                     catch (Exception ex)
@@ -277,18 +285,6 @@ namespace gui
                 MessageBox.Show("Error in Opening PDF");
                 Logger.Error($"Error in Opening PDF {ex.Message}");
             }
-            try
-            {
-                if (!string.IsNullOrEmpty(txtVisitorComp.Text))
-                {
-                    InsertData insertData = new InsertData();
-                    insertData.InsertNewCompanyNames(txtVisitorComp.Text);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Error($"{ex.Message}");
-            }
         }
         private string CalculateDuration(string From, string To)
         {
@@ -319,6 +315,18 @@ namespace gui
         private void dtVisitorVisitDuration_ValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
+        }
+        public void insertNewCompnayNameToList(string compnayName)
+        {
+            try
+            {
+                InsertData insertData = new InsertData();
+                insertData.InsertNewCompanyNames(compnayName);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{ex.Message}", "Error in inserting new company!");
+            }
         }
     }
 }

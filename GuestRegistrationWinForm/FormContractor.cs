@@ -287,6 +287,10 @@ namespace gui
             visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
             visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+            if (_scannedData.IdType == 2)
+            {
+                visitorDataModel.IsPassport = true;
+            }
             _scannedFileInfo.VisitorType = "contract";
             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
             concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
@@ -304,6 +308,10 @@ namespace gui
                     {
                         InsertData insertData = new InsertData();
                         insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                        if (!string.IsNullOrEmpty(txtContractorCompName.Text))
+                        {
+                            insertNewCompnayNameToList(txtContractorCompName.Text);
+                        }
                         MessageBox.Show("Recored Inserted to DB");
                     }
                     catch (Exception ex)
@@ -345,23 +353,23 @@ namespace gui
                 MessageBox.Show("Error: in file generation");
                 Logger.Error(ex.Message, "Error in file generation");
             }
-            try
-            {
-                if (!string.IsNullOrEmpty(txtContractorCompName.Text))
-                {
-                    InsertData insertData = new InsertData();
-                    insertData.InsertNewCompanyNames(txtContractorCompName.Text);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Error($"{ex.Message}", "Error in inserting new company!");
-            }
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.CompanyName = txtContractorCompName.Text;
+        }
+        public void insertNewCompnayNameToList(string compnayName)
+        {
+            try
+            {
+                InsertData insertData = new InsertData();
+                insertData.InsertNewCompanyNames(compnayName);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{ex.Message}", "Error in inserting new company!");
+            }
         }
     }
 }
