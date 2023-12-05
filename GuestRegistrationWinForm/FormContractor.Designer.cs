@@ -455,6 +455,7 @@ namespace gui
             this.dtContractorDuration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtContractorDuration.Location = new System.Drawing.Point(1127, 331);
             this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorDuration.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtContractorDuration.Name = "dtContractorDuration";
             this.dtContractorDuration.Size = new System.Drawing.Size(215, 26);
             this.dtContractorDuration.TabIndex = 16;

@@ -139,6 +139,7 @@ namespace gui
             this.dtVisitorVisitDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtVisitorVisitDuration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtVisitorVisitDuration.Location = new System.Drawing.Point(766, 422);
+            this.dtVisitorVisitDuration.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDuration.Name = "dtVisitorVisitDuration";
             this.dtVisitorVisitDuration.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorVisitDuration.TabIndex = 23;
@@ -413,6 +414,7 @@ namespace gui
             this.dtVisitorVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtVisitorVisitDate.Location = new System.Drawing.Point(766, 361);
             this.dtVisitorVisitDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtVisitorVisitDate.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
             this.dtVisitorVisitDate.TabIndex = 7;
