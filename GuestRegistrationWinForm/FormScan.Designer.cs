@@ -63,7 +63,7 @@ namespace gui
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblname.Location = new System.Drawing.Point(469, 39);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(45, 17);
+            this.lblname.Size = new System.Drawing.Size(53, 20);
             this.lblname.TabIndex = 0;
             this.lblname.Text = "Name";
             // 
@@ -74,7 +74,7 @@ namespace gui
             this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblid.Location = new System.Drawing.Point(469, 100);
             this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(75, 17);
+            this.lblid.Size = new System.Drawing.Size(90, 20);
             this.lblid.TabIndex = 1;
             this.lblid.Text = "ID Number";
             // 
@@ -85,7 +85,7 @@ namespace gui
             this.lbldob.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldob.Location = new System.Drawing.Point(469, 160);
             this.lbldob.Name = "lbldob";
-            this.lbldob.Size = new System.Drawing.Size(38, 17);
+            this.lbldob.Size = new System.Drawing.Size(47, 20);
             this.lbldob.TabIndex = 2;
             this.lbldob.Text = "DOB";
             // 
@@ -96,7 +96,7 @@ namespace gui
             this.lblexp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblexp.Location = new System.Drawing.Point(469, 220);
             this.lblexp.Name = "lblexp";
-            this.lblexp.Size = new System.Drawing.Size(63, 17);
+            this.lblexp.Size = new System.Drawing.Size(77, 20);
             this.lblexp.TabIndex = 3;
             this.lblexp.Text = "ID Expiry";
             // 
@@ -107,7 +107,7 @@ namespace gui
             this.lblnationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnationality.Location = new System.Drawing.Point(469, 281);
             this.lblnationality.Name = "lblnationality";
-            this.lblnationality.Size = new System.Drawing.Size(74, 17);
+            this.lblnationality.Size = new System.Drawing.Size(87, 20);
             this.lblnationality.TabIndex = 4;
             this.lblnationality.Text = "Nationality";
             // 
@@ -164,7 +164,7 @@ namespace gui
             this.rbid.Location = new System.Drawing.Point(545, 340);
             this.rbid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbid.Name = "rbid";
-            this.rbid.Size = new System.Drawing.Size(39, 21);
+            this.rbid.Size = new System.Drawing.Size(47, 24);
             this.rbid.TabIndex = 7;
             this.rbid.TabStop = true;
             this.rbid.Tag = "IDTypeTag";
@@ -179,13 +179,12 @@ namespace gui
             this.rbpass.Location = new System.Drawing.Point(677, 340);
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
-            this.rbpass.Size = new System.Drawing.Size(82, 21);
+            this.rbpass.Size = new System.Drawing.Size(97, 24);
             this.rbpass.TabIndex = 8;
             this.rbpass.TabStop = true;
             this.rbpass.Tag = "IDTypeTag";
             this.rbpass.Text = "Passport";
             this.rbpass.UseVisualStyleBackColor = true;
-            
             this.rbpass.Click += new System.EventHandler(this.rbpass_Click);
             // 
             // btnfront
@@ -231,10 +230,10 @@ namespace gui
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbfront.Location = new System.Drawing.Point(289, 452);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbfront.MaximumSize = new System.Drawing.Size(480, 197);
-            this.pbfront.MinimumSize = new System.Drawing.Size(480, 197);
+            this.pbfront.MaximumSize = new System.Drawing.Size(480, 190);
+            this.pbfront.MinimumSize = new System.Drawing.Size(480, 190);
             this.pbfront.Name = "pbfront";
-            this.pbfront.Size = new System.Drawing.Size(480, 197);
+            this.pbfront.Size = new System.Drawing.Size(480, 190);
             this.pbfront.TabIndex = 15;
             this.pbfront.TabStop = false;
             // 
@@ -243,10 +242,10 @@ namespace gui
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbback.Location = new System.Drawing.Point(791, 452);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbback.MaximumSize = new System.Drawing.Size(408, 197);
-            this.pbback.MinimumSize = new System.Drawing.Size(408, 197);
+            this.pbback.MaximumSize = new System.Drawing.Size(480, 190);
+            this.pbback.MinimumSize = new System.Drawing.Size(480, 190);
             this.pbback.Name = "pbback";
-            this.pbback.Size = new System.Drawing.Size(408, 197);
+            this.pbback.Size = new System.Drawing.Size(480, 190);
             this.pbback.TabIndex = 16;
             this.pbback.TabStop = false;
             // 
