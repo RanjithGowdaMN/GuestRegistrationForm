@@ -390,10 +390,11 @@ namespace gui
             // btnVisitorDocument
             // 
             this.btnVisitorDocument.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(742, 651);
+            this.btnVisitorDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitorDocument.Location = new System.Drawing.Point(700, 654);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
-            this.btnVisitorDocument.Size = new System.Drawing.Size(268, 32);
+            this.btnVisitorDocument.Size = new System.Drawing.Size(291, 39);
             this.btnVisitorDocument.TabIndex = 16;
             this.btnVisitorDocument.Text = "Save and Generate Document";
             this.btnVisitorDocument.UseVisualStyleBackColor = true;
@@ -423,7 +424,7 @@ namespace gui
             // txtVisitorSecutityController
             // 
             this.txtVisitorSecutityController.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitorSecutityController.Location = new System.Drawing.Point(839, 599);
+            this.txtVisitorSecutityController.Location = new System.Drawing.Point(839, 602);
             this.txtVisitorSecutityController.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVisitorSecutityController.Name = "txtVisitorSecutityController";
             this.txtVisitorSecutityController.Size = new System.Drawing.Size(215, 22);
@@ -434,7 +435,7 @@ namespace gui
             this.lblVsc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVsc.AutoSize = true;
             this.lblVsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVsc.Location = new System.Drawing.Point(581, 601);
+            this.lblVsc.Location = new System.Drawing.Point(581, 602);
             this.lblVsc.Name = "lblVsc";
             this.lblVsc.Size = new System.Drawing.Size(148, 20);
             this.lblVsc.TabIndex = 18;
@@ -445,7 +446,7 @@ namespace gui
             this.cmbVisitorProductionManager.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVisitorProductionManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitorProductionManager.FormattingEnabled = true;
-            this.cmbVisitorProductionManager.Location = new System.Drawing.Point(839, 537);
+            this.cmbVisitorProductionManager.Location = new System.Drawing.Point(839, 542);
             this.cmbVisitorProductionManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVisitorProductionManager.Name = "cmbVisitorProductionManager";
             this.cmbVisitorProductionManager.Size = new System.Drawing.Size(215, 24);
