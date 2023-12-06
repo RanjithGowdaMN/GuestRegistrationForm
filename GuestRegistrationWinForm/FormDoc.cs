@@ -7,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,53 +46,98 @@ namespace gui
 
         private void GenerateContractDoc_Click(object sender, EventArgs e)
         {
-            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
-            visitorDataModel.Name = _scannedData.Name;
-            visitorDataModel.Expiry = _scannedData.Expiry;
-            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IdNumber;
-            visitorDataModel.Nationality = _scannedData.Nationality;
+            /* ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+             VisitorDataModel visitorDataModel = new VisitorDataModel();
+             visitorDataModel.Name = _scannedData.Name;
+             visitorDataModel.Expiry = _scannedData.Expiry;
+             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+             visitorDataModel.IDno = _scannedData.IdNumber;
+             visitorDataModel.Nationality = _scannedData.Nationality;
 
-            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+             concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
 
-            VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
-            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
-            VisitorsLogBook vlBook = new VisitorsLogBook();
-            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
-            concatenatedDataBinding.CAforVisitor = CAforVisitor;
-            concatenatedDataBinding.hsaLog = hsaLog;
-            concatenatedDataBinding.vlBook = vlBook;
-            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
-            _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+             VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+             ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+             VisitorsLogBook vlBook = new VisitorsLogBook();
+             HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+             concatenatedDataBinding.CAforVisitor = CAforVisitor;
+             concatenatedDataBinding.hsaLog = hsaLog;
+             concatenatedDataBinding.vlBook = vlBook;
+             concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+             _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);*/
+           
+            try
+            {
+                // Replace the file path with the path to your form
+
+                
+                string filePath = @"D:\VisitorData\GeneratedDocument\\"; // Example path to a form file
+
+                // Open the form using the default associated application
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
 
         private void GenerateVisitorDoc_Click(object sender, EventArgs e)
         {
-            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
-            visitorDataModel.Name = _scannedData.Name;
-            visitorDataModel.Expiry = _scannedData.Expiry;
-            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IdNumber;
-            visitorDataModel.Nationality = _scannedData.Nationality;
 
-            concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
+            try
+            {
+                // Replace the file path with the path to your form
 
-            ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
-            //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
-            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
-            VisitorsLogBook vlBook = new VisitorsLogBook();
-            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
-            concatenatedDataBinding.CAforVisitor = CAforVisitor;
-            concatenatedDataBinding.hsaLog = hsaLog;
-            concatenatedDataBinding.vlBook = vlBook;
-           // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
-            concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
-            _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+
+                string filePath = @"D:\VisitorData\GeneratedDocument\\"; // Example path to a form file
+
+                // Open the form using the default associated application
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            /* ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+             VisitorDataModel visitorDataModel = new VisitorDataModel();
+             visitorDataModel.Name = _scannedData.Name;
+             visitorDataModel.Expiry = _scannedData.Expiry;
+             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+             visitorDataModel.IDno = _scannedData.IdNumber;
+             visitorDataModel.Nationality = _scannedData.Nationality;
+
+             concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
+
+             ConsultantApplicationForm consultantApplicationForm = new ConsultantApplicationForm();
+             //VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+             ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+             VisitorsLogBook vlBook = new VisitorsLogBook();
+             HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+             concatenatedDataBinding.CAforVisitor = CAforVisitor;
+             concatenatedDataBinding.hsaLog = hsaLog;
+             concatenatedDataBinding.vlBook = vlBook;
+            // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+             concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+             _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);*/
+
+
+
+        }
+
+        private void panelDoc_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
+
 }
+
+      
+   
+
 //public string GenerateVisitorDocument(
 //GuestDataModel guestDataModel,
 //gScannedFileModel gScannedFileModel,
