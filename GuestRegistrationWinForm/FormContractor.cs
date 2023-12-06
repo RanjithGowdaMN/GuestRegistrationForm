@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static gui.FormScan;
 
 namespace gui
 {
@@ -28,8 +29,9 @@ namespace gui
         string ContractorGeneratedFile = string.Empty;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
+        private FormScan _formScan;
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
             _centralHub = centralHub;
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
+            _formScan = formScan;
             //_apiHelper = apiHelper;
             Initialize();
             txtContractorAddress.TextChanged += TextChanged;
@@ -353,6 +356,13 @@ namespace gui
                 MessageBox.Show("Error: in file generation");
                 Logger.Error(ex.Message, "Error in file generation");
             }
+            _formScan.txtname.Clear();
+            _formScan.txtid.Clear();
+            _formScan.txtdob.Clear();
+            _formScan.txtexpiry.Clear();
+            _formScan.txtnationality.Clear();
+            _formScan.rbid.Checked = true;
+            _formScan.rbpass.Checked = false;
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)

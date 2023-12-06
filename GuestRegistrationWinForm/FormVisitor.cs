@@ -26,11 +26,12 @@ namespace gui
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
+        private FormScan _formScan;
         string VisitorGeneratedFile = string.Empty;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
         public FormVisitor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
             _centralHub = centralHub;
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace gui
             _consultantApplicationForm = consultantApplicationForm;
             _visitorDataSheet = visitorDataSheet;
             _scannedData = scannedData;
+            _formScan = formScan;
             //_apiHelper = apiHelper;
             Initialize();
             txtVisitorTitle.TextChanged += TextChanged;
@@ -288,6 +290,13 @@ namespace gui
                 MessageBox.Show("Error in Opening PDF");
                 Logger.Error($"Error in Opening PDF {ex.Message}");
             }
+            _formScan.txtname.Clear();
+            _formScan.txtid.Clear();
+            _formScan.txtdob.Clear();
+            _formScan.txtexpiry.Clear();
+            _formScan.txtnationality.Clear();
+            _formScan.rbid.Checked = true;
+            _formScan.rbpass.Checked = false;
         }
         private string CalculateDuration(string FromDate, string Todate, string FromHrTime, string ToHrTime, string FromMinTime, string ToMinTime)
         {

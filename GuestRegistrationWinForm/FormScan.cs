@@ -78,7 +78,7 @@ namespace gui
                 rbid.Checked = true;
             }
         }
-
+        
         private void btnScanIdFront_Click(object sender, EventArgs e)
         {
             try

@@ -33,7 +33,7 @@ namespace gui
         public VisitorDataSheet visitorDataSheet;
         public ConsultantApplicationForm consultantApplicationForm;
         public IGeneratePDFdocument _generatePDFdocument;
-
+        public FormScan scanForm;
         public ICentralHub centralHub;
         private IAPIconnector _apiHelper;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -126,20 +126,20 @@ namespace gui
         }
         private void btnScan_Click(object sender, EventArgs e)
         {
-            Form scanForm = new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            scanForm = new FormScan(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
             scanForm.AutoScaleMode = AutoScaleMode.None;
             OpenChildForm(scanForm, sender);
         }
 
         private void btncontractor_Click(object sender, EventArgs e)
         {
-            Form formContractor = new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet);
+            Form formContractor = new FormContractor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm);
             OpenChildForm(formContractor, sender);
         }
 
         private void btnVisitorTab_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
+            OpenChildForm(new FormVisitor(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm), sender);
         }
 
         private void btndoc_Click(object sender, EventArgs e)
