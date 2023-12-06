@@ -291,6 +291,8 @@ namespace gui
         }
         private string CalculateDuration(string FromDate, string Todate, string FromHrTime, string ToHrTime, string FromMinTime, string ToMinTime)
         {
+            FromDate = FromDate == null ? DateTime.Now.ToString("dd/MM/yyyy") : FromDate;
+            Todate = Todate == null ? DateTime.Now.ToString("dd/MM/yyyy") : Todate;
             var DateDiff = (DateTime.ParseExact(Todate, "dd/mm/yyyy", CultureInfo.InvariantCulture) - DateTime.ParseExact(FromDate, "dd/mm/yyyy", CultureInfo.InvariantCulture)).Days;
             return $"{DateDiff.ToString()} Days & {(int.Parse(ToHrTime) - int.Parse(FromHrTime)).ToString()} : {(int.Parse(ToMinTime) - int.Parse(FromMinTime)).ToString()} Hrs";
         }
