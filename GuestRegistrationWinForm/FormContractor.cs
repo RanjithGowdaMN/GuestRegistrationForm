@@ -126,14 +126,14 @@ namespace gui
             {
                 dtContractorPassportValid.Value = DateTime.Parse(_consultantApplicationForm.PassportValidity);
             }
-            if (_consultantApplicationForm.PDateofIssue != null)
+            if (_consultantApplicationForm.PassportDateofIssue != null)
             {
-                dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PDateofIssue);
+                dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PassportDateofIssue);
             }
-            if (_consultantApplicationForm.Duration != null)
-            {
-                dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
-            }
+            //if (_consultantApplicationForm.Duration != null)
+            //{
+            //    dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
+            //}
             if ((!CompanyNames.Contains(_consultantApplicationForm.CompanyName) && (_consultantApplicationForm.CompanyName != null)))
             {
                 txtContractorCompName.Visible = true;
@@ -247,7 +247,7 @@ namespace gui
             }
             if (tb.Name == dtContractorPassportDateOfIssue.Name)
             {
-                _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Text.ToString();
+                _consultantApplicationForm.PassportDateofIssue = dtContractorPassportDateOfIssue.Text.ToString();
 
             }
             if (tb.Name == dtContractorPassportValid.Name)
@@ -267,7 +267,7 @@ namespace gui
 
         private void dtContractorPassportDateOfIssue_ValueChanged(object sender, EventArgs e)
         {
-            _consultantApplicationForm.PDateofIssue = dtContractorPassportDateOfIssue.Value.Date.ToString("dd/MM/yyyy");
+            _consultantApplicationForm.PassportDateofIssue = dtContractorPassportDateOfIssue.Value.Date.ToString("dd/MM/yyyy");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -363,6 +363,8 @@ namespace gui
             _formScan.txtnationality.Clear();
             _formScan.rbid.Checked = true;
             _formScan.rbpass.Checked = false;
+            _consultantApplicationForm.PassportDateofIssue = DateTime.Now.ToString("dd/MM/yyyy");
+            _consultantApplicationForm.PassportValidity = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)

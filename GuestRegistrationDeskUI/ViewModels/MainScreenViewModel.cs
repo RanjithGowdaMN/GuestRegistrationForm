@@ -249,7 +249,7 @@ namespace GuestRegistrationDeskUI.ViewModels
             consultantApplicationForm.City = City;
             consultantApplicationForm.CompanyName = CompanyName;
            // consultantApplicationForm.DateandPlaceofIssue = DateandPlaceofIssue;
-            consultantApplicationForm.PDateofIssue = PDateofIssue;
+            consultantApplicationForm.PassportDateofIssue = PDateofIssue;
             consultantApplicationForm.Duration = Duration;
            // consultantApplicationForm.Durationto = Durationto;
             consultantApplicationForm.Email = Email;

@@ -81,7 +81,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@HomePhoneNo",            consultantApplicationForm.HomePhoneNo??string.Empty},//[nvarchar](25)
                 {"@PassportNumber",         consultantApplicationForm.PassportNumber??string.Empty},//[nvarchar](25)
                 {"@PassportIssuePlace",     consultantApplicationForm.PlaceofIssue??string.Empty},//[nvarchar](50)
-                {"@PassportIssuedOn",       consultantApplicationForm.PDateofIssue??string.Empty},//[nvarchar](25)
+                {"@PassportIssuedOn",       consultantApplicationForm.PassportDateofIssue??string.Empty},//[nvarchar](25)
                 {"@PassportValidity",       consultantApplicationForm.PassportValidity??string.Empty},//[nvarchar](25)
                 {"@EmergencyContact",       consultantApplicationForm.EmergencyContactNo??string.Empty},//[nvarchar](25)
                 {"@AliasName",              consultantApplicationForm.Alias??string.Empty},//[nvarchar](50)

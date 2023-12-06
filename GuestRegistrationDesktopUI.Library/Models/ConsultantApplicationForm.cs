@@ -27,8 +27,8 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string PassportNumber { get; set; }
         public string PlaceofIssue { get; set; }
         public string  DateOfIssue { get; set; }
-        public string PDateofIssue { get; set; }
-        public string PassportValidity { get; set; }
+        public string PassportDateofIssue { get; set; } = DateTime.Now.ToString("dd/MM/yyyy");
+        public string PassportValidity { get; set; } = DateTime.Now.ToString("dd/MM/yyyy");
         public string PurposeOfVisit { get; set; }
         public string Duration { get; set; }
         //public string Durationto { get; set; }
