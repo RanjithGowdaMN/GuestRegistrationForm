@@ -216,5 +216,12 @@ namespace gui
             else
                 WindowState = FormWindowState.Normal;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+          //  Reset();
+        }
     }
 }
