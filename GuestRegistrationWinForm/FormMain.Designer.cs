@@ -43,13 +43,10 @@ namespace gui
             this.btnscan = new System.Windows.Forms.Button();
             this.panelform = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelhome
@@ -267,34 +264,11 @@ namespace gui
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 134);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 820);
-            this.panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(56, 321);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HOME";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1789, 954);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelform);
             this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.panelhome);
@@ -310,8 +284,6 @@ namespace gui
             this.panelbuttons.ResumeLayout(false);
             this.panelform.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,7 +305,5 @@ namespace gui
         private System.Windows.Forms.Button btnWindowMaxm;
         private System.Windows.Forms.Button btnWindowClsoe;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
     }
 }
