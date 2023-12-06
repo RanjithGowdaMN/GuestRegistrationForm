@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -217,6 +218,8 @@ namespace gui
             visitorDataModel.IDno = _scannedData.IdNumber;
             visitorDataModel.Nationality = _scannedData.Nationality;
             visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+            _visitorDataSheet.VisitDuration = CalculateDuration(_visitorDataSheet.VisitDateFrom, _visitorDataSheet.VisitDateTo, _visitorDataSheet.VisitTimeHrFrom, 
+                                                                _visitorDataSheet.VisitTimeHrTo, _visitorDataSheet.VisitTimeMinFrom, _visitorDataSheet.VisitTimeMinTo);
             if (_scannedData.IdType == 2)
             {
                 visitorDataModel.IsPassport = true;
@@ -286,35 +289,30 @@ namespace gui
                 Logger.Error($"Error in Opening PDF {ex.Message}");
             }
         }
-        private string CalculateDuration(string From, string To)
+        private string CalculateDuration(string FromDate, string Todate, string FromHrTime, string ToHrTime, string FromMinTime, string ToMinTime)
         {
-            
-            
-            return string.Empty;
+            var DateDiff = (DateTime.ParseExact(Todate, "dd/mm/yyyy", CultureInfo.InvariantCulture) - DateTime.ParseExact(FromDate, "dd/mm/yyyy", CultureInfo.InvariantCulture)).Days;
+            return $"{DateDiff.ToString()} Days & {(int.Parse(ToHrTime) - int.Parse(FromHrTime)).ToString()} : {(int.Parse(ToMinTime) - int.Parse(FromMinTime)).ToString()} Hrs";
         }
         private void cmbVisitTimeFromHr_SelectedValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitTimeHrFrom = cmbVisitTimeFromHr.Text;
         }
-
         private void cmbVisitTimeFromMinutes_SelectedValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitTimeMinFrom = cmbVisitTimeFromMinutes.Text;
         }
-
         private void cmbVisitorVisitTimeToHr_SelectedValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitTimeHrTo = cmbVisitorVisitTimeToHr.Text;
         }
-
         private void cmbVisitorVisitTimeToMinutes_SelectedValueChanged(object sender, EventArgs e)
         {
             _visitorDataSheet.VisitTimeMinTo = cmbVisitorVisitTimeToMinutes.Text;
         }
-
         private void dtVisitorVisitDuration_ValueChanged(object sender, EventArgs e)
         {
-            _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
+            _visitorDataSheet.VisitDateTo = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
         }
         public void insertNewCompnayNameToList(string compnayName)
         {
