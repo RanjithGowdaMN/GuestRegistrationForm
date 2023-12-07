@@ -16,7 +16,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public VisitorDataModel ProcessTextFromBlob(string InputText)
         {
-            VisitorDataModel visitorData = new VisitorDataModel();
+            VisitorDataModel visitorData = VisitorDataModel.Instance;
 
           if (InputText.Length < 25)
             {
@@ -54,7 +54,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         }
         private VisitorDataModel ProcessPassPortImage(string inputText)
         {
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             try
             {
                 //return MRZParsingLogic.parseMRZLogicTwo(inputText);
@@ -108,7 +108,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
             {
                 //throw new NotImplementedException();
                 List<string> data = new List<string>();
-                VisitorDataModel visitorDataModel = new VisitorDataModel();
+                VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                 using (StringReader reader = new StringReader(inputText))
                 {
                     string line;
@@ -238,7 +238,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
         
         private VisitorDataModel FillErrorMessage()
         {
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             visitorDataModel.DateOfBirth = "Error Please Re-Scan";
             visitorDataModel.Expiry = "Error Please Re-Scan";
             visitorDataModel.IDno = "Error Please Re-Scan";

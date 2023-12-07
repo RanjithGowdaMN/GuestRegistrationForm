@@ -36,10 +36,11 @@ namespace gui
             _centralHub = centralHub;
             InitializeComponent();
 
-            _scannedFileInfo = scannedFileInfo;
-            _cameraStatus = cameraStatus;
-            _consultantApplicationForm = consultantApplicationForm;
-            _visitorDataSheet = visitorDataSheet;
+            _scannedFileInfo = ScannedFileModel.Instance;
+            _cameraStatus = CameraStatus.Instance;
+            _consultantApplicationForm = ConsultantApplicationForm.Instance;
+            _visitorDataSheet = VisitorDataSheet.Instance;
+
             _scannedData = scannedData;
             _formScan = formScan;
             //_apiHelper = apiHelper;
@@ -102,7 +103,6 @@ namespace gui
         }
         private void CmbContractorPurposeOfVisit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // throw new NotImplementedException();
             if (cmbContractorPurposeOfVisit != null)
             {
                 _consultantApplicationForm.PurposeOfVisit = cmbContractorPurposeOfVisit.SelectedItem.ToString();
@@ -121,19 +121,6 @@ namespace gui
 
             cmbContractorFelony.Text = _consultantApplicationForm.ConvictedFelony? "Yes":"No";
 
-            //load passport validity previous value
-            if (_consultantApplicationForm.PassportValidity != null)
-            {
-                dtContractorPassportValid.Value = DateTime.Parse(_consultantApplicationForm.PassportValidity);
-            }
-            if (_consultantApplicationForm.PassportDateofIssue != null)
-            {
-                dtContractorPassportDateOfIssue.Value = DateTime.Parse(_consultantApplicationForm.PassportDateofIssue);
-            }
-            //if (_consultantApplicationForm.Duration != null)
-            //{
-            //    dtContractorDuration.Value = DateTime.Parse(_consultantApplicationForm.Duration);
-            //}
             if ((!CompanyNames.Contains(_consultantApplicationForm.CompanyName) && (_consultantApplicationForm.CompanyName != null)))
             {
                 txtContractorCompName.Visible = true;
@@ -283,7 +270,7 @@ namespace gui
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
@@ -299,7 +286,7 @@ namespace gui
             concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
             concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
             concatenatedDataBinding.vlBook = new VisitorsLogBook();
-            concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+            concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
             try
             {
                 ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
@@ -322,11 +309,13 @@ namespace gui
                         MessageBox.Show("Error: in data insert to database !");
                         Logger.Error(ex.Message, "data insert error!");
                     }
-                    _scannedFileInfo = new ScannedFileModel();
+                    _scannedFileInfo = ScannedFileModel.reset();
                     _scannedData = new ScannedData();
-                    _visitorDataSheet = new VisitorDataSheet();
-                    _consultantApplicationForm = new ConsultantApplicationForm();
+                    _visitorDataSheet = VisitorDataSheet.reset();
+                    _consultantApplicationForm = ConsultantApplicationForm.reset();
+                    _cameraStatus = CameraStatus.reset();
                     Initialize();
+
                 }
                 else if (dialogResult == DialogResult.No)
                 {

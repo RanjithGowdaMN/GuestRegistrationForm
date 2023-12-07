@@ -16,5 +16,38 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public bool IsPassport { get; set; }
         public List<bool> isDataFromDb { get; set; }
         //TBD
+
+        private static VisitorDataModel instance;
+        private static readonly object lockObject = new object();
+        private VisitorDataModel()
+        {
+
+        }
+        public static VisitorDataModel Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new VisitorDataModel();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
+        public static VisitorDataModel reset()
+        {
+            instance = null;
+            lock (lockObject)
+            {
+                return instance = new VisitorDataModel();
+            }
+        }
     }
 }

@@ -99,6 +99,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\VisitorData.cs" />
+    <Compile Include="SingletonGenericClass.cs" />
     <EmbeddedResource Include="FormCard.resx">
       <DependentUpon>FormCard.cs</DependentUpon>
     </EmbeddedResource>

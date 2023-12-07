@@ -26,5 +26,38 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string DepartmentManager { get; set; }
         public string ProductionManager { get; set; }
         public string SecurityController { get; set; }
+
+        private static VisitorDataSheet instance;
+        private static readonly object lockObject = new object();
+        private VisitorDataSheet()
+        {
+
+        }
+        public static VisitorDataSheet Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new VisitorDataSheet();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
+        public static VisitorDataSheet reset()
+        {
+            instance = null;
+            lock (lockObject)
+            {
+                return instance = new VisitorDataSheet();
+            }
+        }
     }
 }

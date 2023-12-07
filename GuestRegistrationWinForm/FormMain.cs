@@ -43,10 +43,8 @@ namespace gui
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
         public FormMain()
         {
-            
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
@@ -62,15 +60,13 @@ namespace gui
             _apiHelper = _container.Resolve<IAPIconnector>();
             InitializeComponent();
 
-            cameraStatus = new CameraStatus();
-            scannedFileInfo = new ScannedFileModel();
-            visitorDataSheet = new VisitorDataSheet();
-            consultantApplicationForm = new ConsultantApplicationForm();
+            cameraStatus = CameraStatus.Instance;
+            scannedFileInfo = ScannedFileModel.Instance;
+            visitorDataSheet = VisitorDataSheet.Instance;
+            consultantApplicationForm = ConsultantApplicationForm.Instance;
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
-            //(var result, string fileName) = centalHub.StartScanning(1);
 
-            //HandleProcess();
             LoadComponentsData();
         }
 

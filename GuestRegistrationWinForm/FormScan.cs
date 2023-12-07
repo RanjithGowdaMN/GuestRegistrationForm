@@ -45,10 +45,10 @@ namespace gui
 
             InitializeComponent();
 
-            _scannedFileInfo = scannedFileInfo;
-            _cameraStatus = cameraStatus;
-            _consultantApplicationForm = consultantApplicationForm;
-            _visitorDataSheet = visitorDataSheet;
+            _scannedFileInfo = ScannedFileModel.Instance;
+            _cameraStatus = CameraStatus.Instance;
+            _consultantApplicationForm = ConsultantApplicationForm.Instance;
+            _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             //_apiHelper = apiHelper;
             txtname.TextChanged += TextChanged;

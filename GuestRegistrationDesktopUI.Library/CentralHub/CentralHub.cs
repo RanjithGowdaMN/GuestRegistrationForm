@@ -78,9 +78,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
             _canonSDKHelper.CanonImageToFiles += DownloadImageToFile;
 
-            vistorData = new VisitorDataModel();
-            cameraStatus = new CameraStatus();
-            scannedFileInfo = new ScannedFileModel();
+            vistorData = VisitorDataModel.Instance;
+            cameraStatus = CameraStatus.Instance;
+            scannedFileInfo = ScannedFileModel.Instance;
         }
 
         ~CentralHub()
@@ -137,9 +137,9 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
             //GenerateVisitorIDnumber();
             IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
-            vistorData = new VisitorDataModel();
-            cameraStatus = new CameraStatus();
-            scannedFileInfo = new ScannedFileModel();
+            vistorData = VisitorDataModel.Instance;
+            cameraStatus = CameraStatus.Instance;
+            scannedFileInfo = ScannedFileModel.Instance;
             fullImageFileName = string.Empty;
             generatedVisitorIDNumber = string.Empty;
             return IDcardFileName;

@@ -14,7 +14,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
         public static VisitorDataModel parseMRZLogicOne(string InputText)
         {
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             InputText = InputText.Replace("\n", "").Replace(" ", "").Trim();
             while(InputText.Contains("<<"))
             {
@@ -74,7 +74,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
         public static VisitorDataModel parseMRZLogicTwo(string inputText)
         {
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
 
             inputText = inputText.Replace(" ", "");
             inputText = inputText.Replace("\n", "");
@@ -110,7 +110,7 @@ namespace GuestRegistrationDesktopUI.Library.TextProcessing
 
         public static VisitorDataModel parseMRZLogicThree(string inputText)
         {
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
 
             inputText = inputText.Replace(" ", "");
             List<string> mrz = inputText.Split(inputText[inputText.IndexOf('\n')]).ToList();

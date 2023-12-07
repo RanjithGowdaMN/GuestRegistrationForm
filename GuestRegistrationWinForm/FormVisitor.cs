@@ -36,10 +36,10 @@ namespace gui
             _centralHub = centralHub;
             InitializeComponent();
 
-            _scannedFileInfo = scannedFileInfo;
-            _cameraStatus = cameraStatus;
-            _consultantApplicationForm = consultantApplicationForm;
-            _visitorDataSheet = visitorDataSheet;
+            _scannedFileInfo = ScannedFileModel.Instance;
+            _cameraStatus = CameraStatus.Instance;
+            _consultantApplicationForm = ConsultantApplicationForm.Instance;
+            _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             _formScan = formScan;
             //_apiHelper = apiHelper;
@@ -213,7 +213,7 @@ namespace gui
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = new VisitorDataModel();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             visitorDataModel.Name = _scannedData.Name;
             visitorDataModel.Expiry = _scannedData.Expiry;
             visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
@@ -236,7 +236,8 @@ namespace gui
             concatenatedDataBinding.hsaLog = hsaLog;
             concatenatedDataBinding.vlBook = vlBook;
             // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
-            concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+            //concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+            concatenatedDataBinding.consultantApplicationForm = ConsultantApplicationForm.Instance;
             try
             {
                 VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
@@ -259,10 +260,11 @@ namespace gui
                         MessageBox.Show("Error in Data Insert");
                         Logger.Error($"Error Data Insert {ex.Message}");
                     }
-                    _scannedFileInfo = new ScannedFileModel();
+                    _scannedFileInfo = ScannedFileModel.reset();
                     _scannedData = new ScannedData();
-                    _visitorDataSheet = new VisitorDataSheet();
-                    _consultantApplicationForm = new ConsultantApplicationForm();
+                    _visitorDataSheet = VisitorDataSheet.reset();
+                    _consultantApplicationForm = ConsultantApplicationForm.reset();
+                    _cameraStatus = CameraStatus.reset();
                     Initialize();
                 }
                 else if (dialogResult == DialogResult.No)

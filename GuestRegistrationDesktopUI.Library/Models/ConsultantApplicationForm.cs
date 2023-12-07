@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestRegistrationDesktopUI.Library.Models
 {
-    public class ConsultantApplicationForm
+    public sealed class ConsultantApplicationForm
     {
         public string Title { get; set; }
         public string FirstName { get; set; }
@@ -37,5 +37,39 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Previous7YrResidency { get; set; }
         public bool ConvictedFelony { get; set; }
         public string Alias { get; set; }
+
+
+        private static ConsultantApplicationForm instance;
+        private static readonly object lockObject = new object();
+        private ConsultantApplicationForm()
+        {
+
+        }
+        public static ConsultantApplicationForm Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ConsultantApplicationForm();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
+        public static ConsultantApplicationForm reset()
+        {
+            instance = null;
+            lock (lockObject)
+            {
+                return instance = new ConsultantApplicationForm();
+            }
+        }
     }
 }

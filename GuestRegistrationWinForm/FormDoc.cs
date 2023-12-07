@@ -32,11 +32,11 @@ namespace gui
             _centralHub = centralHub;
             InitializeComponent();
 
-            _scannedFileInfo = scannedFileInfo;
+            _scannedFileInfo = ScannedFileModel.Instance;
             _scannedData = scannedData;
-            _cameraStatus = cameraStatus;
-            _consultantApplicationForm = consultantApplicationForm;
-            _visitorDataSheet = visitorDataSheet;
+            _cameraStatus = CameraStatus.Instance;
+            _consultantApplicationForm = ConsultantApplicationForm.Instance;
+            _visitorDataSheet = VisitorDataSheet.Instance;
             //_apiHelper = apiHelper;
         }
 
@@ -80,7 +80,6 @@ namespace gui
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
         }
 
         private void GenerateVisitorDoc_Click(object sender, EventArgs e)
@@ -89,8 +88,6 @@ namespace gui
             try
             {
                 // Replace the file path with the path to your form
-
-
                 string filePath = @"D:\VisitorData\GeneratedDocument\\"; // Example path to a form file
 
                 // Open the form using the default associated application
@@ -123,8 +120,6 @@ namespace gui
              concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
              _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);*/
 
-
-
         }
 
         private void panelDoc_Paint(object sender, PaintEventArgs e)
@@ -134,22 +129,3 @@ namespace gui
     }
 
 }
-
-      
-   
-
-//public string GenerateVisitorDocument(
-//GuestDataModel guestDataModel,
-//gScannedFileModel gScannedFileModel,
-//gConcatenatedDataBinding gConcatenatedDataBinding,
-//string inputFilePath,
-//string outputFilePath,
-//string imagePath)
-
-//public string GenerateContractDocument(
-//GuestDataModel guestDataModel,
-//gScannedFileModel gScannedFileModel,
-//gConcatenatedDataBinding gConcatenatedDataBinding,
-//string inputFilePath,
-//string outputFilePath,
-//string imagePath)
