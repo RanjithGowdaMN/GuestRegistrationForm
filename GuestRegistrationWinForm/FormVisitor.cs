@@ -259,6 +259,7 @@ namespace gui
                         MessageBox.Show("Error in Data Insert");
                         Logger.Error($"Error Data Insert {ex.Message}");
                     }
+                    _scannedFileInfo = new ScannedFileModel();
                     _scannedData = new ScannedData();
                     _visitorDataSheet = new VisitorDataSheet();
                     _consultantApplicationForm = new ConsultantApplicationForm();
