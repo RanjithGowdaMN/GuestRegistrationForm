@@ -67,33 +67,33 @@ namespace gui
             this.lblVtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVtitle.AutoSize = true;
             this.lblVtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVtitle.Location = new System.Drawing.Point(581, 61);
+            this.lblVtitle.Location = new System.Drawing.Point(550, 60);
             this.lblVtitle.Name = "lblVtitle";
-            this.lblVtitle.Size = new System.Drawing.Size(41, 20);
+            this.lblVtitle.Size = new System.Drawing.Size(54, 20);
             this.lblVtitle.TabIndex = 0;
-            this.lblVtitle.Text = "Title";
+            this.lblVtitle.Text = "TITLE";
             // 
             // lblVrsnvst
             // 
             this.lblVrsnvst.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVrsnvst.AutoSize = true;
             this.lblVrsnvst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVrsnvst.Location = new System.Drawing.Point(581, 181);
+            this.lblVrsnvst.Location = new System.Drawing.Point(550, 180);
             this.lblVrsnvst.Name = "lblVrsnvst";
-            this.lblVrsnvst.Size = new System.Drawing.Size(167, 20);
+            this.lblVrsnvst.Size = new System.Drawing.Size(203, 20);
             this.lblVrsnvst.TabIndex = 1;
-            this.lblVrsnvst.Text = "Reason For The Visit";
+            this.lblVrsnvst.Text = "REASON FOR THE VISIT";
             // 
             // lblVcomp
             // 
             this.lblVcomp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVcomp.AutoSize = true;
             this.lblVcomp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVcomp.Location = new System.Drawing.Point(581, 121);
+            this.lblVcomp.Location = new System.Drawing.Point(550, 120);
             this.lblVcomp.Name = "lblVcomp";
-            this.lblVcomp.Size = new System.Drawing.Size(88, 20);
+            this.lblVcomp.Size = new System.Drawing.Size(92, 20);
             this.lblVcomp.TabIndex = 2;
-            this.lblVcomp.Text = "Comapany";
+            this.lblVcomp.Text = "COMPANY";
             // 
             // panelVisitor
             // 
@@ -138,10 +138,10 @@ namespace gui
             // 
             this.dtVisitorVisitDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtVisitorVisitDuration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVisitorVisitDuration.Location = new System.Drawing.Point(766, 422);
+            this.dtVisitorVisitDuration.Location = new System.Drawing.Point(860, 420);
             this.dtVisitorVisitDuration.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDuration.Name = "dtVisitorVisitDuration";
-            this.dtVisitorVisitDuration.Size = new System.Drawing.Size(244, 22);
+            this.dtVisitorVisitDuration.Size = new System.Drawing.Size(211, 22);
             this.dtVisitorVisitDuration.TabIndex = 23;
             this.dtVisitorVisitDuration.ValueChanged += new System.EventHandler(this.dtVisitorVisitDuration_ValueChanged);
             // 
@@ -212,9 +212,9 @@ namespace gui
             "58",
             "59",
             "60"});
-            this.cmbVisitorVisitTimeToMinutes.Location = new System.Drawing.Point(1256, 421);
+            this.cmbVisitorVisitTimeToMinutes.Location = new System.Drawing.Point(1256, 420);
             this.cmbVisitorVisitTimeToMinutes.Name = "cmbVisitorVisitTimeToMinutes";
-            this.cmbVisitorVisitTimeToMinutes.Size = new System.Drawing.Size(62, 24);
+            this.cmbVisitorVisitTimeToMinutes.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitorVisitTimeToMinutes.TabIndex = 12;
             this.cmbVisitorVisitTimeToMinutes.SelectedValueChanged += new System.EventHandler(this.cmbVisitorVisitTimeToMinutes_SelectedValueChanged);
             // 
@@ -249,7 +249,7 @@ namespace gui
             "22",
             "23",
             "24"});
-            this.cmbVisitorVisitTimeToHr.Location = new System.Drawing.Point(1172, 421);
+            this.cmbVisitorVisitTimeToHr.Location = new System.Drawing.Point(1172, 420);
             this.cmbVisitorVisitTimeToHr.Name = "cmbVisitorVisitTimeToHr";
             this.cmbVisitorVisitTimeToHr.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitorVisitTimeToHr.TabIndex = 11;
@@ -260,11 +260,11 @@ namespace gui
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1029, 421);
+            this.label1.Location = new System.Drawing.Point(1085, 420);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Visit Time To";
+            this.label1.Text = "TIME";
             // 
             // cmbVisitTimeFromMinutes
             // 
@@ -333,9 +333,9 @@ namespace gui
             "58",
             "59",
             "60"});
-            this.cmbVisitTimeFromMinutes.Location = new System.Drawing.Point(1256, 361);
+            this.cmbVisitTimeFromMinutes.Location = new System.Drawing.Point(1256, 360);
             this.cmbVisitTimeFromMinutes.Name = "cmbVisitTimeFromMinutes";
-            this.cmbVisitTimeFromMinutes.Size = new System.Drawing.Size(62, 24);
+            this.cmbVisitTimeFromMinutes.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitTimeFromMinutes.TabIndex = 9;
             this.cmbVisitTimeFromMinutes.SelectedValueChanged += new System.EventHandler(this.cmbVisitTimeFromMinutes_SelectedValueChanged);
             // 
@@ -370,7 +370,7 @@ namespace gui
             "22",
             "23",
             "24"});
-            this.cmbVisitTimeFromHr.Location = new System.Drawing.Point(1172, 361);
+            this.cmbVisitTimeFromHr.Location = new System.Drawing.Point(1172, 360);
             this.cmbVisitTimeFromHr.Name = "cmbVisitTimeFromHr";
             this.cmbVisitTimeFromHr.Size = new System.Drawing.Size(64, 24);
             this.cmbVisitTimeFromHr.TabIndex = 8;
@@ -381,29 +381,33 @@ namespace gui
             this.lblVisitorVisitTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVisitorVisitTime.AutoSize = true;
             this.lblVisitorVisitTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVisitorVisitTime.Location = new System.Drawing.Point(1029, 366);
+            this.lblVisitorVisitTime.Location = new System.Drawing.Point(1084, 360);
             this.lblVisitorVisitTime.Name = "lblVisitorVisitTime";
-            this.lblVisitorVisitTime.Size = new System.Drawing.Size(128, 20);
+            this.lblVisitorVisitTime.Size = new System.Drawing.Size(53, 20);
             this.lblVisitorVisitTime.TabIndex = 19;
-            this.lblVisitorVisitTime.Text = "Visit Time From";
+            this.lblVisitorVisitTime.Text = "TIME ";
             // 
             // btnVisitorDocument
             // 
             this.btnVisitorDocument.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVisitorDocument.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnVisitorDocument.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVisitorDocument.FlatAppearance.BorderSize = 0;
             this.btnVisitorDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisitorDocument.Location = new System.Drawing.Point(700, 654);
+            this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
+            this.btnVisitorDocument.Location = new System.Drawing.Point(749, 654);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
-            this.btnVisitorDocument.Size = new System.Drawing.Size(291, 39);
+            this.btnVisitorDocument.Size = new System.Drawing.Size(216, 39);
             this.btnVisitorDocument.TabIndex = 16;
-            this.btnVisitorDocument.Text = "Save and Generate Document";
-            this.btnVisitorDocument.UseVisualStyleBackColor = true;
+            this.btnVisitorDocument.Text = "PRINT DOCUMENT";
+            this.btnVisitorDocument.UseVisualStyleBackColor = false;
             this.btnVisitorDocument.Click += new System.EventHandler(this.btnVisitorDocument_Click);
             // 
             // txtVisitorTitle
             // 
             this.txtVisitorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitorTitle.Location = new System.Drawing.Point(839, 59);
+            this.txtVisitorTitle.Location = new System.Drawing.Point(860, 60);
             this.txtVisitorTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVisitorTitle.Name = "txtVisitorTitle";
             this.txtVisitorTitle.Size = new System.Drawing.Size(215, 22);
@@ -413,18 +417,18 @@ namespace gui
             // 
             this.dtVisitorVisitDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtVisitorVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVisitorVisitDate.Location = new System.Drawing.Point(766, 361);
+            this.dtVisitorVisitDate.Location = new System.Drawing.Point(860, 360);
             this.dtVisitorVisitDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtVisitorVisitDate.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
-            this.dtVisitorVisitDate.Size = new System.Drawing.Size(244, 22);
+            this.dtVisitorVisitDate.Size = new System.Drawing.Size(210, 22);
             this.dtVisitorVisitDate.TabIndex = 7;
             this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
             // txtVisitorSecutityController
             // 
             this.txtVisitorSecutityController.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitorSecutityController.Location = new System.Drawing.Point(839, 602);
+            this.txtVisitorSecutityController.Location = new System.Drawing.Point(860, 600);
             this.txtVisitorSecutityController.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVisitorSecutityController.Name = "txtVisitorSecutityController";
             this.txtVisitorSecutityController.Size = new System.Drawing.Size(215, 22);
@@ -435,18 +439,18 @@ namespace gui
             this.lblVsc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVsc.AutoSize = true;
             this.lblVsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVsc.Location = new System.Drawing.Point(581, 602);
+            this.lblVsc.Location = new System.Drawing.Point(550, 600);
             this.lblVsc.Name = "lblVsc";
-            this.lblVsc.Size = new System.Drawing.Size(148, 20);
+            this.lblVsc.Size = new System.Drawing.Size(211, 20);
             this.lblVsc.TabIndex = 18;
-            this.lblVsc.Text = "Security Controller";
+            this.lblVsc.Text = "SECURITY CONTROLLER";
             // 
             // cmbVisitorProductionManager
             // 
             this.cmbVisitorProductionManager.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVisitorProductionManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitorProductionManager.FormattingEnabled = true;
-            this.cmbVisitorProductionManager.Location = new System.Drawing.Point(839, 542);
+            this.cmbVisitorProductionManager.Location = new System.Drawing.Point(860, 540);
             this.cmbVisitorProductionManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVisitorProductionManager.Name = "cmbVisitorProductionManager";
             this.cmbVisitorProductionManager.Size = new System.Drawing.Size(215, 24);
@@ -457,7 +461,7 @@ namespace gui
             this.cmbVisitorPersonToVisited.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVisitorPersonToVisited.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitorPersonToVisited.FormattingEnabled = true;
-            this.cmbVisitorPersonToVisited.Location = new System.Drawing.Point(839, 238);
+            this.cmbVisitorPersonToVisited.Location = new System.Drawing.Point(860, 240);
             this.cmbVisitorPersonToVisited.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVisitorPersonToVisited.Name = "cmbVisitorPersonToVisited";
             this.cmbVisitorPersonToVisited.Size = new System.Drawing.Size(215, 24);
@@ -468,7 +472,7 @@ namespace gui
             this.cmbVisitorAreaVisited.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVisitorAreaVisited.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitorAreaVisited.FormattingEnabled = true;
-            this.cmbVisitorAreaVisited.Location = new System.Drawing.Point(839, 297);
+            this.cmbVisitorAreaVisited.Location = new System.Drawing.Point(860, 300);
             this.cmbVisitorAreaVisited.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVisitorAreaVisited.Name = "cmbVisitorAreaVisited";
             this.cmbVisitorAreaVisited.Size = new System.Drawing.Size(215, 24);
@@ -479,7 +483,7 @@ namespace gui
             this.cmbvisitorDeptManager.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbvisitorDeptManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbvisitorDeptManager.FormattingEnabled = true;
-            this.cmbvisitorDeptManager.Location = new System.Drawing.Point(839, 481);
+            this.cmbvisitorDeptManager.Location = new System.Drawing.Point(860, 480);
             this.cmbvisitorDeptManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbvisitorDeptManager.Name = "cmbvisitorDeptManager";
             this.cmbvisitorDeptManager.Size = new System.Drawing.Size(215, 24);
@@ -490,73 +494,73 @@ namespace gui
             this.lblVprodmangr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVprodmangr.AutoSize = true;
             this.lblVprodmangr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVprodmangr.Location = new System.Drawing.Point(581, 542);
+            this.lblVprodmangr.Location = new System.Drawing.Point(550, 540);
             this.lblVprodmangr.Name = "lblVprodmangr";
-            this.lblVprodmangr.Size = new System.Drawing.Size(217, 20);
+            this.lblVprodmangr.Size = new System.Drawing.Size(282, 20);
             this.lblVprodmangr.TabIndex = 12;
-            this.lblVprodmangr.Text = "Production Manager/Deputy";
+            this.lblVprodmangr.Text = "PRODUCTION MANAGER/DEPUTY";
             // 
             // lblVdeptmang
             // 
             this.lblVdeptmang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVdeptmang.AutoSize = true;
             this.lblVdeptmang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVdeptmang.Location = new System.Drawing.Point(581, 482);
+            this.lblVdeptmang.Location = new System.Drawing.Point(550, 480);
             this.lblVdeptmang.Name = "lblVdeptmang";
-            this.lblVdeptmang.Size = new System.Drawing.Size(167, 20);
+            this.lblVdeptmang.Size = new System.Drawing.Size(213, 20);
             this.lblVdeptmang.TabIndex = 11;
-            this.lblVdeptmang.Text = "Department Manager";
+            this.lblVdeptmang.Text = "DEPARTMENT MANAGER";
             // 
             // lblVduration
             // 
             this.lblVduration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVduration.AutoSize = true;
             this.lblVduration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVduration.Location = new System.Drawing.Point(581, 422);
+            this.lblVduration.Location = new System.Drawing.Point(550, 420);
             this.lblVduration.Name = "lblVduration";
-            this.lblVduration.Size = new System.Drawing.Size(135, 20);
+            this.lblVduration.Size = new System.Drawing.Size(169, 20);
             this.lblVduration.TabIndex = 10;
-            this.lblVduration.Text = "Visit Duration To";
+            this.lblVduration.Text = "VISIT DURATION TO";
             // 
             // lblVdate
             // 
             this.lblVdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVdate.AutoSize = true;
             this.lblVdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVdate.Location = new System.Drawing.Point(581, 362);
+            this.lblVdate.Location = new System.Drawing.Point(550, 360);
             this.lblVdate.Name = "lblVdate";
-            this.lblVdate.Size = new System.Drawing.Size(127, 20);
+            this.lblVdate.Size = new System.Drawing.Size(153, 20);
             this.lblVdate.TabIndex = 9;
-            this.lblVdate.Text = "Visit Date From";
+            this.lblVdate.Text = "VISIT DATE FROM";
             // 
             // lblVarea
             // 
             this.lblVarea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVarea.AutoSize = true;
             this.lblVarea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVarea.Location = new System.Drawing.Point(581, 302);
+            this.lblVarea.Location = new System.Drawing.Point(550, 300);
             this.lblVarea.Name = "lblVarea";
-            this.lblVarea.Size = new System.Drawing.Size(150, 20);
+            this.lblVarea.Size = new System.Drawing.Size(179, 20);
             this.lblVarea.TabIndex = 8;
-            this.lblVarea.Text = "Area To Be Visited";
+            this.lblVarea.Text = "AREA TO BE VISITED";
             // 
             // lblVprsnvisit
             // 
             this.lblVprsnvisit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVprsnvisit.AutoSize = true;
             this.lblVprsnvisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVprsnvisit.Location = new System.Drawing.Point(581, 242);
+            this.lblVprsnvisit.Location = new System.Drawing.Point(550, 240);
             this.lblVprsnvisit.Name = "lblVprsnvisit";
-            this.lblVprsnvisit.Size = new System.Drawing.Size(189, 20);
+            this.lblVprsnvisit.Size = new System.Drawing.Size(204, 20);
             this.lblVprsnvisit.TabIndex = 7;
-            this.lblVprsnvisit.Text = "Person(s) To Be Visited";
+            this.lblVprsnvisit.Text = "PERSON TO BE VISITED";
             // 
             // cmbVistorReasonForVisit
             // 
             this.cmbVistorReasonForVisit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVistorReasonForVisit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVistorReasonForVisit.FormattingEnabled = true;
-            this.cmbVistorReasonForVisit.Location = new System.Drawing.Point(839, 177);
+            this.cmbVistorReasonForVisit.Location = new System.Drawing.Point(860, 180);
             this.cmbVistorReasonForVisit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVistorReasonForVisit.Name = "cmbVistorReasonForVisit";
             this.cmbVistorReasonForVisit.Size = new System.Drawing.Size(215, 24);
@@ -567,7 +571,7 @@ namespace gui
             this.cmbVisitorComp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVisitorComp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitorComp.FormattingEnabled = true;
-            this.cmbVisitorComp.Location = new System.Drawing.Point(839, 117);
+            this.cmbVisitorComp.Location = new System.Drawing.Point(860, 120);
             this.cmbVisitorComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbVisitorComp.Name = "cmbVisitorComp";
             this.cmbVisitorComp.Size = new System.Drawing.Size(215, 24);
@@ -576,7 +580,7 @@ namespace gui
             // txtVisitorComp
             // 
             this.txtVisitorComp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitorComp.Location = new System.Drawing.Point(1089, 119);
+            this.txtVisitorComp.Location = new System.Drawing.Point(1128, 120);
             this.txtVisitorComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVisitorComp.Name = "txtVisitorComp";
             this.txtVisitorComp.Size = new System.Drawing.Size(215, 22);

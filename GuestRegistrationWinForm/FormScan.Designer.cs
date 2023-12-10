@@ -63,9 +63,9 @@ namespace gui
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblname.Location = new System.Drawing.Point(469, 39);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(53, 20);
+            this.lblname.Size = new System.Drawing.Size(57, 20);
             this.lblname.TabIndex = 0;
-            this.lblname.Text = "Name";
+            this.lblname.Text = "NAME";
             // 
             // lblid
             // 
@@ -74,9 +74,9 @@ namespace gui
             this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblid.Location = new System.Drawing.Point(469, 100);
             this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(90, 20);
+            this.lblid.Size = new System.Drawing.Size(104, 20);
             this.lblid.TabIndex = 1;
-            this.lblid.Text = "ID Number";
+            this.lblid.Text = "ID NUMBER";
             // 
             // lbldob
             // 
@@ -85,9 +85,9 @@ namespace gui
             this.lbldob.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldob.Location = new System.Drawing.Point(469, 160);
             this.lbldob.Name = "lbldob";
-            this.lbldob.Size = new System.Drawing.Size(47, 20);
+            this.lbldob.Size = new System.Drawing.Size(138, 20);
             this.lbldob.TabIndex = 2;
-            this.lbldob.Text = "DOB";
+            this.lbldob.Text = "DATE OF BIRTH";
             // 
             // lblexp
             // 
@@ -96,9 +96,9 @@ namespace gui
             this.lblexp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblexp.Location = new System.Drawing.Point(469, 220);
             this.lblexp.Name = "lblexp";
-            this.lblexp.Size = new System.Drawing.Size(77, 20);
+            this.lblexp.Size = new System.Drawing.Size(90, 20);
             this.lblexp.TabIndex = 3;
-            this.lblexp.Text = "ID Expiry";
+            this.lblexp.Text = "ID EXPIRY";
             // 
             // lblnationality
             // 
@@ -107,9 +107,9 @@ namespace gui
             this.lblnationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnationality.Location = new System.Drawing.Point(469, 281);
             this.lblnationality.Name = "lblnationality";
-            this.lblnationality.Size = new System.Drawing.Size(87, 20);
+            this.lblnationality.Size = new System.Drawing.Size(116, 20);
             this.lblnationality.TabIndex = 4;
-            this.lblnationality.Text = "Nationality";
+            this.lblnationality.Text = "NATIONALITY";
             // 
             // txtname
             // 
@@ -179,38 +179,42 @@ namespace gui
             this.rbpass.Location = new System.Drawing.Point(677, 340);
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
-            this.rbpass.Size = new System.Drawing.Size(97, 24);
+            this.rbpass.Size = new System.Drawing.Size(120, 24);
             this.rbpass.TabIndex = 8;
             this.rbpass.TabStop = true;
             this.rbpass.Tag = "IDTypeTag";
-            this.rbpass.Text = "Passport";
+            this.rbpass.Text = "PASSPORT";
             this.rbpass.UseVisualStyleBackColor = true;
             this.rbpass.Click += new System.EventHandler(this.rbpass_Click);
             // 
             // btnfront
             // 
             this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnfront.BackColor = System.Drawing.Color.DarkGreen;
             this.btnfront.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfront.ForeColor = System.Drawing.Color.White;
             this.btnfront.Location = new System.Drawing.Point(511, 400);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(143, 33);
             this.btnfront.TabIndex = 9;
-            this.btnfront.Text = "Scan Front";
-            this.btnfront.UseVisualStyleBackColor = true;
+            this.btnfront.Text = "SCAN FRONT";
+            this.btnfront.UseVisualStyleBackColor = false;
             this.btnfront.Click += new System.EventHandler(this.btnScanIdFront_Click);
             // 
             // btnback
             // 
             this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnback.BackColor = System.Drawing.Color.DarkGreen;
             this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.ForeColor = System.Drawing.Color.White;
             this.btnback.Location = new System.Drawing.Point(771, 400);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(143, 33);
             this.btnback.TabIndex = 10;
-            this.btnback.Text = "Scan Back";
-            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Text = "SCAN BACK";
+            this.btnback.UseVisualStyleBackColor = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
             // pbphoto
@@ -252,13 +256,16 @@ namespace gui
             // btnphoto
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnphoto.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnphoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnphoto.ForeColor = System.Drawing.Color.White;
             this.btnphoto.Location = new System.Drawing.Point(1095, 276);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(104, 33);
             this.btnphoto.TabIndex = 11;
-            this.btnphoto.Text = "Photo";
-            this.btnphoto.UseVisualStyleBackColor = true;
+            this.btnphoto.Text = "PHOTO";
+            this.btnphoto.UseVisualStyleBackColor = false;
             this.btnphoto.Click += new System.EventHandler(this.btnPhoto_Click);
             // 
             // panelScan
@@ -293,13 +300,16 @@ namespace gui
             // SearchVisitor
             // 
             this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SearchVisitor.BackColor = System.Drawing.Color.DarkGreen;
+            this.SearchVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchVisitor.ForeColor = System.Drawing.Color.White;
             this.SearchVisitor.Location = new System.Drawing.Point(867, 100);
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
             this.SearchVisitor.Name = "SearchVisitor";
             this.SearchVisitor.Size = new System.Drawing.Size(100, 28);
             this.SearchVisitor.TabIndex = 3;
-            this.SearchVisitor.Text = "Search";
-            this.SearchVisitor.UseVisualStyleBackColor = true;
+            this.SearchVisitor.Text = "SEARCH";
+            this.SearchVisitor.UseVisualStyleBackColor = false;
             this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
             // 
             // FormScan
