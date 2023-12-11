@@ -29,6 +29,7 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblname = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lbldob = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@ namespace gui
             this.lblselect = new System.Windows.Forms.Label();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
@@ -124,7 +126,7 @@ namespace gui
             this.txtname.Location = new System.Drawing.Point(187, 220);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(281, 22);
+            this.txtname.Size = new System.Drawing.Size(280, 22);
             this.txtname.TabIndex = 1;
             // 
             // txtid
@@ -133,16 +135,16 @@ namespace gui
             this.txtid.Location = new System.Drawing.Point(187, 290);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(281, 22);
+            this.txtid.Size = new System.Drawing.Size(280, 22);
             this.txtid.TabIndex = 2;
             // 
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Location = new System.Drawing.Point(190, 503);
+            this.txtnationality.Location = new System.Drawing.Point(191, 503);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
-            this.txtnationality.Size = new System.Drawing.Size(281, 22);
+            this.txtnationality.Size = new System.Drawing.Size(280, 22);
             this.txtnationality.TabIndex = 6;
             // 
             // txtexpiry
@@ -151,7 +153,7 @@ namespace gui
             this.txtexpiry.Location = new System.Drawing.Point(187, 360);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
-            this.txtexpiry.Size = new System.Drawing.Size(281, 22);
+            this.txtexpiry.Size = new System.Drawing.Size(280, 22);
             this.txtexpiry.TabIndex = 5;
             // 
             // txtdob
@@ -160,7 +162,7 @@ namespace gui
             this.txtdob.Location = new System.Drawing.Point(187, 430);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(281, 22);
+            this.txtdob.Size = new System.Drawing.Size(280, 22);
             this.txtdob.TabIndex = 4;
             // 
             // rbid
@@ -355,6 +357,12 @@ namespace gui
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FormScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,5 +414,6 @@ namespace gui
         private System.Windows.Forms.Label lblselect;
         private System.Windows.Forms.Panel panelPass;
         private System.Windows.Forms.PictureBox pbPassportScan;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

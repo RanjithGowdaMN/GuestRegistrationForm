@@ -269,7 +269,123 @@ namespace gui
 
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
-          
+            //validation
+            if (string.IsNullOrEmpty(txtContratorTitle.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContratorTitle, "Title required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContratorTitle, string.Empty);
+            }
+           
+            if (string.IsNullOrEmpty(txtContractorEmail.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorEmail, "EmailRequired");
+                return;
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorEmail, string.Empty);
+            }
+            if (string.IsNullOrEmpty(cmbContractorCompName.Text))
+            {
+                errorProvider1.SetError(cmbContractorCompName, "Select the company name");
+                return;
+            }
+
+            else
+            {
+                errorProvider1.SetError(cmbContractorCompName, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(txtContractorPassportNo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorPassportNo, "Passport Number is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorPassportNo, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(txtContractorCellPhn.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorCellPhn, "Phone Numeber is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorCellPhn, string.Empty);
+
+            }
+            if (string.IsNullOrEmpty(cmbContractorPurposeOfVisit.Text))
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, " Select the purpose");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(dtContractorDuration.Text))
+
+            { errorProvider1.SetError(dtContractorDuration, "Select the date");
+            return;
+        }
+        else
+        {
+                errorProvider1.SetError(dtContractorDuration, string.Empty);
+
+        }
+           
+
+            if(string.IsNullOrEmpty(txtContractorPassportPlaceOfIssue.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorPassportPlaceOfIssue, "Passport place of issue is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorPassportPlaceOfIssue, string.Empty);
+            }
+            if(string.IsNullOrEmpty(dtContractorPassportDateOfIssue.Text))
+            {
+                errorProvider1.SetError(dtContractorPassportDateOfIssue, "Passport date of issue required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(dtContractorPassportDateOfIssue, string.Empty);
+            }
+            if(string.IsNullOrEmpty(dtContractorPassportValid.Text))
+            {
+                errorProvider1.SetError(dtContractorPassportValid, "Passport Validity Required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(dtContractorPassportValid, string.Empty);
+            }
+            if(string.IsNullOrEmpty(txtContractorEmergencyNo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorEmergencyNo, "Phone Number required");
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorEmergencyNo, string.Empty);
+            }
+            if(string.IsNullOrEmpty(cmbContractorFelony.Text))
+            {
+                errorProvider1.SetError(cmbContractorFelony, "select the option");
+            }
+            else
+            {
+                errorProvider1.SetError(cmbContractorFelony, string.Empty);
+            }
             try
             {
                

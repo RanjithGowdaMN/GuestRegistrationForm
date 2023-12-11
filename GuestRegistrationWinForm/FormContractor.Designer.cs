@@ -29,6 +29,7 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCtitle = new System.Windows.Forms.Label();
             this.lblCemail = new System.Windows.Forms.Label();
             this.lblCstate = new System.Windows.Forms.Label();
@@ -72,7 +73,9 @@ namespace gui
             this.panelcontrator = new System.Windows.Forms.Panel();
             this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelcontrator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCtitle
@@ -444,9 +447,11 @@ namespace gui
             this.dtContractorPassportValid.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtContractorPassportValid.Location = new System.Drawing.Point(550, 450);
             this.dtContractorPassportValid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorPassportValid.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
             this.dtContractorPassportValid.Size = new System.Drawing.Size(212, 26);
             this.dtContractorPassportValid.TabIndex = 9;
+            this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportValid.ValueChanged += new System.EventHandler(this.dtContractorPassportValid_ValueChanged);
             // 
             // dtContractorDuration
@@ -455,7 +460,7 @@ namespace gui
             this.dtContractorDuration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtContractorDuration.Location = new System.Drawing.Point(1130, 300);
             this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtContractorDuration.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
+            this.dtContractorDuration.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorDuration.Name = "dtContractorDuration";
             this.dtContractorDuration.Size = new System.Drawing.Size(215, 26);
             this.dtContractorDuration.TabIndex = 16;
@@ -467,9 +472,11 @@ namespace gui
             this.dtContractorPassportDateOfIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(1130, 400);
             this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorPassportDateOfIssue.MaxDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.Name = "dtContractorPassportDateOfIssue";
             this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(215, 26);
             this.dtContractorPassportDateOfIssue.TabIndex = 18;
+            this.dtContractorPassportDateOfIssue.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.ValueChanged += new System.EventHandler(this.dtContractorPassportDateOfIssue_ValueChanged);
             // 
             // lblCpreres
@@ -571,11 +578,15 @@ namespace gui
             this.txtContractorState.Size = new System.Drawing.Size(215, 26);
             this.txtContractorState.TabIndex = 3;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormContractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1705, 823);
+            this.ClientSize = new System.Drawing.Size(1364, 658);
             this.Controls.Add(this.panelcontrator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -584,6 +595,7 @@ namespace gui
             this.Load += new System.EventHandler(this.Contractor_Load);
             this.panelcontrator.ResumeLayout(false);
             this.panelcontrator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -633,5 +645,6 @@ namespace gui
         private System.Windows.Forms.Panel panelcontrator;
         private System.Windows.Forms.TextBox txtContractorState;
         private System.Windows.Forms.Button btContractorPdf;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
