@@ -50,10 +50,13 @@ namespace gui
             this.panelScan = new System.Windows.Forms.Panel();
             this.SearchVisitor = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panelId = new System.Windows.Forms.Panel();
+            this.lblselect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
             this.panelScan.SuspendLayout();
+            this.panelId.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblname
@@ -61,7 +64,7 @@ namespace gui
             this.lblname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblname.AutoSize = true;
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(469, 39);
+            this.lblname.Location = new System.Drawing.Point(17, 220);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(57, 20);
             this.lblname.TabIndex = 0;
@@ -72,7 +75,7 @@ namespace gui
             this.lblid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblid.AutoSize = true;
             this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblid.Location = new System.Drawing.Point(469, 100);
+            this.lblid.Location = new System.Drawing.Point(17, 290);
             this.lblid.Name = "lblid";
             this.lblid.Size = new System.Drawing.Size(104, 20);
             this.lblid.TabIndex = 1;
@@ -83,7 +86,7 @@ namespace gui
             this.lbldob.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldob.AutoSize = true;
             this.lbldob.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldob.Location = new System.Drawing.Point(469, 160);
+            this.lbldob.Location = new System.Drawing.Point(17, 430);
             this.lbldob.Name = "lbldob";
             this.lbldob.Size = new System.Drawing.Size(138, 20);
             this.lbldob.TabIndex = 2;
@@ -94,7 +97,7 @@ namespace gui
             this.lblexp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblexp.AutoSize = true;
             this.lblexp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblexp.Location = new System.Drawing.Point(469, 220);
+            this.lblexp.Location = new System.Drawing.Point(17, 360);
             this.lblexp.Name = "lblexp";
             this.lblexp.Size = new System.Drawing.Size(90, 20);
             this.lblexp.TabIndex = 3;
@@ -105,7 +108,7 @@ namespace gui
             this.lblnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblnationality.AutoSize = true;
             this.lblnationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnationality.Location = new System.Drawing.Point(469, 281);
+            this.lblnationality.Location = new System.Drawing.Point(17, 500);
             this.lblnationality.Name = "lblnationality";
             this.lblnationality.Size = new System.Drawing.Size(116, 20);
             this.lblnationality.TabIndex = 4;
@@ -114,7 +117,7 @@ namespace gui
             // txtname
             // 
             this.txtname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtname.Location = new System.Drawing.Point(629, 39);
+            this.txtname.Location = new System.Drawing.Point(187, 220);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(281, 22);
@@ -123,37 +126,37 @@ namespace gui
             // txtid
             // 
             this.txtid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtid.Location = new System.Drawing.Point(629, 100);
+            this.txtid.Location = new System.Drawing.Point(187, 290);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(183, 22);
+            this.txtid.Size = new System.Drawing.Size(281, 22);
             this.txtid.TabIndex = 2;
             // 
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Location = new System.Drawing.Point(629, 281);
+            this.txtnationality.Location = new System.Drawing.Point(190, 503);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
-            this.txtnationality.Size = new System.Drawing.Size(183, 22);
+            this.txtnationality.Size = new System.Drawing.Size(281, 22);
             this.txtnationality.TabIndex = 6;
             // 
             // txtexpiry
             // 
             this.txtexpiry.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtexpiry.Location = new System.Drawing.Point(629, 220);
+            this.txtexpiry.Location = new System.Drawing.Point(187, 360);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
-            this.txtexpiry.Size = new System.Drawing.Size(183, 22);
+            this.txtexpiry.Size = new System.Drawing.Size(281, 22);
             this.txtexpiry.TabIndex = 5;
             // 
             // txtdob
             // 
             this.txtdob.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtdob.Location = new System.Drawing.Point(629, 160);
+            this.txtdob.Location = new System.Drawing.Point(187, 430);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(183, 22);
+            this.txtdob.Size = new System.Drawing.Size(281, 22);
             this.txtdob.TabIndex = 4;
             // 
             // rbid
@@ -161,7 +164,7 @@ namespace gui
             this.rbid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbid.AutoSize = true;
             this.rbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbid.Location = new System.Drawing.Point(545, 340);
+            this.rbid.Location = new System.Drawing.Point(220, 70);
             this.rbid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbid.Name = "rbid";
             this.rbid.Size = new System.Drawing.Size(47, 24);
@@ -176,7 +179,7 @@ namespace gui
             this.rbpass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbpass.AutoSize = true;
             this.rbpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbpass.Location = new System.Drawing.Point(677, 340);
+            this.rbpass.Location = new System.Drawing.Point(314, 70);
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
             this.rbpass.Size = new System.Drawing.Size(120, 24);
@@ -193,10 +196,10 @@ namespace gui
             this.btnfront.BackColor = System.Drawing.Color.DarkGreen;
             this.btnfront.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfront.ForeColor = System.Drawing.Color.White;
-            this.btnfront.Location = new System.Drawing.Point(511, 400);
+            this.btnfront.Location = new System.Drawing.Point(77, 130);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
-            this.btnfront.Size = new System.Drawing.Size(143, 33);
+            this.btnfront.Size = new System.Drawing.Size(140, 30);
             this.btnfront.TabIndex = 9;
             this.btnfront.Text = "SCAN FRONT";
             this.btnfront.UseVisualStyleBackColor = false;
@@ -208,10 +211,10 @@ namespace gui
             this.btnback.BackColor = System.Drawing.Color.DarkGreen;
             this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.Color.White;
-            this.btnback.Location = new System.Drawing.Point(771, 400);
+            this.btnback.Location = new System.Drawing.Point(277, 130);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(143, 33);
+            this.btnback.Size = new System.Drawing.Size(140, 30);
             this.btnback.TabIndex = 10;
             this.btnback.Text = "SCAN BACK";
             this.btnback.UseVisualStyleBackColor = false;
@@ -221,35 +224,31 @@ namespace gui
             // 
             this.pbphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbphoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbphoto.Location = new System.Drawing.Point(1029, 42);
+            this.pbphoto.Location = new System.Drawing.Point(657, 79);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbphoto.MaximumSize = new System.Drawing.Size(219, 208);
             this.pbphoto.Name = "pbphoto";
-            this.pbphoto.Size = new System.Drawing.Size(219, 208);
+            this.pbphoto.Size = new System.Drawing.Size(256, 192);
             this.pbphoto.TabIndex = 14;
             this.pbphoto.TabStop = false;
             // 
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(289, 452);
+            this.pbfront.Location = new System.Drawing.Point(11, 20);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbfront.MaximumSize = new System.Drawing.Size(480, 190);
-            this.pbfront.MinimumSize = new System.Drawing.Size(480, 190);
             this.pbfront.Name = "pbfront";
-            this.pbfront.Size = new System.Drawing.Size(480, 190);
+            this.pbfront.Size = new System.Drawing.Size(560, 300);
             this.pbfront.TabIndex = 15;
             this.pbfront.TabStop = false;
             // 
             // pbback
             // 
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(791, 452);
+            this.pbback.Location = new System.Drawing.Point(15, 360);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbback.MaximumSize = new System.Drawing.Size(480, 190);
-            this.pbback.MinimumSize = new System.Drawing.Size(480, 190);
             this.pbback.Name = "pbback";
-            this.pbback.Size = new System.Drawing.Size(480, 190);
+            this.pbback.Size = new System.Drawing.Size(560, 300);
+            this.pbback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbback.TabIndex = 16;
             this.pbback.TabStop = false;
             // 
@@ -259,10 +258,10 @@ namespace gui
             this.btnphoto.BackColor = System.Drawing.Color.DarkGreen;
             this.btnphoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
-            this.btnphoto.Location = new System.Drawing.Point(1095, 276);
+            this.btnphoto.Location = new System.Drawing.Point(719, 304);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
-            this.btnphoto.Size = new System.Drawing.Size(104, 33);
+            this.btnphoto.Size = new System.Drawing.Size(140, 30);
             this.btnphoto.TabIndex = 11;
             this.btnphoto.Text = "PHOTO";
             this.btnphoto.UseVisualStyleBackColor = false;
@@ -270,11 +269,10 @@ namespace gui
             // 
             // panelScan
             // 
+            this.panelScan.Controls.Add(this.lblselect);
             this.panelScan.Controls.Add(this.SearchVisitor);
             this.panelScan.Controls.Add(this.lblname);
-            this.panelScan.Controls.Add(this.pbback);
             this.panelScan.Controls.Add(this.btnphoto);
-            this.panelScan.Controls.Add(this.pbfront);
             this.panelScan.Controls.Add(this.lblid);
             this.panelScan.Controls.Add(this.lbldob);
             this.panelScan.Controls.Add(this.lblexp);
@@ -289,11 +287,11 @@ namespace gui
             this.panelScan.Controls.Add(this.txtid);
             this.panelScan.Controls.Add(this.rbpass);
             this.panelScan.Controls.Add(this.txtname);
-            this.panelScan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScan.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelScan.Location = new System.Drawing.Point(0, 0);
             this.panelScan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelScan.Name = "panelScan";
-            this.panelScan.Size = new System.Drawing.Size(1528, 677);
+            this.panelScan.Size = new System.Drawing.Size(946, 677);
             this.panelScan.TabIndex = 18;
             this.panelScan.AutoSizeChanged += new System.EventHandler(this.panelScan_AutoSizeChanged);
             // 
@@ -303,14 +301,35 @@ namespace gui
             this.SearchVisitor.BackColor = System.Drawing.Color.DarkGreen;
             this.SearchVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchVisitor.ForeColor = System.Drawing.Color.White;
-            this.SearchVisitor.Location = new System.Drawing.Point(867, 100);
+            this.SearchVisitor.Location = new System.Drawing.Point(490, 290);
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
             this.SearchVisitor.Name = "SearchVisitor";
-            this.SearchVisitor.Size = new System.Drawing.Size(100, 28);
+            this.SearchVisitor.Size = new System.Drawing.Size(140, 30);
             this.SearchVisitor.TabIndex = 3;
             this.SearchVisitor.Text = "SEARCH";
             this.SearchVisitor.UseVisualStyleBackColor = false;
             this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
+            // 
+            // panelId
+            // 
+            this.panelId.Controls.Add(this.pbback);
+            this.panelId.Controls.Add(this.pbfront);
+            this.panelId.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelId.Location = new System.Drawing.Point(941, 0);
+            this.panelId.Name = "panelId";
+            this.panelId.Size = new System.Drawing.Size(587, 677);
+            this.panelId.TabIndex = 19;
+            // 
+            // lblselect
+            // 
+            this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblselect.AutoSize = true;
+            this.lblselect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselect.Location = new System.Drawing.Point(17, 70);
+            this.lblselect.Name = "lblselect";
+            this.lblselect.Size = new System.Drawing.Size(74, 20);
+            this.lblselect.TabIndex = 15;
+            this.lblselect.Text = "SELECT";
             // 
             // FormScan
             // 
@@ -318,6 +337,7 @@ namespace gui
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1528, 677);
+            this.Controls.Add(this.panelId);
             this.Controls.Add(this.panelScan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -328,6 +348,7 @@ namespace gui
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).EndInit();
             this.panelScan.ResumeLayout(false);
             this.panelScan.PerformLayout();
+            this.panelId.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -355,5 +376,7 @@ namespace gui
         private System.Windows.Forms.Panel panelScan;
         private System.Windows.Forms.Button SearchVisitor;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panelId;
+        private System.Windows.Forms.Label lblselect;
     }
 }
