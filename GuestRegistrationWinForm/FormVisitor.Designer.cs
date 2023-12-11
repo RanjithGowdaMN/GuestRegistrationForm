@@ -423,6 +423,7 @@ namespace gui
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(210, 22);
             this.dtVisitorVisitDate.TabIndex = 7;
+            this.dtVisitorVisitDate.Value = new System.DateTime(2023, 12, 11, 6, 43, 52, 0);
             this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
             // txtVisitorSecutityController

@@ -212,41 +212,44 @@ namespace gui
        // }
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
-            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
-            visitorDataModel.Name = _scannedData.Name;
-            visitorDataModel.Expiry = _scannedData.Expiry;
-            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IdNumber;
-            visitorDataModel.Nationality = _scannedData.Nationality;
-            visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
-            _visitorDataSheet.VisitDuration = CalculateDuration(_visitorDataSheet.VisitDateFrom, _visitorDataSheet.VisitDateTo, _visitorDataSheet.VisitTimeHrFrom, 
-                                                                _visitorDataSheet.VisitTimeHrTo, _visitorDataSheet.VisitTimeMinFrom, _visitorDataSheet.VisitTimeMinTo);
-            if (_scannedData.IdType == 2)
-            {
-                visitorDataModel.IsPassport = true;
-            }
-            _scannedFileInfo.VisitorType = "visitor";
-            concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
-
-            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
-            VisitorsLogBook vlBook = new VisitorsLogBook();
-            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
-            concatenatedDataBinding.CAforVisitor = CAforVisitor;
-            concatenatedDataBinding.hsaLog = hsaLog;
-            concatenatedDataBinding.vlBook = vlBook;
-            // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
-            //concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
-            concatenatedDataBinding.consultantApplicationForm = ConsultantApplicationForm.Instance;
+           
             try
             {
-                VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+              
                 DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //Insert record to DB
                     try
                     {
+                        ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+                        VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
+                        visitorDataModel.Name = _scannedData.Name;
+                        visitorDataModel.Expiry = _scannedData.Expiry;
+                        visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+                        visitorDataModel.IDno = _scannedData.IdNumber;
+                        visitorDataModel.Nationality = _scannedData.Nationality;
+                        visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+                        _visitorDataSheet.VisitDuration = CalculateDuration(_visitorDataSheet.VisitDateFrom, _visitorDataSheet.VisitDateTo, _visitorDataSheet.VisitTimeHrFrom,
+                                                                            _visitorDataSheet.VisitTimeHrTo, _visitorDataSheet.VisitTimeMinFrom, _visitorDataSheet.VisitTimeMinTo);
+                        if (_scannedData.IdType == 2)
+                        {
+                            visitorDataModel.IsPassport = true;
+                        }
+                        _scannedFileInfo.VisitorType = "visitor";
+                        concatenatedDataBinding.visitorDataSheet = _visitorDataSheet;
+
+                        ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+                        VisitorsLogBook vlBook = new VisitorsLogBook();
+                        HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+                        concatenatedDataBinding.CAforVisitor = CAforVisitor;
+                        concatenatedDataBinding.hsaLog = hsaLog;
+                        concatenatedDataBinding.vlBook = vlBook;
+                        // concatenatedDataBinding.visitorDataSheet = new VisitorDataSheet();
+                        //concatenatedDataBinding.consultantApplicationForm = new ConsultantApplicationForm();
+                        concatenatedDataBinding.consultantApplicationForm = ConsultantApplicationForm.Instance;
+                        VisitorGeneratedFile = _centralHub.GenerateDocument(visitorDataModel, concatenatedDataBinding);
+
                         InsertData insertData = new InsertData();
                         insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
                         if (!string.IsNullOrEmpty(txtVisitorComp.Text))
