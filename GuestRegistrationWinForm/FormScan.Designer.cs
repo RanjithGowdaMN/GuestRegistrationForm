@@ -52,11 +52,15 @@ namespace gui
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelId = new System.Windows.Forms.Panel();
             this.lblselect = new System.Windows.Forms.Label();
+            this.panelPass = new System.Windows.Forms.Panel();
+            this.pbPassportScan = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
             this.panelScan.SuspendLayout();
             this.panelId.SuspendLayout();
+            this.panelPass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPassportScan)).BeginInit();
             this.SuspendLayout();
             // 
             // lblname
@@ -173,6 +177,7 @@ namespace gui
             this.rbid.Tag = "IDTypeTag";
             this.rbid.Text = "ID";
             this.rbid.UseVisualStyleBackColor = true;
+            this.rbid.CheckedChanged += new System.EventHandler(this.rbid_CheckedChanged);
             // 
             // rbpass
             // 
@@ -188,6 +193,7 @@ namespace gui
             this.rbpass.Tag = "IDTypeTag";
             this.rbpass.Text = "PASSPORT";
             this.rbpass.UseVisualStyleBackColor = true;
+            this.rbpass.CheckedChanged += new System.EventHandler(this.rbpass_CheckedChanged);
             this.rbpass.Click += new System.EventHandler(this.rbpass_Click);
             // 
             // btnfront
@@ -312,6 +318,7 @@ namespace gui
             // 
             // panelId
             // 
+            this.panelId.Controls.Add(this.panelPass);
             this.panelId.Controls.Add(this.pbback);
             this.panelId.Controls.Add(this.pbfront);
             this.panelId.Dock = System.Windows.Forms.DockStyle.Right;
@@ -331,6 +338,23 @@ namespace gui
             this.lblselect.TabIndex = 15;
             this.lblselect.Text = "SELECT";
             // 
+            // panelPass
+            // 
+            this.panelPass.Controls.Add(this.pbPassportScan);
+            this.panelPass.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelPass.Location = new System.Drawing.Point(3, 0);
+            this.panelPass.Name = "panelPass";
+            this.panelPass.Size = new System.Drawing.Size(584, 677);
+            this.panelPass.TabIndex = 17;
+            // 
+            // pbPassportScan
+            // 
+            this.pbPassportScan.Location = new System.Drawing.Point(22, 20);
+            this.pbPassportScan.Name = "pbPassportScan";
+            this.pbPassportScan.Size = new System.Drawing.Size(546, 640);
+            this.pbPassportScan.TabIndex = 0;
+            this.pbPassportScan.TabStop = false;
+            // 
             // FormScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,6 +373,8 @@ namespace gui
             this.panelScan.ResumeLayout(false);
             this.panelScan.PerformLayout();
             this.panelId.ResumeLayout(false);
+            this.panelPass.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPassportScan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,5 +404,7 @@ namespace gui
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panelId;
         private System.Windows.Forms.Label lblselect;
+        private System.Windows.Forms.Panel panelPass;
+        private System.Windows.Forms.PictureBox pbPassportScan;
     }
 }
