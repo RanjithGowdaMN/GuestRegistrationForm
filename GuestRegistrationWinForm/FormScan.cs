@@ -44,7 +44,7 @@ namespace gui
             _centralHub.CanonImageDownload += UpdatePhotoImage;
 
             InitializeComponent();
-            panelPass.Visible = false;
+            //panelPass.Visible = false;
             _scannedFileInfo = ScannedFileModel.Instance;
             _cameraStatus = CameraStatus.Instance;
             _consultantApplicationForm = ConsultantApplicationForm.Instance;
@@ -66,6 +66,7 @@ namespace gui
             UpdatePhotoImage(_cameraStatus.ImagePath);
             updatePictures(pbfront, _scannedFileInfo.FrontSideFileName);
             updatePictures(pbback, _scannedFileInfo.BackSideFileName);
+            updatePictures(pbPassportScan, _scannedFileInfo.FrontSideFileName);
             updateRadioButtons();
         }
 
@@ -109,7 +110,7 @@ namespace gui
                     txtnationality.Text = result.Nationality?.ToString();
                     _scannedData.IdType = 2;
                     _scannedFileInfo.FrontSideFileName = fileName;
-                    updatePictures(pbfront, fileName);
+                    updatePictures(pbPassportScan, fileName);
                 }
                 else
                 {
@@ -349,15 +350,21 @@ namespace gui
 
         private void rbpass_CheckedChanged(object sender, EventArgs e)
         {
-            panelId.Visible = false;
-            panelPass.Visible = true;
 
+            if (rbpass.Checked)
+            {
+                panelId.Visible = false;
+                panelPass.Visible = true;
+            }
         }
 
         private void rbid_CheckedChanged(object sender, EventArgs e)
         {
-            panelId.Visible = true;
-            panelPass.Visible = false;
+            if (rbid.Checked)
+            {
+                panelId.Visible = true;
+                panelPass.Visible = false;
+            }
         }
     }
 }

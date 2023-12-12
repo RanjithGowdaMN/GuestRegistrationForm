@@ -29,7 +29,6 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblname = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lbldob = new System.Windows.Forms.Label();
@@ -55,7 +54,6 @@ namespace gui
             this.panelId = new System.Windows.Forms.Panel();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
@@ -232,7 +230,7 @@ namespace gui
             // 
             this.pbphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbphoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbphoto.Location = new System.Drawing.Point(657, 79);
+            this.pbphoto.Location = new System.Drawing.Point(634, 35);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbphoto.Name = "pbphoto";
             this.pbphoto.Size = new System.Drawing.Size(256, 192);
@@ -242,7 +240,7 @@ namespace gui
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(11, 20);
+            this.pbfront.Location = new System.Drawing.Point(15, 14);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbfront.Name = "pbfront";
             this.pbfront.Size = new System.Drawing.Size(560, 300);
@@ -266,7 +264,7 @@ namespace gui
             this.btnphoto.BackColor = System.Drawing.Color.DarkGreen;
             this.btnphoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
-            this.btnphoto.Location = new System.Drawing.Point(719, 304);
+            this.btnphoto.Location = new System.Drawing.Point(693, 248);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(140, 30);
@@ -301,7 +299,6 @@ namespace gui
             this.panelScan.Name = "panelScan";
             this.panelScan.Size = new System.Drawing.Size(946, 677);
             this.panelScan.TabIndex = 18;
-            this.panelScan.AutoSizeChanged += new System.EventHandler(this.panelScan_AutoSizeChanged);
             // 
             // lblselect
             // 
@@ -331,7 +328,6 @@ namespace gui
             // 
             // panelId
             // 
-            this.panelId.Controls.Add(this.panelPass);
             this.panelId.Controls.Add(this.pbback);
             this.panelId.Controls.Add(this.pbfront);
             this.panelId.Dock = System.Windows.Forms.DockStyle.Right;
@@ -342,26 +338,25 @@ namespace gui
             // 
             // panelPass
             // 
+            this.panelPass.BackColor = System.Drawing.Color.White;
             this.panelPass.Controls.Add(this.pbPassportScan);
-            this.panelPass.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelPass.Location = new System.Drawing.Point(3, 0);
+            this.panelPass.Location = new System.Drawing.Point(952, 0);
             this.panelPass.Name = "panelPass";
             this.panelPass.Size = new System.Drawing.Size(584, 677);
             this.panelPass.TabIndex = 17;
             // 
             // pbPassportScan
             // 
-            this.pbPassportScan.Location = new System.Drawing.Point(22, 20);
+            this.pbPassportScan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPassportScan.BackColor = System.Drawing.Color.Transparent;
+            this.pbPassportScan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPassportScan.Location = new System.Drawing.Point(29, 52);
             this.pbPassportScan.Name = "pbPassportScan";
-            this.pbPassportScan.Size = new System.Drawing.Size(546, 640);
+            this.pbPassportScan.Size = new System.Drawing.Size(502, 518);
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // FormScan
             // 
@@ -371,6 +366,7 @@ namespace gui
             this.ClientSize = new System.Drawing.Size(1528, 677);
             this.Controls.Add(this.panelId);
             this.Controls.Add(this.panelScan);
+            this.Controls.Add(this.panelPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormScan";
@@ -412,8 +408,7 @@ namespace gui
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panelId;
         private System.Windows.Forms.Label lblselect;
-        private System.Windows.Forms.Panel panelPass;
-        private System.Windows.Forms.PictureBox pbPassportScan;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.PictureBox pbPassportScan;
+        public System.Windows.Forms.Panel panelPass;
     }
 }
