@@ -274,7 +274,6 @@ namespace gui
             this.Controls.Add(this.panelhome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(1789, 954);
             this.MinimumSize = new System.Drawing.Size(1789, 954);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

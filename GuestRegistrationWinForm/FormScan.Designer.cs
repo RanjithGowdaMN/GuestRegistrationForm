@@ -49,10 +49,10 @@ namespace gui
             this.pbback = new System.Windows.Forms.PictureBox();
             this.btnphoto = new System.Windows.Forms.Button();
             this.panelScan = new System.Windows.Forms.Panel();
+            this.lblselect = new System.Windows.Forms.Label();
             this.SearchVisitor = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelId = new System.Windows.Forms.Panel();
-            this.lblselect = new System.Windows.Forms.Label();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -303,6 +303,17 @@ namespace gui
             this.panelScan.TabIndex = 18;
             this.panelScan.AutoSizeChanged += new System.EventHandler(this.panelScan_AutoSizeChanged);
             // 
+            // lblselect
+            // 
+            this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblselect.AutoSize = true;
+            this.lblselect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselect.Location = new System.Drawing.Point(17, 70);
+            this.lblselect.Name = "lblselect";
+            this.lblselect.Size = new System.Drawing.Size(74, 20);
+            this.lblselect.TabIndex = 15;
+            this.lblselect.Text = "SELECT";
+            // 
             // SearchVisitor
             // 
             this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -328,17 +339,6 @@ namespace gui
             this.panelId.Name = "panelId";
             this.panelId.Size = new System.Drawing.Size(587, 677);
             this.panelId.TabIndex = 19;
-            // 
-            // lblselect
-            // 
-            this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblselect.AutoSize = true;
-            this.lblselect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselect.Location = new System.Drawing.Point(17, 70);
-            this.lblselect.Name = "lblselect";
-            this.lblselect.Size = new System.Drawing.Size(74, 20);
-            this.lblselect.TabIndex = 15;
-            this.lblselect.Text = "SELECT";
             // 
             // panelPass
             // 
