@@ -15,11 +15,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static gui.FormScan;
+using System.Text.RegularExpressions;
 
 namespace gui
 {
     public partial class FormContractor : Form
     {
+        string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;
@@ -267,6 +269,8 @@ namespace gui
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
+       
+
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
             //validation
@@ -279,12 +283,19 @@ namespace gui
             {
                 errorProvider1.SetError(txtContratorTitle, string.Empty);
             }
-           
+
             if (string.IsNullOrEmpty(txtContractorEmail.Text.Trim()))
             {
-                errorProvider1.SetError(txtContractorEmail, "EmailRequired");
-                return;
+               
+                    errorProvider1.SetError(txtContractorEmail, "Valid EmailRequired");
+                    return;
+                    
+            }
 
+           else if (Regex.IsMatch(txtContractorEmail.Text, pattern)== false)
+            {
+                errorProvider1.SetError(txtContractorEmail, "Invalid Email");
+                return;
             }
             else
             {
@@ -492,6 +503,33 @@ namespace gui
             catch (Exception ex)
             {
                 Logger.Error($"{ex.Message}", "Error in inserting new company!");
+            }
+        }
+
+        private void txtContractorCellPhn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&(e.KeyChar != '.'))
+    {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
+            }
+        }
+
+        private void txtContractorHomePhn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
+            }
+        }
+
+        private void txtContractorEmergencyNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
             }
         }
     }
