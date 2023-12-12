@@ -240,7 +240,7 @@ namespace gui
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(15, 14);
+            this.pbfront.Location = new System.Drawing.Point(22, 14);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbfront.Name = "pbfront";
             this.pbfront.Size = new System.Drawing.Size(560, 300);
@@ -250,11 +250,10 @@ namespace gui
             // pbback
             // 
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(15, 360);
+            this.pbback.Location = new System.Drawing.Point(22, 360);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbback.Name = "pbback";
             this.pbback.Size = new System.Drawing.Size(560, 300);
-            this.pbback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbback.TabIndex = 16;
             this.pbback.TabStop = false;
             // 
@@ -331,13 +330,14 @@ namespace gui
             this.panelId.Controls.Add(this.pbback);
             this.panelId.Controls.Add(this.pbfront);
             this.panelId.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelId.Location = new System.Drawing.Point(941, 0);
+            this.panelId.Location = new System.Drawing.Point(927, 0);
             this.panelId.Name = "panelId";
-            this.panelId.Size = new System.Drawing.Size(587, 677);
+            this.panelId.Size = new System.Drawing.Size(601, 677);
             this.panelId.TabIndex = 19;
             // 
             // panelPass
             // 
+            this.panelPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelPass.BackColor = System.Drawing.Color.White;
             this.panelPass.Controls.Add(this.pbPassportScan);
             this.panelPass.Location = new System.Drawing.Point(952, 0);
@@ -347,9 +347,7 @@ namespace gui
             // 
             // pbPassportScan
             // 
-            this.pbPassportScan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPassportScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPassportScan.BackColor = System.Drawing.Color.Transparent;
             this.pbPassportScan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPassportScan.Location = new System.Drawing.Point(29, 52);
