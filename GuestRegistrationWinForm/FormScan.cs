@@ -280,6 +280,7 @@ namespace gui
                     _consultantApplicationForm.PlaceofIssue = visitor.PassportIssuePlace;
                     pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
+                    pbPassportScan.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
 
                     UpdateImageDetails(visitor);
@@ -297,6 +298,7 @@ namespace gui
                     _visitorDataSheet.PurposeOfVisit = visitor.PurposeOfVisit;
                     pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
+                    pbPassportScan.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
 
                     UpdateImageDetails(visitor);
@@ -350,7 +352,7 @@ namespace gui
 
         private void rbpass_CheckedChanged(object sender, EventArgs e)
         {
-
+            pbPassportScan.Image= Image.FromFile(@"D:\VisitorData\temp\passport.jpg");
             if (rbpass.Checked)
             {
                 panelId.Visible = false;
