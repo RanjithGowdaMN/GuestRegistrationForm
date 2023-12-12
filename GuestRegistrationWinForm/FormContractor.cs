@@ -15,11 +15,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static gui.FormScan;
+using System.Text.RegularExpressions;
 
 namespace gui
 {
     public partial class FormContractor : Form
     {
+        string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;
@@ -267,35 +269,165 @@ namespace gui
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
+       
+
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
-            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
-            visitorDataModel.Name = _scannedData.Name;
-            visitorDataModel.Expiry = _scannedData.Expiry;
-            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-            visitorDataModel.IDno = _scannedData.IdNumber;
-            visitorDataModel.Nationality = _scannedData.Nationality;
-            visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
-            if (_scannedData.IdType == 2)
+            //validation
+            if (string.IsNullOrEmpty(txtContratorTitle.Text.Trim()))
             {
-                visitorDataModel.IsPassport = true;
+                errorProvider1.SetError(txtContratorTitle, "Title required");
+                return;
             }
-            _scannedFileInfo.VisitorType = "contract";
-            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
-            concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
-            concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
-            concatenatedDataBinding.vlBook = new VisitorsLogBook();
-            concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
+            else
+            {
+                errorProvider1.SetError(txtContratorTitle, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(txtContractorEmail.Text.Trim()))
+            {
+               
+                    errorProvider1.SetError(txtContractorEmail, "Valid EmailRequired");
+                    return;
+                    
+            }
+
+           else if (Regex.IsMatch(txtContractorEmail.Text, pattern)== false)
+            {
+                errorProvider1.SetError(txtContractorEmail, "Invalid Email");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorEmail, string.Empty);
+            }
+            if (string.IsNullOrEmpty(cmbContractorCompName.Text))
+            {
+                errorProvider1.SetError(cmbContractorCompName, "Select the company name");
+                return;
+            }
+
+            else
+            {
+                errorProvider1.SetError(cmbContractorCompName, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(txtContractorPassportNo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorPassportNo, "Passport Number is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorPassportNo, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(txtContractorCellPhn.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorCellPhn, "Phone Numeber is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorCellPhn, string.Empty);
+
+            }
+            if (string.IsNullOrEmpty(cmbContractorPurposeOfVisit.Text))
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, " Select the purpose");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(dtContractorDuration.Text))
+
+            { errorProvider1.SetError(dtContractorDuration, "Select the date");
+            return;
+        }
+        else
+        {
+                errorProvider1.SetError(dtContractorDuration, string.Empty);
+
+        }
+           
+
+            if(string.IsNullOrEmpty(txtContractorPassportPlaceOfIssue.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorPassportPlaceOfIssue, "Passport place of issue is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorPassportPlaceOfIssue, string.Empty);
+            }
+            if(string.IsNullOrEmpty(dtContractorPassportDateOfIssue.Text))
+            {
+                errorProvider1.SetError(dtContractorPassportDateOfIssue, "Passport date of issue required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(dtContractorPassportDateOfIssue, string.Empty);
+            }
+            if(string.IsNullOrEmpty(dtContractorPassportValid.Text))
+            {
+                errorProvider1.SetError(dtContractorPassportValid, "Passport Validity Required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(dtContractorPassportValid, string.Empty);
+            }
+            if(string.IsNullOrEmpty(txtContractorEmergencyNo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorEmergencyNo, "Phone Number required");
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorEmergencyNo, string.Empty);
+            }
+            if(string.IsNullOrEmpty(cmbContractorFelony.Text))
+            {
+                errorProvider1.SetError(cmbContractorFelony, "select the option");
+            }
+            else
+            {
+                errorProvider1.SetError(cmbContractorFelony, string.Empty);
+            }
             try
             {
-                ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+               
                 DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                  
                     //Insert record to DB
                     try
                     {
+
+                        ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+                        VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
+                        visitorDataModel.Name = _scannedData.Name;
+                        visitorDataModel.Expiry = _scannedData.Expiry;
+                        visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+                        visitorDataModel.IDno = _scannedData.IdNumber;
+                        visitorDataModel.Nationality = _scannedData.Nationality;
+                        visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+                        if (_scannedData.IdType == 2)
+                        {
+                            visitorDataModel.IsPassport = true;
+                        }
+                        _scannedFileInfo.VisitorType = "contract";
+                        concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+                        concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
+                        concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
+                        concatenatedDataBinding.vlBook = new VisitorsLogBook();
+                        concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
+
+                        ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
                         InsertData insertData = new InsertData();
                         insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
                         if (!string.IsNullOrEmpty(txtContractorCompName.Text))
@@ -371,6 +503,33 @@ namespace gui
             catch (Exception ex)
             {
                 Logger.Error($"{ex.Message}", "Error in inserting new company!");
+            }
+        }
+
+        private void txtContractorCellPhn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&(e.KeyChar != '.'))
+    {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
+            }
+        }
+
+        private void txtContractorHomePhn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
+            }
+        }
+
+        private void txtContractorEmergencyNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please Enter Valid Phone Number");
             }
         }
     }

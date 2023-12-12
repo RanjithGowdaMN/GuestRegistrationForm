@@ -152,7 +152,7 @@ namespace gui
             this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btndoc.Size = new System.Drawing.Size(175, 65);
             this.btndoc.TabIndex = 3;
-            this.btndoc.Text = "Document";
+            this.btndoc.Text = "DOCUMENT";
             this.btndoc.UseVisualStyleBackColor = true;
             this.btndoc.Click += new System.EventHandler(this.btndoc_Click);
             // 
@@ -167,9 +167,9 @@ namespace gui
             this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnlgt.Size = new System.Drawing.Size(175, 65);
+            this.btnlgt.Size = new System.Drawing.Size(238, 65);
             this.btnlgt.TabIndex = 5;
-            this.btnlgt.Text = "Visit History";
+            this.btnlgt.Text = "VISIT HISTORY";
             this.btnlgt.UseVisualStyleBackColor = true;
             this.btnlgt.Click += new System.EventHandler(this.btnlgt_Click);
             // 
@@ -186,7 +186,7 @@ namespace gui
             this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btncard.Size = new System.Drawing.Size(175, 65);
             this.btncard.TabIndex = 4;
-            this.btncard.Text = "Card";
+            this.btncard.Text = "CARD";
             this.btncard.UseVisualStyleBackColor = true;
             this.btncard.Click += new System.EventHandler(this.btncard_Click);
             // 
@@ -203,7 +203,7 @@ namespace gui
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnvisitor.Size = new System.Drawing.Size(175, 65);
             this.btnvisitor.TabIndex = 2;
-            this.btnvisitor.Text = "Visitor";
+            this.btnvisitor.Text = "VISITOR";
             this.btnvisitor.UseVisualStyleBackColor = true;
             this.btnvisitor.Click += new System.EventHandler(this.btnVisitorTab_Click);
             // 
@@ -214,13 +214,13 @@ namespace gui
             this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
-            this.btncontractor.Location = new System.Drawing.Point(569, 0);
+            this.btncontractor.Location = new System.Drawing.Point(543, 0);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(175, 65);
+            this.btncontractor.Size = new System.Drawing.Size(201, 65);
             this.btncontractor.TabIndex = 1;
-            this.btncontractor.Text = "Contractor";
+            this.btncontractor.Text = "CONTRACTOR";
             this.btncontractor.UseVisualStyleBackColor = true;
             this.btncontractor.Click += new System.EventHandler(this.btncontractor_Click);
             // 
@@ -231,13 +231,13 @@ namespace gui
             this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
-            this.btnscan.Location = new System.Drawing.Point(399, 0);
+            this.btnscan.Location = new System.Drawing.Point(362, 0);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnscan.Size = new System.Drawing.Size(175, 65);
             this.btnscan.TabIndex = 0;
-            this.btnscan.Text = "Scan";
+            this.btnscan.Text = "SCAN";
             this.btnscan.UseVisualStyleBackColor = true;
             this.btnscan.Click += new System.EventHandler(this.btnScan_Click);
             // 
@@ -274,7 +274,6 @@ namespace gui
             this.Controls.Add(this.panelhome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(1789, 954);
             this.MinimumSize = new System.Drawing.Size(1789, 954);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
