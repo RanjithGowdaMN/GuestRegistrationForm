@@ -94,6 +94,9 @@ namespace gui
             cmbVisitorPersonToVisited.DataSource = retriveDBinfo.GetPersontobeVisited().Select(x => x.EmployeeNames).ToList();
             cmbVisitorPersonToVisited.Text = _visitorDataSheet.PersonToBeVisited;
 
+            cmbVisitorSecurityController.DataSource = retriveDBinfo.GetSecurityController().Select(x => x.Name).ToList();
+            cmbVisitorSecurityController.Text = _visitorDataSheet.SecurityController;
+
             if ((!CompanyNames.Contains(_visitorDataSheet.CompanyName) && (_visitorDataSheet.CompanyName != null)))
             {
                 txtVisitorComp.Text = _visitorDataSheet.CompanyName;
@@ -129,10 +132,10 @@ namespace gui
             {
                 _visitorDataSheet.CompanyName = txtVisitorComp.Text;
             }
-           /* if (tb.Name == txtVisitorSecutityController.Name)
-            {
-                _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
-            }*/
+            //if (tb.Name == txtVisitorSecutityController.Name)
+            //{
+            //    _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
+            //}
             if (tb.Name == dtVisitorVisitDate.Name)
             {
                 _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.Date.ToString("dd/MM/yyyy");

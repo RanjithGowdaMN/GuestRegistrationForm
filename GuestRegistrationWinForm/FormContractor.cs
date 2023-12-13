@@ -445,15 +445,12 @@ namespace gui
             }
             try
             {
-               
                 DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                  
                     //Insert record to DB
                     try
                     {
-
                         ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                         VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                         visitorDataModel.Name = _scannedData.Name;
