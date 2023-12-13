@@ -125,7 +125,7 @@ namespace gui
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(280, 22);
-            this.txtname.TabIndex = 1;
+            this.txtname.TabIndex = 6;
             // 
             // txtid
             // 
@@ -134,7 +134,7 @@ namespace gui
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(280, 22);
-            this.txtid.TabIndex = 2;
+            this.txtid.TabIndex = 7;
             // 
             // txtnationality
             // 
@@ -143,7 +143,7 @@ namespace gui
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
             this.txtnationality.Size = new System.Drawing.Size(280, 22);
-            this.txtnationality.TabIndex = 6;
+            this.txtnationality.TabIndex = 11;
             // 
             // txtexpiry
             // 
@@ -152,7 +152,7 @@ namespace gui
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
             this.txtexpiry.Size = new System.Drawing.Size(280, 22);
-            this.txtexpiry.TabIndex = 5;
+            this.txtexpiry.TabIndex = 9;
             // 
             // txtdob
             // 
@@ -161,7 +161,7 @@ namespace gui
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
             this.txtdob.Size = new System.Drawing.Size(280, 22);
-            this.txtdob.TabIndex = 4;
+            this.txtdob.TabIndex = 10;
             // 
             // rbid
             // 
@@ -172,7 +172,7 @@ namespace gui
             this.rbid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbid.Name = "rbid";
             this.rbid.Size = new System.Drawing.Size(47, 24);
-            this.rbid.TabIndex = 7;
+            this.rbid.TabIndex = 1;
             this.rbid.TabStop = true;
             this.rbid.Tag = "IDTypeTag";
             this.rbid.Text = "ID";
@@ -188,7 +188,7 @@ namespace gui
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
             this.rbpass.Size = new System.Drawing.Size(120, 24);
-            this.rbpass.TabIndex = 8;
+            this.rbpass.TabIndex = 2;
             this.rbpass.TabStop = true;
             this.rbpass.Tag = "IDTypeTag";
             this.rbpass.Text = "PASSPORT";
@@ -206,7 +206,7 @@ namespace gui
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(140, 30);
-            this.btnfront.TabIndex = 9;
+            this.btnfront.TabIndex = 3;
             this.btnfront.Text = "SCAN FRONT";
             this.btnfront.UseVisualStyleBackColor = false;
             this.btnfront.Click += new System.EventHandler(this.btnScanIdFront_Click);
@@ -221,7 +221,7 @@ namespace gui
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(140, 30);
-            this.btnback.TabIndex = 10;
+            this.btnback.TabIndex = 4;
             this.btnback.Text = "SCAN BACK";
             this.btnback.UseVisualStyleBackColor = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
@@ -267,7 +267,7 @@ namespace gui
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(140, 30);
-            this.btnphoto.TabIndex = 11;
+            this.btnphoto.TabIndex = 5;
             this.btnphoto.Text = "PHOTO";
             this.btnphoto.UseVisualStyleBackColor = false;
             this.btnphoto.Click += new System.EventHandler(this.btnPhoto_Click);
@@ -320,7 +320,7 @@ namespace gui
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
             this.SearchVisitor.Name = "SearchVisitor";
             this.SearchVisitor.Size = new System.Drawing.Size(140, 30);
-            this.SearchVisitor.TabIndex = 3;
+            this.SearchVisitor.TabIndex = 8;
             this.SearchVisitor.Text = "SEARCH";
             this.SearchVisitor.UseVisualStyleBackColor = false;
             this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);

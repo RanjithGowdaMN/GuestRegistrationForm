@@ -446,7 +446,7 @@ namespace gui
             try
             {
                
-                DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                   
@@ -480,11 +480,11 @@ namespace gui
                         {
                             insertNewCompnayNameToList(txtContractorCompName.Text);
                         }
-                        MessageBox.Show("Recored Inserted to DB");
+                        MessageBox.Show("Date Inserted");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: in data insert to database !");
+                        MessageBox.Show("Error: in data insertion!");
                         Logger.Error(ex.Message, "data insert error!");
                     }
                     _scannedFileInfo = ScannedFileModel.reset();

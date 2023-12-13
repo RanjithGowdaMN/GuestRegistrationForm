@@ -46,14 +46,14 @@ namespace gui
             Initialize();
             txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
-            txtVisitorSecutityController.TextChanged += TextChanged;
+            //txtVisitorSecutityController.TextChanged += TextChanged;
         }
 
         private void Initialize()
         {
             txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.CompanyName;
-            txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
+            //txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             // dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
             // _visitorDataSheet.VisitDuration = dtVisitorVisitDuration.Text;
             LoadComboxBoxData();
@@ -129,10 +129,10 @@ namespace gui
             {
                 _visitorDataSheet.CompanyName = txtVisitorComp.Text;
             }
-            if (tb.Name == txtVisitorSecutityController.Name)
+           /* if (tb.Name == txtVisitorSecutityController.Name)
             {
                 _visitorDataSheet.SecurityController = txtVisitorSecutityController.Text;
-            }
+            }*/
             if (tb.Name == dtVisitorVisitDate.Name)
             {
                 _visitorDataSheet.VisitDateFrom = dtVisitorVisitDate.Value.Date.ToString("dd/MM/yyyy");
@@ -212,11 +212,88 @@ namespace gui
        // }
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
-           
+            if (string.IsNullOrEmpty(txtVisitorTitle.Text.Trim()))
+            {
+                errorProvider1.SetError(txtVisitorTitle, "Title required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtVisitorTitle, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(cmbVisitorComp.Text))
+            {
+                errorProvider1.SetError(cmbVisitorComp, "Select the Company name");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbVisitorComp, string.Empty);
+            }
+            if (string.IsNullOrEmpty(cmbVistorReasonForVisit.Text))
+            {
+                errorProvider1.SetError(cmbVistorReasonForVisit, "Select the reason for visit");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbVistorReasonForVisit, string.Empty);
+            }
+            if (string.IsNullOrEmpty(cmbVisitorPersonToVisited.Text))
+            {
+                errorProvider1.SetError(cmbVisitorPersonToVisited, "Select the person to be visited");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbVisitorPersonToVisited, string.Empty);
+            }
+
+
+            if (string.IsNullOrEmpty(cmbVisitorAreaVisited.Text))
+            {
+                errorProvider1.SetError(cmbVisitorAreaVisited, "Select the area tp be visited");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbVisitorAreaVisited, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(cmbvisitorDeptManager.Text))
+            {
+                errorProvider1.SetError(cmbvisitorDeptManager, "Select the Department Manager");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbvisitorDeptManager, string.Empty);
+            }
+
+            if (string.IsNullOrEmpty(cmbVisitorProductionManager.Text))
+            {
+                errorProvider1.SetError(cmbVisitorProductionManager, "Select the Production manager");
+                return;
+            }
+            else
+            { 
+                errorProvider1.SetError(cmbVisitorProductionManager, string.Empty);
+            }
+            if (string.IsNullOrEmpty(cmbVisitorSecurityController.Text))
+            {
+                errorProvider1.SetError(cmbVisitorSecurityController, "Select the Security controller");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbVisitorSecurityController, string.Empty);
+            }
+
             try
             {
               
-                DialogResult dialogResult = MessageBox.Show("Save data to DB and Clear ?", "Clear Data", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Save the data and Clear fiels ?", "Clear Data", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //Insert record to DB
@@ -256,7 +333,7 @@ namespace gui
                         {
                             insertNewCompnayNameToList(txtVisitorComp.Text);
                         }
-                        MessageBox.Show("Recored Inserted to DataBase");
+                        MessageBox.Show("Data Inserted");
                     }
                     catch (Exception ex)
                     {

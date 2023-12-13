@@ -29,6 +29,7 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblVtitle = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblVrsnvst = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@ namespace gui
             this.btnVisitorDocument = new System.Windows.Forms.Button();
             this.txtVisitorTitle = new System.Windows.Forms.TextBox();
             this.dtVisitorVisitDate = new System.Windows.Forms.DateTimePicker();
-            this.txtVisitorSecutityController = new System.Windows.Forms.TextBox();
             this.lblVsc = new System.Windows.Forms.Label();
             this.cmbVisitorProductionManager = new System.Windows.Forms.ComboBox();
             this.cmbVisitorPersonToVisited = new System.Windows.Forms.ComboBox();
@@ -59,7 +59,10 @@ namespace gui
             this.cmbVistorReasonForVisit = new System.Windows.Forms.ComboBox();
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbVisitorSecurityController = new System.Windows.Forms.ComboBox();
             this.panelVisitor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVtitle
@@ -98,6 +101,7 @@ namespace gui
             // panelVisitor
             // 
             this.panelVisitor.BackColor = System.Drawing.Color.White;
+            this.panelVisitor.Controls.Add(this.cmbVisitorSecurityController);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDuration);
             this.panelVisitor.Controls.Add(this.cmbVisitorVisitTimeToMinutes);
             this.panelVisitor.Controls.Add(this.cmbVisitorVisitTimeToHr);
@@ -108,7 +112,6 @@ namespace gui
             this.panelVisitor.Controls.Add(this.btnVisitorDocument);
             this.panelVisitor.Controls.Add(this.txtVisitorTitle);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDate);
-            this.panelVisitor.Controls.Add(this.txtVisitorSecutityController);
             this.panelVisitor.Controls.Add(this.lblVsc);
             this.panelVisitor.Controls.Add(this.cmbVisitorProductionManager);
             this.panelVisitor.Controls.Add(this.cmbVisitorPersonToVisited);
@@ -142,7 +145,7 @@ namespace gui
             this.dtVisitorVisitDuration.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDuration.Name = "dtVisitorVisitDuration";
             this.dtVisitorVisitDuration.Size = new System.Drawing.Size(211, 22);
-            this.dtVisitorVisitDuration.TabIndex = 23;
+            this.dtVisitorVisitDuration.TabIndex = 10;
             this.dtVisitorVisitDuration.ValueChanged += new System.EventHandler(this.dtVisitorVisitDuration_ValueChanged);
             // 
             // cmbVisitorVisitTimeToMinutes
@@ -426,15 +429,6 @@ namespace gui
             this.dtVisitorVisitDate.Value = new System.DateTime(2023, 12, 11, 6, 43, 52, 0);
             this.dtVisitorVisitDate.ValueChanged += new System.EventHandler(this.dtVisitorVisitDate_ValueChanged);
             // 
-            // txtVisitorSecutityController
-            // 
-            this.txtVisitorSecutityController.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitorSecutityController.Location = new System.Drawing.Point(860, 600);
-            this.txtVisitorSecutityController.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtVisitorSecutityController.Name = "txtVisitorSecutityController";
-            this.txtVisitorSecutityController.Size = new System.Drawing.Size(215, 22);
-            this.txtVisitorSecutityController.TabIndex = 15;
-            // 
             // lblVsc
             // 
             this.lblVsc.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -587,6 +581,19 @@ namespace gui
             this.txtVisitorComp.Size = new System.Drawing.Size(215, 22);
             this.txtVisitorComp.TabIndex = 3;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // cmbVisitorSecurityController
+            // 
+            this.cmbVisitorSecurityController.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVisitorSecurityController.FormattingEnabled = true;
+            this.cmbVisitorSecurityController.Location = new System.Drawing.Point(860, 600);
+            this.cmbVisitorSecurityController.Name = "cmbVisitorSecurityController";
+            this.cmbVisitorSecurityController.Size = new System.Drawing.Size(215, 24);
+            this.cmbVisitorSecurityController.TabIndex = 15;
+            // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -600,6 +607,7 @@ namespace gui
             this.Load += new System.EventHandler(this.FormVisitor_Load);
             this.panelVisitor.ResumeLayout(false);
             this.panelVisitor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -613,7 +621,6 @@ namespace gui
         private System.Windows.Forms.Panel panelVisitor;
         private System.Windows.Forms.TextBox txtVisitorComp;
         private System.Windows.Forms.DateTimePicker dtVisitorVisitDate;
-        private System.Windows.Forms.TextBox txtVisitorSecutityController;
         private System.Windows.Forms.Label lblVsc;
         private System.Windows.Forms.ComboBox cmbVisitorProductionManager;
         private System.Windows.Forms.ComboBox cmbVisitorPersonToVisited;
@@ -636,5 +643,7 @@ namespace gui
         private System.Windows.Forms.ComboBox cmbVisitTimeFromHr;
         private System.Windows.Forms.Label lblVisitorVisitTime;
         private System.Windows.Forms.DateTimePicker dtVisitorVisitDuration;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox cmbVisitorSecurityController;
     }
 }
