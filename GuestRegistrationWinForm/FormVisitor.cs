@@ -85,6 +85,9 @@ namespace gui
             cmbVisitorProductionManager.DataSource = retriveDBinfo.GetProductionManagers().Select(x => x.ProductionManager).ToList();
             cmbVisitorProductionManager.Text = _visitorDataSheet.ProductionManager;
 
+            cmbVisitorTitle.DataSource = retriveDBinfo.GetVisitorTitle().Select(x => x.Title).ToList();
+            cmbVisitorTitle.Text = _visitorDataSheet.Title;
+
             cmbVisitorAreaVisited.DataSource = retriveDBinfo.GetAreatobeVisited().Select(x => x.Area).ToList();
             cmbVisitorAreaVisited.Text = _visitorDataSheet.AreaVisited;
 
@@ -163,7 +166,15 @@ namespace gui
             cmbvisitorDeptManager.SelectedIndexChanged += CmbvisitorDeptManager_SelectedIndexChanged;
             cmbVisitorPersonToVisited.SelectedIndexChanged += CmbVisitorPersonToVisited_SelectedIndexChanged;
             cmbVisitorProductionManager.SelectedIndexChanged += CmbVisitorProductionManager_SelectedIndexChanged;
+            cmbVisitorTitle.SelectedIndexChanged += cmbVisitorTitle_SelectedIndexChanged;
             cmbVistorReasonForVisit.SelectedIndexChanged += CmbVistorReasonForVisit_SelectedIndexChanged;
+        }
+        private void cmbVisitorTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVisitorTitle!=null)
+            {
+                _visitorDataSheet.Title = cmbVisitorTitle.SelectedItem.ToString();
+            }
         }
         private void CmbVistorReasonForVisit_SelectedIndexChanged(object sender, EventArgs e)
         {

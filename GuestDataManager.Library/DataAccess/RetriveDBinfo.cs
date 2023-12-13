@@ -68,5 +68,11 @@ namespace GuestDataManager.Library.DataAccess
             var p = new { };
             return sql.LoadData<ProductionManagers, dynamic>("dbo.spProductionManagers", p, "GuestData");
         }
+
+        public List<VisitorTitle> GetVisitorTitle()
+        {
+            var p = new { };
+            return sql.LoadData<VisitorTitle, dynamic>("dbo.spGetVisitorTitle", p, "GuestData");
+        }
     }
 }

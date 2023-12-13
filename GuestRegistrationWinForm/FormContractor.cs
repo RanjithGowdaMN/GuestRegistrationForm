@@ -21,14 +21,14 @@ namespace gui
 {
     public partial class FormContractor : Form
     {
-        string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
+        public string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;
         private CameraStatus _cameraStatus;
         private ConsultantApplicationForm _consultantApplicationForm;
         private VisitorDataSheet _visitorDataSheet;
-        string ContractorGeneratedFile = string.Empty;
+        public string ContractorGeneratedFile = string.Empty;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
         private FormScan _formScan;
@@ -95,6 +95,7 @@ namespace gui
             cmbContractorCompName.SelectedIndexChanged += CmbContractorCompName_SelectedIndexChanged;
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
             cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
+            cmbContractorTitle.SelectedIndexChanged += cmbContractorTitle_SelectedIndexChanged;
         }
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -110,6 +111,13 @@ namespace gui
                 _consultantApplicationForm.PurposeOfVisit = cmbContractorPurposeOfVisit.SelectedItem.ToString();
             }
         }
+        private void cmbContractorTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbContractorTitle != null)
+            {
+                _consultantApplicationForm.Title = cmbContractorTitle.SelectedItem.ToString();
+            }
+        }
         public void LoadComboxBoxData()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -120,6 +128,9 @@ namespace gui
             List<string> PurposeOfVisits = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
+
+            cmbContractorTitle.DataSource = retriveDBinfo.GetVisitorTitle().Select(x => x.Title).ToList();
+            cmbContractorTitle.Text = _consultantApplicationForm.Title;
 
             cmbContractorFelony.Text = _consultantApplicationForm.ConvictedFelony? "Yes":"No";
 
@@ -132,10 +143,6 @@ namespace gui
             {
                 cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
             }
-           /* if((PurposeOfVisits.Contains(_consultantApplicationForm.PurposeOfVisit)&&(_consultantApplicationForm.PurposeOfVisit!=null)))
-                    {
-                cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
-            }*/
         }
         private async Task getCompanyName()
         {
@@ -258,17 +265,10 @@ namespace gui
         {
             _consultantApplicationForm.PassportDateofIssue = dtContractorPassportDateOfIssue.Value.Date.ToString("dd/MM/yyyy");
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtContractorDuration_ValueChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
-
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
             //validation
@@ -573,5 +573,7 @@ namespace gui
                 MessageBox.Show("Please Enter Valid Phone Number");
             }
         }
+
+        
     }
 }

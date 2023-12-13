@@ -46,4 +46,9 @@ namespace GuestDataManager.Library.Models
         public string Name { get; set; }
     }
 
+    public class VisitorTitle
+    {
+        public string Title { get; set; }
+    }
+
 }

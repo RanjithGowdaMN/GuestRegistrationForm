@@ -70,10 +70,10 @@ namespace gui
             this.lblCpreres = new System.Windows.Forms.Label();
             this.rtxtContractorPreResidence = new System.Windows.Forms.RichTextBox();
             this.panelcontrator = new System.Windows.Forms.Panel();
+            this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
             this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
             this.panelcontrator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -83,9 +83,10 @@ namespace gui
             this.lblCtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCtitle.AutoSize = true;
             this.lblCtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCtitle.Location = new System.Drawing.Point(240, 40);
+            this.lblCtitle.Location = new System.Drawing.Point(180, 32);
+            this.lblCtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCtitle.Name = "lblCtitle";
-            this.lblCtitle.Size = new System.Drawing.Size(54, 20);
+            this.lblCtitle.Size = new System.Drawing.Size(46, 17);
             this.lblCtitle.TabIndex = 0;
             this.lblCtitle.Text = "TITLE";
             // 
@@ -94,9 +95,10 @@ namespace gui
             this.lblCemail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCemail.AutoSize = true;
             this.lblCemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCemail.Location = new System.Drawing.Point(240, 290);
+            this.lblCemail.Location = new System.Drawing.Point(180, 236);
+            this.lblCemail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCemail.Name = "lblCemail";
-            this.lblCemail.Size = new System.Drawing.Size(59, 20);
+            this.lblCemail.Size = new System.Drawing.Size(48, 17);
             this.lblCemail.TabIndex = 1;
             this.lblCemail.Text = "EMAIL";
             // 
@@ -105,9 +107,10 @@ namespace gui
             this.lblCstate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCstate.AutoSize = true;
             this.lblCstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCstate.Location = new System.Drawing.Point(240, 240);
+            this.lblCstate.Location = new System.Drawing.Point(180, 195);
+            this.lblCstate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCstate.Name = "lblCstate";
-            this.lblCstate.Size = new System.Drawing.Size(62, 20);
+            this.lblCstate.Size = new System.Drawing.Size(53, 17);
             this.lblCstate.TabIndex = 2;
             this.lblCstate.Text = "STATE";
             // 
@@ -116,9 +119,10 @@ namespace gui
             this.lblCcompname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcompname.AutoSize = true;
             this.lblCcompname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcompname.Location = new System.Drawing.Point(770, 40);
+            this.lblCcompname.Location = new System.Drawing.Point(578, 32);
+            this.lblCcompname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCcompname.Name = "lblCcompname";
-            this.lblCcompname.Size = new System.Drawing.Size(145, 20);
+            this.lblCcompname.Size = new System.Drawing.Size(119, 17);
             this.lblCcompname.TabIndex = 3;
             this.lblCcompname.Text = "COMPANY NAME";
             // 
@@ -127,9 +131,10 @@ namespace gui
             this.lblChomphn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblChomphn.AutoSize = true;
             this.lblChomphn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChomphn.Location = new System.Drawing.Point(240, 390);
+            this.lblChomphn.Location = new System.Drawing.Point(180, 317);
+            this.lblChomphn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChomphn.Name = "lblChomphn";
-            this.lblChomphn.Size = new System.Drawing.Size(125, 20);
+            this.lblChomphn.Size = new System.Drawing.Size(102, 17);
             this.lblChomphn.TabIndex = 4;
             this.lblChomphn.Text = "HOME PHONE";
             // 
@@ -138,9 +143,10 @@ namespace gui
             this.lblCfelony.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCfelony.AutoSize = true;
             this.lblCfelony.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCfelony.Location = new System.Drawing.Point(770, 490);
+            this.lblCfelony.Location = new System.Drawing.Point(578, 398);
+            this.lblCfelony.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCfelony.Name = "lblCfelony";
-            this.lblCfelony.Size = new System.Drawing.Size(218, 20);
+            this.lblCfelony.Size = new System.Drawing.Size(179, 17);
             this.lblCfelony.TabIndex = 5;
             this.lblCfelony.Text = "CONVICTED FOR FELONY";
             // 
@@ -149,9 +155,10 @@ namespace gui
             this.lblCalias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCalias.AutoSize = true;
             this.lblCalias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalias.Location = new System.Drawing.Point(240, 440);
+            this.lblCalias.Location = new System.Drawing.Point(180, 358);
+            this.lblCalias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCalias.Name = "lblCalias";
-            this.lblCalias.Size = new System.Drawing.Size(109, 20);
+            this.lblCalias.Size = new System.Drawing.Size(89, 17);
             this.lblCalias.TabIndex = 6;
             this.lblCalias.Text = "ALIAS NAME";
             // 
@@ -160,9 +167,10 @@ namespace gui
             this.lblCpassvalid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassvalid.AutoSize = true;
             this.lblCpassvalid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassvalid.Location = new System.Drawing.Point(770, 390);
+            this.lblCpassvalid.Location = new System.Drawing.Point(578, 317);
+            this.lblCpassvalid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassvalid.Name = "lblCpassvalid";
-            this.lblCpassvalid.Size = new System.Drawing.Size(192, 20);
+            this.lblCpassvalid.Size = new System.Drawing.Size(158, 17);
             this.lblCpassvalid.TabIndex = 7;
             this.lblCpassvalid.Text = "PASSPORT VALID TILL";
             // 
@@ -171,9 +179,10 @@ namespace gui
             this.lblCpassno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassno.AutoSize = true;
             this.lblCpassno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassno.Location = new System.Drawing.Point(770, 240);
+            this.lblCpassno.Location = new System.Drawing.Point(578, 195);
+            this.lblCpassno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassno.Name = "lblCpassno";
-            this.lblCpassno.Size = new System.Drawing.Size(177, 20);
+            this.lblCpassno.Size = new System.Drawing.Size(146, 17);
             this.lblCpassno.TabIndex = 8;
             this.lblCpassno.Text = "PASSPORT NUMBER";
             // 
@@ -182,66 +191,67 @@ namespace gui
             this.lblCadrs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadrs.AutoSize = true;
             this.lblCadrs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadrs.Location = new System.Drawing.Point(240, 90);
+            this.lblCadrs.Location = new System.Drawing.Point(180, 73);
+            this.lblCadrs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCadrs.Name = "lblCadrs";
-            this.lblCadrs.Size = new System.Drawing.Size(91, 20);
+            this.lblCadrs.Size = new System.Drawing.Size(74, 17);
             this.lblCadrs.TabIndex = 9;
             this.lblCadrs.Text = "ADDRESS";
             // 
             // txtContractorAddress
             // 
             this.txtContractorAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorAddress.Location = new System.Drawing.Point(428, 90);
-            this.txtContractorAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorAddress.Location = new System.Drawing.Point(321, 73);
+            this.txtContractorAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorAddress.Name = "txtContractorAddress";
-            this.txtContractorAddress.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorAddress.Size = new System.Drawing.Size(162, 23);
             this.txtContractorAddress.TabIndex = 2;
             // 
             // txtContractorEmail
             // 
             this.txtContractorEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorEmail.Location = new System.Drawing.Point(428, 290);
-            this.txtContractorEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorEmail.Location = new System.Drawing.Point(321, 236);
+            this.txtContractorEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorEmail.Name = "txtContractorEmail";
-            this.txtContractorEmail.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorEmail.Size = new System.Drawing.Size(162, 23);
             this.txtContractorEmail.TabIndex = 6;
             // 
             // txtContractorHomePhn
             // 
             this.txtContractorHomePhn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorHomePhn.Location = new System.Drawing.Point(428, 390);
-            this.txtContractorHomePhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorHomePhn.Location = new System.Drawing.Point(321, 317);
+            this.txtContractorHomePhn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorHomePhn.Name = "txtContractorHomePhn";
-            this.txtContractorHomePhn.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorHomePhn.Size = new System.Drawing.Size(162, 23);
             this.txtContractorHomePhn.TabIndex = 8;
             this.txtContractorHomePhn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContractorHomePhn_KeyPress);
             // 
             // txtContractorCompName
             // 
             this.txtContractorCompName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorCompName.Location = new System.Drawing.Point(1070, 90);
-            this.txtContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorCompName.Location = new System.Drawing.Point(802, 73);
+            this.txtContractorCompName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorCompName.Name = "txtContractorCompName";
-            this.txtContractorCompName.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorCompName.Size = new System.Drawing.Size(162, 23);
             this.txtContractorCompName.TabIndex = 12;
             this.txtContractorCompName.TextChanged += new System.EventHandler(this.txtContractorCompName_TextChanged);
             // 
             // txtContractorPassportNo
             // 
             this.txtContractorPassportNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorPassportNo.Location = new System.Drawing.Point(1070, 240);
-            this.txtContractorPassportNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorPassportNo.Location = new System.Drawing.Point(802, 195);
+            this.txtContractorPassportNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorPassportNo.Name = "txtContractorPassportNo";
-            this.txtContractorPassportNo.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorPassportNo.Size = new System.Drawing.Size(162, 23);
             this.txtContractorPassportNo.TabIndex = 15;
             // 
             // txtContractorAliasName
             // 
             this.txtContractorAliasName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorAliasName.Location = new System.Drawing.Point(428, 440);
-            this.txtContractorAliasName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorAliasName.Location = new System.Drawing.Point(321, 358);
+            this.txtContractorAliasName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorAliasName.Name = "txtContractorAliasName";
-            this.txtContractorAliasName.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorAliasName.Size = new System.Drawing.Size(162, 23);
             this.txtContractorAliasName.TabIndex = 9;
             // 
             // cmbContractorCompName
@@ -249,10 +259,10 @@ namespace gui
             this.cmbContractorCompName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbContractorCompName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbContractorCompName.FormattingEnabled = true;
-            this.cmbContractorCompName.Location = new System.Drawing.Point(1070, 40);
-            this.cmbContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbContractorCompName.Location = new System.Drawing.Point(802, 32);
+            this.cmbContractorCompName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbContractorCompName.Name = "cmbContractorCompName";
-            this.cmbContractorCompName.Size = new System.Drawing.Size(215, 28);
+            this.cmbContractorCompName.Size = new System.Drawing.Size(162, 24);
             this.cmbContractorCompName.TabIndex = 11;
             // 
             // lblCcity
@@ -260,9 +270,10 @@ namespace gui
             this.lblCcity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcity.AutoSize = true;
             this.lblCcity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcity.Location = new System.Drawing.Point(240, 140);
+            this.lblCcity.Location = new System.Drawing.Point(180, 114);
+            this.lblCcity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCcity.Name = "lblCcity";
-            this.lblCcity.Size = new System.Drawing.Size(45, 20);
+            this.lblCcity.Size = new System.Drawing.Size(38, 17);
             this.lblCcity.TabIndex = 20;
             this.lblCcity.Text = "CITY";
             // 
@@ -271,9 +282,10 @@ namespace gui
             this.lblCzip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCzip.AutoSize = true;
             this.lblCzip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCzip.Location = new System.Drawing.Point(240, 190);
+            this.lblCzip.Location = new System.Drawing.Point(180, 154);
+            this.lblCzip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCzip.Name = "lblCzip";
-            this.lblCzip.Size = new System.Drawing.Size(33, 20);
+            this.lblCzip.Size = new System.Drawing.Size(29, 17);
             this.lblCzip.TabIndex = 21;
             this.lblCzip.Text = "ZIP";
             // 
@@ -282,9 +294,10 @@ namespace gui
             this.lblCcelphn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcelphn.AutoSize = true;
             this.lblCcelphn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcelphn.Location = new System.Drawing.Point(240, 340);
+            this.lblCcelphn.Location = new System.Drawing.Point(180, 276);
+            this.lblCcelphn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCcelphn.Name = "lblCcelphn";
-            this.lblCcelphn.Size = new System.Drawing.Size(117, 20);
+            this.lblCcelphn.Size = new System.Drawing.Size(95, 17);
             this.lblCcelphn.TabIndex = 22;
             this.lblCcelphn.Text = "CELL PHONE";
             // 
@@ -293,9 +306,10 @@ namespace gui
             this.lblCssno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCssno.AutoSize = true;
             this.lblCssno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCssno.Location = new System.Drawing.Point(770, 140);
+            this.lblCssno.Location = new System.Drawing.Point(578, 114);
+            this.lblCssno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCssno.Name = "lblCssno";
-            this.lblCssno.Size = new System.Drawing.Size(235, 20);
+            this.lblCssno.Size = new System.Drawing.Size(192, 17);
             this.lblCssno.TabIndex = 23;
             this.lblCssno.Text = "SOCIAL SECURITY NUMBER";
             // 
@@ -304,9 +318,10 @@ namespace gui
             this.lblCpurpsofvisit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpurpsofvisit.AutoSize = true;
             this.lblCpurpsofvisit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpurpsofvisit.Location = new System.Drawing.Point(240, 490);
+            this.lblCpurpsofvisit.Location = new System.Drawing.Point(180, 398);
+            this.lblCpurpsofvisit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpurpsofvisit.Name = "lblCpurpsofvisit";
-            this.lblCpurpsofvisit.Size = new System.Drawing.Size(163, 20);
+            this.lblCpurpsofvisit.Size = new System.Drawing.Size(135, 17);
             this.lblCpurpsofvisit.TabIndex = 24;
             this.lblCpurpsofvisit.Text = "PURPOSE OF VISIT";
             // 
@@ -315,9 +330,10 @@ namespace gui
             this.lblCduration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCduration.AutoSize = true;
             this.lblCduration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCduration.Location = new System.Drawing.Point(770, 190);
+            this.lblCduration.Location = new System.Drawing.Point(578, 154);
+            this.lblCduration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCduration.Name = "lblCduration";
-            this.lblCduration.Size = new System.Drawing.Size(187, 20);
+            this.lblCduration.Size = new System.Drawing.Size(154, 17);
             this.lblCduration.TabIndex = 25;
             this.lblCduration.Text = "DURATION END DATE";
             // 
@@ -326,9 +342,10 @@ namespace gui
             this.lblCpassplace.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassplace.AutoSize = true;
             this.lblCpassplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassplace.Location = new System.Drawing.Point(770, 290);
+            this.lblCpassplace.Location = new System.Drawing.Point(578, 236);
+            this.lblCpassplace.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassplace.Name = "lblCpassplace";
-            this.lblCpassplace.Size = new System.Drawing.Size(241, 20);
+            this.lblCpassplace.Size = new System.Drawing.Size(198, 17);
             this.lblCpassplace.TabIndex = 26;
             this.lblCpassplace.Text = "PASSPORT PLACE OF ISSUE";
             // 
@@ -337,9 +354,10 @@ namespace gui
             this.lblCpassdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassdate.AutoSize = true;
             this.lblCpassdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassdate.Location = new System.Drawing.Point(770, 340);
+            this.lblCpassdate.Location = new System.Drawing.Point(578, 276);
+            this.lblCpassdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpassdate.Name = "lblCpassdate";
-            this.lblCpassdate.Size = new System.Drawing.Size(231, 20);
+            this.lblCpassdate.Size = new System.Drawing.Size(191, 17);
             this.lblCpassdate.TabIndex = 27;
             this.lblCpassdate.Text = "PASSPORT DATE OF ISSUE";
             // 
@@ -348,65 +366,66 @@ namespace gui
             this.lblCemergency.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCemergency.AutoSize = true;
             this.lblCemergency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCemergency.Location = new System.Drawing.Point(770, 440);
+            this.lblCemergency.Location = new System.Drawing.Point(578, 358);
+            this.lblCemergency.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCemergency.Name = "lblCemergency";
-            this.lblCemergency.Size = new System.Drawing.Size(235, 20);
+            this.lblCemergency.Size = new System.Drawing.Size(194, 17);
             this.lblCemergency.TabIndex = 28;
             this.lblCemergency.Text = "EMERGENCY CONTACT NO:";
             // 
             // txtContractorCity
             // 
             this.txtContractorCity.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorCity.Location = new System.Drawing.Point(428, 140);
-            this.txtContractorCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorCity.Location = new System.Drawing.Point(321, 114);
+            this.txtContractorCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorCity.Name = "txtContractorCity";
-            this.txtContractorCity.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorCity.Size = new System.Drawing.Size(162, 23);
             this.txtContractorCity.TabIndex = 3;
             // 
             // txtContractorZip
             // 
             this.txtContractorZip.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorZip.Location = new System.Drawing.Point(428, 190);
-            this.txtContractorZip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorZip.Location = new System.Drawing.Point(321, 154);
+            this.txtContractorZip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorZip.Name = "txtContractorZip";
-            this.txtContractorZip.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorZip.Size = new System.Drawing.Size(162, 23);
             this.txtContractorZip.TabIndex = 4;
             // 
             // txtContractorCellPhn
             // 
             this.txtContractorCellPhn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorCellPhn.Location = new System.Drawing.Point(428, 340);
-            this.txtContractorCellPhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorCellPhn.Location = new System.Drawing.Point(321, 276);
+            this.txtContractorCellPhn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorCellPhn.Name = "txtContractorCellPhn";
-            this.txtContractorCellPhn.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorCellPhn.Size = new System.Drawing.Size(162, 23);
             this.txtContractorCellPhn.TabIndex = 7;
             this.txtContractorCellPhn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContractorCellPhn_KeyPress);
             // 
             // txtContractorSecurityNo
             // 
             this.txtContractorSecurityNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorSecurityNo.Location = new System.Drawing.Point(1070, 140);
-            this.txtContractorSecurityNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorSecurityNo.Location = new System.Drawing.Point(802, 114);
+            this.txtContractorSecurityNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorSecurityNo.Name = "txtContractorSecurityNo";
-            this.txtContractorSecurityNo.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorSecurityNo.Size = new System.Drawing.Size(162, 23);
             this.txtContractorSecurityNo.TabIndex = 13;
             // 
             // txtContractorPassportPlaceOfIssue
             // 
             this.txtContractorPassportPlaceOfIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorPassportPlaceOfIssue.Location = new System.Drawing.Point(1070, 290);
-            this.txtContractorPassportPlaceOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorPassportPlaceOfIssue.Location = new System.Drawing.Point(802, 236);
+            this.txtContractorPassportPlaceOfIssue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorPassportPlaceOfIssue.Name = "txtContractorPassportPlaceOfIssue";
-            this.txtContractorPassportPlaceOfIssue.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorPassportPlaceOfIssue.Size = new System.Drawing.Size(162, 23);
             this.txtContractorPassportPlaceOfIssue.TabIndex = 16;
             // 
             // txtContractorEmergencyNo
             // 
             this.txtContractorEmergencyNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorEmergencyNo.Location = new System.Drawing.Point(1070, 440);
-            this.txtContractorEmergencyNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorEmergencyNo.Location = new System.Drawing.Point(802, 358);
+            this.txtContractorEmergencyNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorEmergencyNo.Name = "txtContractorEmergencyNo";
-            this.txtContractorEmergencyNo.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorEmergencyNo.Size = new System.Drawing.Size(162, 23);
             this.txtContractorEmergencyNo.TabIndex = 19;
             this.txtContractorEmergencyNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContractorEmergencyNo_KeyPress);
             // 
@@ -415,10 +434,10 @@ namespace gui
             this.cmbContractorPurposeOfVisit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbContractorPurposeOfVisit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbContractorPurposeOfVisit.FormattingEnabled = true;
-            this.cmbContractorPurposeOfVisit.Location = new System.Drawing.Point(428, 490);
-            this.cmbContractorPurposeOfVisit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbContractorPurposeOfVisit.Location = new System.Drawing.Point(321, 398);
+            this.cmbContractorPurposeOfVisit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbContractorPurposeOfVisit.Name = "cmbContractorPurposeOfVisit";
-            this.cmbContractorPurposeOfVisit.Size = new System.Drawing.Size(215, 28);
+            this.cmbContractorPurposeOfVisit.Size = new System.Drawing.Size(162, 24);
             this.cmbContractorPurposeOfVisit.TabIndex = 10;
             // 
             // cmbContractorFelony
@@ -429,21 +448,21 @@ namespace gui
             this.cmbContractorFelony.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.cmbContractorFelony.Location = new System.Drawing.Point(1070, 490);
-            this.cmbContractorFelony.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbContractorFelony.Location = new System.Drawing.Point(802, 398);
+            this.cmbContractorFelony.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbContractorFelony.Name = "cmbContractorFelony";
-            this.cmbContractorFelony.Size = new System.Drawing.Size(215, 28);
+            this.cmbContractorFelony.Size = new System.Drawing.Size(162, 24);
             this.cmbContractorFelony.TabIndex = 20;
             // 
             // dtContractorPassportValid
             // 
             this.dtContractorPassportValid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorPassportValid.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorPassportValid.Location = new System.Drawing.Point(1070, 390);
-            this.dtContractorPassportValid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorPassportValid.Location = new System.Drawing.Point(802, 317);
+            this.dtContractorPassportValid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtContractorPassportValid.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
-            this.dtContractorPassportValid.Size = new System.Drawing.Size(212, 26);
+            this.dtContractorPassportValid.Size = new System.Drawing.Size(160, 23);
             this.dtContractorPassportValid.TabIndex = 18;
             this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportValid.ValueChanged += new System.EventHandler(this.dtContractorPassportValid_ValueChanged);
@@ -452,11 +471,11 @@ namespace gui
             // 
             this.dtContractorDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorDuration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorDuration.Location = new System.Drawing.Point(1070, 190);
-            this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorDuration.Location = new System.Drawing.Point(802, 154);
+            this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtContractorDuration.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorDuration.Name = "dtContractorDuration";
-            this.dtContractorDuration.Size = new System.Drawing.Size(215, 26);
+            this.dtContractorDuration.Size = new System.Drawing.Size(162, 23);
             this.dtContractorDuration.TabIndex = 14;
             this.dtContractorDuration.ValueChanged += new System.EventHandler(this.dtContractorDuration_ValueChanged);
             // 
@@ -464,11 +483,11 @@ namespace gui
             // 
             this.dtContractorPassportDateOfIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorPassportDateOfIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(1070, 340);
-            this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(802, 276);
+            this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtContractorPassportDateOfIssue.MaxDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.Name = "dtContractorPassportDateOfIssue";
-            this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(215, 26);
+            this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(162, 23);
             this.dtContractorPassportDateOfIssue.TabIndex = 17;
             this.dtContractorPassportDateOfIssue.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.ValueChanged += new System.EventHandler(this.dtContractorPassportDateOfIssue_ValueChanged);
@@ -478,19 +497,20 @@ namespace gui
             this.lblCpreres.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpreres.AutoSize = true;
             this.lblCpreres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpreres.Location = new System.Drawing.Point(240, 581);
+            this.lblCpreres.Location = new System.Drawing.Point(180, 472);
+            this.lblCpreres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCpreres.Name = "lblCpreres";
-            this.lblCpreres.Size = new System.Drawing.Size(415, 20);
+            this.lblCpreres.Size = new System.Drawing.Size(341, 17);
             this.lblCpreres.TabIndex = 40;
             this.lblCpreres.Text = "PREVIOUS RESIDENCES FOR LAST SEVEN YEARS";
             // 
             // rtxtContractorPreResidence
             // 
             this.rtxtContractorPreResidence.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(709, 554);
-            this.rtxtContractorPreResidence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(532, 450);
+            this.rtxtContractorPreResidence.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rtxtContractorPreResidence.Name = "rtxtContractorPreResidence";
-            this.rtxtContractorPreResidence.Size = new System.Drawing.Size(547, 95);
+            this.rtxtContractorPreResidence.Size = new System.Drawing.Size(411, 78);
             this.rtxtContractorPreResidence.TabIndex = 21;
             this.rtxtContractorPreResidence.Text = "";
             // 
@@ -542,11 +562,23 @@ namespace gui
             this.panelcontrator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcontrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelcontrator.Location = new System.Drawing.Point(0, 0);
-            this.panelcontrator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelcontrator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelcontrator.Name = "panelcontrator";
-            this.panelcontrator.Size = new System.Drawing.Size(1500, 800);
+            this.panelcontrator.Size = new System.Drawing.Size(1125, 650);
             this.panelcontrator.TabIndex = 42;
             this.panelcontrator.Paint += new System.Windows.Forms.PaintEventHandler(this.panelcontrator_Paint);
+            // 
+            // cmbContractorTitle
+            // 
+            this.cmbContractorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbContractorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbContractorTitle.FormattingEnabled = true;
+            this.cmbContractorTitle.Location = new System.Drawing.Point(321, 32);
+            this.cmbContractorTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbContractorTitle.Name = "cmbContractorTitle";
+            this.cmbContractorTitle.Size = new System.Drawing.Size(162, 24);
+            this.cmbContractorTitle.TabIndex = 44;
+            //this.cmbContractorTitle.SelectedIndexChanged += new System.EventHandler(this.cmbContractorTitle_SelectedIndexChanged);
             // 
             // btContractorPdf
             // 
@@ -554,10 +586,10 @@ namespace gui
             this.btContractorPdf.BackColor = System.Drawing.Color.DarkGreen;
             this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btContractorPdf.ForeColor = System.Drawing.Color.White;
-            this.btContractorPdf.Location = new System.Drawing.Point(605, 694);
-            this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btContractorPdf.Location = new System.Drawing.Point(454, 564);
+            this.btContractorPdf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btContractorPdf.Name = "btContractorPdf";
-            this.btContractorPdf.Size = new System.Drawing.Size(216, 39);
+            this.btContractorPdf.Size = new System.Drawing.Size(162, 32);
             this.btContractorPdf.TabIndex = 43;
             this.btContractorPdf.Text = "PRINT DOCUMENT";
             this.btContractorPdf.UseVisualStyleBackColor = false;
@@ -566,34 +598,24 @@ namespace gui
             // txtContractorState
             // 
             this.txtContractorState.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorState.Location = new System.Drawing.Point(428, 240);
-            this.txtContractorState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorState.Location = new System.Drawing.Point(321, 195);
+            this.txtContractorState.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContractorState.Name = "txtContractorState";
-            this.txtContractorState.Size = new System.Drawing.Size(215, 26);
+            this.txtContractorState.Size = new System.Drawing.Size(162, 23);
             this.txtContractorState.TabIndex = 5;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cmbContractorTitle
-            // 
-            this.cmbContractorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbContractorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbContractorTitle.FormattingEnabled = true;
-            this.cmbContractorTitle.Location = new System.Drawing.Point(428, 40);
-            this.cmbContractorTitle.Name = "cmbContractorTitle";
-            this.cmbContractorTitle.Size = new System.Drawing.Size(215, 28);
-            this.cmbContractorTitle.TabIndex = 44;
-            // 
             // FormContractor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.ClientSize = new System.Drawing.Size(1125, 650);
             this.Controls.Add(this.panelcontrator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormContractor";
             this.Text = "FormContractor";
             this.Load += new System.EventHandler(this.Contractor_Load);
