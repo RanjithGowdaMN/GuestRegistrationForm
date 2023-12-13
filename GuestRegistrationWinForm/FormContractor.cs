@@ -58,7 +58,7 @@ namespace gui
             txtContractorPassportNo.TextChanged += TextChanged;
             txtContractorPassportPlaceOfIssue.TextChanged += TextChanged;
             txtContractorSecurityNo.TextChanged += TextChanged;
-            txtContratorTitle.TextChanged += TextChanged;
+            //txtContratorTitle.TextChanged += TextChanged;
             txtContractorZip.TextChanged += TextChanged;
             txtContractorState.TextChanged += TextChanged;
             rtxtContractorPreResidence.TextChanged += RichTextChanged;
@@ -78,7 +78,7 @@ namespace gui
             txtContractorPassportPlaceOfIssue.Text = _consultantApplicationForm.PlaceofIssue;
             txtContractorSecurityNo.Text = _consultantApplicationForm.SocialSecurityNumber;
             txtContractorZip.Text = _consultantApplicationForm.Zip;
-            txtContratorTitle.Text = _consultantApplicationForm.Title;
+            //txtContratorTitle.Text = _consultantApplicationForm.Title;
             rtxtContractorPreResidence.Text = _consultantApplicationForm.Previous7YrResidency;
             txtContractorState.Text = _consultantApplicationForm.State;
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
@@ -225,10 +225,10 @@ namespace gui
             {
                 _consultantApplicationForm.Zip = txtContractorZip.Text;
             }
-            if (tb.Name == txtContratorTitle.Name)
+           /* if (tb.Name == txtContratorTitle.Name)
             {
                 _consultantApplicationForm.Title = txtContratorTitle.Text;
-            }
+            }*/
             if (tb.Name == dtContractorDuration.Name)
             {
                 _consultantApplicationForm.Duration = dtContractorDuration.Text.ToString();
@@ -274,14 +274,14 @@ namespace gui
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
             //validation
-            if (string.IsNullOrEmpty(txtContratorTitle.Text.Trim()))
+            if (string.IsNullOrEmpty(cmbContractorTitle.Text))
             {
-                errorProvider1.SetError(txtContratorTitle, "Title required");
+                errorProvider1.SetError(cmbContractorTitle, "Title required");
                 return;
             }
             else
             {
-                errorProvider1.SetError(txtContratorTitle, string.Empty);
+                errorProvider1.SetError(cmbContractorTitle, string.Empty);
             }
 
 

@@ -44,14 +44,14 @@ namespace gui
             _formScan = formScan;
             //_apiHelper = apiHelper;
             Initialize();
-            txtVisitorTitle.TextChanged += TextChanged;
+            //txtVisitorTitle.TextChanged += TextChanged;
             txtVisitorComp.TextChanged += TextChanged;
             //txtVisitorSecutityController.TextChanged += TextChanged;
         }
 
         private void Initialize()
         {
-            txtVisitorTitle.Text = _visitorDataSheet.Title;
+          //  txtVisitorTitle.Text = _visitorDataSheet.Title;
             txtVisitorComp.Text = _visitorDataSheet.CompanyName;
             //txtVisitorSecutityController.Text = _visitorDataSheet.SecurityController;
             // dtVisitorVisitDate.Text = _visitorDataSheet.VisitDateFrom;
@@ -124,10 +124,10 @@ namespace gui
         private void TextChanged(Object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            if (tb.Name == txtVisitorTitle.Name)
+           /* if (tb.Name == txtVisitorTitle.Name)
             {
                 _visitorDataSheet.Title = txtVisitorTitle.Text;
-            }
+            }*/
             if (tb.Name == txtVisitorComp.Name)
             {
                 _visitorDataSheet.CompanyName = txtVisitorComp.Text;
@@ -215,14 +215,14 @@ namespace gui
        // }
         private void btnVisitorDocument_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtVisitorTitle.Text.Trim()))
+            if (string.IsNullOrEmpty(cmbVisitorTitle.Text))
             {
-                errorProvider1.SetError(txtVisitorTitle, "Title required");
+                errorProvider1.SetError(cmbVisitorTitle, " Select the Title");
                 return;
             }
             else
             {
-                errorProvider1.SetError(txtVisitorTitle, string.Empty);
+                errorProvider1.SetError(cmbVisitorTitle, string.Empty);
             }
 
             if (string.IsNullOrEmpty(cmbVisitorComp.Text))

@@ -40,7 +40,6 @@ namespace gui
             this.lblCpassvalid = new System.Windows.Forms.Label();
             this.lblCpassno = new System.Windows.Forms.Label();
             this.lblCadrs = new System.Windows.Forms.Label();
-            this.txtContratorTitle = new System.Windows.Forms.TextBox();
             this.txtContractorAddress = new System.Windows.Forms.TextBox();
             this.txtContractorEmail = new System.Windows.Forms.TextBox();
             this.txtContractorHomePhn = new System.Windows.Forms.TextBox();
@@ -74,6 +73,7 @@ namespace gui
             this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
             this.panelcontrator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -187,15 +187,6 @@ namespace gui
             this.lblCadrs.Size = new System.Drawing.Size(91, 20);
             this.lblCadrs.TabIndex = 9;
             this.lblCadrs.Text = "ADDRESS";
-            // 
-            // txtContratorTitle
-            // 
-            this.txtContratorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContratorTitle.Location = new System.Drawing.Point(428, 37);
-            this.txtContratorTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContratorTitle.Name = "txtContratorTitle";
-            this.txtContratorTitle.Size = new System.Drawing.Size(215, 26);
-            this.txtContratorTitle.TabIndex = 1;
             // 
             // txtContractorAddress
             // 
@@ -506,11 +497,11 @@ namespace gui
             // panelcontrator
             // 
             this.panelcontrator.BackColor = System.Drawing.Color.White;
+            this.panelcontrator.Controls.Add(this.cmbContractorTitle);
             this.panelcontrator.Controls.Add(this.btContractorPdf);
             this.panelcontrator.Controls.Add(this.txtContractorState);
             this.panelcontrator.Controls.Add(this.lblCtitle);
             this.panelcontrator.Controls.Add(this.rtxtContractorPreResidence);
-            this.panelcontrator.Controls.Add(this.txtContratorTitle);
             this.panelcontrator.Controls.Add(this.lblCpreres);
             this.panelcontrator.Controls.Add(this.lblCcity);
             this.panelcontrator.Controls.Add(this.txtContractorAliasName);
@@ -585,6 +576,16 @@ namespace gui
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // cmbContractorTitle
+            // 
+            this.cmbContractorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbContractorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbContractorTitle.FormattingEnabled = true;
+            this.cmbContractorTitle.Location = new System.Drawing.Point(428, 40);
+            this.cmbContractorTitle.Name = "cmbContractorTitle";
+            this.cmbContractorTitle.Size = new System.Drawing.Size(215, 28);
+            this.cmbContractorTitle.TabIndex = 44;
+            // 
             // FormContractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -615,7 +616,6 @@ namespace gui
         private System.Windows.Forms.Label lblCpassvalid;
         private System.Windows.Forms.Label lblCpassno;
         private System.Windows.Forms.Label lblCadrs;
-        private System.Windows.Forms.TextBox txtContratorTitle;
         private System.Windows.Forms.TextBox txtContractorAddress;
         private System.Windows.Forms.TextBox txtContractorEmail;
         private System.Windows.Forms.TextBox txtContractorHomePhn;
@@ -649,5 +649,6 @@ namespace gui
         private System.Windows.Forms.TextBox txtContractorState;
         private System.Windows.Forms.Button btContractorPdf;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox cmbContractorTitle;
     }
 }
