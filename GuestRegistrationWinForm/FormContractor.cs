@@ -269,8 +269,6 @@ namespace gui
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
-       
-
         private void btContractorPdf_Click(object sender, EventArgs e)
         {
             //validation
