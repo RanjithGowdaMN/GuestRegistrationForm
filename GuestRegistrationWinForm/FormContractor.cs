@@ -284,6 +284,45 @@ namespace gui
                 errorProvider1.SetError(txtContratorTitle, string.Empty);
             }
 
+
+            if(string.IsNullOrEmpty(txtContractorAddress.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorAddress, "Address Required");
+                return;
+
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtContractorAddress, string.Empty);
+            }
+
+
+            if (string.IsNullOrEmpty(txtContractorCity.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorCity, "City Required");
+                return;
+
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtContractorCity, string.Empty);
+            }
+
+
+            if (string.IsNullOrEmpty(txtContractorState.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorState, "State Required");
+                return;
+
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtContractorState, string.Empty);
+            }
+
             if (string.IsNullOrEmpty(txtContractorEmail.Text.Trim()))
             {
                
@@ -301,6 +340,30 @@ namespace gui
             {
                 errorProvider1.SetError(txtContractorEmail, string.Empty);
             }
+            
+            if (string.IsNullOrEmpty(txtContractorCellPhn.Text.Trim()))
+            {
+                errorProvider1.SetError(txtContractorCellPhn, "Phone Numeber is required");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContractorCellPhn, string.Empty);
+
+            }
+
+            if (string.IsNullOrEmpty(cmbContractorPurposeOfVisit.Text))
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, " Select the purpose");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbContractorPurposeOfVisit, string.Empty);
+            }
+
+
+
             if (string.IsNullOrEmpty(cmbContractorCompName.Text))
             {
                 errorProvider1.SetError(cmbContractorCompName, "Select the company name");
@@ -322,25 +385,8 @@ namespace gui
                 errorProvider1.SetError(txtContractorPassportNo, string.Empty);
             }
 
-            if (string.IsNullOrEmpty(txtContractorCellPhn.Text.Trim()))
-            {
-                errorProvider1.SetError(txtContractorCellPhn, "Phone Numeber is required");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(txtContractorCellPhn, string.Empty);
-
-            }
-            if (string.IsNullOrEmpty(cmbContractorPurposeOfVisit.Text))
-            {
-                errorProvider1.SetError(cmbContractorPurposeOfVisit, " Select the purpose");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(cmbContractorPurposeOfVisit, string.Empty);
-            }
+           
+           
 
             if (string.IsNullOrEmpty(dtContractorDuration.Text))
 
