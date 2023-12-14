@@ -269,265 +269,251 @@ namespace gui
         {
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
-        private void btContractorPdf_Click(object sender, EventArgs e)
+
+        public bool ErrorValidation()
         {
-            //validation
+            bool ErrorFlag = false ;
             if (string.IsNullOrEmpty(cmbContractorTitle.Text))
             {
                 errorProvider1.SetError(cmbContractorTitle, "Title required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(cmbContractorTitle, string.Empty);
             }
-
-
-            if(string.IsNullOrEmpty(txtContractorAddress.Text.Trim()))
+            if (string.IsNullOrEmpty(txtContractorAddress.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorAddress, "Address Required");
-                return;
-
+                ErrorFlag = true;
             }
-
             else
             {
                 errorProvider1.SetError(txtContractorAddress, string.Empty);
             }
-
-
             if (string.IsNullOrEmpty(txtContractorCity.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorCity, "City Required");
-                return;
-
+                ErrorFlag = true;
             }
-
             else
             {
                 errorProvider1.SetError(txtContractorCity, string.Empty);
             }
-
-
             if (string.IsNullOrEmpty(txtContractorState.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorState, "State Required");
-                return;
-
+                ErrorFlag = true;
             }
-
             else
             {
                 errorProvider1.SetError(txtContractorState, string.Empty);
             }
-
             if (string.IsNullOrEmpty(txtContractorEmail.Text.Trim()))
             {
-               
-                    errorProvider1.SetError(txtContractorEmail, "Valid EmailRequired");
-                    return;
-                    
+                errorProvider1.SetError(txtContractorEmail, "Valid EmailRequired");
+                ErrorFlag = true;
             }
-
-           else if (Regex.IsMatch(txtContractorEmail.Text, pattern)== false)
+            else if (Regex.IsMatch(txtContractorEmail.Text, pattern) == false)
             {
                 errorProvider1.SetError(txtContractorEmail, "Invalid Email");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(txtContractorEmail, string.Empty);
             }
-            
             if (string.IsNullOrEmpty(txtContractorCellPhn.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorCellPhn, "Phone Numeber is required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(txtContractorCellPhn, string.Empty);
-
             }
-
             if (string.IsNullOrEmpty(cmbContractorPurposeOfVisit.Text))
             {
                 errorProvider1.SetError(cmbContractorPurposeOfVisit, " Select the purpose");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(cmbContractorPurposeOfVisit, string.Empty);
             }
-
-
-
             if (string.IsNullOrEmpty(cmbContractorCompName.Text))
             {
                 errorProvider1.SetError(cmbContractorCompName, "Select the company name");
-                return;
+                ErrorFlag = true;
             }
-
             else
             {
                 errorProvider1.SetError(cmbContractorCompName, string.Empty);
             }
-
             if (string.IsNullOrEmpty(txtContractorPassportNo.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorPassportNo, "Passport Number is required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(txtContractorPassportNo, string.Empty);
             }
-
-           
-           
-
             if (string.IsNullOrEmpty(dtContractorDuration.Text))
-
-            { errorProvider1.SetError(dtContractorDuration, "Select the date");
-            return;
-        }
-        else
-        {
+            {
+                errorProvider1.SetError(dtContractorDuration, "Select the date");
+                ErrorFlag = true;
+            }
+            else
+            {
                 errorProvider1.SetError(dtContractorDuration, string.Empty);
-
-        }
-           
-
-            if(string.IsNullOrEmpty(txtContractorPassportPlaceOfIssue.Text.Trim()))
+            }
+            if (string.IsNullOrEmpty(txtContractorPassportPlaceOfIssue.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorPassportPlaceOfIssue, "Passport place of issue is required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(txtContractorPassportPlaceOfIssue, string.Empty);
             }
-            if(string.IsNullOrEmpty(dtContractorPassportDateOfIssue.Text))
+            if (string.IsNullOrEmpty(dtContractorPassportDateOfIssue.Text))
             {
                 errorProvider1.SetError(dtContractorPassportDateOfIssue, "Passport date of issue required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(dtContractorPassportDateOfIssue, string.Empty);
             }
-            if(string.IsNullOrEmpty(dtContractorPassportValid.Text))
+            if (string.IsNullOrEmpty(dtContractorPassportValid.Text))
             {
                 errorProvider1.SetError(dtContractorPassportValid, "Passport Validity Required");
-                return;
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(dtContractorPassportValid, string.Empty);
             }
-            if(string.IsNullOrEmpty(txtContractorEmergencyNo.Text.Trim()))
+            if (string.IsNullOrEmpty(txtContractorEmergencyNo.Text.Trim()))
             {
                 errorProvider1.SetError(txtContractorEmergencyNo, "Phone Number required");
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(txtContractorEmergencyNo, string.Empty);
             }
-            if(string.IsNullOrEmpty(cmbContractorFelony.Text))
+            if (string.IsNullOrEmpty(cmbContractorFelony.Text))
             {
                 errorProvider1.SetError(cmbContractorFelony, "select the option");
+                ErrorFlag = true;
             }
             else
             {
                 errorProvider1.SetError(cmbContractorFelony, string.Empty);
             }
-            try
+
+            return ErrorFlag;
+        }
+
+        private void btContractorPdf_Click(object sender, EventArgs e)
+        {
+            if (!ErrorValidation())
             {
-                DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", "Clear Data", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                try
                 {
-                    //Insert record to DB
-                    try
+                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", "Clear Data", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-                        VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
-                        visitorDataModel.Name = _scannedData.Name;
-                        visitorDataModel.Expiry = _scannedData.Expiry;
-                        visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
-                        visitorDataModel.IDno = _scannedData.IdNumber;
-                        visitorDataModel.Nationality = _scannedData.Nationality;
-                        visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
-                        if (_scannedData.IdType == 2)
+                        //Insert record to DB
+                        try
                         {
-                            visitorDataModel.IsPassport = true;
-                        }
-                        _scannedFileInfo.VisitorType = "contract";
-                        concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
-                        concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
-                        concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
-                        concatenatedDataBinding.vlBook = new VisitorsLogBook();
-                        concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
+                            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+                            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
+                            visitorDataModel.Name = _scannedData.Name;
+                            visitorDataModel.Expiry = _scannedData.Expiry;
+                            visitorDataModel.DateOfBirth = _scannedData.DateOfBirth;
+                            visitorDataModel.IDno = _scannedData.IdNumber;
+                            visitorDataModel.Nationality = _scannedData.Nationality;
+                            visitorDataModel.isDataFromDb = _scannedData.isDataFromDb;
+                            if (_scannedData.IdType == 2)
+                            {
+                                visitorDataModel.IsPassport = true;
+                            }
+                            _scannedFileInfo.VisitorType = "contract";
+                            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+                            concatenatedDataBinding.CAforVisitor = new ConfidentialityAgreementForVisitor(); ;
+                            concatenatedDataBinding.hsaLog = new HighlySecurityControlAreaLog(); ;
+                            concatenatedDataBinding.vlBook = new VisitorsLogBook();
+                            concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
 
-                        ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
-                        InsertData insertData = new InsertData();
-                        insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
-                        if (!string.IsNullOrEmpty(txtContractorCompName.Text))
-                        {
-                            insertNewCompnayNameToList(txtContractorCompName.Text);
+                            ContractorGeneratedFile = _centralHub.GenerateContractDocument(visitorDataModel, concatenatedDataBinding);
+                            InsertData insertData = new InsertData();
+                            insertData.InsertVisitorRecord(_scannedFileInfo, _scannedData, _cameraStatus, _consultantApplicationForm, _visitorDataSheet);
+                            if (!string.IsNullOrEmpty(txtContractorCompName.Text))
+                            {
+                                insertNewCompnayNameToList(txtContractorCompName.Text);
+                            }
+                            MessageBox.Show("Date Inserted");
                         }
-                        MessageBox.Show("Date Inserted");
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: in data insertion!");
+                            Logger.Error(ex.Message, "data insert error!");
+                        }
+                        _scannedFileInfo = ScannedFileModel.reset();
+                        _scannedData = new ScannedData();
+                        _visitorDataSheet = VisitorDataSheet.reset();
+                        _consultantApplicationForm = ConsultantApplicationForm.reset();
+                        _cameraStatus = CameraStatus.reset();
+                        Initialize();
+
                     }
-                    catch (Exception ex)
+                    else if (dialogResult == DialogResult.No)
                     {
-                        MessageBox.Show("Error: in data insertion!");
-                        Logger.Error(ex.Message, "data insert error!");
+
                     }
-                    _scannedFileInfo = ScannedFileModel.reset();
-                    _scannedData = new ScannedData();
-                    _visitorDataSheet = VisitorDataSheet.reset();
-                    _consultantApplicationForm = ConsultantApplicationForm.reset();
-                    _cameraStatus = CameraStatus.reset();
-                    Initialize();
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show("Error in Generating File:");
+                    Logger.Error(ex.Message, "Error in generating Document:");
                 }
-                else if (dialogResult == DialogResult.No)
+                //Open Generated PDF File
+                try
                 {
-                    
+                    if (!string.IsNullOrEmpty(ContractorGeneratedFile))
+                    {
+                        System.Diagnostics.Process.Start(ContractorGeneratedFile);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File Not Generated, Please check folder!!");
+                        Logger.Error("File Not Generated");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: in file generation");
+                    Logger.Error(ex.Message, "Error in file generation");
+                }
+                _formScan.txtname.Clear();
+                _formScan.txtid.Clear();
+                _formScan.txtdob.Clear();
+                _formScan.txtexpiry.Clear();
+                _formScan.txtnationality.Clear();
+                _formScan.rbid.Checked = true;
+                _formScan.rbpass.Checked = false;
+                _consultantApplicationForm.PassportDateofIssue = DateTime.Now.ToString("dd/MM/yyyy");
+                _consultantApplicationForm.PassportValidity = DateTime.Now.ToString("dd/MM/yyyy");
             }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show("Error in Generating File:");
-                Logger.Error(ex.Message, "Error in generating Document:");
-            }
-            //Open Generated PDF File
-            try
-            {
-                if (!string.IsNullOrEmpty(ContractorGeneratedFile))
-                {
-                    System.Diagnostics.Process.Start(ContractorGeneratedFile);
-                }
-                else
-                {
-                    MessageBox.Show("File Not Generated, Please check folder!!");
-                    Logger.Error("File Not Generated");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: in file generation");
-                Logger.Error(ex.Message, "Error in file generation");
-            }
-            _formScan.txtname.Clear();
-            _formScan.txtid.Clear();
-            _formScan.txtdob.Clear();
-            _formScan.txtexpiry.Clear();
-            _formScan.txtnationality.Clear();
-            _formScan.rbid.Checked = true;
-            _formScan.rbpass.Checked = false;
-            _consultantApplicationForm.PassportDateofIssue = DateTime.Now.ToString("dd/MM/yyyy");
-            _consultantApplicationForm.PassportValidity = DateTime.Now.ToString("dd/MM/yyyy");
+
+            //validation
+            
+           
         }
 
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)
