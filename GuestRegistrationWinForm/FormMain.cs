@@ -43,8 +43,20 @@ namespace gui
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+        private void backColor_ColorChanged(object sender, EventArgs e)
+        {
+            
+            if (rbCameraStatus.Checked)
+                rbCameraStatus.ForeColor = Color.Green;
+                
+            // else
+            //   this.BackColor = System.Drawing.Color.Green;
+            if (rbScannerStatus.Checked)
+                rbScannerStatus.ForeColor = Color.Green;
+        }
         public FormMain()
         {
+
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
@@ -59,6 +71,10 @@ namespace gui
                                             _container.Resolve<IGenerateCardPrintDoc>()));
             _apiHelper = _container.Resolve<IAPIconnector>();
             InitializeComponent();
+         
+            rbCameraStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
+            rbScannerStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
+
 
             cameraStatus = CameraStatus.Instance;
             scannedFileInfo = ScannedFileModel.Instance;

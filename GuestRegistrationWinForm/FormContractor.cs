@@ -21,6 +21,7 @@ namespace gui
 {
     public partial class FormContractor : Form
     {
+        public string title = "Instant Card printing";
         public string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
@@ -423,7 +424,7 @@ namespace gui
             {
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", "Clear Data", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?",title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
                         //Insert record to DB
@@ -455,11 +456,11 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtContractorCompName.Text);
                             }
-                            MessageBox.Show("Date Inserted");
+                            MessageBox.Show("Data Inserted","Save");
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error: in data insertion!");
+                            MessageBox.Show("Error: in data insertion!",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                             Logger.Error(ex.Message, "data insert error!");
                         }
                         _scannedFileInfo = ScannedFileModel.reset();
@@ -478,7 +479,7 @@ namespace gui
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Error in Generating File:");
+                    MessageBox.Show("Error in Generating File:",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                     Logger.Error(ex.Message, "Error in generating Document:");
                 }
                 //Open Generated PDF File
@@ -490,13 +491,13 @@ namespace gui
                     }
                     else
                     {
-                        MessageBox.Show("File Not Generated, Please check folder!!");
+                        MessageBox.Show("File is Not Generated",title,MessageBoxButtons.OK,MessageBoxIcon.Information );
                         Logger.Error("File Not Generated");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: in file generation");
+                    MessageBox.Show("Error: in file generation",title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Logger.Error(ex.Message, "Error in file generation");
                 }
                 _formScan.txtname.Clear();
@@ -538,7 +539,7 @@ namespace gui
             if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&(e.KeyChar != '.'))
     {
                 e.Handled = true;
-                MessageBox.Show("Please Enter Valid Phone Number");
+                MessageBox.Show("Please Enter Valid Phone Number",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -547,7 +548,7 @@ namespace gui
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-                MessageBox.Show("Please Enter Valid Phone Number");
+                MessageBox.Show("Please Enter Valid Phone Number", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -556,7 +557,7 @@ namespace gui
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-                MessageBox.Show("Please Enter Valid Phone Number");
+                MessageBox.Show("Please Enter Valid Phone Number", title,MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

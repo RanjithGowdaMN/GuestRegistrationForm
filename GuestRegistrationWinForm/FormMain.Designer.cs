@@ -43,10 +43,14 @@ namespace gui
             this.btnscan = new System.Windows.Forms.Button();
             this.panelform = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelStatus = new System.Windows.Forms.Panel();
+            this.rbCameraStatus = new System.Windows.Forms.RadioButton();
+            this.rbScannerStatus = new System.Windows.Forms.RadioButton();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelhome
@@ -264,11 +268,57 @@ namespace gui
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelStatus
+            // 
+            this.panelStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelStatus.Controls.Add(this.rbScannerStatus);
+            this.panelStatus.Controls.Add(this.rbCameraStatus);
+            this.panelStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelStatus.Location = new System.Drawing.Point(0, 909);
+            this.panelStatus.Name = "panelStatus";
+            this.panelStatus.Size = new System.Drawing.Size(1789, 45);
+            this.panelStatus.TabIndex = 3;
+            // 
+            // rbCameraStatus
+            // 
+            this.rbCameraStatus.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbCameraStatus.AutoSize = true;
+            this.rbCameraStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.rbCameraStatus.FlatAppearance.BorderSize = 0;
+            this.rbCameraStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbCameraStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCameraStatus.ForeColor = System.Drawing.Color.Red;
+            this.rbCameraStatus.Location = new System.Drawing.Point(180, 6);
+            this.rbCameraStatus.Name = "rbCameraStatus";
+            this.rbCameraStatus.Size = new System.Drawing.Size(98, 35);
+            this.rbCameraStatus.TabIndex = 0;
+            this.rbCameraStatus.TabStop = true;
+            this.rbCameraStatus.Text = "Camera";
+            this.rbCameraStatus.UseVisualStyleBackColor = false;
+            // 
+            // rbScannerStatus
+            // 
+            this.rbScannerStatus.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbScannerStatus.AutoSize = true;
+            this.rbScannerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.rbScannerStatus.FlatAppearance.BorderSize = 0;
+            this.rbScannerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbScannerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbScannerStatus.ForeColor = System.Drawing.Color.Red;
+            this.rbScannerStatus.Location = new System.Drawing.Point(347, 6);
+            this.rbScannerStatus.Name = "rbScannerStatus";
+            this.rbScannerStatus.Size = new System.Drawing.Size(103, 35);
+            this.rbScannerStatus.TabIndex = 1;
+            this.rbScannerStatus.TabStop = true;
+            this.rbScannerStatus.Text = "Scanner";
+            this.rbScannerStatus.UseVisualStyleBackColor = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1789, 954);
+            this.Controls.Add(this.panelStatus);
             this.Controls.Add(this.panelform);
             this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.panelhome);
@@ -283,6 +333,8 @@ namespace gui
             this.panelbuttons.ResumeLayout(false);
             this.panelform.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelStatus.ResumeLayout(false);
+            this.panelStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +356,8 @@ namespace gui
         private System.Windows.Forms.Button btnWindowMaxm;
         private System.Windows.Forms.Button btnWindowClsoe;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelStatus;
+        private System.Windows.Forms.RadioButton rbScannerStatus;
+        private System.Windows.Forms.RadioButton rbCameraStatus;
     }
 }

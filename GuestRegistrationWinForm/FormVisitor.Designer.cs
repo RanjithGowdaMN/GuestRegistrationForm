@@ -35,6 +35,7 @@ namespace gui
             this.lblVrsnvst = new System.Windows.Forms.Label();
             this.lblVcomp = new System.Windows.Forms.Label();
             this.panelVisitor = new System.Windows.Forms.Panel();
+            this.cmbVisitorTitle = new System.Windows.Forms.ComboBox();
             this.cmbVisitorSecurityController = new System.Windows.Forms.ComboBox();
             this.dtVisitorVisitDuration = new System.Windows.Forms.DateTimePicker();
             this.cmbVisitorVisitTimeToMinutes = new System.Windows.Forms.ComboBox();
@@ -60,7 +61,6 @@ namespace gui
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbVisitorTitle = new System.Windows.Forms.ComboBox();
             this.panelVisitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +136,16 @@ namespace gui
             this.panelVisitor.Size = new System.Drawing.Size(1583, 722);
             this.panelVisitor.TabIndex = 3;
             this.panelVisitor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmbVisitorTitle
+            // 
+            this.cmbVisitorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVisitorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVisitorTitle.FormattingEnabled = true;
+            this.cmbVisitorTitle.Location = new System.Drawing.Point(860, 60);
+            this.cmbVisitorTitle.Name = "cmbVisitorTitle";
+            this.cmbVisitorTitle.Size = new System.Drawing.Size(215, 24);
+            this.cmbVisitorTitle.TabIndex = 1;
             // 
             // cmbVisitorSecurityController
             // 
@@ -414,7 +424,7 @@ namespace gui
             this.btnVisitorDocument.FlatAppearance.BorderSize = 0;
             this.btnVisitorDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(749, 654);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(748, 644);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(216, 39);
@@ -591,16 +601,6 @@ namespace gui
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // cmbVisitorTitle
-            // 
-            this.cmbVisitorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVisitorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVisitorTitle.FormattingEnabled = true;
-            this.cmbVisitorTitle.Location = new System.Drawing.Point(860, 60);
-            this.cmbVisitorTitle.Name = "cmbVisitorTitle";
-            this.cmbVisitorTitle.Size = new System.Drawing.Size(215, 24);
-            this.cmbVisitorTitle.TabIndex = 1;
             // 
             // FormVisitor
             // 

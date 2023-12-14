@@ -20,6 +20,7 @@ namespace gui
 {
     public partial class FormVisitor : Form
     {
+        public string title = "Instant Card printing";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;
@@ -300,7 +301,7 @@ namespace gui
             {
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fiels ?", "Clear Data", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fiels ?", title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
                         //Insert record to DB
@@ -340,11 +341,11 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtVisitorComp.Text);
                             }
-                            MessageBox.Show("Data Inserted");
+                            MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error in Data Insert");
+                            MessageBox.Show("Error in Data Insert",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                             Logger.Error($"Error Data Insert {ex.Message}");
                         }
                         _scannedFileInfo = ScannedFileModel.reset();
@@ -372,13 +373,13 @@ namespace gui
                     }
                     else
                     {
-                        MessageBox.Show("File Not Generated, Please check folder!!");
+                        MessageBox.Show("File is Not Generated",title,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         Logger.Error("File Not Generated");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error in Opening PDF");
+                    MessageBox.Show("Error in Opening PDF",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                     Logger.Error($"Error in Opening PDF {ex.Message}");
                 }
                 _formScan.txtname.Clear();
