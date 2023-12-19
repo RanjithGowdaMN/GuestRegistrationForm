@@ -71,7 +71,7 @@ namespace gui
                 // Replace the file path with the path to your form
 
                 
-                string filePath = @"D:\VisitorData\GeneratedDocument\\"; // Example path to a form file
+                string filePath = @"D:\VisitorData\GeneratedDocument\Contractor\\"; // Example path to a form file
 
                 // Open the form using the default associated application
                 Process.Start(filePath);
@@ -88,7 +88,7 @@ namespace gui
             try
             {
                 // Replace the file path with the path to your form
-                string filePath = @"D:\VisitorData\GeneratedDocument\\"; // Example path to a form file
+                string filePath = @"D:\VisitorData\GeneratedDocument\Visitor\\"; // Example path to a form file
 
                 // Open the form using the default associated application
                 Process.Start(filePath);

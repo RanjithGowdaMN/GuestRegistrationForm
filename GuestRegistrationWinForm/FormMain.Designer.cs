@@ -44,8 +44,8 @@ namespace gui
             this.panelform = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelStatus = new System.Windows.Forms.Panel();
-            this.rbCameraStatus = new System.Windows.Forms.RadioButton();
             this.rbScannerStatus = new System.Windows.Forms.RadioButton();
+            this.rbCameraStatus = new System.Windows.Forms.RadioButton();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
@@ -119,12 +119,12 @@ namespace gui
             this.lblhome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblhome.AutoSize = true;
             this.lblhome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhome.Location = new System.Drawing.Point(724, 23);
+            this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhome.Location = new System.Drawing.Point(656, 1);
             this.lblhome.Name = "lblhome";
-            this.lblhome.Size = new System.Drawing.Size(354, 37);
+            this.lblhome.Size = new System.Drawing.Size(500, 54);
             this.lblhome.TabIndex = 0;
-            this.lblhome.Text = "SECURITY PRINTING PRESS";
+            this.lblhome.Text = "INSTANT CARD PRINTING";
             this.lblhome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelbuttons
@@ -218,7 +218,7 @@ namespace gui
             this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
-            this.btncontractor.Location = new System.Drawing.Point(543, 0);
+            this.btncontractor.Location = new System.Drawing.Point(543, 1);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -279,23 +279,6 @@ namespace gui
             this.panelStatus.Size = new System.Drawing.Size(1789, 45);
             this.panelStatus.TabIndex = 3;
             // 
-            // rbCameraStatus
-            // 
-            this.rbCameraStatus.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbCameraStatus.AutoSize = true;
-            this.rbCameraStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.rbCameraStatus.FlatAppearance.BorderSize = 0;
-            this.rbCameraStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbCameraStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCameraStatus.ForeColor = System.Drawing.Color.Red;
-            this.rbCameraStatus.Location = new System.Drawing.Point(180, 6);
-            this.rbCameraStatus.Name = "rbCameraStatus";
-            this.rbCameraStatus.Size = new System.Drawing.Size(98, 35);
-            this.rbCameraStatus.TabIndex = 0;
-            this.rbCameraStatus.TabStop = true;
-            this.rbCameraStatus.Text = "Camera";
-            this.rbCameraStatus.UseVisualStyleBackColor = false;
-            // 
             // rbScannerStatus
             // 
             this.rbScannerStatus.Appearance = System.Windows.Forms.Appearance.Button;
@@ -312,6 +295,23 @@ namespace gui
             this.rbScannerStatus.TabStop = true;
             this.rbScannerStatus.Text = "Scanner";
             this.rbScannerStatus.UseVisualStyleBackColor = false;
+            // 
+            // rbCameraStatus
+            // 
+            this.rbCameraStatus.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbCameraStatus.AutoSize = true;
+            this.rbCameraStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.rbCameraStatus.FlatAppearance.BorderSize = 0;
+            this.rbCameraStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbCameraStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCameraStatus.ForeColor = System.Drawing.Color.Red;
+            this.rbCameraStatus.Location = new System.Drawing.Point(180, 6);
+            this.rbCameraStatus.Name = "rbCameraStatus";
+            this.rbCameraStatus.Size = new System.Drawing.Size(98, 35);
+            this.rbCameraStatus.TabIndex = 0;
+            this.rbCameraStatus.TabStop = true;
+            this.rbCameraStatus.Text = "Camera";
+            this.rbCameraStatus.UseVisualStyleBackColor = false;
             // 
             // FormMain
             // 
