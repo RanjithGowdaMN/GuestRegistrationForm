@@ -328,6 +328,7 @@ namespace gui
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelhome.ResumeLayout(false);
             this.panelhome.PerformLayout();
             this.panelbuttons.ResumeLayout(false);

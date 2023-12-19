@@ -36,7 +36,7 @@ namespace gui
         {
             _centralHub = centralHub;
             InitializeComponent();
-
+         //  dtVisitorVisitDate.MinDate = DateTime.Now;
             _scannedFileInfo = ScannedFileModel.Instance;
             _cameraStatus = CameraStatus.Instance;
             _consultantApplicationForm = ConsultantApplicationForm.Instance;

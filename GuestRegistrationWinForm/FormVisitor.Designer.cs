@@ -439,7 +439,6 @@ namespace gui
             this.dtVisitorVisitDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtVisitorVisitDate.Location = new System.Drawing.Point(860, 359);
             this.dtVisitorVisitDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtVisitorVisitDate.MinDate = new System.DateTime(2023, 12, 5, 0, 0, 0, 0);
             this.dtVisitorVisitDate.Name = "dtVisitorVisitDate";
             this.dtVisitorVisitDate.Size = new System.Drawing.Size(209, 22);
             this.dtVisitorVisitDate.TabIndex = 7;

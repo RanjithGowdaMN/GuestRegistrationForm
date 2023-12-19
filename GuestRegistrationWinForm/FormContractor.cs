@@ -48,6 +48,10 @@ namespace gui
             _formScan = formScan;
             //_apiHelper = apiHelper;
             Initialize();
+
+            dtContractorDuration.MinDate = DateTime.Now;
+            dtContractorPassportDateOfIssue.MaxDate = DateTime.Now;
+            dtContractorPassportValid.MinDate = DateTime.Now;
             txtContractorAddress.TextChanged += TextChanged;
             txtContractorAliasName.TextChanged += TextChanged;
             txtContractorCellPhn.TextChanged += TextChanged;
@@ -215,7 +219,6 @@ namespace gui
             if (tb.Name == txtContractorHomePhn.Name)
             {
                 _consultantApplicationForm.HomePhoneNo = txtContractorHomePhn.Text;
-
             }
             if (tb.Name == txtContractorPassportNo.Name)
             {
@@ -240,12 +243,10 @@ namespace gui
             if (tb.Name == dtContractorDuration.Name)
             {
                 _consultantApplicationForm.Duration = dtContractorDuration.Text.ToString();
-
             }
             if (tb.Name == dtContractorPassportDateOfIssue.Name)
             {
                 _consultantApplicationForm.PassportDateofIssue = dtContractorPassportDateOfIssue.Text.ToString();
-
             }
             if (tb.Name == dtContractorPassportValid.Name)
             {
@@ -414,7 +415,6 @@ namespace gui
             {
                 errorProvider1.SetError(cmbContractorFelony, string.Empty);
             }
-
             return ErrorFlag;
         }
 
@@ -456,7 +456,7 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtContractorCompName.Text);
                             }
-                            MessageBox.Show("Data Inserted","Save");
+                            MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -510,13 +510,8 @@ namespace gui
                 _consultantApplicationForm.PassportDateofIssue = DateTime.Now.ToString("dd/MM/yyyy");
                 _consultantApplicationForm.PassportValidity = DateTime.Now.ToString("dd/MM/yyyy");
             }
-
-
-            //validation
-            
-           
+            //validation    
         }
-
         private void txtContractorCompName_TextChanged(object sender, EventArgs e)
         {
             _consultantApplicationForm.CompanyName = txtContractorCompName.Text;
@@ -560,7 +555,5 @@ namespace gui
                 MessageBox.Show("Please Enter Valid Phone Number", title,MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

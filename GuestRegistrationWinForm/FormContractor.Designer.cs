@@ -445,7 +445,7 @@ namespace gui
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
             this.dtContractorPassportValid.Size = new System.Drawing.Size(212, 26);
             this.dtContractorPassportValid.TabIndex = 18;
-            this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
+            this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 19, 0, 0, 0, 0);
             this.dtContractorPassportValid.ValueChanged += new System.EventHandler(this.dtContractorPassportValid_ValueChanged);
             // 
             // dtContractorDuration
@@ -466,11 +466,10 @@ namespace gui
             this.dtContractorPassportDateOfIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(1069, 340);
             this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtContractorPassportDateOfIssue.MaxDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.Name = "dtContractorPassportDateOfIssue";
             this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(215, 26);
             this.dtContractorPassportDateOfIssue.TabIndex = 17;
-            this.dtContractorPassportDateOfIssue.Value = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
+            this.dtContractorPassportDateOfIssue.Value = new System.DateTime(2023, 12, 19, 0, 0, 0, 0);
             this.dtContractorPassportDateOfIssue.ValueChanged += new System.EventHandler(this.dtContractorPassportDateOfIssue_ValueChanged);
             // 
             // lblCpreres
