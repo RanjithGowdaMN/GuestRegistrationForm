@@ -274,6 +274,7 @@ namespace gui
             // 
             // panelScan
             // 
+            this.panelScan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelScan.Controls.Add(this.lblselect);
             this.panelScan.Controls.Add(this.SearchVisitor);
             this.panelScan.Controls.Add(this.lblname);
@@ -326,9 +327,9 @@ namespace gui
             // 
             // panelId
             // 
+            this.panelId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelId.Controls.Add(this.pbback);
             this.panelId.Controls.Add(this.pbfront);
-            this.panelId.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelId.Location = new System.Drawing.Point(927, 0);
             this.panelId.Name = "panelId";
             this.panelId.Size = new System.Drawing.Size(601, 677);
