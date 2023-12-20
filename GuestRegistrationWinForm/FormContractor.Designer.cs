@@ -445,7 +445,7 @@ namespace gui
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
             this.dtContractorPassportValid.Size = new System.Drawing.Size(212, 26);
             this.dtContractorPassportValid.TabIndex = 18;
-            this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 19, 0, 0, 0, 0);
+            this.dtContractorPassportValid.Value = new System.DateTime(2023, 12, 20, 0, 0, 0, 0);
             this.dtContractorPassportValid.ValueChanged += new System.EventHandler(this.dtContractorPassportValid_ValueChanged);
             // 
             // dtContractorDuration
@@ -561,13 +561,15 @@ namespace gui
             // btContractorPdf
             // 
             this.btContractorPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btContractorPdf.BackColor = System.Drawing.Color.DarkGreen;
+            this.btContractorPdf.BackColor = System.Drawing.Color.ForestGreen;
             this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btContractorPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btContractorPdf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btContractorPdf.ForeColor = System.Drawing.Color.White;
-            this.btContractorPdf.Location = new System.Drawing.Point(627, 699);
+            this.btContractorPdf.Location = new System.Drawing.Point(627, 687);
             this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btContractorPdf.Name = "btContractorPdf";
-            this.btContractorPdf.Size = new System.Drawing.Size(216, 39);
+            this.btContractorPdf.Size = new System.Drawing.Size(216, 50);
             this.btContractorPdf.TabIndex = 43;
             this.btContractorPdf.Text = "PRINT DOCUMENT";
             this.btContractorPdf.UseVisualStyleBackColor = false;

@@ -29,6 +29,7 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScan));
             this.lblname = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lbldob = new System.Windows.Forms.Label();
@@ -199,13 +200,14 @@ namespace gui
             // btnfront
             // 
             this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnfront.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnfront.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfront.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnfront.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfront.ForeColor = System.Drawing.Color.White;
             this.btnfront.Location = new System.Drawing.Point(70, 129);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
-            this.btnfront.Size = new System.Drawing.Size(140, 30);
+            this.btnfront.Size = new System.Drawing.Size(160, 50);
             this.btnfront.TabIndex = 3;
             this.btnfront.Text = "SCAN FRONT";
             this.btnfront.UseVisualStyleBackColor = false;
@@ -214,13 +216,15 @@ namespace gui
             // btnback
             // 
             this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnback.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnback.FlatAppearance.BorderSize = 0;
+            this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.Color.White;
             this.btnback.Location = new System.Drawing.Point(270, 129);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(140, 30);
+            this.btnback.Size = new System.Drawing.Size(160, 50);
             this.btnback.TabIndex = 4;
             this.btnback.Text = "SCAN BACK";
             this.btnback.UseVisualStyleBackColor = false;
@@ -260,13 +264,14 @@ namespace gui
             // btnphoto
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnphoto.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnphoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnphoto.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
             this.btnphoto.Location = new System.Drawing.Point(707, 327);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
-            this.btnphoto.Size = new System.Drawing.Size(140, 30);
+            this.btnphoto.Size = new System.Drawing.Size(160, 50);
             this.btnphoto.TabIndex = 5;
             this.btnphoto.Text = "PHOTO";
             this.btnphoto.UseVisualStyleBackColor = false;
@@ -313,15 +318,20 @@ namespace gui
             // SearchVisitor
             // 
             this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SearchVisitor.BackColor = System.Drawing.Color.DarkGreen;
-            this.SearchVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchVisitor.BackColor = System.Drawing.Color.ForestGreen;
+            this.SearchVisitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchVisitor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchVisitor.ForeColor = System.Drawing.Color.White;
-            this.SearchVisitor.Location = new System.Drawing.Point(483, 289);
+            this.SearchVisitor.Image = ((System.Drawing.Image)(resources.GetObject("SearchVisitor.Image")));
+            this.SearchVisitor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchVisitor.Location = new System.Drawing.Point(483, 277);
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
             this.SearchVisitor.Name = "SearchVisitor";
-            this.SearchVisitor.Size = new System.Drawing.Size(140, 30);
+            this.SearchVisitor.Size = new System.Drawing.Size(140, 50);
             this.SearchVisitor.TabIndex = 8;
             this.SearchVisitor.Text = "SEARCH";
+            this.SearchVisitor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SearchVisitor.UseVisualStyleBackColor = false;
             this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
             // 

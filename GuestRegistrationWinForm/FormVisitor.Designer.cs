@@ -422,12 +422,13 @@ namespace gui
             this.btnVisitorDocument.BackColor = System.Drawing.Color.DarkGreen;
             this.btnVisitorDocument.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVisitorDocument.FlatAppearance.BorderSize = 0;
-            this.btnVisitorDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitorDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisitorDocument.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(748, 672);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(740, 661);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
-            this.btnVisitorDocument.Size = new System.Drawing.Size(216, 39);
+            this.btnVisitorDocument.Size = new System.Drawing.Size(216, 50);
             this.btnVisitorDocument.TabIndex = 16;
             this.btnVisitorDocument.Text = "PRINT DOCUMENT";
             this.btnVisitorDocument.UseVisualStyleBackColor = false;
