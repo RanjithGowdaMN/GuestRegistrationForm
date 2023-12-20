@@ -564,7 +564,7 @@ namespace gui
             this.btContractorPdf.BackColor = System.Drawing.Color.DarkGreen;
             this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btContractorPdf.ForeColor = System.Drawing.Color.White;
-            this.btContractorPdf.Location = new System.Drawing.Point(605, 668);
+            this.btContractorPdf.Location = new System.Drawing.Point(627, 699);
             this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btContractorPdf.Name = "btContractorPdf";
             this.btContractorPdf.Size = new System.Drawing.Size(216, 39);

@@ -139,7 +139,7 @@ namespace gui
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Location = new System.Drawing.Point(184, 502);
+            this.txtnationality.Location = new System.Drawing.Point(180, 502);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
             this.txtnationality.Size = new System.Drawing.Size(280, 22);
@@ -233,14 +233,14 @@ namespace gui
             this.pbphoto.Location = new System.Drawing.Point(649, 33);
             this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbphoto.Name = "pbphoto";
-            this.pbphoto.Size = new System.Drawing.Size(214, 221);
+            this.pbphoto.Size = new System.Drawing.Size(250, 276);
             this.pbphoto.TabIndex = 14;
             this.pbphoto.TabStop = false;
             // 
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(22, 14);
+            this.pbfront.Location = new System.Drawing.Point(25, 11);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbfront.Name = "pbfront";
             this.pbfront.Size = new System.Drawing.Size(560, 300);
@@ -250,7 +250,7 @@ namespace gui
             // pbback
             // 
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(22, 360);
+            this.pbback.Location = new System.Drawing.Point(25, 338);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbback.Name = "pbback";
             this.pbback.Size = new System.Drawing.Size(560, 300);
@@ -263,7 +263,7 @@ namespace gui
             this.btnphoto.BackColor = System.Drawing.Color.DarkGreen;
             this.btnphoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
-            this.btnphoto.Location = new System.Drawing.Point(688, 289);
+            this.btnphoto.Location = new System.Drawing.Point(707, 327);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(140, 30);

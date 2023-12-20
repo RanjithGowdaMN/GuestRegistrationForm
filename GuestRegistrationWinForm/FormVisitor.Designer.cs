@@ -424,7 +424,7 @@ namespace gui
             this.btnVisitorDocument.FlatAppearance.BorderSize = 0;
             this.btnVisitorDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(748, 644);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(748, 672);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(216, 39);

@@ -227,6 +227,7 @@ namespace gui
                 WindowState = FormWindowState.Maximized;
             else
                 WindowState = FormWindowState.Normal;
+               CenterToScreen();
         }
 
         private void label1_Click(object sender, EventArgs e)
