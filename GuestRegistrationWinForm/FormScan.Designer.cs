@@ -29,7 +29,6 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScan));
             this.lblname = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.lbldob = new System.Windows.Forms.Label();
@@ -268,7 +267,7 @@ namespace gui
             this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
-            this.btnphoto.Location = new System.Drawing.Point(707, 327);
+            this.btnphoto.Location = new System.Drawing.Point(689, 329);
             this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnphoto.Name = "btnphoto";
             this.btnphoto.Size = new System.Drawing.Size(160, 50);
@@ -323,7 +322,7 @@ namespace gui
             this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchVisitor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchVisitor.ForeColor = System.Drawing.Color.White;
-            this.SearchVisitor.Image = ((System.Drawing.Image)(resources.GetObject("SearchVisitor.Image")));
+            this.SearchVisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.search;
             this.SearchVisitor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchVisitor.Location = new System.Drawing.Point(483, 277);
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
