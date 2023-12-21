@@ -555,5 +555,35 @@ namespace gui
                 MessageBox.Show("Please Enter Valid Phone Number", title,MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+
+        private void txtContractorEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContractorCellPhn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContractorHomePhn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContractorState_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContractorAliasName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbContractorPurposeOfVisit_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

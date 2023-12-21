@@ -121,46 +121,51 @@ namespace gui
             // txtname
             // 
             this.txtname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtname.Location = new System.Drawing.Point(180, 219);
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(180, 217);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(280, 22);
+            this.txtname.Size = new System.Drawing.Size(280, 30);
             this.txtname.TabIndex = 6;
             // 
             // txtid
             // 
             this.txtid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.Location = new System.Drawing.Point(180, 289);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(280, 22);
+            this.txtid.Size = new System.Drawing.Size(280, 30);
             this.txtid.TabIndex = 7;
             // 
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtnationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnationality.Location = new System.Drawing.Point(180, 502);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
-            this.txtnationality.Size = new System.Drawing.Size(280, 22);
+            this.txtnationality.Size = new System.Drawing.Size(280, 30);
             this.txtnationality.TabIndex = 11;
             // 
             // txtexpiry
             // 
             this.txtexpiry.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtexpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtexpiry.Location = new System.Drawing.Point(180, 359);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
-            this.txtexpiry.Size = new System.Drawing.Size(280, 22);
+            this.txtexpiry.Size = new System.Drawing.Size(280, 30);
             this.txtexpiry.TabIndex = 9;
             // 
             // txtdob
             // 
             this.txtdob.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtdob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdob.Location = new System.Drawing.Point(180, 429);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(280, 22);
+            this.txtdob.Size = new System.Drawing.Size(280, 30);
             this.txtdob.TabIndex = 10;
             // 
             // rbid
