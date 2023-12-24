@@ -430,6 +430,71 @@ namespace gui
                     Logger.Error($"{ex.Message}", "Error in inserting new company!");
            }
          }
-     }
+
+        private void cmbVisitorComp_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorTitle_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVistorReasonForVisit_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorSecurityController_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorPersonToVisited_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorAreaVisited_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitTimeFromHr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitTimeFromMinutes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorVisitTimeToMinutes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorVisitTimeToHr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbvisitorDeptManager_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbVisitorProductionManager_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVisitorComp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
     
 }
