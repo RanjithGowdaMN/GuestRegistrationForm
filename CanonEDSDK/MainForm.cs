@@ -13,7 +13,7 @@ namespace CanonEDSDK
     {
         #region Variables
 
-        CanonAPI APIHandler;
+        public CanonAPI APIHandler;
         public Camera MainCamera;
         CameraValue[] AvList;
         CameraValue[] TvList;
@@ -70,25 +70,32 @@ namespace CanonEDSDK
 
         #region API Events
 
-        private void APIHandler_CameraAdded(CanonAPI sender)
+
+        public void APIHandler_CameraAdded(CanonAPI sender)
         {
-            try { Invoke((Action)delegate { RefreshCamera(); }); }
+            try {
+                Invoke((Action)delegate
+                {
+                    RefreshCamera();
+                });
+
+            }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void MainCamera_StateChanged(Camera sender, StateEventID eventID, int parameter)
+        public void MainCamera_StateChanged(Camera sender, StateEventID eventID, int parameter)
         {
             try { if (eventID == StateEventID.Shutdown && IsInit) { Invoke((Action)delegate { CloseSession(); }); } }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
-        
-        private void MainCamera_ProgressChanged(object sender, int progress)
+
+        public void MainCamera_ProgressChanged(object sender, int progress)
         {
             try { Invoke((Action)delegate { MainProgressBar.Value = progress; }); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void MainCamera_LiveViewUpdated(Camera sender, Stream img)
+        public void MainCamera_LiveViewUpdated(Camera sender, Stream img)
         {
             try
             {
@@ -119,11 +126,11 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
+
+        //Custom event managment
         public delegate void OnPhotoCompletedEventHandler(DownloadInfo info);
         //FileModel fileInfo = new FileModel();
-
         public event OnPhotoCompletedEventHandler CanonImageToFiles;
-
         public void OnTakePhotoCompleted(DownloadInfo Info)
         {
             //fileInfo.FileName = ScannedFileName;
@@ -134,12 +141,12 @@ namespace CanonEDSDK
             }            
         }
 
-        private void ErrorHandler_NonSevereErrorHappened(object sender, ErrorCode ex)
+        public void ErrorHandler_NonSevereErrorHappened(object sender, ErrorCode ex)
         {
             ReportError($"SDK Error code: {ex} ({((int)ex).ToString("X")})", false);
         }
 
-        private void ErrorHandler_SevereErrorHappened(object sender, Exception ex)
+        public void ErrorHandler_SevereErrorHappened(object sender, Exception ex)
         {
             ReportError(ex.Message, true);
         }
@@ -148,13 +155,13 @@ namespace CanonEDSDK
 
         #region Session
 
-        private void SessionButton_Click(object sender, EventArgs e)
+        public void SessionButton_Click(object sender, EventArgs e)
         {
             if (MainCamera?.SessionOpen == true) CloseSession();
             else OpenSession();
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
+        public void RefreshButton_Click(object sender, EventArgs e)
         {
             try { RefreshCamera(); }
             catch (Exception ex) { ReportError(ex.Message, false); }
@@ -187,7 +194,7 @@ namespace CanonEDSDK
         }
 
 
-        private void RecordVideoButton_Click(object sender, EventArgs e)
+        public void RecordVideoButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -207,7 +214,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void BrowseButton_Click(object sender, EventArgs e)
+        public void BrowseButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -220,7 +227,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void AvCoBox_SelectedIndexChanged(object sender, EventArgs e)
+        public void AvCoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -230,7 +237,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void TvCoBox_SelectedIndexChanged(object sender, EventArgs e)
+        public void TvCoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -242,7 +249,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void ISOCoBox_SelectedIndexChanged(object sender, EventArgs e)
+        public void ISOCoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -284,7 +291,7 @@ namespace CanonEDSDK
 
         #region Live view
 
-        private void LiveViewButton_Click(object sender, EventArgs e)
+        public void LiveViewButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -294,7 +301,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void LiveViewPicBox_SizeChanged(object sender, EventArgs e)
+        public void LiveViewPicBox_SizeChanged(object sender, EventArgs e)
         {
             try
             {
@@ -305,7 +312,7 @@ namespace CanonEDSDK
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void LiveViewPicBox_Paint(object sender, PaintEventArgs e)
+        public void LiveViewPicBox_Paint(object sender, PaintEventArgs e)
         {
             if (MainCamera == null || !MainCamera.SessionOpen) return;
 
@@ -334,37 +341,37 @@ namespace CanonEDSDK
             }
         }
 
-        private void FocusNear3Button_Click(object sender, EventArgs e)
+        public void FocusNear3Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Near3); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void FocusNear2Button_Click(object sender, EventArgs e)
+        public void FocusNear2Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Near2); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void FocusNear1Button_Click(object sender, EventArgs e)
+        public void FocusNear1Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Near1); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void FocusFar1Button_Click(object sender, EventArgs e)
+        public void FocusFar1Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Far1); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void FocusFar2Button_Click(object sender, EventArgs e)
+        public void FocusFar2Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Far2); }
             catch (Exception ex) { ReportError(ex.Message, false); }
         }
 
-        private void FocusFar3Button_Click(object sender, EventArgs e)
+        public void FocusFar3Button_Click(object sender, EventArgs e)
         {
             try { MainCamera.SendCommand(CameraCommand.DriveLensEvf, (int)DriveLens.Far3); }
             catch (Exception ex) { ReportError(ex.Message, false); }
@@ -387,7 +394,7 @@ namespace CanonEDSDK
             LiveViewButton.Text = "Start LV";
         }
 
-        private void RefreshCamera()
+        public void RefreshCamera()
         {
             CameraListBox.Items.Clear();
             CamList = APIHandler.GetCameraList();
@@ -428,7 +435,7 @@ namespace CanonEDSDK
             }
         }
 
-        private void ReportError(string message, bool lockdown)
+        public void ReportError(string message, bool lockdown)
         {
             int errc;
             lock (ErrLock) { errc = ++ErrCount; }

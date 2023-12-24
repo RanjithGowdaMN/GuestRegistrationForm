@@ -19,12 +19,16 @@ using TesseractOCR.Library;
 using System.Runtime.InteropServices;
 using NLog;
 using System.Diagnostics;
+using EOSDigital.API;
+using System.Threading;
 
 namespace gui
 {
     public partial class FormMain : Form
     {
         public static DependencyInjectionContainer _container;
+        private BackgroundWorker backgroundWorker;
+        private System.Threading.Timer timer;
         private Form activeForm;
         private Process myProcess;
         public CameraStatus cameraStatus;
@@ -43,6 +47,11 @@ namespace gui
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+
+        //public CanonAPI APIHandler;
+        //List<Camera> CamList;
+
+
         private void backColor_ColorChanged(object sender, EventArgs e)
         {
             
@@ -56,6 +65,9 @@ namespace gui
         }
         public FormMain()
         {
+            //APIHandler = new CanonAPI();
+            //APIHandler.CameraAdded += APIHandler_CameraAdded;
+
 
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
@@ -84,6 +96,75 @@ namespace gui
             centralHub = _container.Resolve<ICentralHub>();
 
             LoadComponentsData();
+            //backgroundWorker = new BackgroundWorker();
+            //backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            //backgroundWorker.RunWorkerAsync();
+
+            //timer = new System.Threading.Timer(Timer_Tick, this, 10000, 3000);
+            //timer.InitializeLifetimeService();
+            //timer.Interval = 5000; // Set the interval in milliseconds (e.g., 5000 ms = 5 seconds)
+            //timer.Tick += Timer_Tick;
+            //checkScannerHearbeat();
+            BackgroudTimer.Start();
+            BackgroudTimer.Tick += BackgroudTimer_Tick;
+        }
+        private void BackgroudTimer_Tick(object sender, EventArgs e)
+        {
+            if (centralHub.ScannerHeartbeat())
+            {
+                rbScannerStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                rbScannerStatus.ForeColor = Color.Red;
+            }
+        }
+        //private void Timer_Tick(object state)
+        //{
+        //    if (centralHub.ScannerHeartbeat())
+        //    {
+        //        rbScannerStatus.ForeColor = Color.Green;
+        //    }
+        //    else
+        //    {
+        //        rbScannerStatus.ForeColor = Color.Red;
+        //    }
+        //}
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //Thread.Sleep(10000);
+            //while (true)
+            //{
+            //    Thread.Sleep(3000);
+            //    if (centralHub.ScannerHeartbeat())
+            //    {
+            //        rbScannerStatus.ForeColor = Color.Green;
+            //    }
+            //    else
+            //    {
+            //        rbScannerStatus.ForeColor = Color.Red;
+            //    }
+            //}
+        }
+
+        public async Task<bool> checkScannerHearbeat()
+        {
+            Thread.Sleep(10000);
+            while (true)
+            {
+                await Task.Delay(3000);
+                if (centralHub.ScannerHeartbeat())
+                {
+                    rbScannerStatus.ForeColor = Color.Green;
+                }
+                else
+                {
+                    rbScannerStatus.ForeColor = Color.Red;
+                }
+            }
+            checkScannerHearbeat();
+
         }
 
         private void HandleProcess()
