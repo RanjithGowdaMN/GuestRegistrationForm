@@ -18,6 +18,7 @@ using NLog;
 using GuestRegistrationDesktopUI.Library.ImageCrop;
 using System.Collections.Generic;
 using EOSDigital.SDK;
+using fiScanTest;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
@@ -102,17 +103,16 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         {
             //throw new NotImplementedException();
         }
-
         public bool ScannerHeartbeat()
         {
-            _fiScanHelper = FiScanHelper.GetFormInstance;
             
-            if (_fiScanHelper.Text == "Visual C# Sample fiScanTest(fi-800Rdj)")
+            if (_fiScanHelper.OpenScanner())
             {
                 return true;
             }
-            return false;
-            //return _fiScanHelper.OpenScanner();
+            else {
+                return false;
+            }
         }
 
         ~CentralHub()
