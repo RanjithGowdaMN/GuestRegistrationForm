@@ -190,5 +190,17 @@
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconScanner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsSearch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconCamera2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsDocument2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

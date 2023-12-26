@@ -71,9 +71,9 @@ namespace gui
             this.rtxtContractorPreResidence = new System.Windows.Forms.RichTextBox();
             this.panelcontrator = new System.Windows.Forms.Panel();
             this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
-            this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btContractorPdf = new System.Windows.Forms.Button();
             this.panelcontrator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -583,23 +583,6 @@ namespace gui
             this.cmbContractorTitle.Size = new System.Drawing.Size(215, 30);
             this.cmbContractorTitle.TabIndex = 44;
             // 
-            // btContractorPdf
-            // 
-            this.btContractorPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btContractorPdf.BackColor = System.Drawing.Color.ForestGreen;
-            this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btContractorPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btContractorPdf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btContractorPdf.ForeColor = System.Drawing.Color.White;
-            this.btContractorPdf.Location = new System.Drawing.Point(627, 687);
-            this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btContractorPdf.Name = "btContractorPdf";
-            this.btContractorPdf.Size = new System.Drawing.Size(216, 50);
-            this.btContractorPdf.TabIndex = 43;
-            this.btContractorPdf.Text = "PRINT DOCUMENT";
-            this.btContractorPdf.UseVisualStyleBackColor = false;
-            this.btContractorPdf.Click += new System.EventHandler(this.btContractorPdf_Click);
-            // 
             // txtContractorState
             // 
             this.txtContractorState.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -614,6 +597,25 @@ namespace gui
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btContractorPdf
+            // 
+            this.btContractorPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btContractorPdf.BackColor = System.Drawing.Color.ForestGreen;
+            this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btContractorPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btContractorPdf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btContractorPdf.ForeColor = System.Drawing.Color.White;
+            this.btContractorPdf.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
+            this.btContractorPdf.Location = new System.Drawing.Point(616, 672);
+            this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btContractorPdf.Name = "btContractorPdf";
+            this.btContractorPdf.Size = new System.Drawing.Size(280, 50);
+            this.btContractorPdf.TabIndex = 43;
+            this.btContractorPdf.Text = "PRINT DOCUMENT";
+            this.btContractorPdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btContractorPdf.UseVisualStyleBackColor = false;
+            this.btContractorPdf.Click += new System.EventHandler(this.btContractorPdf_Click);
             // 
             // FormContractor
             // 

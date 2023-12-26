@@ -41,25 +41,25 @@ namespace gui
             this.txtdob = new System.Windows.Forms.TextBox();
             this.rbid = new System.Windows.Forms.RadioButton();
             this.rbpass = new System.Windows.Forms.RadioButton();
-            this.btnfront = new System.Windows.Forms.Button();
-            this.btnback = new System.Windows.Forms.Button();
-            this.pbphoto = new System.Windows.Forms.PictureBox();
-            this.pbfront = new System.Windows.Forms.PictureBox();
-            this.pbback = new System.Windows.Forms.PictureBox();
-            this.btnphoto = new System.Windows.Forms.Button();
             this.panelScan = new System.Windows.Forms.Panel();
             this.lblselect = new System.Windows.Forms.Label();
-            this.SearchVisitor = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelId = new System.Windows.Forms.Panel();
             this.panelPass = new System.Windows.Forms.Panel();
+            this.pbback = new System.Windows.Forms.PictureBox();
+            this.pbfront = new System.Windows.Forms.PictureBox();
+            this.SearchVisitor = new System.Windows.Forms.Button();
+            this.btnphoto = new System.Windows.Forms.Button();
+            this.pbphoto = new System.Windows.Forms.PictureBox();
+            this.btnback = new System.Windows.Forms.Button();
+            this.btnfront = new System.Windows.Forms.Button();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
             this.panelScan.SuspendLayout();
             this.panelId.SuspendLayout();
             this.panelPass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbback)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbfront)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassportScan)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,47 +125,47 @@ namespace gui
             this.txtname.Location = new System.Drawing.Point(180, 217);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(280, 30);
+            this.txtname.Size = new System.Drawing.Size(419, 30);
             this.txtname.TabIndex = 6;
             // 
             // txtid
             // 
             this.txtid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtid.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.Location = new System.Drawing.Point(180, 289);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(280, 30);
+            this.txtid.Size = new System.Drawing.Size(310, 28);
             this.txtid.TabIndex = 7;
             // 
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnationality.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnationality.Location = new System.Drawing.Point(180, 502);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
-            this.txtnationality.Size = new System.Drawing.Size(280, 30);
+            this.txtnationality.Size = new System.Drawing.Size(310, 28);
             this.txtnationality.TabIndex = 11;
             // 
             // txtexpiry
             // 
             this.txtexpiry.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtexpiry.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtexpiry.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtexpiry.Location = new System.Drawing.Point(180, 359);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
-            this.txtexpiry.Size = new System.Drawing.Size(280, 30);
+            this.txtexpiry.Size = new System.Drawing.Size(310, 28);
             this.txtexpiry.TabIndex = 9;
             // 
             // txtdob
             // 
             this.txtdob.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtdob.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdob.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdob.Location = new System.Drawing.Point(180, 429);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(280, 30);
+            this.txtdob.Size = new System.Drawing.Size(310, 28);
             this.txtdob.TabIndex = 10;
             // 
             // rbid
@@ -200,86 +200,6 @@ namespace gui
             this.rbpass.UseVisualStyleBackColor = true;
             this.rbpass.CheckedChanged += new System.EventHandler(this.rbpass_CheckedChanged);
             this.rbpass.Click += new System.EventHandler(this.rbpass_Click);
-            // 
-            // btnfront
-            // 
-            this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnfront.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnfront.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnfront.ForeColor = System.Drawing.Color.White;
-            this.btnfront.Location = new System.Drawing.Point(70, 129);
-            this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnfront.Name = "btnfront";
-            this.btnfront.Size = new System.Drawing.Size(160, 50);
-            this.btnfront.TabIndex = 3;
-            this.btnfront.Text = "SCAN FRONT";
-            this.btnfront.UseVisualStyleBackColor = false;
-            this.btnfront.Click += new System.EventHandler(this.btnScanIdFront_Click);
-            // 
-            // btnback
-            // 
-            this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnback.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnback.FlatAppearance.BorderSize = 0;
-            this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnback.ForeColor = System.Drawing.Color.White;
-            this.btnback.Location = new System.Drawing.Point(270, 129);
-            this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(160, 50);
-            this.btnback.TabIndex = 4;
-            this.btnback.Text = "SCAN BACK";
-            this.btnback.UseVisualStyleBackColor = false;
-            this.btnback.Click += new System.EventHandler(this.btnback_Click);
-            // 
-            // pbphoto
-            // 
-            this.pbphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbphoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbphoto.Location = new System.Drawing.Point(649, 33);
-            this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbphoto.Name = "pbphoto";
-            this.pbphoto.Size = new System.Drawing.Size(250, 276);
-            this.pbphoto.TabIndex = 14;
-            this.pbphoto.TabStop = false;
-            // 
-            // pbfront
-            // 
-            this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(25, 11);
-            this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbfront.Name = "pbfront";
-            this.pbfront.Size = new System.Drawing.Size(560, 300);
-            this.pbfront.TabIndex = 15;
-            this.pbfront.TabStop = false;
-            // 
-            // pbback
-            // 
-            this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(25, 338);
-            this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbback.Name = "pbback";
-            this.pbback.Size = new System.Drawing.Size(560, 300);
-            this.pbback.TabIndex = 16;
-            this.pbback.TabStop = false;
-            // 
-            // btnphoto
-            // 
-            this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnphoto.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnphoto.ForeColor = System.Drawing.Color.White;
-            this.btnphoto.Location = new System.Drawing.Point(689, 329);
-            this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnphoto.Name = "btnphoto";
-            this.btnphoto.Size = new System.Drawing.Size(160, 50);
-            this.btnphoto.TabIndex = 5;
-            this.btnphoto.Text = "PHOTO";
-            this.btnphoto.UseVisualStyleBackColor = false;
-            this.btnphoto.Click += new System.EventHandler(this.btnPhoto_Click);
             // 
             // panelScan
             // 
@@ -319,26 +239,6 @@ namespace gui
             this.lblselect.TabIndex = 15;
             this.lblselect.Text = "SELECT";
             // 
-            // SearchVisitor
-            // 
-            this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SearchVisitor.BackColor = System.Drawing.Color.ForestGreen;
-            this.SearchVisitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchVisitor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchVisitor.ForeColor = System.Drawing.Color.White;
-            this.SearchVisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.search;
-            this.SearchVisitor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchVisitor.Location = new System.Drawing.Point(483, 277);
-            this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
-            this.SearchVisitor.Name = "SearchVisitor";
-            this.SearchVisitor.Size = new System.Drawing.Size(140, 50);
-            this.SearchVisitor.TabIndex = 8;
-            this.SearchVisitor.Text = "SEARCH";
-            this.SearchVisitor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SearchVisitor.UseVisualStyleBackColor = false;
-            this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
-            // 
             // panelId
             // 
             this.panelId.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -358,6 +258,111 @@ namespace gui
             this.panelPass.Name = "panelPass";
             this.panelPass.Size = new System.Drawing.Size(584, 677);
             this.panelPass.TabIndex = 17;
+            // 
+            // pbback
+            // 
+            this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbback.Location = new System.Drawing.Point(25, 338);
+            this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbback.Name = "pbback";
+            this.pbback.Size = new System.Drawing.Size(560, 300);
+            this.pbback.TabIndex = 16;
+            this.pbback.TabStop = false;
+            // 
+            // pbfront
+            // 
+            this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbfront.Location = new System.Drawing.Point(25, 11);
+            this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbfront.Name = "pbfront";
+            this.pbfront.Size = new System.Drawing.Size(560, 300);
+            this.pbfront.TabIndex = 15;
+            this.pbfront.TabStop = false;
+            // 
+            // SearchVisitor
+            // 
+            this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SearchVisitor.BackColor = System.Drawing.Color.ForestGreen;
+            this.SearchVisitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchVisitor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchVisitor.ForeColor = System.Drawing.Color.White;
+            this.SearchVisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsSearch;
+            this.SearchVisitor.Location = new System.Drawing.Point(497, 278);
+            this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchVisitor.Name = "SearchVisitor";
+            this.SearchVisitor.Size = new System.Drawing.Size(160, 50);
+            this.SearchVisitor.TabIndex = 8;
+            this.SearchVisitor.Text = "SEARCH";
+            this.SearchVisitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SearchVisitor.UseVisualStyleBackColor = false;
+            this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
+            // 
+            // btnphoto
+            // 
+            this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnphoto.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnphoto.ForeColor = System.Drawing.Color.White;
+            this.btnphoto.Image = global::GuestRegistrationWinForm.Properties.Resources.iconCamera;
+            this.btnphoto.Location = new System.Drawing.Point(719, 311);
+            this.btnphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnphoto.Name = "btnphoto";
+            this.btnphoto.Size = new System.Drawing.Size(160, 50);
+            this.btnphoto.TabIndex = 5;
+            this.btnphoto.Text = "PHOTO";
+            this.btnphoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnphoto.UseVisualStyleBackColor = false;
+            this.btnphoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // pbphoto
+            // 
+            this.pbphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbphoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbphoto.Location = new System.Drawing.Point(673, 20);
+            this.pbphoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbphoto.Name = "pbphoto";
+            this.pbphoto.Size = new System.Drawing.Size(250, 276);
+            this.pbphoto.TabIndex = 14;
+            this.pbphoto.TabStop = false;
+            // 
+            // btnback
+            // 
+            this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnback.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnback.FlatAppearance.BorderSize = 0;
+            this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.ForeColor = System.Drawing.Color.White;
+            this.btnback.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
+            this.btnback.Location = new System.Drawing.Point(294, 129);
+            this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(210, 50);
+            this.btnback.TabIndex = 4;
+            this.btnback.Text = "SCAN BACK";
+            this.btnback.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnback.UseVisualStyleBackColor = false;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
+            // btnfront
+            // 
+            this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnfront.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnfront.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfront.ForeColor = System.Drawing.Color.White;
+            this.btnfront.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
+            this.btnfront.Location = new System.Drawing.Point(14, 129);
+            this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnfront.Name = "btnfront";
+            this.btnfront.Size = new System.Drawing.Size(210, 50);
+            this.btnfront.TabIndex = 3;
+            this.btnfront.Text = "SCAN FRONT";
+            this.btnfront.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnfront.UseVisualStyleBackColor = false;
+            this.btnfront.Click += new System.EventHandler(this.btnScanIdFront_Click);
             // 
             // pbPassportScan
             // 
@@ -384,13 +389,13 @@ namespace gui
             this.Name = "FormScan";
             this.Text = "FormScan";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbfront)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbback)).EndInit();
             this.panelScan.ResumeLayout(false);
             this.panelScan.PerformLayout();
             this.panelId.ResumeLayout(false);
             this.panelPass.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbback)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbfront)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassportScan)).EndInit();
             this.ResumeLayout(false);
 
