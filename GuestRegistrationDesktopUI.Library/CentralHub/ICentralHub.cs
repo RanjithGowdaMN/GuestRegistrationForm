@@ -12,7 +12,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
     public interface ICentralHub
     {
         (VisitorDataModel, string) StartScanning(int IdType);
-
+        bool ScannerHeartbeat();
         string ScanBackSide(int idType);
 
         CameraStatus TakePhoto();
@@ -30,6 +30,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         string GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
         string PrintIdCard(string visitorName, string visitorType);
-
+        void AddCameraToMainThread();
     }
 }

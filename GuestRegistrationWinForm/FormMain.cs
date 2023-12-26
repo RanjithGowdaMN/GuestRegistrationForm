@@ -19,12 +19,17 @@ using TesseractOCR.Library;
 using System.Runtime.InteropServices;
 using NLog;
 using System.Diagnostics;
+using EOSDigital.API;
+using System.Threading;
+using System.Management;
 
 namespace gui
 {
     public partial class FormMain : Form
     {
         public static DependencyInjectionContainer _container;
+        private BackgroundWorker backgroundWorker;
+        private System.Threading.Timer timer;
         private Form activeForm;
         private Process myProcess;
         public CameraStatus cameraStatus;
@@ -43,20 +48,9 @@ namespace gui
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-        private void backColor_ColorChanged(object sender, EventArgs e)
-        {
-            
-            if (rbCameraStatus.Checked)
-                rbCameraStatus.ForeColor = Color.Green;
-                
-            // else
-            //   this.BackColor = System.Drawing.Color.Green;
-            if (rbScannerStatus.Checked)
-                rbScannerStatus.ForeColor = Color.Green;
-        }
+        private ManagementEventWatcher watcher;
         public FormMain()
         {
-
             Logger.Info("Initialization Of Services,");
             _container = new DependencyInjectionContainer();
             _container.Register<ITesseractHelper>(new TesseractLib());
@@ -72,9 +66,8 @@ namespace gui
             _apiHelper = _container.Resolve<IAPIconnector>();
             InitializeComponent();
          
-            rbCameraStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
-            rbScannerStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
-
+            //rbCameraStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
+            //rbScannerStatus.CheckedChanged += new EventHandler(backColor_ColorChanged);
 
             cameraStatus = CameraStatus.Instance;
             scannedFileInfo = ScannedFileModel.Instance;
@@ -82,8 +75,127 @@ namespace gui
             consultantApplicationForm = ConsultantApplicationForm.Instance;
             scannedData = new ScannedData();
             centralHub = _container.Resolve<ICentralHub>();
-
             LoadComponentsData();
+            lblCamera.ForeColor = Color.Red;
+            lblScanner.ForeColor = Color.Red;
+            try
+            {
+                // Create a WMI event query to detect creation or deletion of Win32_PnPEntity instances
+                WqlEventQuery query = new WqlEventQuery(
+                    "SELECT * FROM __InstanceOperationEvent WITHIN 1 WHERE TargetInstance ISA 'Win32_PnPEntity'");
+
+                // Initialize the watcher
+                watcher = new ManagementEventWatcher(query);
+                watcher.EventArrived += HardwareChangeEventArrived;
+
+                // Start listening for events
+                watcher.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing scanner detection: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void HardwareChangeEventArrived(object sender, EventArrivedEventArgs e)
+        {
+            string DeviceName = string.Empty;
+            bool status = false;
+            try
+            {
+                PropertyData propertyData = e.NewEvent.Properties["TargetInstance"];
+                if (propertyData != null && propertyData.Value is ManagementBaseObject)
+                {
+                    ManagementBaseObject targetInstance = (ManagementBaseObject)propertyData.Value;
+                    var test = targetInstance.Properties;
+
+                    foreach (var item in test)
+                    {
+                        if (item.Name == "Present") {
+                            status = (bool)item.Value;
+                        }
+                        if (item.Name == "Description") {
+                            DeviceName = item.Value.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error handling hardware change event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            UpdateDeviceStatus(DeviceName, status);
+        }
+
+        private void UpdateDeviceStatus(string deviceName, bool status)
+        {
+
+            if (deviceName == "Canon EOS 4000D")
+            {
+                if (status)
+                {
+                    lblCamera.ForeColor = Color.Green;
+                } else
+                {
+                    lblCamera.ForeColor = Color.Red;
+                }
+            }
+            else if (deviceName == "fi-800R")
+            {
+                if (status)
+                {
+                    lblScanner.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblScanner.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void BackgroudTimer_Tick(object sender, EventArgs e)
+        {
+            if (centralHub.ScannerHeartbeat())
+            {
+                lblScanner.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblScanner.ForeColor = Color.Red;
+            }
+        }
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(10000);
+            while (true)
+            {
+                Thread.Sleep(3000);
+                if (centralHub.ScannerHeartbeat())
+                {
+                    lblScanner.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblScanner.ForeColor = Color.Red;
+                }
+            }
+        }
+       
+        public async Task<bool> checkScannerHearbeat()
+        {
+            Thread.Sleep(10000);
+            while (true)
+            {
+                await Task.Delay(3000);
+                if (centralHub.ScannerHeartbeat())
+                {
+                    lblScanner.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblScanner.ForeColor = Color.Red;
+                }
+            }
+            //checkScannerHearbeat();
         }
 
         private void HandleProcess()
@@ -117,7 +229,6 @@ namespace gui
         {
             
         }
-
         private void OpenChildForm(Form childForm, object btnSender)
         {
             //if (activeForm != null)
@@ -133,8 +244,7 @@ namespace gui
             childForm.Show();
         }
         public void ClearData() { 
-        
-        
+
         }
         private void btnScan_Click(object sender, EventArgs e)
         {
@@ -213,7 +323,6 @@ namespace gui
             Application.Exit();
             //this.Close();
         }
-//Minimize
         private void btnWindowMax_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -229,7 +338,6 @@ namespace gui
                 WindowState = FormWindowState.Normal;
                CenterToScreen();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             if (activeForm != null)

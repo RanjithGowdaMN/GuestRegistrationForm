@@ -33,6 +33,7 @@ namespace GuestRegistrationWinForm
             formMain.AutoScaleMode = AutoScaleMode.Dpi;
             formMain.Resize += FormMain_Resize;
             originalSize = formMain.Size;
+            
             Application.Run(formMain);
 
         }

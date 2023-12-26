@@ -162,6 +162,7 @@ namespace gui
         {
             try
             {
+                _centralHub.AddCameraToMainThread();
                 _cameraStatus = _centralHub.TakePhoto();
                 if (!_cameraStatus.CameraSessionActive)
                 {

@@ -44,8 +44,8 @@ namespace gui
             this.panelform = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelStatus = new System.Windows.Forms.Panel();
-            this.rbScannerStatus = new System.Windows.Forms.RadioButton();
-            this.rbCameraStatus = new System.Windows.Forms.RadioButton();
+            this.lblCamera = new System.Windows.Forms.Label();
+            this.lblScanner = new System.Windows.Forms.Label();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
@@ -63,9 +63,9 @@ namespace gui
             this.panelhome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelhome.ForeColor = System.Drawing.Color.White;
             this.panelhome.Location = new System.Drawing.Point(0, 0);
-            this.panelhome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelhome.Margin = new System.Windows.Forms.Padding(2);
             this.panelhome.Name = "panelhome";
-            this.panelhome.Size = new System.Drawing.Size(1789, 68);
+            this.panelhome.Size = new System.Drawing.Size(1342, 55);
             this.panelhome.TabIndex = 0;
             this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
             // 
@@ -75,10 +75,10 @@ namespace gui
             this.btnWindowMin.FlatAppearance.BorderSize = 0;
             this.btnWindowMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMin.Location = new System.Drawing.Point(1648, 0);
-            this.btnWindowMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWindowMin.Location = new System.Drawing.Point(1236, 0);
+            this.btnWindowMin.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowMin.Name = "btnWindowMin";
-            this.btnWindowMin.Size = new System.Drawing.Size(43, 68);
+            this.btnWindowMin.Size = new System.Drawing.Size(32, 55);
             this.btnWindowMin.TabIndex = 2;
             this.btnWindowMin.Text = "-";
             this.btnWindowMin.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@ namespace gui
             this.btnWindowMaxm.FlatAppearance.BorderSize = 0;
             this.btnWindowMaxm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMaxm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMaxm.Location = new System.Drawing.Point(1691, 0);
-            this.btnWindowMaxm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWindowMaxm.Location = new System.Drawing.Point(1268, 0);
+            this.btnWindowMaxm.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowMaxm.Name = "btnWindowMaxm";
-            this.btnWindowMaxm.Size = new System.Drawing.Size(45, 68);
+            this.btnWindowMaxm.Size = new System.Drawing.Size(34, 55);
             this.btnWindowMaxm.TabIndex = 3;
             this.btnWindowMaxm.Text = "O";
             this.btnWindowMaxm.UseVisualStyleBackColor = true;
@@ -105,10 +105,10 @@ namespace gui
             this.btnWindowClsoe.FlatAppearance.BorderSize = 0;
             this.btnWindowClsoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowClsoe.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowClsoe.Location = new System.Drawing.Point(1736, 0);
-            this.btnWindowClsoe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWindowClsoe.Location = new System.Drawing.Point(1302, 0);
+            this.btnWindowClsoe.Margin = new System.Windows.Forms.Padding(2);
             this.btnWindowClsoe.Name = "btnWindowClsoe";
-            this.btnWindowClsoe.Size = new System.Drawing.Size(53, 68);
+            this.btnWindowClsoe.Size = new System.Drawing.Size(40, 55);
             this.btnWindowClsoe.TabIndex = 1;
             this.btnWindowClsoe.Text = "X";
             this.btnWindowClsoe.UseVisualStyleBackColor = true;
@@ -120,9 +120,10 @@ namespace gui
             this.lblhome.AutoSize = true;
             this.lblhome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhome.Location = new System.Drawing.Point(656, 1);
+            this.lblhome.Location = new System.Drawing.Point(492, 1);
+            this.lblhome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhome.Name = "lblhome";
-            this.lblhome.Size = new System.Drawing.Size(500, 54);
+            this.lblhome.Size = new System.Drawing.Size(401, 45);
             this.lblhome.TabIndex = 0;
             this.lblhome.Text = "INSTANT CARD PRINTING";
             this.lblhome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -137,10 +138,10 @@ namespace gui
             this.panelbuttons.Controls.Add(this.btncontractor);
             this.panelbuttons.Controls.Add(this.btnscan);
             this.panelbuttons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelbuttons.Location = new System.Drawing.Point(0, 68);
-            this.panelbuttons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelbuttons.Location = new System.Drawing.Point(0, 55);
+            this.panelbuttons.Margin = new System.Windows.Forms.Padding(2);
             this.panelbuttons.Name = "panelbuttons";
-            this.panelbuttons.Size = new System.Drawing.Size(1789, 66);
+            this.panelbuttons.Size = new System.Drawing.Size(1342, 54);
             this.panelbuttons.TabIndex = 1;
             // 
             // btndoc
@@ -150,11 +151,11 @@ namespace gui
             this.btndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
-            this.btndoc.Location = new System.Drawing.Point(913, 0);
-            this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btndoc.Location = new System.Drawing.Point(685, 0);
+            this.btndoc.Margin = new System.Windows.Forms.Padding(2);
             this.btndoc.Name = "btndoc";
-            this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btndoc.Size = new System.Drawing.Size(175, 65);
+            this.btndoc.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btndoc.Size = new System.Drawing.Size(131, 53);
             this.btndoc.TabIndex = 3;
             this.btndoc.Text = "DOCUMENT";
             this.btndoc.UseVisualStyleBackColor = true;
@@ -167,11 +168,11 @@ namespace gui
             this.btnlgt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
-            this.btnlgt.Location = new System.Drawing.Point(1251, 0);
-            this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnlgt.Location = new System.Drawing.Point(938, 0);
+            this.btnlgt.Margin = new System.Windows.Forms.Padding(2);
             this.btnlgt.Name = "btnlgt";
-            this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnlgt.Size = new System.Drawing.Size(238, 65);
+            this.btnlgt.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnlgt.Size = new System.Drawing.Size(178, 53);
             this.btnlgt.TabIndex = 5;
             this.btnlgt.Text = "VISIT HISTORY";
             this.btnlgt.UseVisualStyleBackColor = true;
@@ -184,11 +185,11 @@ namespace gui
             this.btncard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
-            this.btncard.Location = new System.Drawing.Point(1080, 0);
-            this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncard.Location = new System.Drawing.Point(810, 0);
+            this.btncard.Margin = new System.Windows.Forms.Padding(2);
             this.btncard.Name = "btncard";
-            this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncard.Size = new System.Drawing.Size(175, 65);
+            this.btncard.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btncard.Size = new System.Drawing.Size(131, 53);
             this.btncard.TabIndex = 4;
             this.btncard.Text = "CARD";
             this.btncard.UseVisualStyleBackColor = true;
@@ -201,11 +202,11 @@ namespace gui
             this.btnvisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
-            this.btnvisitor.Location = new System.Drawing.Point(741, 0);
-            this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnvisitor.Location = new System.Drawing.Point(556, 0);
+            this.btnvisitor.Margin = new System.Windows.Forms.Padding(2);
             this.btnvisitor.Name = "btnvisitor";
-            this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnvisitor.Size = new System.Drawing.Size(175, 65);
+            this.btnvisitor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnvisitor.Size = new System.Drawing.Size(131, 53);
             this.btnvisitor.TabIndex = 2;
             this.btnvisitor.Text = "VISITOR";
             this.btnvisitor.UseVisualStyleBackColor = true;
@@ -218,11 +219,11 @@ namespace gui
             this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
-            this.btncontractor.Location = new System.Drawing.Point(543, 1);
-            this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncontractor.Location = new System.Drawing.Point(407, 1);
+            this.btncontractor.Margin = new System.Windows.Forms.Padding(2);
             this.btncontractor.Name = "btncontractor";
-            this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(201, 65);
+            this.btncontractor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btncontractor.Size = new System.Drawing.Size(151, 53);
             this.btncontractor.TabIndex = 1;
             this.btncontractor.Text = "CONTRACTOR";
             this.btncontractor.UseVisualStyleBackColor = true;
@@ -235,11 +236,11 @@ namespace gui
             this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
-            this.btnscan.Location = new System.Drawing.Point(362, 0);
-            this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnscan.Location = new System.Drawing.Point(272, 0);
+            this.btnscan.Margin = new System.Windows.Forms.Padding(2);
             this.btnscan.Name = "btnscan";
-            this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnscan.Size = new System.Drawing.Size(175, 65);
+            this.btnscan.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnscan.Size = new System.Drawing.Size(131, 53);
             this.btnscan.TabIndex = 0;
             this.btnscan.Text = "SCAN";
             this.btnscan.UseVisualStyleBackColor = true;
@@ -250,20 +251,20 @@ namespace gui
             this.panelform.AutoSize = true;
             this.panelform.Controls.Add(this.pictureBox1);
             this.panelform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelform.Location = new System.Drawing.Point(0, 134);
-            this.panelform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelform.Location = new System.Drawing.Point(0, 109);
+            this.panelform.Margin = new System.Windows.Forms.Padding(2);
             this.panelform.Name = "panelform";
-            this.panelform.Size = new System.Drawing.Size(1789, 820);
+            this.panelform.Size = new System.Drawing.Size(1342, 666);
             this.panelform.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
-            this.pictureBox1.Location = new System.Drawing.Point(430, 133);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(322, 108);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
+            this.pictureBox1.Size = new System.Drawing.Size(794, 374);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -271,60 +272,49 @@ namespace gui
             // panelStatus
             // 
             this.panelStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panelStatus.Controls.Add(this.rbScannerStatus);
-            this.panelStatus.Controls.Add(this.rbCameraStatus);
+            this.panelStatus.Controls.Add(this.lblScanner);
+            this.panelStatus.Controls.Add(this.lblCamera);
             this.panelStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelStatus.Location = new System.Drawing.Point(0, 909);
+            this.panelStatus.Location = new System.Drawing.Point(0, 738);
+            this.panelStatus.Margin = new System.Windows.Forms.Padding(2);
             this.panelStatus.Name = "panelStatus";
-            this.panelStatus.Size = new System.Drawing.Size(1789, 45);
+            this.panelStatus.Size = new System.Drawing.Size(1342, 37);
             this.panelStatus.TabIndex = 3;
             // 
-            // rbScannerStatus
+            // lblCamera
             // 
-            this.rbScannerStatus.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbScannerStatus.AutoSize = true;
-            this.rbScannerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.rbScannerStatus.FlatAppearance.BorderSize = 0;
-            this.rbScannerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbScannerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbScannerStatus.ForeColor = System.Drawing.Color.Red;
-            this.rbScannerStatus.Location = new System.Drawing.Point(347, 6);
-            this.rbScannerStatus.Name = "rbScannerStatus";
-            this.rbScannerStatus.Size = new System.Drawing.Size(103, 35);
-            this.rbScannerStatus.TabIndex = 1;
-            this.rbScannerStatus.TabStop = true;
-            this.rbScannerStatus.Text = "Scanner";
-            this.rbScannerStatus.UseVisualStyleBackColor = false;
+            this.lblCamera.AutoSize = true;
+            this.lblCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCamera.ForeColor = System.Drawing.Color.Red;
+            this.lblCamera.Location = new System.Drawing.Point(85, 8);
+            this.lblCamera.Name = "lblCamera";
+            this.lblCamera.Size = new System.Drawing.Size(71, 20);
+            this.lblCamera.TabIndex = 2;
+            this.lblCamera.Text = "Camera";
             // 
-            // rbCameraStatus
+            // lblScanner
             // 
-            this.rbCameraStatus.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbCameraStatus.AutoSize = true;
-            this.rbCameraStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.rbCameraStatus.FlatAppearance.BorderSize = 0;
-            this.rbCameraStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbCameraStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCameraStatus.ForeColor = System.Drawing.Color.Red;
-            this.rbCameraStatus.Location = new System.Drawing.Point(180, 6);
-            this.rbCameraStatus.Name = "rbCameraStatus";
-            this.rbCameraStatus.Size = new System.Drawing.Size(98, 35);
-            this.rbCameraStatus.TabIndex = 0;
-            this.rbCameraStatus.TabStop = true;
-            this.rbCameraStatus.Text = "Camera";
-            this.rbCameraStatus.UseVisualStyleBackColor = false;
+            this.lblScanner.AutoSize = true;
+            this.lblScanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScanner.ForeColor = System.Drawing.Color.Red;
+            this.lblScanner.Location = new System.Drawing.Point(192, 8);
+            this.lblScanner.Name = "lblScanner";
+            this.lblScanner.Size = new System.Drawing.Size(76, 20);
+            this.lblScanner.TabIndex = 3;
+            this.lblScanner.Text = "Scanner";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1789, 954);
+            this.ClientSize = new System.Drawing.Size(1342, 775);
             this.Controls.Add(this.panelStatus);
             this.Controls.Add(this.panelform);
             this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.panelhome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1789, 954);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1342, 775);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
@@ -358,7 +348,7 @@ namespace gui
         private System.Windows.Forms.Button btnWindowClsoe;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelStatus;
-        private System.Windows.Forms.RadioButton rbScannerStatus;
-        private System.Windows.Forms.RadioButton rbCameraStatus;
+        private System.Windows.Forms.Label lblScanner;
+        private System.Windows.Forms.Label lblCamera;
     }
 }

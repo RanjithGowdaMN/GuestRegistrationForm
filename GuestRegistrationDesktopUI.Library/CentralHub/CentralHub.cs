@@ -16,13 +16,18 @@ using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using NLog;
 using GuestRegistrationDesktopUI.Library.ImageCrop;
+using System.Collections.Generic;
+using EOSDigital.SDK;
+using fiScanTest;
 
 namespace GuestRegistrationDesktopUI.Library.CentralHub
 {
     public class CentralHub : IFiScan, ICentralHub, IDisposable //, INotifyPropertyChanged
     {
-        private FiScanHelper _fiScanHelper;
-        private CanonSDKHelper _canonSDKHelper;
+        public FiScanHelper _fiScanHelper;
+        public CanonSDKHelper _canonSDKHelper;
+        public CanonAPI APIHandler;
+        List<Camera> CamList;
 
         private IGenerateWordDocument _generateWordDocument;
         private IGeneratePDFdocument _generatePDFdocument;
@@ -65,7 +70,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             
             _fiScanHelper.ScanCompleted += OnScanCompleted;
             _fiScanHelper.FormScan_Load();
-            _fiScanHelper.OpenScanner();
+            var test = _fiScanHelper.OpenScanner();
             _fiScanHelper.InitialFileRead();
             _fiScanHelper.cboFileType_SelectedIndexChanged();
 
@@ -81,6 +86,33 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             vistorData = VisitorDataModel.Instance;
             cameraStatus = CameraStatus.Instance;
             scannedFileInfo = ScannedFileModel.Instance;
+
+            APIHandler = new CanonAPI();
+            //APIHandler.CameraAdded += APIHandler_CameraAdded;
+
+        }
+
+        public void AddCameraToMainThread()
+        {
+            CamList = APIHandler.GetCameraList();
+            _canonSDKHelper.MainCamera = CamList[0];
+            //_canonSDKHelper.MainCamera.StateChanged += CamStateChanged;
+        }
+
+        private void CamStateChanged(Camera sender, StateEventID eventID, int parameter)
+        {
+            //throw new NotImplementedException();
+        }
+        public bool ScannerHeartbeat()
+        {
+            
+            if (_fiScanHelper.OpenScanner())
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         ~CentralHub()
@@ -101,8 +133,6 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                     generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 00).ToString().PadLeft(5, '0');
                     //return generatedVisitorIDNumber;
                 }
-
-
 
                 //generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0').PadLeft(5, '0');
 
@@ -129,6 +159,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             }
             return generatedVisitorIDNumber;
         }
+       
 
         public string PrintIdCard(string visitorName, string visitorType)
         {
@@ -370,6 +401,15 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
             try
             {
                 //_canonSDKHelper.OpenSession();
+                _canonSDKHelper.RefreshCamera();
+                try
+                {
+                    _canonSDKHelper.OpenSession();
+                }
+                catch (Exception ex)
+                {
+                    cameraStatus.ErrorMessage = "Camera session not open!"; ;
+                }
                 //Check for session access
                 if (_canonSDKHelper.MainCamera?.SessionOpen == true)
                 {
