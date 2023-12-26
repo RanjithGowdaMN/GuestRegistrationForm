@@ -71,9 +71,9 @@ namespace gui
             this.rtxtContractorPreResidence = new System.Windows.Forms.RichTextBox();
             this.panelcontrator = new System.Windows.Forms.Panel();
             this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
+            this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btContractorPdf = new System.Windows.Forms.Button();
             this.panelcontrator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -583,21 +583,6 @@ namespace gui
             this.cmbContractorTitle.Size = new System.Drawing.Size(215, 30);
             this.cmbContractorTitle.TabIndex = 44;
             // 
-            // txtContractorState
-            // 
-            this.txtContractorState.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContractorState.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorState.Location = new System.Drawing.Point(428, 240);
-            this.txtContractorState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContractorState.Name = "txtContractorState";
-            this.txtContractorState.Size = new System.Drawing.Size(215, 30);
-            this.txtContractorState.TabIndex = 5;
-            this.txtContractorState.TextChanged += new System.EventHandler(this.txtContractorState_TextChanged);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // btContractorPdf
             // 
             this.btContractorPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -616,6 +601,21 @@ namespace gui
             this.btContractorPdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btContractorPdf.UseVisualStyleBackColor = false;
             this.btContractorPdf.Click += new System.EventHandler(this.btContractorPdf_Click);
+            // 
+            // txtContractorState
+            // 
+            this.txtContractorState.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContractorState.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContractorState.Location = new System.Drawing.Point(428, 240);
+            this.txtContractorState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContractorState.Name = "txtContractorState";
+            this.txtContractorState.Size = new System.Drawing.Size(215, 30);
+            this.txtContractorState.TabIndex = 5;
+            this.txtContractorState.TextChanged += new System.EventHandler(this.txtContractorState_TextChanged);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormContractor
             // 

@@ -125,47 +125,47 @@ namespace gui
             this.txtname.Location = new System.Drawing.Point(180, 217);
             this.txtname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(419, 30);
+            this.txtname.Size = new System.Drawing.Size(420, 30);
             this.txtname.TabIndex = 6;
             // 
             // txtid
             // 
             this.txtid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtid.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.Location = new System.Drawing.Point(180, 289);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(310, 28);
+            this.txtid.Size = new System.Drawing.Size(420, 30);
             this.txtid.TabIndex = 7;
             // 
             // txtnationality
             // 
             this.txtnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnationality.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnationality.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnationality.Location = new System.Drawing.Point(180, 502);
             this.txtnationality.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnationality.Name = "txtnationality";
-            this.txtnationality.Size = new System.Drawing.Size(310, 28);
+            this.txtnationality.Size = new System.Drawing.Size(420, 30);
             this.txtnationality.TabIndex = 11;
             // 
             // txtexpiry
             // 
             this.txtexpiry.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtexpiry.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtexpiry.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtexpiry.Location = new System.Drawing.Point(180, 359);
             this.txtexpiry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtexpiry.Name = "txtexpiry";
-            this.txtexpiry.Size = new System.Drawing.Size(310, 28);
+            this.txtexpiry.Size = new System.Drawing.Size(420, 30);
             this.txtexpiry.TabIndex = 9;
             // 
             // txtdob
             // 
             this.txtdob.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtdob.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdob.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdob.Location = new System.Drawing.Point(180, 429);
             this.txtdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(310, 28);
+            this.txtdob.Size = new System.Drawing.Size(420, 30);
             this.txtdob.TabIndex = 10;
             // 
             // rbid
@@ -173,7 +173,7 @@ namespace gui
             this.rbid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbid.AutoSize = true;
             this.rbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbid.Location = new System.Drawing.Point(213, 69);
+            this.rbid.Location = new System.Drawing.Point(180, 115);
             this.rbid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbid.Name = "rbid";
             this.rbid.Size = new System.Drawing.Size(47, 24);
@@ -189,7 +189,7 @@ namespace gui
             this.rbpass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbpass.AutoSize = true;
             this.rbpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbpass.Location = new System.Drawing.Point(307, 69);
+            this.rbpass.Location = new System.Drawing.Point(293, 115);
             this.rbpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbpass.Name = "rbpass";
             this.rbpass.Size = new System.Drawing.Size(120, 24);
@@ -233,7 +233,7 @@ namespace gui
             this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblselect.AutoSize = true;
             this.lblselect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselect.Location = new System.Drawing.Point(10, 69);
+            this.lblselect.Location = new System.Drawing.Point(10, 115);
             this.lblselect.Name = "lblselect";
             this.lblselect.Size = new System.Drawing.Size(74, 20);
             this.lblselect.TabIndex = 15;
@@ -284,16 +284,16 @@ namespace gui
             this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchVisitor.BackColor = System.Drawing.Color.ForestGreen;
             this.SearchVisitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SearchVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchVisitor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchVisitor.ForeColor = System.Drawing.Color.White;
             this.SearchVisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsSearch;
-            this.SearchVisitor.Location = new System.Drawing.Point(497, 278);
+            this.SearchVisitor.Location = new System.Drawing.Point(606, 280);
             this.SearchVisitor.Margin = new System.Windows.Forms.Padding(4);
             this.SearchVisitor.Name = "SearchVisitor";
-            this.SearchVisitor.Size = new System.Drawing.Size(160, 50);
+            this.SearchVisitor.Size = new System.Drawing.Size(40, 44);
             this.SearchVisitor.TabIndex = 8;
-            this.SearchVisitor.Text = "SEARCH";
             this.SearchVisitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SearchVisitor.UseVisualStyleBackColor = false;
             this.SearchVisitor.Click += new System.EventHandler(this.SearchVisitor_Click);
@@ -302,6 +302,7 @@ namespace gui
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnphoto.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnphoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnphoto.ForeColor = System.Drawing.Color.White;
@@ -331,12 +332,13 @@ namespace gui
             // 
             this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnback.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.FlatAppearance.BorderSize = 0;
             this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.Color.White;
             this.btnback.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnback.Location = new System.Drawing.Point(294, 129);
+            this.btnback.Location = new System.Drawing.Point(362, 586);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(210, 50);
@@ -350,11 +352,12 @@ namespace gui
             // 
             this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnfront.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnfront.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnfront.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfront.ForeColor = System.Drawing.Color.White;
             this.btnfront.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnfront.Location = new System.Drawing.Point(14, 129);
+            this.btnfront.Location = new System.Drawing.Point(78, 586);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(210, 50);
