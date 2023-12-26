@@ -55,12 +55,14 @@ namespace gui
             this.GenerateVisitorDoc.BackColor = System.Drawing.Color.Gray;
             this.GenerateVisitorDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateVisitorDoc.ForeColor = System.Drawing.Color.Transparent;
+            this.GenerateVisitorDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
             this.GenerateVisitorDoc.Location = new System.Drawing.Point(289, 223);
             this.GenerateVisitorDoc.Margin = new System.Windows.Forms.Padding(4);
             this.GenerateVisitorDoc.Name = "GenerateVisitorDoc";
             this.GenerateVisitorDoc.Size = new System.Drawing.Size(192, 50);
             this.GenerateVisitorDoc.TabIndex = 1;
             this.GenerateVisitorDoc.Text = "Visitor";
+            this.GenerateVisitorDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.GenerateVisitorDoc.UseVisualStyleBackColor = false;
             this.GenerateVisitorDoc.Click += new System.EventHandler(this.GenerateVisitorDoc_Click);
             // 
@@ -70,12 +72,14 @@ namespace gui
             this.GenerateContractDoc.BackColor = System.Drawing.Color.Brown;
             this.GenerateContractDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateContractDoc.ForeColor = System.Drawing.Color.Transparent;
+            this.GenerateContractDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
             this.GenerateContractDoc.Location = new System.Drawing.Point(289, 108);
             this.GenerateContractDoc.Margin = new System.Windows.Forms.Padding(4);
             this.GenerateContractDoc.Name = "GenerateContractDoc";
             this.GenerateContractDoc.Size = new System.Drawing.Size(192, 50);
             this.GenerateContractDoc.TabIndex = 0;
             this.GenerateContractDoc.Text = "Contractor";
+            this.GenerateContractDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.GenerateContractDoc.UseVisualStyleBackColor = false;
             this.GenerateContractDoc.Click += new System.EventHandler(this.GenerateContractDoc_Click);
             // 
