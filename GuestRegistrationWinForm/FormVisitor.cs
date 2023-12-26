@@ -495,6 +495,11 @@ namespace gui
         {
 
         }
+
+        private void lblVtitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
