@@ -593,7 +593,7 @@ namespace gui
             this.btContractorPdf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btContractorPdf.ForeColor = System.Drawing.Color.White;
             this.btContractorPdf.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.btContractorPdf.Location = new System.Drawing.Point(702, 750);
+            this.btContractorPdf.Location = new System.Drawing.Point(705, 760);
             this.btContractorPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btContractorPdf.Name = "btContractorPdf";
             this.btContractorPdf.Size = new System.Drawing.Size(280, 50);

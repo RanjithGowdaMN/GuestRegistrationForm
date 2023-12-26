@@ -35,22 +35,22 @@ namespace gui
             this.btnWindowClsoe = new System.Windows.Forms.Button();
             this.lblhome = new System.Windows.Forms.Label();
             this.panelbuttons = new System.Windows.Forms.Panel();
-            this.panelform = new System.Windows.Forms.Panel();
-            this.panelStatus = new System.Windows.Forms.Panel();
-            this.lblScanner = new System.Windows.Forms.Label();
-            this.lblCamera = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btndoc = new System.Windows.Forms.Button();
             this.btnlgt = new System.Windows.Forms.Button();
             this.btncard = new System.Windows.Forms.Button();
             this.btnvisitor = new System.Windows.Forms.Button();
             this.btncontractor = new System.Windows.Forms.Button();
             this.btnscan = new System.Windows.Forms.Button();
+            this.panelform = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelStatus = new System.Windows.Forms.Panel();
+            this.lblScanner = new System.Windows.Forms.Label();
+            this.lblCamera = new System.Windows.Forms.Label();
             this.panelhome.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
-            this.panelStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelhome
@@ -143,6 +143,120 @@ namespace gui
             this.panelbuttons.Size = new System.Drawing.Size(1789, 66);
             this.panelbuttons.TabIndex = 1;
             // 
+            // btndoc
+            // 
+            this.btndoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btndoc.FlatAppearance.BorderSize = 0;
+            this.btndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndoc.ForeColor = System.Drawing.Color.White;
+            this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
+            this.btndoc.Location = new System.Drawing.Point(880, 1);
+            this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btndoc.Name = "btndoc";
+            this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btndoc.Size = new System.Drawing.Size(230, 65);
+            this.btndoc.TabIndex = 3;
+            this.btndoc.Text = "DOCUMENT";
+            this.btndoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btndoc.UseVisualStyleBackColor = true;
+            this.btndoc.Click += new System.EventHandler(this.btndoc_Click);
+            // 
+            // btnlgt
+            // 
+            this.btnlgt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnlgt.FlatAppearance.BorderSize = 0;
+            this.btnlgt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlgt.ForeColor = System.Drawing.Color.White;
+            this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
+            this.btnlgt.Location = new System.Drawing.Point(1340, 1);
+            this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnlgt.Name = "btnlgt";
+            this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnlgt.Size = new System.Drawing.Size(230, 65);
+            this.btnlgt.TabIndex = 5;
+            this.btnlgt.Text = "VISIT HISTORY";
+            this.btnlgt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnlgt.UseVisualStyleBackColor = true;
+            this.btnlgt.Click += new System.EventHandler(this.btnlgt_Click);
+            // 
+            // btncard
+            // 
+            this.btncard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btncard.FlatAppearance.BorderSize = 0;
+            this.btncard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncard.ForeColor = System.Drawing.Color.White;
+            this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
+            this.btncard.Location = new System.Drawing.Point(1110, 1);
+            this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncard.Name = "btncard";
+            this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btncard.Size = new System.Drawing.Size(230, 65);
+            this.btncard.TabIndex = 4;
+            this.btncard.Text = "CARD";
+            this.btncard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncard.UseVisualStyleBackColor = true;
+            this.btncard.Click += new System.EventHandler(this.btncard_Click);
+            // 
+            // btnvisitor
+            // 
+            this.btnvisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnvisitor.FlatAppearance.BorderSize = 0;
+            this.btnvisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnvisitor.ForeColor = System.Drawing.Color.White;
+            this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btnvisitor.Location = new System.Drawing.Point(650, 1);
+            this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnvisitor.Name = "btnvisitor";
+            this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnvisitor.Size = new System.Drawing.Size(230, 65);
+            this.btnvisitor.TabIndex = 2;
+            this.btnvisitor.Text = "VISITOR";
+            this.btnvisitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnvisitor.UseVisualStyleBackColor = true;
+            this.btnvisitor.Click += new System.EventHandler(this.btnVisitorTab_Click);
+            // 
+            // btncontractor
+            // 
+            this.btncontractor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btncontractor.FlatAppearance.BorderSize = 0;
+            this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncontractor.ForeColor = System.Drawing.Color.White;
+            this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btncontractor.Location = new System.Drawing.Point(420, 1);
+            this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncontractor.Name = "btncontractor";
+            this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btncontractor.Size = new System.Drawing.Size(230, 65);
+            this.btncontractor.TabIndex = 1;
+            this.btncontractor.Text = "CONTRACTOR";
+            this.btncontractor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncontractor.UseVisualStyleBackColor = true;
+            this.btncontractor.Click += new System.EventHandler(this.btncontractor_Click);
+            // 
+            // btnscan
+            // 
+            this.btnscan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnscan.FlatAppearance.BorderSize = 0;
+            this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnscan.ForeColor = System.Drawing.Color.White;
+            this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
+            this.btnscan.Location = new System.Drawing.Point(190, 1);
+            this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnscan.Name = "btnscan";
+            this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnscan.Size = new System.Drawing.Size(230, 65);
+            this.btnscan.TabIndex = 0;
+            this.btnscan.Text = "SCAN";
+            this.btnscan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnscan.UseVisualStyleBackColor = true;
+            this.btnscan.Click += new System.EventHandler(this.btnScan_Click);
+            // 
             // panelform
             // 
             this.panelform.AutoSize = true;
@@ -153,6 +267,18 @@ namespace gui
             this.panelform.Name = "panelform";
             this.panelform.Size = new System.Drawing.Size(1789, 820);
             this.panelform.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
+            this.pictureBox1.Location = new System.Drawing.Point(429, 133);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelStatus
             // 
@@ -190,132 +316,6 @@ namespace gui
             this.lblCamera.TabIndex = 2;
             this.lblCamera.Text = "Camera";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
-            this.pictureBox1.Location = new System.Drawing.Point(429, 133);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btndoc
-            // 
-            this.btndoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btndoc.FlatAppearance.BorderSize = 0;
-            this.btndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndoc.ForeColor = System.Drawing.Color.White;
-            this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
-            this.btndoc.Location = new System.Drawing.Point(913, 0);
-            this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btndoc.Name = "btndoc";
-            this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btndoc.Size = new System.Drawing.Size(200, 65);
-            this.btndoc.TabIndex = 3;
-            this.btndoc.Text = "DOCUMENT";
-            this.btndoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btndoc.UseVisualStyleBackColor = true;
-            this.btndoc.Click += new System.EventHandler(this.btndoc_Click);
-            // 
-            // btnlgt
-            // 
-            this.btnlgt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnlgt.FlatAppearance.BorderSize = 0;
-            this.btnlgt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlgt.ForeColor = System.Drawing.Color.White;
-            this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
-            this.btnlgt.Location = new System.Drawing.Point(1270, -1);
-            this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlgt.Name = "btnlgt";
-            this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnlgt.Size = new System.Drawing.Size(237, 65);
-            this.btnlgt.TabIndex = 5;
-            this.btnlgt.Text = "VISIT HISTORY";
-            this.btnlgt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnlgt.UseVisualStyleBackColor = true;
-            this.btnlgt.Click += new System.EventHandler(this.btnlgt_Click);
-            // 
-            // btncard
-            // 
-            this.btncard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btncard.FlatAppearance.BorderSize = 0;
-            this.btncard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncard.ForeColor = System.Drawing.Color.White;
-            this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
-            this.btncard.Location = new System.Drawing.Point(1119, 0);
-            this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btncard.Name = "btncard";
-            this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncard.Size = new System.Drawing.Size(145, 65);
-            this.btncard.TabIndex = 4;
-            this.btncard.Text = "CARD";
-            this.btncard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btncard.UseVisualStyleBackColor = true;
-            this.btncard.Click += new System.EventHandler(this.btncard_Click);
-            // 
-            // btnvisitor
-            // 
-            this.btnvisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnvisitor.FlatAppearance.BorderSize = 0;
-            this.btnvisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnvisitor.ForeColor = System.Drawing.Color.White;
-            this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnvisitor.Location = new System.Drawing.Point(741, 0);
-            this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnvisitor.Name = "btnvisitor";
-            this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnvisitor.Size = new System.Drawing.Size(175, 65);
-            this.btnvisitor.TabIndex = 2;
-            this.btnvisitor.Text = "VISITOR";
-            this.btnvisitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnvisitor.UseVisualStyleBackColor = true;
-            this.btnvisitor.Click += new System.EventHandler(this.btnVisitorTab_Click);
-            // 
-            // btncontractor
-            // 
-            this.btncontractor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btncontractor.FlatAppearance.BorderSize = 0;
-            this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncontractor.ForeColor = System.Drawing.Color.White;
-            this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(516, 1);
-            this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btncontractor.Name = "btncontractor";
-            this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(228, 65);
-            this.btncontractor.TabIndex = 1;
-            this.btncontractor.Text = "CONTRACTOR";
-            this.btncontractor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btncontractor.UseVisualStyleBackColor = true;
-            this.btncontractor.Click += new System.EventHandler(this.btncontractor_Click);
-            // 
-            // btnscan
-            // 
-            this.btnscan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnscan.FlatAppearance.BorderSize = 0;
-            this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnscan.ForeColor = System.Drawing.Color.White;
-            this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(346, 0);
-            this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnscan.Name = "btnscan";
-            this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnscan.Size = new System.Drawing.Size(175, 65);
-            this.btnscan.TabIndex = 0;
-            this.btnscan.Text = "SCAN";
-            this.btnscan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnscan.UseVisualStyleBackColor = true;
-            this.btnscan.Click += new System.EventHandler(this.btnScan_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -336,9 +336,9 @@ namespace gui
             this.panelhome.PerformLayout();
             this.panelbuttons.ResumeLayout(false);
             this.panelform.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelStatus.ResumeLayout(false);
             this.panelStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
