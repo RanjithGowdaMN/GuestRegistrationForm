@@ -53,6 +53,7 @@ namespace gui
             // 
             this.GenerateVisitorDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenerateVisitorDoc.BackColor = System.Drawing.Color.Gray;
+            this.GenerateVisitorDoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GenerateVisitorDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateVisitorDoc.ForeColor = System.Drawing.Color.Transparent;
             this.GenerateVisitorDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
@@ -70,6 +71,7 @@ namespace gui
             // 
             this.GenerateContractDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenerateContractDoc.BackColor = System.Drawing.Color.Brown;
+            this.GenerateContractDoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GenerateContractDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateContractDoc.ForeColor = System.Drawing.Color.Transparent;
             this.GenerateContractDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;

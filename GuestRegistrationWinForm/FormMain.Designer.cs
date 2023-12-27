@@ -146,6 +146,7 @@ namespace gui
             // btndoc
             // 
             this.btndoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btndoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndoc.FlatAppearance.BorderSize = 0;
             this.btndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,6 +166,7 @@ namespace gui
             // btnlgt
             // 
             this.btnlgt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnlgt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlgt.FlatAppearance.BorderSize = 0;
             this.btnlgt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,6 +186,7 @@ namespace gui
             // btncard
             // 
             this.btncard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btncard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncard.FlatAppearance.BorderSize = 0;
             this.btncard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,6 +206,7 @@ namespace gui
             // btnvisitor
             // 
             this.btnvisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnvisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnvisitor.FlatAppearance.BorderSize = 0;
             this.btnvisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,6 +226,7 @@ namespace gui
             // btncontractor
             // 
             this.btncontractor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btncontractor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncontractor.FlatAppearance.BorderSize = 0;
             this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,6 +246,7 @@ namespace gui
             // btnscan
             // 
             this.btnscan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnscan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnscan.FlatAppearance.BorderSize = 0;
             this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

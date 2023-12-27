@@ -435,6 +435,7 @@ namespace gui
             // 
             this.btnVisitorDocument.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVisitorDocument.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnVisitorDocument.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVisitorDocument.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVisitorDocument.FlatAppearance.BorderSize = 0;
             this.btnVisitorDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

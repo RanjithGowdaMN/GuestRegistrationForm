@@ -588,6 +588,7 @@ namespace gui
             // 
             this.btContractorPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btContractorPdf.BackColor = System.Drawing.Color.ForestGreen;
+            this.btContractorPdf.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btContractorPdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btContractorPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btContractorPdf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

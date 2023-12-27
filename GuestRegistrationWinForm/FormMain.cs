@@ -271,7 +271,7 @@ namespace gui
 
         private void btnlgt_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void btncard_Click(object sender, EventArgs e)
