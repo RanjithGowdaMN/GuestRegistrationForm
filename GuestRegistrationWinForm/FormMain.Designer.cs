@@ -29,7 +29,9 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelhome = new System.Windows.Forms.Panel();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.btnWindowMin = new System.Windows.Forms.Button();
             this.btnWindowMaxm = new System.Windows.Forms.Button();
             this.btnWindowClsoe = new System.Windows.Forms.Button();
@@ -47,6 +49,7 @@ namespace gui
             this.lblScanner = new System.Windows.Forms.Label();
             this.lblCamera = new System.Windows.Forms.Label();
             this.panelhome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelbuttons.SuspendLayout();
             this.panelform.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,6 +59,7 @@ namespace gui
             // panelhome
             // 
             this.panelhome.BackColor = System.Drawing.Color.Brown;
+            this.panelhome.Controls.Add(this.Logo);
             this.panelhome.Controls.Add(this.btnWindowMin);
             this.panelhome.Controls.Add(this.btnWindowMaxm);
             this.panelhome.Controls.Add(this.btnWindowClsoe);
@@ -68,6 +72,18 @@ namespace gui
             this.panelhome.Size = new System.Drawing.Size(1789, 68);
             this.panelhome.TabIndex = 0;
             this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Location = new System.Drawing.Point(12, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(50, 51);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Logo.TabIndex = 4;
+            this.Logo.TabStop = false;
             // 
             // btnWindowMin
             // 
@@ -117,15 +133,15 @@ namespace gui
             // lblhome
             // 
             this.lblhome.AutoSize = true;
-            this.lblhome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblhome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhome.Location = new System.Drawing.Point(0, 0);
+            this.lblhome.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblhome.Location = new System.Drawing.Point(68, 13);
             this.lblhome.Name = "lblhome";
-            this.lblhome.Size = new System.Drawing.Size(684, 54);
+            this.lblhome.Size = new System.Drawing.Size(668, 55);
             this.lblhome.TabIndex = 0;
             this.lblhome.Text = "VISMA - Security Printing Press, MOI";
-            this.lblhome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblhome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelbuttons
             // 
@@ -149,7 +165,7 @@ namespace gui
             this.btndoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndoc.FlatAppearance.BorderSize = 0;
             this.btndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndoc.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
             this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
             this.btndoc.Location = new System.Drawing.Point(880, 1);
@@ -169,7 +185,7 @@ namespace gui
             this.btnlgt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlgt.FlatAppearance.BorderSize = 0;
             this.btnlgt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlgt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlgt.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
             this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
             this.btnlgt.Location = new System.Drawing.Point(1340, 1);
@@ -189,7 +205,7 @@ namespace gui
             this.btncard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncard.FlatAppearance.BorderSize = 0;
             this.btncard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncard.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
             this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
             this.btncard.Location = new System.Drawing.Point(1110, 1);
@@ -209,7 +225,7 @@ namespace gui
             this.btnvisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnvisitor.FlatAppearance.BorderSize = 0;
             this.btnvisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnvisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnvisitor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
             this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
             this.btnvisitor.Location = new System.Drawing.Point(650, 1);
@@ -229,14 +245,14 @@ namespace gui
             this.btncontractor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncontractor.FlatAppearance.BorderSize = 0;
             this.btncontractor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncontractor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncontractor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(420, 1);
+            this.btncontractor.Location = new System.Drawing.Point(366, 1);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(230, 65);
+            this.btncontractor.Size = new System.Drawing.Size(269, 65);
             this.btncontractor.TabIndex = 1;
             this.btncontractor.Text = "CONTRACTOR";
             this.btncontractor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -249,14 +265,14 @@ namespace gui
             this.btnscan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnscan.FlatAppearance.BorderSize = 0;
             this.btnscan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnscan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnscan.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(190, 1);
+            this.btnscan.Location = new System.Drawing.Point(172, 1);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnscan.Size = new System.Drawing.Size(230, 65);
+            this.btnscan.Size = new System.Drawing.Size(222, 65);
             this.btnscan.TabIndex = 0;
             this.btnscan.Text = "SCAN";
             this.btnscan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -278,7 +294,7 @@ namespace gui
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
-            this.pictureBox1.Location = new System.Drawing.Point(429, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(401, 137);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
@@ -340,6 +356,7 @@ namespace gui
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelhome.ResumeLayout(false);
             this.panelhome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.panelbuttons.ResumeLayout(false);
             this.panelform.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -369,5 +386,6 @@ namespace gui
         private System.Windows.Forms.Panel panelStatus;
         private System.Windows.Forms.Label lblScanner;
         private System.Windows.Forms.Label lblCamera;
+        private System.Windows.Forms.PictureBox Logo;
     }
 }

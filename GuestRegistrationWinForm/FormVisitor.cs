@@ -20,7 +20,7 @@ namespace gui
 {
     public partial class FormVisitor : Form
     {
-        public string title = "Instant Card printing";
+        public string title = "VISMA";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;

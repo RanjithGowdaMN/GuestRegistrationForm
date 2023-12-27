@@ -442,7 +442,7 @@ namespace gui
             this.btnVisitorDocument.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
             this.btnVisitorDocument.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(618, 661);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(674, 661);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(280, 50);

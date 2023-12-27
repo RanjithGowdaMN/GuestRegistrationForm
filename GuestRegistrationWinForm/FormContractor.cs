@@ -21,7 +21,7 @@ namespace gui
 {
     public partial class FormContractor : Form
     {
-        public string title = "Instant Card printing";
+        public string title = "VISMA";
         public string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
