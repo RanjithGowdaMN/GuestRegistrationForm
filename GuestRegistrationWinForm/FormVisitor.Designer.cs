@@ -624,7 +624,7 @@ namespace gui
             // 
             this.txtVisitorComp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVisitorComp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVisitorComp.Location = new System.Drawing.Point(1190, 140);
+            this.txtVisitorComp.Location = new System.Drawing.Point(1174, 80);
             this.txtVisitorComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVisitorComp.Name = "txtVisitorComp";
             this.txtVisitorComp.Size = new System.Drawing.Size(334, 30);

@@ -301,7 +301,7 @@ namespace gui
             {
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fiels ?", title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogResult = MessageBox.Show("Save the data and Clear fields ?", title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
                         //Insert record to DB

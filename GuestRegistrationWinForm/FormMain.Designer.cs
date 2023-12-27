@@ -116,15 +116,15 @@ namespace gui
             // 
             // lblhome
             // 
-            this.lblhome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblhome.AutoSize = true;
+            this.lblhome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblhome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblhome.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhome.Location = new System.Drawing.Point(656, 1);
+            this.lblhome.Location = new System.Drawing.Point(0, 0);
             this.lblhome.Name = "lblhome";
-            this.lblhome.Size = new System.Drawing.Size(500, 54);
+            this.lblhome.Size = new System.Drawing.Size(684, 54);
             this.lblhome.TabIndex = 0;
-            this.lblhome.Text = "INSTANT CARD PRINTING";
+            this.lblhome.Text = "VISMA - Security Printing Press, MOI";
             this.lblhome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelbuttons
