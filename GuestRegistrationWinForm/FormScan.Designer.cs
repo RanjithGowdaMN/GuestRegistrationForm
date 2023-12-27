@@ -242,7 +242,7 @@ namespace gui
             // SearchVisitor
             // 
             this.SearchVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SearchVisitor.BackColor = System.Drawing.Color.ForestGreen;
+            this.SearchVisitor.BackColor = System.Drawing.Color.IndianRed;
             this.SearchVisitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SearchVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -261,7 +261,7 @@ namespace gui
             // btnphoto
             // 
             this.btnphoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnphoto.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnphoto.BackColor = System.Drawing.Color.IndianRed;
             this.btnphoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnphoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnphoto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,7 +291,7 @@ namespace gui
             // btnback
             // 
             this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnback.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnback.BackColor = System.Drawing.Color.IndianRed;
             this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.FlatAppearance.BorderSize = 0;
             this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -311,7 +311,7 @@ namespace gui
             // btnfront
             // 
             this.btnfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnfront.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnfront.BackColor = System.Drawing.Color.IndianRed;
             this.btnfront.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnfront.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,7 +391,6 @@ namespace gui
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormScan";
             this.Text = "FormScan";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelScan.ResumeLayout(false);
             this.panelScan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).EndInit();
