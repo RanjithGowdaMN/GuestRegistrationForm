@@ -289,38 +289,43 @@ namespace gui
         {
 
             string processName = "GuestRegistrationWinForm";
-
-            if (!string.IsNullOrEmpty(processName))
+            string title = "VISMA";
+            DialogResult dialogResult = MessageBox.Show("Are you want to exit the application?", title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                // Get all processes with the specified name
-                Process[] processes = Process.GetProcessesByName(processName);
-
-                if (processes.Length > 0)
+                if (!string.IsNullOrEmpty(processName))
                 {
-                    foreach (Process process in processes)
+                    // Get all processes with the specified name
+                    Process[] processes = Process.GetProcessesByName(processName);
+
+                    if (processes.Length > 0)
                     {
-                        try
+                        foreach (Process process in processes)
                         {
-                            // Kill the process
-                            process.Kill();
-                            //MessageBox.Show($"Process '{process.ProcessName}' with ID {process.Id} killed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            Logger.Error("Error", $"Error killing process: {ex.Message}");
+                            try
+                            {
+                                // Kill the process
+                                process.Kill();
+                                //MessageBox.Show($"Process '{process.ProcessName}' with ID {process.Id} killed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                Logger.Error("Error", $"Error killing process: {ex.Message}");
+                            }
                         }
                     }
+                    else
+                    {
+                        //MessageBox.Show($"No processes found with the name '{processName}'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+
                 else
                 {
-                    //MessageBox.Show($"No processes found with the name '{processName}'.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Please enter a valid process name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Application.Exit();
             }
-            else
-            {
-                //MessageBox.Show("Please enter a valid process name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            Application.Exit();
             //this.Close();
         }
         private void btnWindowMax_Click(object sender, EventArgs e)
