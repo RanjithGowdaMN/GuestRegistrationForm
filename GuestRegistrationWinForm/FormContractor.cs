@@ -101,6 +101,8 @@ namespace gui
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
             cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
             cmbContractorTitle.SelectedIndexChanged += cmbContractorTitle_SelectedIndexChanged;
+            txtContractorCity.Text = "Doha";
+            txtContractorState.Text = "Doha";
         }
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {

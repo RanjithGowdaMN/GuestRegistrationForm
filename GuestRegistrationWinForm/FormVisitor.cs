@@ -161,7 +161,18 @@ namespace gui
             cmbVisitorProductionManager.SelectedIndexChanged += CmbVisitorProductionManager_SelectedIndexChanged;
             cmbVisitorTitle.SelectedIndexChanged += cmbVisitorTitle_SelectedIndexChanged;
             cmbVistorReasonForVisit.SelectedIndexChanged += CmbVistorReasonForVisit_SelectedIndexChanged;
+            cmbVisitorSecurityController.SelectedIndexChanged += CmbVisitorSecurityController_SelectedIndexChanged;
         }
+
+        private void CmbVisitorSecurityController_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (cmbVisitorSecurityController != null)
+            {
+                _visitorDataSheet.SecurityController = cmbVisitorSecurityController.SelectedItem.ToString();
+             }
+        }
+
         private void cmbVisitorTitle_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbVisitorTitle != null)
