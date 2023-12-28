@@ -176,8 +176,8 @@ namespace GenerateDocument.Library
                 else
                 {
                     //image.RotationDegrees = 270;
-                    image.SetAbsolutePosition(470, 662);
-                    image.ScaleToFit(120, 80);
+                    image.SetAbsolutePosition(440, 662);
+                    image.ScaleToFit(120, 100);
 
                 }
 
