@@ -22,6 +22,7 @@ using System.Diagnostics;
 using EOSDigital.API;
 using System.Threading;
 using System.Management;
+using System.Reflection;
 
 namespace gui
 {
@@ -348,6 +349,23 @@ namespace gui
             if (activeForm != null)
                 activeForm.Close();
           //  Reset();
+        }
+
+        private void SetVersionInfo()
+        {
+            Version versionInfo = Assembly.GetExecutingAssembly().GetName().Version;
+           // DateTime startDate = new DateTime(2023, 12, 31);
+           // int diffDays = versionInfo.Build;
+            //DateTime computedDate = startDate.AddDays(diffDays);
+            //tring lastBuilt = computedDate.ToShortDateString();
+            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            string productName = Application.ProductName;
+            lblversion.Text = string.Format("{0} - {1}",
+                      productName, versionInfo.ToString());
+        }
+        private void panelStatus_Paint(object sender, PaintEventArgs e)
+        {
+            SetVersionInfo();
         }
     }
 }
