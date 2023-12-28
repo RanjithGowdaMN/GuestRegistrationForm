@@ -304,7 +304,7 @@ namespace gui
             // 
             // panelStatus
             // 
-            this.panelStatus.BackColor = System.Drawing.Color.Brown;
+            this.panelStatus.BackColor = System.Drawing.Color.Maroon;
             this.panelStatus.Controls.Add(this.lblScanner);
             this.panelStatus.Controls.Add(this.lblCamera);
             this.panelStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
