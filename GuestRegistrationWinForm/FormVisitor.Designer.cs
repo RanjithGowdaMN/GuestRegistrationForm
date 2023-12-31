@@ -645,6 +645,7 @@ namespace gui
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormVisitor";
             this.Text = "FormVisitor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormVisitor_Load);
             this.panelVisitor.ResumeLayout(false);
             this.panelVisitor.PerformLayout();

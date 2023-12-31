@@ -45,7 +45,7 @@ namespace gui
             this.panelDoc.Location = new System.Drawing.Point(0, 0);
             this.panelDoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDoc.Name = "panelDoc";
-            this.panelDoc.Size = new System.Drawing.Size(800, 450);
+            this.panelDoc.Size = new System.Drawing.Size(803, 446);
             this.panelDoc.TabIndex = 0;
             this.panelDoc.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDoc_Paint);
             // 
@@ -57,7 +57,7 @@ namespace gui
             this.GenerateVisitorDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateVisitorDoc.ForeColor = System.Drawing.Color.Transparent;
             this.GenerateVisitorDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.GenerateVisitorDoc.Location = new System.Drawing.Point(289, 223);
+            this.GenerateVisitorDoc.Location = new System.Drawing.Point(290, 221);
             this.GenerateVisitorDoc.Margin = new System.Windows.Forms.Padding(4);
             this.GenerateVisitorDoc.Name = "GenerateVisitorDoc";
             this.GenerateVisitorDoc.Size = new System.Drawing.Size(192, 50);
@@ -75,7 +75,7 @@ namespace gui
             this.GenerateContractDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateContractDoc.ForeColor = System.Drawing.Color.Transparent;
             this.GenerateContractDoc.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.GenerateContractDoc.Location = new System.Drawing.Point(289, 108);
+            this.GenerateContractDoc.Location = new System.Drawing.Point(290, 106);
             this.GenerateContractDoc.Margin = new System.Windows.Forms.Padding(4);
             this.GenerateContractDoc.Name = "GenerateContractDoc";
             this.GenerateContractDoc.Size = new System.Drawing.Size(192, 50);
@@ -89,12 +89,13 @@ namespace gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 446);
             this.Controls.Add(this.panelDoc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDoc";
             this.Text = "FormDoc";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelDoc.ResumeLayout(false);
             this.ResumeLayout(false);
 

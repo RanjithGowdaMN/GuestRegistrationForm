@@ -79,6 +79,9 @@ namespace gui
             LoadComponentsData();
             lblCamera.ForeColor = Color.Red;
             lblScanner.ForeColor = Color.Red;
+
+            
+
             try
             {
                 // Create a WMI event query to detect creation or deletion of Win32_PnPEntity instances
@@ -353,15 +356,13 @@ namespace gui
 
         private void SetVersionInfo()
         {
+            
             Version versionInfo = Assembly.GetExecutingAssembly().GetName().Version;
-           // DateTime startDate = new DateTime(2023, 12, 31);
-           // int diffDays = versionInfo.Build;
-            //DateTime computedDate = startDate.AddDays(diffDays);
-            //tring lastBuilt = computedDate.ToShortDateString();
-            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            //string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
             string productName = Application.ProductName;
-            lblversion.Text = string.Format("{0} - {1}",
-                      productName, versionInfo.ToString());
+
+            string majorMinorVersion = $"{versionInfo.Major}.{versionInfo.Minor}";
+            lblversion.Text = $"{productName} - {majorMinorVersion}";
         }
         private void panelStatus_Paint(object sender, PaintEventArgs e)
         {
