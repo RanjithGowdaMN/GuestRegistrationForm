@@ -29,7 +29,6 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelhome = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.btnWindowMin = new System.Windows.Forms.Button();
@@ -78,7 +77,7 @@ namespace gui
             // 
             this.Logo.BackColor = System.Drawing.Color.Transparent;
             this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Image = global::GuestRegistrationWinForm.Properties.Resources.Visitor1;
             this.Logo.Location = new System.Drawing.Point(12, 12);
             this.Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Logo.Name = "Logo";
