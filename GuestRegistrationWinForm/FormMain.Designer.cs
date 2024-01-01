@@ -296,7 +296,7 @@ namespace gui
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
-            this.pictureBox1.Location = new System.Drawing.Point(401, 137);
+            this.pictureBox1.Location = new System.Drawing.Point(309, 56);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
@@ -369,7 +369,6 @@ namespace gui
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelhome.ResumeLayout(false);
             this.panelhome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();

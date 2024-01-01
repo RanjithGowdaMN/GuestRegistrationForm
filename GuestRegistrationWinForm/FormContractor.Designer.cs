@@ -629,7 +629,6 @@ namespace gui
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormContractor";
             this.Text = "FormContractor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Contractor_Load);
             this.panelcontrator.ResumeLayout(false);
             this.panelcontrator.PerformLayout();

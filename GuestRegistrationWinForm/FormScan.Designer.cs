@@ -391,7 +391,6 @@ namespace gui
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormScan";
             this.Text = "FormScan";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelScan.ResumeLayout(false);
             this.panelScan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).EndInit();
