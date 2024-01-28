@@ -469,7 +469,7 @@ namespace gui
                         _scannedData = new ScannedData();
                         _visitorDataSheet = VisitorDataSheet.reset();
                         _consultantApplicationForm = ConsultantApplicationForm.reset();
-                        _cameraStatus = CameraStatus.reset();
+                       // _cameraStatus = CameraStatus.reset();
                         Initialize();
 
                     }
@@ -502,7 +502,7 @@ namespace gui
                     MessageBox.Show("Error: in file generation",title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Logger.Error(ex.Message, "Error in file generation");
                 }
-                _formScan.txtname.Clear();
+             //   _formScan.txtname.Clear();
                 _formScan.txtid.Clear();
                 _formScan.txtdob.Clear();
                 _formScan.txtexpiry.Clear();

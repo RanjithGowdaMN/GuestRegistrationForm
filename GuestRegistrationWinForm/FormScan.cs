@@ -76,7 +76,8 @@ namespace gui
             {
                 rbpass.Checked = true;
             }
-            else {
+            else 
+            {
                 rbid.Checked = true;
             }
         }
@@ -304,7 +305,8 @@ namespace gui
 
                     UpdateImageDetails(visitor);
                     //TBD 
-                } else
+                } 
+                else
                 {
                     MessageBox.Show("No information matched in Database!");
                 }
@@ -325,9 +327,14 @@ namespace gui
             }
             if (visitor.Photo.Length > 100)
             {
-                _scannedData.isDataFromDb[2] = true;
+                _scannedData.isDataFromDb[3] = true;
                 File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(visitor.Photo));
+              //  _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+                //UpdatePhotoImage(gCONSTANTS.TEMPPHOTOFILEPATH);
             }
+
+            
+
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
         {

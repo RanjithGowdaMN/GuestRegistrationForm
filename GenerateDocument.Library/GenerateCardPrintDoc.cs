@@ -2,6 +2,11 @@
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GuestRegistrationDesktopUI.Library.Models;
 
 namespace GenerateDocument.Library
 {
@@ -15,6 +20,7 @@ namespace GenerateDocument.Library
         {
             Document document = new Document(new Rectangle(cardWidth, cardHeight));
 
+            
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(outputPath, FileMode.Create));
             document.Open();
 
@@ -34,13 +40,13 @@ namespace GenerateDocument.Library
             // contentByte.Fill();
 
             // Load the image
-            if (String.IsNullOrEmpty(imagePath))
+          if (String.IsNullOrEmpty(imagePath))
             {
                 imagePath = "D:\\VisitorData\\Photos\\photo00001.jpg";
             }
             
-                Image image = Image.GetInstance(imagePath);
-               image.RotationDegrees = 270;
+               Image image = Image.GetInstance(imagePath);
+              // image.RotationDegrees = 270;
                 image.ScaleToFit(100, 80);
           
            
@@ -168,8 +174,6 @@ namespace GenerateDocument.Library
                 contentByte.SetColorFill(BaseColor.BLACK);
                 contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, textX, yPosition, 0);
                 contentByte.EndText();
-
-
 
                 // Reset graphic state for full opacity
                 contentByte.SetGState(new PdfGState() { FillOpacity = 60f });

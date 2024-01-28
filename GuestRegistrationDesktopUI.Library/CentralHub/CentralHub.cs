@@ -131,13 +131,13 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 if (String.IsNullOrEmpty(generatedVisitorIDNumber) )
                 {
                     generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 00).ToString().PadLeft(5, '0');
-                    //return generatedVisitorIDNumber;
+                    return generatedVisitorIDNumber;
                 }
 
-                //generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0').PadLeft(5, '0');
+                generatedVisitorIDNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0').PadLeft(5, '0');
 
-                fullImageFileName = Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
-                File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName, true);
+              fullImageFileName = Path.Combine("D:\\VisitorData\\Photos\\", "photo" + generatedVisitorIDNumber + ".jpg");
+              File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName, true);
 
                 ////TBD
                 //try
@@ -145,6 +145,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
                 //    File.Copy("D:\\VisitorData\\Photos\\photo00001.jpg", fullImageFileName);
 
                 //}
+
                 //catch (Exception)
                 //{
                 //    generatedVisitorIDNumber = (Convert.ToInt32(FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0')) + 01).ToString().PadLeft(5, '0');
@@ -161,18 +162,21 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         }
        
 
-        public string PrintIdCard(string visitorName, string visitorType)
+        public string PrintIdCard(string visitorName, string visitorType,string imagePath)
         {
-            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", GenerateVisitorIDnumber() + ".pdf");
+            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", GenerateVisitorIDnumber()+".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
-            //string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
-            //GenerateVisitorIDnumber();
-            IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, fullImageFileName, visitorName, generatedVisitorIDNumber, visitorType);
-            vistorData = VisitorDataModel.Instance;
-            cameraStatus = CameraStatus.Instance;
-            scannedFileInfo = ScannedFileModel.Instance;
-            fullImageFileName = string.Empty;
-            generatedVisitorIDNumber = string.Empty;
+            string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
+            // GenerateVisitorIDnumber();
+         
+            IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, cameraStatus.ImagePath, visitorName, generatedVisitorIDNumber, visitorType);
+            //vistorData = VisitorDataModel.Instance;
+          //  cameraStatus = CameraStatus.Instance;
+            //scannedFileInfo = ScannedFileModel.Instance;
+            //fullImageFileName = string.Empty;
+            //generatedVisitorIDNumber = string.Empty;
+
+            
             return IDcardFileName;
         }
 

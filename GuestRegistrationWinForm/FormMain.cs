@@ -282,7 +282,7 @@ namespace gui
 
         private void btncard_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCard(), sender);
+            OpenChildForm(new FormCard(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm), sender);
         }
 
         private void panelhome_MouseDown(object sender, MouseEventArgs e)

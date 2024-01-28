@@ -11,10 +11,6 @@ using GuestRegistrationDesktopUI.Library.Models;
 using GuestRegistrationDesktopUI.Library.OCR;
 using GuestRegistrationWinForm;
 using NLog;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -24,6 +20,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TesseractOCR.Library;
+using System.Drawing.Imaging;
 
 namespace gui
 {
@@ -38,10 +35,28 @@ namespace gui
         private VisitorDataSheet _visitorDataSheet;
         public event PropertyChangedEventHandler PropertyChanged;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
-        public FormCard()
+        private FormScan _formScan;
+        public FormCard(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
+            _centralHub = centralHub;
+            _centralHub.CanonImageDownload += UpdatePhotoImage;
+
+            _scannedFileInfo = ScannedFileModel.Instance;
+            _cameraStatus = CameraStatus.Instance;
+            _consultantApplicationForm = ConsultantApplicationForm.Instance;
+            _visitorDataSheet = VisitorDataSheet.Instance;
+            _scannedData = scannedData;
+            _formScan = formScan;
             InitializeComponent();
+            // Check if the necessary data is available
+            if (_formScan != null && _formScan.txtname != null)
+            {
+                // Load the value from the scan form
+                lblCardName.Text = _formScan.txtname.Text.ToString();
+                pbCardDemo.Image = _formScan.pbphoto.Image;
+            }
+          //  UpdatePhotoImage(_cameraStatus.ImagePath);
         }
 
         private void btnCardSearch_Click(object sender, EventArgs e)
@@ -51,7 +66,6 @@ namespace gui
             {
                 VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtCardId.Text);
                 ReloadDataToUi(visitor);
-                //_scannedData.isDataFromDb[0] = true;
             }
             catch (Exception ex)
             {
@@ -64,11 +78,10 @@ namespace gui
             {
                 //scannedData
                 lblCardName.Text =  visitor.Name?.ToString();
-                //_scannedData.isDataFromDb[0] = true;
+                pbCardDemo.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo));
                 UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
-
+               // CameraStatus.Instance.ImagePath = visitor.Photo?.ToString();
                 UpdateImageDetails(visitor);
-
             }
             else
             {
@@ -81,8 +94,10 @@ namespace gui
         {
             if (visitor.Photo.Length > 100)
             {
-               // _scannedData.isDataFromDb[2] = true;
+                _scannedData.isDataFromDb[3] = true;
+                
                 File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(visitor.Photo));
+                
             }
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
@@ -94,6 +109,22 @@ namespace gui
                 Image image = Image.FromStream(memoryStream);
                 return image;
             }
+        }
+       public void UpdatePhotoImage(string path)
+        {
+            _cameraStatus.ImagePath = path;
+            // Resize the image to fit the PictureBox
+            Bitmap resizedImage = new Bitmap(pbCardDemo.Width, pbCardDemo.Height);
+
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(Image.FromFile(path), 0, 0, pbCardDemo.Width, pbCardDemo.Height);
+            }
+
+            // Set the PictureBox properties
+            pbCardDemo.SizeMode = PictureBoxSizeMode.Zoom;
+           pbCardDemo.Image = resizedImage;
         }
         public void UpdatePhotoImageFromDb(Image image)
         {
@@ -109,6 +140,43 @@ namespace gui
             // Set the PictureBox properties
             pbCardDemo.SizeMode = PictureBoxSizeMode.Zoom;
             pbCardDemo.Image = resizedImage;
+        }      
+        private void btnCardPrint_Click(object sender, EventArgs e)
+        {
+            ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+            VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
+            visitorDataModel.Name = _scannedData.Name;
+            visitorDataModel.IDno = _scannedData.IdNumber;
+            concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+
+            // VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+            ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+            VisitorsLogBook vlBook = new VisitorsLogBook();
+            HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+            concatenatedDataBinding.CAforVisitor = CAforVisitor;
+            concatenatedDataBinding.hsaLog = hsaLog;
+            concatenatedDataBinding.vlBook = vlBook;
+            concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
+
+            
+            if (visitorDataModel.Name == null && txtCardId != null)
+            {
+                visitorDataModel.Name = lblCardName.Text;
+                //CameraStatus.Instance.ImagePath = pbCardDemo.Image.ToString();
+                _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+                _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance. ImagePath);
+            }
+
+        else
+            
+            // Assign the string to CameraStatus.Instance.ImagePath
+
+            _centralHub.PrintIdCard(visitorDataModel.Name,"CONTRACTOR",CameraStatus.Instance.ImagePath);
+           //_formScan.txtname.Clear();
+            _cameraStatus = CameraStatus.reset();
         }
+
     }
-}
+       
+ }
+    
