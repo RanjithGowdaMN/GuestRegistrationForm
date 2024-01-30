@@ -164,7 +164,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         public string PrintIdCard(string visitorName, string visitorType,string imagePath)
         {
-            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", GenerateVisitorIDnumber()+".pdf");
+            string outputPath =Path.Combine("D:\\VisitorData\\IdCard", visitorName+".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
             string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
             // GenerateVisitorIDnumber();

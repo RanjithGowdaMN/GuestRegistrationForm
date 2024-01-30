@@ -26,7 +26,7 @@ namespace gui
 {
     public partial class FormCard : Form
     {
-
+        public string title = "VISMA";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
         private ScannedData _scannedData;
@@ -36,6 +36,7 @@ namespace gui
         public event PropertyChangedEventHandler PropertyChanged;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private FormScan _formScan;
+        string CardGeneratedFile = string.Empty;
         public FormCard(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
@@ -56,7 +57,7 @@ namespace gui
                 lblCardName.Text = _formScan.txtname.Text.ToString();
                 pbCardDemo.Image = _formScan.pbphoto.Image;
             }
-          //  UpdatePhotoImage(_cameraStatus.ImagePath);
+            //  UpdatePhotoImage(_cameraStatus.ImagePath);
         }
 
         private void btnCardSearch_Click(object sender, EventArgs e)
@@ -77,10 +78,10 @@ namespace gui
             if (!string.IsNullOrEmpty(visitor.IdNumber))
             {
                 //scannedData
-                lblCardName.Text =  visitor.Name?.ToString();
+                lblCardName.Text = visitor.Name?.ToString();
                 pbCardDemo.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo));
                 UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
-               // CameraStatus.Instance.ImagePath = visitor.Photo?.ToString();
+                // CameraStatus.Instance.ImagePath = visitor.Photo?.ToString();
                 UpdateImageDetails(visitor);
             }
             else
@@ -95,9 +96,9 @@ namespace gui
             if (visitor.Photo.Length > 100)
             {
                 _scannedData.isDataFromDb[3] = true;
-                
+
                 File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(visitor.Photo));
-                
+
             }
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
@@ -110,7 +111,7 @@ namespace gui
                 return image;
             }
         }
-       public void UpdatePhotoImage(string path)
+        public void UpdatePhotoImage(string path)
         {
             _cameraStatus.ImagePath = path;
             // Resize the image to fit the PictureBox
@@ -124,7 +125,7 @@ namespace gui
 
             // Set the PictureBox properties
             pbCardDemo.SizeMode = PictureBoxSizeMode.Zoom;
-           pbCardDemo.Image = resizedImage;
+            pbCardDemo.Image = resizedImage;
         }
         public void UpdatePhotoImageFromDb(Image image)
         {
@@ -140,9 +141,11 @@ namespace gui
             // Set the PictureBox properties
             pbCardDemo.SizeMode = PictureBoxSizeMode.Zoom;
             pbCardDemo.Image = resizedImage;
-        }      
+        }
         private void btnCardPrint_Click(object sender, EventArgs e)
         {
+            try
+            { 
             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
             visitorDataModel.Name = _scannedData.Name;
@@ -158,25 +161,56 @@ namespace gui
             concatenatedDataBinding.vlBook = vlBook;
             concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;
 
-            
+
             if (visitorDataModel.Name == null && txtCardId != null)
             {
                 visitorDataModel.Name = lblCardName.Text;
                 //CameraStatus.Instance.ImagePath = pbCardDemo.Image.ToString();
                 _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
-                _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance. ImagePath);
+                CardGeneratedFile=  _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath);
+                    //_formScan.txtname.Clear();
+                }
+
+                else
+
+                // Assign the string to CameraStatus.Instance.ImagePath
+
+                CardGeneratedFile=  _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath);
+                //_formScan.txtname.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Data Insert", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.Error($"Error Data Insert {ex.Message}");
+            }
+            _cameraStatus = CameraStatus.reset();
+            try
+            {
+                if (!string.IsNullOrEmpty(CardGeneratedFile))
+                {
+                    System.Diagnostics.Process.Start(CardGeneratedFile);
+                }
+                else
+                {
+                    MessageBox.Show("Card is Not Generated", title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Logger.Error("Card Not Generated");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Opening PDF", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.Error($"Error in Opening PDF {ex.Message}");
+               
             }
 
-        else
+           // InitializeComponent();
+            //lblCardName.Text = "NAME";
+          //  txtCardId.Text = "";
+           // pbCardDemo.Image = null;
             
-            // Assign the string to CameraStatus.Instance.ImagePath
-
-            _centralHub.PrintIdCard(visitorDataModel.Name,"CONTRACTOR",CameraStatus.Instance.ImagePath);
-           //_formScan.txtname.Clear();
-            _cameraStatus = CameraStatus.reset();
+            
         }
 
     }
-       
- }
+}
     

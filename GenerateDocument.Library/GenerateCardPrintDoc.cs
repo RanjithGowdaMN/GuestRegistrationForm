@@ -47,13 +47,15 @@ namespace GenerateDocument.Library
             
                Image image = Image.GetInstance(imagePath);
               // image.RotationDegrees = 270;
-                image.ScaleToFit(100, 80);
-          
-           
+               // image.ScaleToFit(120, 80);
+            image.ScaleAbsoluteWidth(80); // Set width to 120 units
+            image.ScaleAbsoluteHeight(100);
+
+
 
             //Load the Logo
 
-          //  iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
+            //  iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
 
             // image1.ScaleToFit(50, 750);
             //float imageScalingFactor = .10f; // You can adjust this value as needed
@@ -61,7 +63,8 @@ namespace GenerateDocument.Library
 
             // Position the image
             image.SetAbsolutePosition(10, 40);
-           contentByte.AddImage(image);
+          
+            contentByte.AddImage(image);
             
 
             //position of Logo
@@ -77,16 +80,16 @@ namespace GenerateDocument.Library
                 BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 60, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 120, 0);
                 contentByte.EndText();
 
                 //idnumber;
-                contentByte.BeginText();
+             /*   contentByte.BeginText();
                 BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
                 contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 100, 0);
-                contentByte.EndText();
+                contentByte.EndText();*/
 
                 //name
                 float fontSize = 10;
