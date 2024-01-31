@@ -31,15 +31,17 @@ namespace gui
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCard));
             this.panelCard = new System.Windows.Forms.Panel();
+            this.cmbCardSelectPrinter = new System.Windows.Forms.ComboBox();
+            this.lblCardPrinter = new System.Windows.Forms.Label();
             this.btnCardPrint = new System.Windows.Forms.Button();
             this.btnCardSearch = new System.Windows.Forms.Button();
             this.lblCardIdno = new System.Windows.Forms.Label();
             this.panelCardDemo = new System.Windows.Forms.Panel();
+            this.panelCardClr = new System.Windows.Forms.Panel();
             this.lblCardName = new System.Windows.Forms.Label();
             this.lblCardType = new System.Windows.Forms.Label();
             this.pbCardDemo = new System.Windows.Forms.PictureBox();
             this.txtCardId = new System.Windows.Forms.TextBox();
-            this.panelCardClr = new System.Windows.Forms.Panel();
             this.panelCard.SuspendLayout();
             this.panelCardDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCardDemo)).BeginInit();
@@ -48,6 +50,8 @@ namespace gui
             // panelCard
             // 
             this.panelCard.BackColor = System.Drawing.Color.White;
+            this.panelCard.Controls.Add(this.cmbCardSelectPrinter);
+            this.panelCard.Controls.Add(this.lblCardPrinter);
             this.panelCard.Controls.Add(this.btnCardPrint);
             this.panelCard.Controls.Add(this.btnCardSearch);
             this.panelCard.Controls.Add(this.lblCardIdno);
@@ -56,8 +60,30 @@ namespace gui
             this.panelCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCard.Location = new System.Drawing.Point(0, 0);
             this.panelCard.Name = "panelCard";
-            this.panelCard.Size = new System.Drawing.Size(1379, 735);
+            this.panelCard.Size = new System.Drawing.Size(1565, 735);
             this.panelCard.TabIndex = 0;
+            // 
+            // cmbCardSelectPrinter
+            // 
+            this.cmbCardSelectPrinter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCardSelectPrinter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCardSelectPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCardSelectPrinter.FormattingEnabled = true;
+            this.cmbCardSelectPrinter.Location = new System.Drawing.Point(244, 352);
+            this.cmbCardSelectPrinter.Name = "cmbCardSelectPrinter";
+            this.cmbCardSelectPrinter.Size = new System.Drawing.Size(316, 33);
+            this.cmbCardSelectPrinter.TabIndex = 6;
+            // 
+            // lblCardPrinter
+            // 
+            this.lblCardPrinter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCardPrinter.AutoSize = true;
+            this.lblCardPrinter.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardPrinter.Location = new System.Drawing.Point(60, 355);
+            this.lblCardPrinter.Name = "lblCardPrinter";
+            this.lblCardPrinter.Size = new System.Drawing.Size(127, 23);
+            this.lblCardPrinter.TabIndex = 5;
+            this.lblCardPrinter.Text = "Select Printer";
             // 
             // btnCardPrint
             // 
@@ -70,7 +96,7 @@ namespace gui
             this.btnCardPrint.ForeColor = System.Drawing.Color.White;
             this.btnCardPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnCardPrint.Image")));
             this.btnCardPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardPrint.Location = new System.Drawing.Point(171, 347);
+            this.btnCardPrint.Location = new System.Drawing.Point(317, 451);
             this.btnCardPrint.Name = "btnCardPrint";
             this.btnCardPrint.Size = new System.Drawing.Size(152, 46);
             this.btnCardPrint.TabIndex = 4;
@@ -87,7 +113,7 @@ namespace gui
             this.btnCardSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCardSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCardSearch.ForeColor = System.Drawing.Color.White;
-            this.btnCardSearch.Location = new System.Drawing.Point(462, 205);
+            this.btnCardSearch.Location = new System.Drawing.Point(600, 213);
             this.btnCardSearch.Name = "btnCardSearch";
             this.btnCardSearch.Size = new System.Drawing.Size(36, 39);
             this.btnCardSearch.TabIndex = 3;
@@ -99,7 +125,7 @@ namespace gui
             this.lblCardIdno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardIdno.AutoSize = true;
             this.lblCardIdno.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardIdno.Location = new System.Drawing.Point(41, 212);
+            this.lblCardIdno.Location = new System.Drawing.Point(60, 229);
             this.lblCardIdno.Name = "lblCardIdno";
             this.lblCardIdno.Size = new System.Drawing.Size(60, 23);
             this.lblCardIdno.TabIndex = 2;
@@ -113,10 +139,19 @@ namespace gui
             this.panelCardDemo.Controls.Add(this.lblCardName);
             this.panelCardDemo.Controls.Add(this.lblCardType);
             this.panelCardDemo.Controls.Add(this.pbCardDemo);
-            this.panelCardDemo.Location = new System.Drawing.Point(600, 159);
+            this.panelCardDemo.Location = new System.Drawing.Point(706, 162);
             this.panelCardDemo.Name = "panelCardDemo";
             this.panelCardDemo.Size = new System.Drawing.Size(733, 397);
             this.panelCardDemo.TabIndex = 1;
+            // 
+            // panelCardClr
+            // 
+            this.panelCardClr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelCardClr.BackColor = System.Drawing.Color.Sienna;
+            this.panelCardClr.Location = new System.Drawing.Point(-1, 296);
+            this.panelCardClr.Name = "panelCardClr";
+            this.panelCardClr.Size = new System.Drawing.Size(733, 41);
+            this.panelCardClr.TabIndex = 3;
             // 
             // lblCardName
             // 
@@ -137,7 +172,7 @@ namespace gui
             this.lblCardType.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCardType.Location = new System.Drawing.Point(338, 52);
             this.lblCardType.Name = "lblCardType";
-            this.lblCardType.Size = new System.Drawing.Size(263, 38);
+            this.lblCardType.Size = new System.Drawing.Size(255, 37);
             this.lblCardType.TabIndex = 1;
             this.lblCardType.Text = "CONTRACTOR";
             // 
@@ -157,25 +192,16 @@ namespace gui
             // 
             this.txtCardId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCardId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardId.Location = new System.Drawing.Point(129, 212);
+            this.txtCardId.Location = new System.Drawing.Point(244, 222);
             this.txtCardId.Name = "txtCardId";
             this.txtCardId.Size = new System.Drawing.Size(316, 30);
             this.txtCardId.TabIndex = 0;
-            // 
-            // panelCardClr
-            // 
-            this.panelCardClr.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelCardClr.BackColor = System.Drawing.Color.Sienna;
-            this.panelCardClr.Location = new System.Drawing.Point(-1, 296);
-            this.panelCardClr.Name = "panelCardClr";
-            this.panelCardClr.Size = new System.Drawing.Size(733, 41);
-            this.panelCardClr.TabIndex = 3;
             // 
             // FormCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 735);
+            this.ClientSize = new System.Drawing.Size(1565, 735);
             this.Controls.Add(this.panelCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCard";
@@ -201,5 +227,7 @@ namespace gui
         private System.Windows.Forms.PictureBox pbCardDemo;
         private System.Windows.Forms.TextBox txtCardId;
         private System.Windows.Forms.Panel panelCardClr;
+        private System.Windows.Forms.ComboBox cmbCardSelectPrinter;
+        private System.Windows.Forms.Label lblCardPrinter;
     }
 }
