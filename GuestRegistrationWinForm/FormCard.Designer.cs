@@ -148,7 +148,7 @@ namespace gui
             // 
             this.panelCardClr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCardClr.BackColor = System.Drawing.Color.Sienna;
-            this.panelCardClr.Location = new System.Drawing.Point(-1, 296);
+            this.panelCardClr.Location = new System.Drawing.Point(-1, 351);
             this.panelCardClr.Name = "panelCardClr";
             this.panelCardClr.Size = new System.Drawing.Size(733, 41);
             this.panelCardClr.TabIndex = 3;
@@ -158,7 +158,7 @@ namespace gui
             this.lblCardName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardName.AutoSize = true;
             this.lblCardName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardName.Location = new System.Drawing.Point(56, 340);
+            this.lblCardName.Location = new System.Drawing.Point(12, 309);
             this.lblCardName.Name = "lblCardName";
             this.lblCardName.Size = new System.Drawing.Size(74, 25);
             this.lblCardName.TabIndex = 2;
