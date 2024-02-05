@@ -91,6 +91,8 @@
     <Build Include="Stored Procedures\spInsertInToCompanyName.sql" />
     <Build Include="dbo\Tables\VisitorTitle.sql" />
     <Build Include="Stored Procedures\spGetVisitorTitle.sql" />
+    <Build Include="dbo\Tables\CardId.sql" />
+    <Build Include="Stored Procedures\spGetCardIds.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />

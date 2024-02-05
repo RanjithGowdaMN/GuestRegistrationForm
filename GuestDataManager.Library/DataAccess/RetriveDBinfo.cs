@@ -74,5 +74,11 @@ namespace GuestDataManager.Library.DataAccess
             var p = new { };
             return sql.LoadData<VisitorTitle, dynamic>("dbo.spGetVisitorTitle", p, "GuestData");
         }
+
+        public List<CardId> GetCardIds()
+        {
+            var p = new { };
+            return sql.LoadData<CardId, dynamic>("dbo.spGetCardIds", p, "GuestData");
+        }
     }
 }

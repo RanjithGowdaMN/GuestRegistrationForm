@@ -64,7 +64,22 @@ namespace gui
                 pbCardDemo.Image = _formScan.pbphoto.Image;
             }
             //  UpdatePhotoImage(_cameraStatus.ImagePath);
+            Initialize();
         }
+
+        private void Initialize()
+        {
+            LoadComboBox();
+        }
+
+        public void LoadComboBox()
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            cmbCardNo.DataSource = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
+            
+        }
+
+
 
         private void btnCardSearch_Click(object sender, EventArgs e)
         {
