@@ -29,7 +29,7 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
 
         string GenerateContractDocument(VisitorDataModel visitorDataFromUI, ConcatenatedDataBinding concatenatedDataBinding);
 
-        string PrintIdCard(string visitorName, string visitorType,string imagePath);
+        string PrintIdCard(string visitorName, string visitorType,string imagePath,string cardno);
         void AddCameraToMainThread();
     }
 }

@@ -39,6 +39,7 @@ namespace gui
             this.btnCardSearch = new System.Windows.Forms.Button();
             this.lblCardIdno = new System.Windows.Forms.Label();
             this.panelCardDemo = new System.Windows.Forms.Panel();
+            this.lblCard = new System.Windows.Forms.Label();
             this.panelCardClr = new System.Windows.Forms.Panel();
             this.lblCardName = new System.Windows.Forms.Label();
             this.lblCardType = new System.Windows.Forms.Label();
@@ -72,7 +73,7 @@ namespace gui
             this.lblCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardNo.AutoSize = true;
             this.lblCardNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardNo.Location = new System.Drawing.Point(52, 412);
+            this.lblCardNo.Location = new System.Drawing.Point(50, 420);
             this.lblCardNo.Name = "lblCardNo";
             this.lblCardNo.Size = new System.Drawing.Size(81, 23);
             this.lblCardNo.TabIndex = 8;
@@ -84,10 +85,11 @@ namespace gui
             this.cmbCardNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCardNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCardNo.FormattingEnabled = true;
-            this.cmbCardNo.Location = new System.Drawing.Point(244, 406);
+            this.cmbCardNo.Location = new System.Drawing.Point(244, 420);
             this.cmbCardNo.Name = "cmbCardNo";
             this.cmbCardNo.Size = new System.Drawing.Size(316, 33);
             this.cmbCardNo.TabIndex = 7;
+            this.cmbCardNo.SelectedIndexChanged += new System.EventHandler(this.cmbCardNo_SelectedIndexChanged);
             // 
             // cmbCardSelectPrinter
             // 
@@ -95,7 +97,7 @@ namespace gui
             this.cmbCardSelectPrinter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCardSelectPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCardSelectPrinter.FormattingEnabled = true;
-            this.cmbCardSelectPrinter.Location = new System.Drawing.Point(244, 313);
+            this.cmbCardSelectPrinter.Location = new System.Drawing.Point(244, 320);
             this.cmbCardSelectPrinter.Name = "cmbCardSelectPrinter";
             this.cmbCardSelectPrinter.Size = new System.Drawing.Size(316, 33);
             this.cmbCardSelectPrinter.TabIndex = 6;
@@ -105,7 +107,7 @@ namespace gui
             this.lblCardPrinter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardPrinter.AutoSize = true;
             this.lblCardPrinter.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardPrinter.Location = new System.Drawing.Point(52, 323);
+            this.lblCardPrinter.Location = new System.Drawing.Point(50, 320);
             this.lblCardPrinter.Name = "lblCardPrinter";
             this.lblCardPrinter.Size = new System.Drawing.Size(127, 23);
             this.lblCardPrinter.TabIndex = 5;
@@ -122,7 +124,7 @@ namespace gui
             this.btnCardPrint.ForeColor = System.Drawing.Color.White;
             this.btnCardPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnCardPrint.Image")));
             this.btnCardPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardPrint.Location = new System.Drawing.Point(317, 499);
+            this.btnCardPrint.Location = new System.Drawing.Point(317, 520);
             this.btnCardPrint.Name = "btnCardPrint";
             this.btnCardPrint.Size = new System.Drawing.Size(152, 46);
             this.btnCardPrint.TabIndex = 4;
@@ -151,7 +153,7 @@ namespace gui
             this.lblCardIdno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardIdno.AutoSize = true;
             this.lblCardIdno.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardIdno.Location = new System.Drawing.Point(60, 229);
+            this.lblCardIdno.Location = new System.Drawing.Point(50, 220);
             this.lblCardIdno.Name = "lblCardIdno";
             this.lblCardIdno.Size = new System.Drawing.Size(60, 23);
             this.lblCardIdno.TabIndex = 2;
@@ -161,6 +163,7 @@ namespace gui
             // 
             this.panelCardDemo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCardDemo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCardDemo.Controls.Add(this.lblCard);
             this.panelCardDemo.Controls.Add(this.panelCardClr);
             this.panelCardDemo.Controls.Add(this.lblCardName);
             this.panelCardDemo.Controls.Add(this.lblCardType);
@@ -169,6 +172,17 @@ namespace gui
             this.panelCardDemo.Name = "panelCardDemo";
             this.panelCardDemo.Size = new System.Drawing.Size(733, 397);
             this.panelCardDemo.TabIndex = 1;
+            // 
+            // lblCard
+            // 
+            this.lblCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCard.AutoSize = true;
+            this.lblCard.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCard.Location = new System.Drawing.Point(431, 160);
+            this.lblCard.Name = "lblCard";
+            this.lblCard.Size = new System.Drawing.Size(74, 26);
+            this.lblCard.TabIndex = 4;
+            this.lblCard.Text = "label1";
             // 
             // panelCardClr
             // 
@@ -218,7 +232,7 @@ namespace gui
             // 
             this.txtCardId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCardId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardId.Location = new System.Drawing.Point(244, 222);
+            this.txtCardId.Location = new System.Drawing.Point(244, 220);
             this.txtCardId.Name = "txtCardId";
             this.txtCardId.Size = new System.Drawing.Size(316, 30);
             this.txtCardId.TabIndex = 0;
@@ -232,6 +246,7 @@ namespace gui
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCard";
             this.Text = "FormCard";
+            this.Load += new System.EventHandler(this.FormCard_Load);
             this.panelCard.ResumeLayout(false);
             this.panelCard.PerformLayout();
             this.panelCardDemo.ResumeLayout(false);
@@ -257,5 +272,6 @@ namespace gui
         private System.Windows.Forms.Label lblCardPrinter;
         private System.Windows.Forms.Label lblCardNo;
         private System.Windows.Forms.ComboBox cmbCardNo;
+        private System.Windows.Forms.Label lblCard;
     }
 }

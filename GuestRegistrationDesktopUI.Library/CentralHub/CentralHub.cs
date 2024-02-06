@@ -162,14 +162,14 @@ namespace GuestRegistrationDesktopUI.Library.CentralHub
         }
        
 
-        public string PrintIdCard(string visitorName, string visitorType,string imagePath)
+        public string PrintIdCard(string visitorName, string visitorType,string imagePath,string cardno)
         {
             string outputPath =Path.Combine("D:\\VisitorData\\IdCard", visitorName+".pdf");
             string sppLogo = "D:\\VisitorData\\Logo\\SPP.png";
             string visitorNumber = FileHelper.GetImageFileName(PhotoDir).PadLeft(5, '0');
             // GenerateVisitorIDnumber();
          
-            IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, cameraStatus.ImagePath, visitorName, generatedVisitorIDNumber, visitorType);
+            IDcardFileName = _generateCardPrintDoc.printCard(outputPath, sppLogo, cameraStatus.ImagePath, visitorName, generatedVisitorIDNumber, visitorType,cardno);
             //vistorData = VisitorDataModel.Instance;
           //  cameraStatus = CameraStatus.Instance;
             //scannedFileInfo = ScannedFileModel.Instance;

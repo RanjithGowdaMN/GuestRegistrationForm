@@ -38,7 +38,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public bool ConvictedFelony { get; set; }
         public string Alias { get; set; }
 
-
+        public string CardNumber { get; set; }
         private static ConsultantApplicationForm instance;
         private static readonly object lockObject = new object();
         private ConsultantApplicationForm()

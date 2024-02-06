@@ -64,23 +64,26 @@ namespace gui
                 pbCardDemo.Image = _formScan.pbphoto.Image;
             }
             //  UpdatePhotoImage(_cameraStatus.ImagePath);
+           
             Initialize();
         }
 
         private void Initialize()
         {
             LoadComboBox();
+            lblCard.Visible = false;
+           
+
         }
 
         public void LoadComboBox()
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             cmbCardNo.DataSource = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
+            cmbCardNo.Text = _consultantApplicationForm.CardNumber;
             
         }
-
-
-
+      
         private void btnCardSearch_Click(object sender, EventArgs e)
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -186,9 +189,10 @@ namespace gui
                 if (visitorDataModel.Name == null && txtCardId != null)
                 {
                     visitorDataModel.Name = lblCardName.Text;
+                    
                     //CameraStatus.Instance.ImagePath = pbCardDemo.Image.ToString();
                     _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
-                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath);
+                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,_consultantApplicationForm.CardNumber);
                     //_formScan.txtname.Clear();
 
                 }
@@ -197,21 +201,14 @@ namespace gui
 
                     // Assign the string to CameraStatus.Instance.ImagePath
 
-                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath);
-
-                //_formScan.txtname.Clear();
+                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,_consultantApplicationForm.CardNumber);
+                                 //_formScan.txtname.Clear();
             }
-
-
-
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Data Insert", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Data Insert {ex.Message}");
             }
-
-
 
             _cameraStatus = CameraStatus.reset();
             try
@@ -226,11 +223,6 @@ namespace gui
                     Logger.Error("Card Not Generated");
                 }
 
-
-
-
-
-
                 string selectedPrinter = cmbCardSelectPrinter.SelectedItem as string;
 
                 if (!string.IsNullOrEmpty(selectedPrinter) && !string.IsNullOrEmpty(CardGeneratedFile))
@@ -240,7 +232,7 @@ namespace gui
                 }
                 else
                 {
-                    MessageBox.Show("Please select a printer and generate the card first.");
+                    MessageBox.Show("Please select a printer and generate the card first.",title,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
 
                 // Open the generated PDF file
@@ -250,18 +242,15 @@ namespace gui
                 }
                 else
                 {
-                    MessageBox.Show("Card is not generated.");
+                    MessageBox.Show("Card is not generated.",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Opening PDF", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error in Opening PDF {ex.Message}");
-
             }
-
         }
-
         private void PrintDocument(string filePath, string printerName)
         {
             try
@@ -294,14 +283,20 @@ namespace gui
                 Logger.Error($"Error: {ex.Message}");
             }
         }
+        private void cmbCardNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbCardNo!=null)
+            {
+                _consultantApplicationForm.CardNumber = cmbCardNo.SelectedItem.ToString();
+            }
+            lblCard.Text = _consultantApplicationForm.CardNumber;
+            lblCard.Visible = true;
+        }
 
-        // InitializeComponent();
-        //lblCardName.Text = "NAME";
-        //  txtCardId.Text = "";
-        // pbCardDemo.Image = null;
-
-
-
+        private void FormCard_Load(object sender, EventArgs e)
+        {
+            cmbCardNo.SelectedIndexChanged += cmbCardNo_SelectedIndexChanged;
+        }
     }
 }
 
