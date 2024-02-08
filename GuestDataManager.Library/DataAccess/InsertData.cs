@@ -89,6 +89,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@DurationStart",          string.Empty},//[nvarchar](15)
                 {"@DurationEnd",            string.Empty},//[nvarchar](15)
                 {"@Duration",               string.Empty},//[nvarchar](15)
+                { "@CardNumber",             consultantApplicationForm.CardNumber??string.Empty },
 
                 //Fields specific to Visitor
                 {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)
@@ -113,6 +114,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@RFU8",                   string.Empty},//[nvarchar](100)
                 {"@RFU9",                   scannedData.Nationality},//[nvarchar](100)
                 {"@RFU10",                  scannedFileInfo.VisitorType},//[nvarchar](100)
+                 
             };
             //byte[] nullValue = new byte[0];
 
@@ -123,6 +125,7 @@ namespace GuestDataManager.Library.DataAccess
             parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? string.Empty);
             parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? string.Empty);
 
+           
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {
                 parameters.Add("@IdFrontSide", Convert.ToBase64String(File.ReadAllBytes(scannedFileInfo.FrontSideFileName)));

@@ -74,6 +74,8 @@ namespace gui
             this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblCCardNo = new System.Windows.Forms.Label();
+            this.cmbCCardNo = new System.Windows.Forms.ComboBox();
             this.panelcontrator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -521,6 +523,8 @@ namespace gui
             // panelcontrator
             // 
             this.panelcontrator.BackColor = System.Drawing.Color.White;
+            this.panelcontrator.Controls.Add(this.cmbCCardNo);
+            this.panelcontrator.Controls.Add(this.lblCCardNo);
             this.panelcontrator.Controls.Add(this.cmbContractorTitle);
             this.panelcontrator.Controls.Add(this.btContractorPdf);
             this.panelcontrator.Controls.Add(this.txtContractorState);
@@ -619,6 +623,26 @@ namespace gui
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lblCCardNo
+            // 
+            this.lblCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCCardNo.AutoSize = true;
+            this.lblCCardNo.Location = new System.Drawing.Point(929, 660);
+            this.lblCCardNo.Name = "lblCCardNo";
+            this.lblCCardNo.Size = new System.Drawing.Size(135, 19);
+            this.lblCCardNo.TabIndex = 45;
+            this.lblCCardNo.Text = "CARD NUMBER";
+            // 
+            // cmbCCardNo
+            // 
+            this.cmbCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCCardNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCCardNo.FormattingEnabled = true;
+            this.cmbCCardNo.Location = new System.Drawing.Point(1245, 652);
+            this.cmbCCardNo.Name = "cmbCCardNo";
+            this.cmbCCardNo.Size = new System.Drawing.Size(347, 27);
+            this.cmbCCardNo.TabIndex = 46;
+            // 
             // FormContractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -683,5 +707,7 @@ namespace gui
         private System.Windows.Forms.Button btContractorPdf;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cmbContractorTitle;
+        private System.Windows.Forms.ComboBox cmbCCardNo;
+        private System.Windows.Forms.Label lblCCardNo;
     }
 }

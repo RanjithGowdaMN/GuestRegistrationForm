@@ -101,9 +101,20 @@ namespace gui
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
             cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
             cmbContractorTitle.SelectedIndexChanged += cmbContractorTitle_SelectedIndexChanged;
+            cmbCCardNo.SelectedIndexChanged += CmbCCardNo_SelectedIndexChanged;
             txtContractorCity.Text = "Doha";
             txtContractorState.Text = "Doha";
         }
+
+        private void CmbCCardNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           if(cmbCCardNo!=null)
+            {
+                _consultantApplicationForm.CardNumber = cmbCCardNo.SelectedItem.ToString();
+            }
+        }
+
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {
           if(cmbContractorFelony!=null)
@@ -130,8 +141,9 @@ namespace gui
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             List<string> CompanyNames = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
             cmbContractorCompName.DataSource = CompanyNames;
-            
-            
+
+          
+
             List<string> PurposeOfVisits = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
@@ -150,6 +162,10 @@ namespace gui
             {
                 cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
             }
+            List<string> CardNo = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
+            cmbCCardNo.DataSource = CardNo;
+            cmbCCardNo.Text = _consultantApplicationForm.CardNumber;
+
         }
         private async Task getCompanyName()
         {
@@ -458,6 +474,9 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtContractorCompName.Text);
                             }
+                            UpdateData updateData = new UpdateData();
+                            updateData.UpdateCardStatus(_consultantApplicationForm.CardNumber);
+
                             MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -468,9 +487,9 @@ namespace gui
                         _scannedFileInfo = ScannedFileModel.reset();
                         _scannedData = new ScannedData();
                         _visitorDataSheet = VisitorDataSheet.reset();
-                        _consultantApplicationForm = ConsultantApplicationForm.reset();
+                      //  _consultantApplicationForm = ConsultantApplicationForm.reset();
                        // _cameraStatus = CameraStatus.reset();
-                        Initialize();
+                      //  Initialize();
 
                     }
                     else if (dialogResult == DialogResult.No)

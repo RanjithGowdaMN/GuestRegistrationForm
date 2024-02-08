@@ -39,8 +39,10 @@ namespace gui
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private FormScan _formScan;
         string CardGeneratedFile = string.Empty;
+       private FormContractor formContractor1;
+        private FormContractor _formContractor;
         public FormCard(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan, FormContractor formContractor)
         {
             _centralHub = centralHub;
             _centralHub.CanonImageDownload += UpdatePhotoImage;
@@ -51,18 +53,31 @@ namespace gui
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             _formScan = formScan;
+          formContractor1 = formContractor;
+            _formContractor = formContractor;
+            
             InitializeComponent();
             // Check if the necessary data is available
             foreach (string printer in PrinterSettings.InstalledPrinters)
             {
                 cmbCardSelectPrinter .Items.Add(printer);
             }
-            if (_formScan != null && _formScan.txtname != null)
+            try
             {
-                // Load the value from the scan form
-                lblCardName.Text = _formScan.txtname.Text.ToString();
-                pbCardDemo.Image = _formScan.pbphoto.Image;
+                if (_formScan != null && _formScan.txtname != null)
+                {
+                    // Load the value from the scan form
+                    lblCardName.Text = _formScan.txtname.Text.ToString();
+                    lblCard.Text = _consultantApplicationForm.CardNumber.ToString();
+                   // lblCard.Text=_formContractor.ca
+                    pbCardDemo.Image = _formScan.pbphoto.Image;
+                }
             }
+            catch (Exception ex)
+            {
+
+            }
+
             //  UpdatePhotoImage(_cameraStatus.ImagePath);
            
             Initialize();
@@ -70,17 +85,17 @@ namespace gui
 
         private void Initialize()
         {
-            LoadComboBox();
-            lblCard.Visible = false;
-           
+           // LoadComboBox();
+         //   lblCard.Visible = false;
+            
 
         }
 
         public void LoadComboBox()
         {
-            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            cmbCardNo.DataSource = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
-            cmbCardNo.Text = _consultantApplicationForm.CardNumber;
+           // RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+           // cmbCardNo.DataSource = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
+            //cmbCardNo.Text = _consultantApplicationForm.CardNumber;
             
         }
       
@@ -103,6 +118,8 @@ namespace gui
             {
                 //scannedData
                 lblCardName.Text = visitor.Name?.ToString();
+                lblCard.Text = visitor.CardNumber?.ToString();
+                lblCard.Visible = true;
                 pbCardDemo.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo));
                 UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
                 // CameraStatus.Instance.ImagePath = visitor.Photo?.ToString();
@@ -189,19 +206,20 @@ namespace gui
                 if (visitorDataModel.Name == null && txtCardId != null)
                 {
                     visitorDataModel.Name = lblCardName.Text;
-                    
+                    _consultantApplicationForm.CardNumber = lblCard.Text;
                     //CameraStatus.Instance.ImagePath = pbCardDemo.Image.ToString();
                     _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
-                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,_consultantApplicationForm.CardNumber);
+                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,concatenatedDataBinding);
                     //_formScan.txtname.Clear();
-
+                    
                 }
 
                 else
 
                     // Assign the string to CameraStatus.Instance.ImagePath
-
-                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,_consultantApplicationForm.CardNumber);
+                    lblCard.Text = _consultantApplicationForm.CardNumber;
+                lblCard.Visible = true;
+                CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR",CameraStatus.Instance.ImagePath, concatenatedDataBinding);
                                  //_formScan.txtname.Clear();
             }
             catch (Exception ex)
@@ -283,7 +301,7 @@ namespace gui
                 Logger.Error($"Error: {ex.Message}");
             }
         }
-        private void cmbCardNo_SelectedIndexChanged(object sender, EventArgs e)
+      /*  private void cmbCardNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbCardNo!=null)
             {
@@ -291,11 +309,12 @@ namespace gui
             }
             lblCard.Text = _consultantApplicationForm.CardNumber;
             lblCard.Visible = true;
-        }
+        }*/
 
         private void FormCard_Load(object sender, EventArgs e)
         {
-            cmbCardNo.SelectedIndexChanged += cmbCardNo_SelectedIndexChanged;
+           // cmbCardNo.SelectedIndexChanged += cmbCardNo_SelectedIndexChanged;
+          
         }
     }
 }

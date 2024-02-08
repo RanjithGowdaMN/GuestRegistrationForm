@@ -31,8 +31,6 @@ namespace gui
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCard));
             this.panelCard = new System.Windows.Forms.Panel();
-            this.lblCardNo = new System.Windows.Forms.Label();
-            this.cmbCardNo = new System.Windows.Forms.ComboBox();
             this.cmbCardSelectPrinter = new System.Windows.Forms.ComboBox();
             this.lblCardPrinter = new System.Windows.Forms.Label();
             this.btnCardPrint = new System.Windows.Forms.Button();
@@ -53,8 +51,6 @@ namespace gui
             // panelCard
             // 
             this.panelCard.BackColor = System.Drawing.Color.White;
-            this.panelCard.Controls.Add(this.lblCardNo);
-            this.panelCard.Controls.Add(this.cmbCardNo);
             this.panelCard.Controls.Add(this.cmbCardSelectPrinter);
             this.panelCard.Controls.Add(this.lblCardPrinter);
             this.panelCard.Controls.Add(this.btnCardPrint);
@@ -67,29 +63,6 @@ namespace gui
             this.panelCard.Name = "panelCard";
             this.panelCard.Size = new System.Drawing.Size(1565, 735);
             this.panelCard.TabIndex = 0;
-            // 
-            // lblCardNo
-            // 
-            this.lblCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCardNo.AutoSize = true;
-            this.lblCardNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardNo.Location = new System.Drawing.Point(50, 420);
-            this.lblCardNo.Name = "lblCardNo";
-            this.lblCardNo.Size = new System.Drawing.Size(81, 23);
-            this.lblCardNo.TabIndex = 8;
-            this.lblCardNo.Text = "Card No";
-            // 
-            // cmbCardNo
-            // 
-            this.cmbCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbCardNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCardNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCardNo.FormattingEnabled = true;
-            this.cmbCardNo.Location = new System.Drawing.Point(244, 420);
-            this.cmbCardNo.Name = "cmbCardNo";
-            this.cmbCardNo.Size = new System.Drawing.Size(316, 33);
-            this.cmbCardNo.TabIndex = 7;
-            this.cmbCardNo.SelectedIndexChanged += new System.EventHandler(this.cmbCardNo_SelectedIndexChanged);
             // 
             // cmbCardSelectPrinter
             // 
@@ -124,7 +97,7 @@ namespace gui
             this.btnCardPrint.ForeColor = System.Drawing.Color.White;
             this.btnCardPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnCardPrint.Image")));
             this.btnCardPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardPrint.Location = new System.Drawing.Point(317, 520);
+            this.btnCardPrint.Location = new System.Drawing.Point(290, 472);
             this.btnCardPrint.Name = "btnCardPrint";
             this.btnCardPrint.Size = new System.Drawing.Size(152, 46);
             this.btnCardPrint.TabIndex = 4;
@@ -180,9 +153,9 @@ namespace gui
             this.lblCard.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCard.Location = new System.Drawing.Point(431, 160);
             this.lblCard.Name = "lblCard";
-            this.lblCard.Size = new System.Drawing.Size(74, 26);
+            this.lblCard.Size = new System.Drawing.Size(60, 26);
             this.lblCard.TabIndex = 4;
-            this.lblCard.Text = "label1";
+            this.lblCard.Text = "****";
             // 
             // panelCardClr
             // 
@@ -270,8 +243,6 @@ namespace gui
         private System.Windows.Forms.Panel panelCardClr;
         private System.Windows.Forms.ComboBox cmbCardSelectPrinter;
         private System.Windows.Forms.Label lblCardPrinter;
-        private System.Windows.Forms.Label lblCardNo;
-        private System.Windows.Forms.ComboBox cmbCardNo;
         private System.Windows.Forms.Label lblCard;
     }
 }

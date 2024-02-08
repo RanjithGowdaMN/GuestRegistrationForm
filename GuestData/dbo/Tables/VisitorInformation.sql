@@ -51,5 +51,6 @@
 	[RFU7] [nvarchar](100) NULL,
 	[RFU8] [nvarchar](100) NULL,
 	[RFU9] [nvarchar](100) NULL,
-	[RFU10] [nvarchar](100) NULL,
+	[RFU10] [nvarchar](100) NULL, 
+    [CardNumber] [nvarchar](50) NULL,
 )

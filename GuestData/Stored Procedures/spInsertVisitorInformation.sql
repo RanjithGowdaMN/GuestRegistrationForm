@@ -51,12 +51,13 @@
 @RFU7 [nvarchar](100),
 @RFU8 [nvarchar](100),
 @RFU9 [nvarchar](100),
-@RFU10 [nvarchar](100)
+@RFU10 [nvarchar](100),
+@CardNumber [varchar](50)
 
 AS 
 BEGIN 
 
-INSERT INTO Visitorinformation(Name ,IdNumber ,Dob ,IdExpiry ,IdType ,IdFrontSide ,IdBackSide ,Photo ,Title ,CompanyName ,PurposeOfVisit ,City ,Address ,Zip ,State ,CellPhone ,Email ,SocialSecurityNumber ,HomePhoneNo ,PassportNumber ,PassportIssuePlace ,PassportIssuedOn ,PassportValidity ,EmergencyContact ,AliasName ,Convicted ,Previous7YrResidency ,PersonToBeVisited ,AreaToBeVisited ,VisitDate ,VisitTime ,DurationStart ,DurationEnd ,Duration ,VisitFromDate ,VisitToDuration ,StartTime ,EndTime ,VisitDuration ,DepartmentManager ,ProductionManager ,SecurityController ,RFU1 ,RFU2 ,RFU3 ,RFU4 ,RFU5 ,RFU6 ,RFU7 ,RFU8 ,RFU9 ,RFU10)
+INSERT INTO Visitorinformation(Name ,IdNumber ,Dob ,IdExpiry ,IdType ,IdFrontSide ,IdBackSide ,Photo ,Title ,CompanyName ,PurposeOfVisit ,City ,Address ,Zip ,State ,CellPhone ,Email ,SocialSecurityNumber ,HomePhoneNo ,PassportNumber ,PassportIssuePlace ,PassportIssuedOn ,PassportValidity ,EmergencyContact ,AliasName ,Convicted ,Previous7YrResidency ,PersonToBeVisited ,AreaToBeVisited ,VisitDate ,VisitTime ,DurationStart ,DurationEnd ,Duration ,VisitFromDate ,VisitToDuration ,StartTime ,EndTime ,VisitDuration ,DepartmentManager ,ProductionManager ,SecurityController ,RFU1 ,RFU2 ,RFU3 ,RFU4 ,RFU5 ,RFU6 ,RFU7 ,RFU8 ,RFU9 ,RFU10,CardNumber)
 
-VALUES(@Name, @IdNumber, @Dob, @IdExpiry, @IdType, @IdFrontSide, @IdBackSide, @Photo, @Title, @CompanyName, @PurposeOfVisit, @City, @Address, @Zip, @State, @CellPhone, @Email, @SocialSecurityNumber, @HomePhoneNo, @PassportNumber, @PassportIssuePlace, @PassportIssuedOn, @PassportValidity, @EmergencyContact, @AliasName, @Convicted, @Previous7YrResidency, @PersonToBeVisited, @AreaToBeVisited, @VisitDate, @VisitTime, @DurationStart, @DurationEnd, @Duration, @VisitFromDate, @VisitToDuration, @StartTime, @EndTime, @VisitDuration, @DepartmentManager, @ProductionManager, @SecurityController, @RFU1, @RFU2, @RFU3, @RFU4, @RFU5, @RFU6, @RFU7, @RFU8, @RFU9, @RFU10);
+VALUES(@Name, @IdNumber, @Dob, @IdExpiry, @IdType, @IdFrontSide, @IdBackSide, @Photo, @Title, @CompanyName, @PurposeOfVisit, @City, @Address, @Zip, @State, @CellPhone, @Email, @SocialSecurityNumber, @HomePhoneNo, @PassportNumber, @PassportIssuePlace, @PassportIssuedOn, @PassportValidity, @EmergencyContact, @AliasName, @Convicted, @Previous7YrResidency, @PersonToBeVisited, @AreaToBeVisited, @VisitDate, @VisitTime, @DurationStart, @DurationEnd, @Duration, @VisitFromDate, @VisitToDuration, @StartTime, @EndTime, @VisitDuration, @DepartmentManager, @ProductionManager, @SecurityController, @RFU1, @RFU2, @RFU3, @RFU4, @RFU5, @RFU6, @RFU7, @RFU8, @RFU9, @RFU10, @CardNumber);
 END;

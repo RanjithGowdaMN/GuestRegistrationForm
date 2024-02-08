@@ -280,10 +280,12 @@ namespace gui
                     _consultantApplicationForm.PurposeOfVisit = visitor.PurposeOfVisit;
                     _consultantApplicationForm.ConvictedFelony = Convert.ToBoolean(visitor.Convicted);
                     _consultantApplicationForm.PlaceofIssue = visitor.PassportIssuePlace;
+                    _consultantApplicationForm.CardNumber = visitor.CardNumber;
                     pbfront.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
                     pbPassportScan.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
+                  //  _consultantApplicationForm.CardNumber = 
 
                     UpdateImageDetails(visitor);
                     //Passport IssuedData etc...

@@ -16,7 +16,7 @@ namespace GenerateDocument.Library
         public float cardHeight = 153.09f; //2 inches
 
         public string printCard(string outputPath, string sppLogo, string imagePath,
-                            string visitorName, string visitorNumber, string visitorType,string cardno)
+                            string visitorName, string visitorNumber, string visitorType,gConcatenatedDataBinding concatenatedDataBinding)
         {
             Document document = new Document(new Rectangle(cardWidth, cardHeight));
 
@@ -88,7 +88,7 @@ namespace GenerateDocument.Library
                 BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL,cardno , 150, 70, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL,concatenatedDataBinding.consultantApplicationForm.CardNumber, 150, 70, 0);
                 contentByte.EndText();
 
                 //name

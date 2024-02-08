@@ -40,6 +40,7 @@ namespace gui
         public ConsultantApplicationForm consultantApplicationForm;
         public IGeneratePDFdocument _generatePDFdocument;
         public FormScan scanForm;
+        public FormContractor FormContractor;
         public ICentralHub centralHub;
         private IAPIconnector _apiHelper;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -282,7 +283,7 @@ namespace gui
 
         private void btncard_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCard(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm), sender);
+            OpenChildForm(new FormCard(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm,FormContractor), sender);
         }
 
         private void panelhome_MouseDown(object sender, MouseEventArgs e)
