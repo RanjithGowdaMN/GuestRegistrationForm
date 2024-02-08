@@ -278,7 +278,7 @@ namespace gui
 
         private void btnlgt_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            OpenChildForm(new FormCardRecovery(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btncard_Click(object sender, EventArgs e)
