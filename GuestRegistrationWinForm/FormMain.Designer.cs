@@ -193,9 +193,9 @@ namespace gui
             this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnlgt.Size = new System.Drawing.Size(265, 65);
+            this.btnlgt.Size = new System.Drawing.Size(358, 65);
             this.btnlgt.TabIndex = 5;
-            this.btnlgt.Text = "VISIT HISTORY";
+            this.btnlgt.Text = "RECOVER CARD";
             this.btnlgt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnlgt.UseVisualStyleBackColor = true;
             this.btnlgt.Click += new System.EventHandler(this.btnlgt_Click);

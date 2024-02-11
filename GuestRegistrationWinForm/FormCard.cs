@@ -53,7 +53,7 @@ namespace gui
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             _formScan = formScan;
-          formContractor1 = formContractor;
+            formContractor1 = formContractor;
             _formContractor = formContractor;
             
             InitializeComponent();

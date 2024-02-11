@@ -94,6 +94,7 @@
     <Build Include="dbo\Tables\CardId.sql" />
     <Build Include="Stored Procedures\spGetCardIds.sql" />
     <Build Include="Stored Procedures\spUpdateCardStatus.sql" />
+    <Build Include="Stored Procedures\spRecoverCardStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />

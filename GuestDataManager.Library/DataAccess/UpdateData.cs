@@ -28,6 +28,12 @@ namespace GuestDataManager.Library.DataAccess
             sql.SaveData("dbo.spUpdateCardStatus", parameters, "GuestData");
         }
         
+        public void RecoverCardStatus(string CardNumber)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@CardNumber", CardNumber);
+            sql.SaveData("dbo.spRecoverCardStatus", parameters, "GuestData");
+        }
     }
 
       

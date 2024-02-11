@@ -39,10 +39,10 @@ namespace GuestRegistrationWinForm
         private VisitorDataSheet _visitorDataSheet;
         public event PropertyChangedEventHandler PropertyChanged;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-       // private FormScan _formScan;
+        // private FormScan _formScan;
         string CardGeneratedFile = string.Empty;
         public FormCardRecovery(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
-                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet )   
+                            ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
             _centralHub.CanonImageDownload += UpdatePhotoImage;
@@ -53,6 +53,7 @@ namespace GuestRegistrationWinForm
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             InitializeComponent();
+          
         }
 
         private void btnCardRecovSearch_Click(object sender, EventArgs e)
@@ -75,7 +76,7 @@ namespace GuestRegistrationWinForm
                 //scannedData
                 lblCardRecovName.Text = visitor.Name?.ToString();
                 lblCradRecovNum.Text = visitor.CardNumber?.ToString();
-               // lblCard.Visible = true;
+                // lblCard.Visible = true;
                 pbCardRecov.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo));
                 UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
                 // CameraStatus.Instance.ImagePath = visitor.Photo?.ToString();
@@ -139,5 +140,36 @@ namespace GuestRegistrationWinForm
             pbCardRecov.Image = resizedImage;
         }
 
+        private void btnCardRecov_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                /* ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
+                 VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
+                 visitorDataModel.Name = _scannedData.Name;
+                 visitorDataModel.IDno = _scannedData.IdNumber;
+                 concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
+
+                 // VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
+                 ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
+                 VisitorsLogBook vlBook = new VisitorsLogBook();
+                 HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
+                 concatenatedDataBinding.CAforVisitor = CAforVisitor;
+                 concatenatedDataBinding.hsaLog = hsaLog;
+                 concatenatedDataBinding.vlBook = vlBook;
+                 concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;*/
+                _consultantApplicationForm.CardNumber =lblCradRecovNum.Text;
+                UpdateData updateData = new UpdateData();
+            updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
+            MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //_formScan.txtname.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Card Recovery", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.Error($"Error Card Recovery{ex.Message}");
+            }
+
+        }
     }
 }

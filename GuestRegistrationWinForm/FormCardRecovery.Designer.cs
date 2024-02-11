@@ -31,16 +31,16 @@ namespace GuestRegistrationWinForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCardRecovery));
             this.panelCardRecovery = new System.Windows.Forms.Panel();
-            this.lblCardRecovId = new System.Windows.Forms.Label();
-            this.txtCardRecovId = new System.Windows.Forms.TextBox();
-            this.panelCardRecovDemo = new System.Windows.Forms.Panel();
-            this.lblCardRecovType = new System.Windows.Forms.Label();
-            this.lblCradRecovNum = new System.Windows.Forms.Label();
-            this.lblCardRecovName = new System.Windows.Forms.Label();
             this.btnCardRecov = new System.Windows.Forms.Button();
+            this.panelCardRecovDemo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCardRecovName = new System.Windows.Forms.Label();
+            this.lblCradRecovNum = new System.Windows.Forms.Label();
+            this.lblCardRecovType = new System.Windows.Forms.Label();
             this.pbCardRecov = new System.Windows.Forms.PictureBox();
             this.btnCardRecovSearch = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCardRecovId = new System.Windows.Forms.TextBox();
+            this.lblCardRecovId = new System.Windows.Forms.Label();
             this.panelCardRecovery.SuspendLayout();
             this.panelCardRecovDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCardRecov)).BeginInit();
@@ -60,25 +60,24 @@ namespace GuestRegistrationWinForm
             this.panelCardRecovery.Size = new System.Drawing.Size(1676, 730);
             this.panelCardRecovery.TabIndex = 0;
             // 
-            // lblCardRecovId
+            // btnCardRecov
             // 
-            this.lblCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCardRecovId.AutoSize = true;
-            this.lblCardRecovId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardRecovId.Location = new System.Drawing.Point(72, 293);
-            this.lblCardRecovId.Name = "lblCardRecovId";
-            this.lblCardRecovId.Size = new System.Drawing.Size(29, 23);
-            this.lblCardRecovId.TabIndex = 0;
-            this.lblCardRecovId.Text = "lD";
-            // 
-            // txtCardRecovId
-            // 
-            this.txtCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCardRecovId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardRecovId.Location = new System.Drawing.Point(172, 286);
-            this.txtCardRecovId.Name = "txtCardRecovId";
-            this.txtCardRecovId.Size = new System.Drawing.Size(364, 30);
-            this.txtCardRecovId.TabIndex = 1;
+            this.btnCardRecov.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCardRecov.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCardRecov.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCardRecov.FlatAppearance.BorderSize = 0;
+            this.btnCardRecov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCardRecov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCardRecov.ForeColor = System.Drawing.Color.White;
+            this.btnCardRecov.Image = ((System.Drawing.Image)(resources.GetObject("btnCardRecov.Image")));
+            this.btnCardRecov.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCardRecov.Location = new System.Drawing.Point(252, 422);
+            this.btnCardRecov.Name = "btnCardRecov";
+            this.btnCardRecov.Size = new System.Drawing.Size(242, 51);
+            this.btnCardRecov.TabIndex = 4;
+            this.btnCardRecov.Text = "Recover Card";
+            this.btnCardRecov.UseVisualStyleBackColor = false;
+            this.btnCardRecov.Click += new System.EventHandler(this.btnCardRecov_Click);
             // 
             // panelCardRecovDemo
             // 
@@ -94,27 +93,14 @@ namespace GuestRegistrationWinForm
             this.panelCardRecovDemo.Size = new System.Drawing.Size(771, 374);
             this.panelCardRecovDemo.TabIndex = 3;
             // 
-            // lblCardRecovType
+            // panel1
             // 
-            this.lblCardRecovType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCardRecovType.AutoSize = true;
-            this.lblCardRecovType.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardRecovType.Location = new System.Drawing.Point(394, 61);
-            this.lblCardRecovType.Name = "lblCardRecovType";
-            this.lblCardRecovType.Size = new System.Drawing.Size(263, 38);
-            this.lblCardRecovType.TabIndex = 1;
-            this.lblCardRecovType.Text = "CONTRACTOR";
-            // 
-            // lblCradRecovNum
-            // 
-            this.lblCradRecovNum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCradRecovNum.AutoSize = true;
-            this.lblCradRecovNum.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCradRecovNum.Location = new System.Drawing.Point(454, 157);
-            this.lblCradRecovNum.Name = "lblCradRecovNum";
-            this.lblCradRecovNum.Size = new System.Drawing.Size(60, 26);
-            this.lblCradRecovNum.TabIndex = 2;
-            this.lblCradRecovNum.Text = "****";
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.Sienna;
+            this.panel1.Location = new System.Drawing.Point(1, 329);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(771, 43);
+            this.panel1.TabIndex = 4;
             // 
             // lblCardRecovName
             // 
@@ -127,23 +113,27 @@ namespace GuestRegistrationWinForm
             this.lblCardRecovName.TabIndex = 3;
             this.lblCardRecovName.Text = "NAME";
             // 
-            // btnCardRecov
+            // lblCradRecovNum
             // 
-            this.btnCardRecov.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCardRecov.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCardRecov.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCardRecov.FlatAppearance.BorderSize = 0;
-            this.btnCardRecov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCardRecov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCardRecov.ForeColor = System.Drawing.Color.White;
-            this.btnCardRecov.Image = ((System.Drawing.Image)(resources.GetObject("btnCardRecov.Image")));
-            this.btnCardRecov.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardRecov.Location = new System.Drawing.Point(252, 422);
-            this.btnCardRecov.Name = "btnCardRecov";
-            this.btnCardRecov.Size = new System.Drawing.Size(191, 51);
-            this.btnCardRecov.TabIndex = 4;
-            this.btnCardRecov.Text = "Recover Card";
-            this.btnCardRecov.UseVisualStyleBackColor = false;
+            this.lblCradRecovNum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCradRecovNum.AutoSize = true;
+            this.lblCradRecovNum.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCradRecovNum.Location = new System.Drawing.Point(454, 157);
+            this.lblCradRecovNum.Name = "lblCradRecovNum";
+            this.lblCradRecovNum.Size = new System.Drawing.Size(60, 26);
+            this.lblCradRecovNum.TabIndex = 2;
+            this.lblCradRecovNum.Text = "****";
+            // 
+            // lblCardRecovType
+            // 
+            this.lblCardRecovType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCardRecovType.AutoSize = true;
+            this.lblCardRecovType.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardRecovType.Location = new System.Drawing.Point(394, 61);
+            this.lblCardRecovType.Name = "lblCardRecovType";
+            this.lblCardRecovType.Size = new System.Drawing.Size(255, 37);
+            this.lblCardRecovType.TabIndex = 1;
+            this.lblCardRecovType.Text = "CONTRACTOR";
             // 
             // pbCardRecov
             // 
@@ -172,14 +162,25 @@ namespace GuestRegistrationWinForm
             this.btnCardRecovSearch.UseVisualStyleBackColor = false;
             this.btnCardRecovSearch.Click += new System.EventHandler(this.btnCardRecovSearch_Click);
             // 
-            // panel1
+            // txtCardRecovId
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.Sienna;
-            this.panel1.Location = new System.Drawing.Point(1, 329);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(771, 43);
-            this.panel1.TabIndex = 4;
+            this.txtCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCardRecovId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCardRecovId.Location = new System.Drawing.Point(172, 286);
+            this.txtCardRecovId.Name = "txtCardRecovId";
+            this.txtCardRecovId.Size = new System.Drawing.Size(364, 30);
+            this.txtCardRecovId.TabIndex = 1;
+            // 
+            // lblCardRecovId
+            // 
+            this.lblCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCardRecovId.AutoSize = true;
+            this.lblCardRecovId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardRecovId.Location = new System.Drawing.Point(72, 293);
+            this.lblCardRecovId.Name = "lblCardRecovId";
+            this.lblCardRecovId.Size = new System.Drawing.Size(29, 23);
+            this.lblCardRecovId.TabIndex = 0;
+            this.lblCardRecovId.Text = "lD";
             // 
             // FormCardRecovery
             // 
