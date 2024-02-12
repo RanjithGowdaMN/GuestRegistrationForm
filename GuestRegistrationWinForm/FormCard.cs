@@ -41,6 +41,7 @@ namespace gui
         string CardGeneratedFile = string.Empty;
        private FormContractor formContractor1;
         private FormContractor _formContractor;
+      
         public FormCard(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan, FormContractor formContractor)
         {
@@ -56,7 +57,7 @@ namespace gui
             formContractor1 = formContractor;
             _formContractor = formContractor;
             
-            InitializeComponent();
+        InitializeComponent();
             // Check if the necessary data is available
             foreach (string printer in PrinterSettings.InstalledPrinters)
             {
@@ -64,7 +65,7 @@ namespace gui
             }
             try
             {
-                if (_formScan != null && _formScan.txtname != null)
+                if (_formScan != null && _formScan.txtname != null && _consultantApplicationForm.CardNumber!=null)
                 {
                     // Load the value from the scan form
                     lblCardName.Text = _formScan.txtname.Text.ToString();
