@@ -218,7 +218,7 @@ namespace GuestRegistrationWinForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCardRecovery";
             this.Text = "FormCardRecovery";
-            this.Load += new System.EventHandler(this.FormCardRecovery_Load);
+            this.Load += new System.EventHandler(this.Card_Load);
             this.panelCardRecovery.ResumeLayout(false);
             this.panelCardRecovery.PerformLayout();
             this.panelCardRecovDemo.ResumeLayout(false);

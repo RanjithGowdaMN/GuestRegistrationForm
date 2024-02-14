@@ -427,7 +427,7 @@ namespace gui
         }
         private void dtVisitorVisitDuration_ValueChanged(object sender, EventArgs e)
         {
-                _visitorDataSheet.VisitDateTo = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
+            _visitorDataSheet.VisitDateTo = dtVisitorVisitDuration.Value.Date.ToString("dd/MM/yyyy");
         }
         public void insertNewCompnayNameToList(string compnayName)
         {

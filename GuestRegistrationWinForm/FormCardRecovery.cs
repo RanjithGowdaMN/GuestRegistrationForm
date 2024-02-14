@@ -45,6 +45,7 @@ namespace GuestRegistrationWinForm
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
         {
             _centralHub = centralHub;
+            InitializeComponent();
             _centralHub.CanonImageDownload += UpdatePhotoImage;
 
             _scannedFileInfo = ScannedFileModel.Instance;
@@ -52,7 +53,7 @@ namespace GuestRegistrationWinForm
             _consultantApplicationForm = ConsultantApplicationForm.Instance;
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
-            InitializeComponent();
+            
             //  LoadComboBoxData();
 
             Initialize();
@@ -162,29 +163,30 @@ namespace GuestRegistrationWinForm
                 MessageBox.Show("Error in Card Recovery", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Card Recovery{ex.Message}");
             }
-
+            Initialize();
         }
 
         private void FormCardRecovery_Load(object sender, EventArgs e)
         {
-           cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
+           //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
         }
 
-        private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
+       private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
         {
             //  throw new NotImplementedException();
-         
-            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            try
+          /*  if (cmbCardNum != null)
             {
-                VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.Text);
-                ReloadDataToUi(visitor);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"No Previous Visit Information!!");
-            }
-
+                RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+                try
+                {
+                    VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.SelectedItem.ToString());
+                    ReloadDataToUi(visitor);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No Previous Visit Information!!");
+                }
+            }*/
         }
         public void LoadComboBoxData()
         {
@@ -192,6 +194,31 @@ namespace GuestRegistrationWinForm
             List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
             cmbCardNum.DataSource = CardNo;
 
+        }
+
+        private void Card_Load(object sender, EventArgs e)
+        {
+            //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
+            //cmbCardNum.SelectedIndex = -1;
+            cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged1;
+        }
+
+        private void CmbCardNum_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (cmbCardNum != null)
+            {
+                RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+                try
+                {
+                    VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.SelectedItem.ToString());
+                    ReloadDataToUi(visitor);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No Previous Visit Information!!");
+                }
+            }
         }
     }
 }
