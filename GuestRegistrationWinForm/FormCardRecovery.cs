@@ -53,9 +53,15 @@ namespace GuestRegistrationWinForm
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
             InitializeComponent();
-          
+            //  LoadComboBoxData();
+
+            Initialize();
         }
 
+        public void Initialize()
+        {
+            LoadComboBoxData();
+        }
         private void btnCardRecovSearch_Click(object sender, EventArgs e)
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
@@ -144,24 +150,11 @@ namespace GuestRegistrationWinForm
         {
             try
             {
-                /* ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
-                 VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
-                 visitorDataModel.Name = _scannedData.Name;
-                 visitorDataModel.IDno = _scannedData.IdNumber;
-                 concatenatedDataBinding.consultantApplicationForm = _consultantApplicationForm;
 
-                 // VisitorDataSheet visitorDataSheet = new VisitorDataSheet();
-                 ConfidentialityAgreementForVisitor CAforVisitor = new ConfidentialityAgreementForVisitor();
-                 VisitorsLogBook vlBook = new VisitorsLogBook();
-                 HighlySecurityControlAreaLog hsaLog = new HighlySecurityControlAreaLog();
-                 concatenatedDataBinding.CAforVisitor = CAforVisitor;
-                 concatenatedDataBinding.hsaLog = hsaLog;
-                 concatenatedDataBinding.vlBook = vlBook;
-                 concatenatedDataBinding.visitorDataSheet = VisitorDataSheet.Instance;*/
-                _consultantApplicationForm.CardNumber =lblCradRecovNum.Text;
+                _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
                 UpdateData updateData = new UpdateData();
-            updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
-            MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
+                MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //_formScan.txtname.Clear();
             }
             catch (Exception ex)
@@ -169,6 +162,35 @@ namespace GuestRegistrationWinForm
                 MessageBox.Show("Error in Card Recovery", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Card Recovery{ex.Message}");
             }
+
+        }
+
+        private void FormCardRecovery_Load(object sender, EventArgs e)
+        {
+           cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
+        }
+
+        private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //  throw new NotImplementedException();
+         
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            try
+            {
+                VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.Text);
+                ReloadDataToUi(visitor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No Previous Visit Information!!");
+            }
+
+        }
+        public void LoadComboBoxData()
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
+            cmbCardNum.DataSource = CardNo;
 
         }
     }

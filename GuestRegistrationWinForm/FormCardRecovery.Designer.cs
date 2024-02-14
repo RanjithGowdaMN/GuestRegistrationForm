@@ -31,6 +31,8 @@ namespace GuestRegistrationWinForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCardRecovery));
             this.panelCardRecovery = new System.Windows.Forms.Panel();
+            this.lblCardNum = new System.Windows.Forms.Label();
+            this.cmbCardNum = new System.Windows.Forms.ComboBox();
             this.btnCardRecov = new System.Windows.Forms.Button();
             this.panelCardRecovDemo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,6 +51,8 @@ namespace GuestRegistrationWinForm
             // panelCardRecovery
             // 
             this.panelCardRecovery.BackColor = System.Drawing.Color.White;
+            this.panelCardRecovery.Controls.Add(this.lblCardNum);
+            this.panelCardRecovery.Controls.Add(this.cmbCardNum);
             this.panelCardRecovery.Controls.Add(this.btnCardRecov);
             this.panelCardRecovery.Controls.Add(this.panelCardRecovDemo);
             this.panelCardRecovery.Controls.Add(this.btnCardRecovSearch);
@@ -59,6 +63,29 @@ namespace GuestRegistrationWinForm
             this.panelCardRecovery.Name = "panelCardRecovery";
             this.panelCardRecovery.Size = new System.Drawing.Size(1676, 730);
             this.panelCardRecovery.TabIndex = 0;
+            // 
+            // lblCardNum
+            // 
+            this.lblCardNum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCardNum.AutoSize = true;
+            this.lblCardNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardNum.Location = new System.Drawing.Point(26, 386);
+            this.lblCardNum.Name = "lblCardNum";
+            this.lblCardNum.Size = new System.Drawing.Size(157, 23);
+            this.lblCardNum.TabIndex = 6;
+            this.lblCardNum.Text = "CARD NUMBER";
+            // 
+            // cmbCardNum
+            // 
+            this.cmbCardNum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCardNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCardNum.FormattingEnabled = true;
+            this.cmbCardNum.Location = new System.Drawing.Point(207, 376);
+            this.cmbCardNum.Name = "cmbCardNum";
+            this.cmbCardNum.Size = new System.Drawing.Size(364, 33);
+            this.cmbCardNum.TabIndex = 5;
+            this.cmbCardNum.SelectedIndexChanged += new System.EventHandler(this.CmbCardNum_SelectedIndexChanged);
             // 
             // btnCardRecov
             // 
@@ -71,7 +98,7 @@ namespace GuestRegistrationWinForm
             this.btnCardRecov.ForeColor = System.Drawing.Color.White;
             this.btnCardRecov.Image = ((System.Drawing.Image)(resources.GetObject("btnCardRecov.Image")));
             this.btnCardRecov.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardRecov.Location = new System.Drawing.Point(252, 422);
+            this.btnCardRecov.Location = new System.Drawing.Point(207, 489);
             this.btnCardRecov.Name = "btnCardRecov";
             this.btnCardRecov.Size = new System.Drawing.Size(242, 51);
             this.btnCardRecov.TabIndex = 4;
@@ -155,7 +182,7 @@ namespace GuestRegistrationWinForm
             this.btnCardRecovSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCardRecovSearch.FlatAppearance.BorderSize = 0;
             this.btnCardRecovSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCardRecovSearch.Location = new System.Drawing.Point(563, 277);
+            this.btnCardRecovSearch.Location = new System.Drawing.Point(626, 277);
             this.btnCardRecovSearch.Name = "btnCardRecovSearch";
             this.btnCardRecovSearch.Size = new System.Drawing.Size(49, 39);
             this.btnCardRecovSearch.TabIndex = 2;
@@ -166,7 +193,7 @@ namespace GuestRegistrationWinForm
             // 
             this.txtCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCardRecovId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardRecovId.Location = new System.Drawing.Point(172, 286);
+            this.txtCardRecovId.Location = new System.Drawing.Point(207, 286);
             this.txtCardRecovId.Name = "txtCardRecovId";
             this.txtCardRecovId.Size = new System.Drawing.Size(364, 30);
             this.txtCardRecovId.TabIndex = 1;
@@ -176,7 +203,7 @@ namespace GuestRegistrationWinForm
             this.lblCardRecovId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardRecovId.AutoSize = true;
             this.lblCardRecovId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardRecovId.Location = new System.Drawing.Point(72, 293);
+            this.lblCardRecovId.Location = new System.Drawing.Point(26, 293);
             this.lblCardRecovId.Name = "lblCardRecovId";
             this.lblCardRecovId.Size = new System.Drawing.Size(29, 23);
             this.lblCardRecovId.TabIndex = 0;
@@ -191,6 +218,7 @@ namespace GuestRegistrationWinForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCardRecovery";
             this.Text = "FormCardRecovery";
+            this.Load += new System.EventHandler(this.FormCardRecovery_Load);
             this.panelCardRecovery.ResumeLayout(false);
             this.panelCardRecovery.PerformLayout();
             this.panelCardRecovDemo.ResumeLayout(false);
@@ -213,5 +241,7 @@ namespace GuestRegistrationWinForm
         private System.Windows.Forms.Label lblCardRecovType;
         private System.Windows.Forms.PictureBox pbCardRecov;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblCardNum;
+        private System.Windows.Forms.ComboBox cmbCardNum;
     }
 }
