@@ -41,7 +41,7 @@ namespace gui
         string CardGeneratedFile = string.Empty;
        private FormContractor formContractor1;
         private FormContractor _formContractor;
-      
+        
         public FormCard(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan, FormContractor formContractor)
         {
@@ -56,6 +56,7 @@ namespace gui
             _formScan = formScan;
             formContractor1 = formContractor;
             _formContractor = formContractor;
+           
             
         InitializeComponent();
             // Check if the necessary data is available
@@ -86,10 +87,10 @@ namespace gui
 
         private void Initialize()
         {
-           // LoadComboBox();
-         //   lblCard.Visible = false;
-            
+            // LoadComboBox();
+            //   lblCard.Visible = false;
 
+            //txtCardId.Enabled = false;
         }
 
         public void LoadComboBox()
@@ -206,29 +207,34 @@ namespace gui
 
                 if (visitorDataModel.Name == null && txtCardId != null)
                 {
+                    // txtCardId.Enabled = true;
                     visitorDataModel.Name = lblCardName.Text;
                     _consultantApplicationForm.CardNumber = lblCard.Text;
                     //CameraStatus.Instance.ImagePath = pbCardDemo.Image.ToString();
                     _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
-                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath,concatenatedDataBinding);
+                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath, concatenatedDataBinding);
                     //_formScan.txtname.Clear();
-                    
+
                 }
 
                 else
-
+                {
+                   // txtCardId.Enabled = false;
+                   // btnCardSearch.Enabled = false;
                     // Assign the string to CameraStatus.Instance.ImagePath
                     lblCard.Text = _consultantApplicationForm.CardNumber;
-                lblCard.Visible = true;
-                CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR",CameraStatus.Instance.ImagePath, concatenatedDataBinding);
-                                 //_formScan.txtname.Clear();
+                    lblCard.Visible = true;
+                    CardGeneratedFile = _centralHub.PrintIdCard(visitorDataModel.Name, "CONTRACTOR", CameraStatus.Instance.ImagePath, concatenatedDataBinding);
+                    _formScan.txtname.Clear();
+                }                //
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Data Insert", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Data Insert {ex.Message}");
             }
-            _formScan.txtname.Clear();
+            
+           
             _cameraStatus = CameraStatus.reset();
             _consultantApplicationForm = ConsultantApplicationForm.reset();
             try
