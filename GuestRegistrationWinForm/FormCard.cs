@@ -228,8 +228,9 @@ namespace gui
                 MessageBox.Show("Error in Data Insert", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Data Insert {ex.Message}");
             }
-
+            _formScan.txtname.Clear();
             _cameraStatus = CameraStatus.reset();
+            _consultantApplicationForm = ConsultantApplicationForm.reset();
             try
             {
                 if (!string.IsNullOrEmpty(CardGeneratedFile))
@@ -263,6 +264,7 @@ namespace gui
                 {
                     MessageBox.Show("Card is not generated.",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
+                Initialize();
             }
             catch (Exception ex)
             {
