@@ -63,7 +63,7 @@ namespace GuestRegistrationWinForm
         {
             LoadComboBoxData();
         }
-        private void btnCardRecovSearch_Click(object sender, EventArgs e)
+      /*  private void btnCardRecovSearch_Click(object sender, EventArgs e)
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             try
@@ -75,7 +75,7 @@ namespace GuestRegistrationWinForm
             {
                 MessageBox.Show($"No Previous Visit Information!!");
             }
-        }
+        }*/
         public void ReloadDataToUi(VisitorInformation visitor)
         {
             if (!string.IsNullOrEmpty(visitor.IdNumber))
@@ -216,7 +216,7 @@ namespace GuestRegistrationWinForm
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No Previous Visit Information!!");
+                    MessageBox.Show($"No Previous Visit Information!!",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }

@@ -581,7 +581,7 @@ namespace gui
             this.cmbCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbCCardNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCCardNo.FormattingEnabled = true;
-            this.cmbCCardNo.Location = new System.Drawing.Point(1245, 652);
+            this.cmbCCardNo.Location = new System.Drawing.Point(1245, 640);
             this.cmbCCardNo.Name = "cmbCCardNo";
             this.cmbCCardNo.Size = new System.Drawing.Size(347, 27);
             this.cmbCCardNo.TabIndex = 46;
@@ -590,7 +590,7 @@ namespace gui
             // 
             this.lblCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCCardNo.AutoSize = true;
-            this.lblCCardNo.Location = new System.Drawing.Point(929, 660);
+            this.lblCCardNo.Location = new System.Drawing.Point(925, 640);
             this.lblCCardNo.Name = "lblCCardNo";
             this.lblCCardNo.Size = new System.Drawing.Size(135, 19);
             this.lblCCardNo.TabIndex = 45;
