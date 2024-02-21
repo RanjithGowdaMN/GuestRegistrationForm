@@ -100,6 +100,12 @@
     <Compile Include="FormScan.Designer.cs">
       <DependentUpon>FormScan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVisitHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisitHistory.Designer.cs">
+      <DependentUpon>FormVisitHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVisitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormScan.resx">
       <DependentUpon>FormScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisitHistory.resx">
+      <DependentUpon>FormVisitHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVisitor.resx">
       <DependentUpon>FormVisitor.cs</DependentUpon>

@@ -291,7 +291,10 @@ namespace gui
             ReleaseCapture();
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-
+        private void btnVisitorsHistory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormVisitHistory(), sender);
+        }
         private void btnWindowClsoe_Click(object sender, EventArgs e)
         {
 
@@ -381,5 +384,6 @@ namespace gui
             this.Size = new Size(workingRectangle.Width, workingRectangle.Height);
         }
 
+      
     }
 }

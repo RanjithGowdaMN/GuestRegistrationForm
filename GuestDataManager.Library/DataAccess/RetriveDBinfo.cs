@@ -28,9 +28,35 @@ namespace GuestDataManager.Library.DataAccess
             };
             return sql.LoadData("dbo.spGetVisitorByIdNumber", parameters, "GuestData");
         }
+
+        /* public VisitorInformation GetHistoryByIdNumber(string Id)
+         {
+             /* SqlDataAccess sql = new SqlDataAccess();
+
+               var p = new {IdNumber = Id  };
+
+
+              Dictionary<string, object> parameters = new Dictionary<string, object>
+               {
+                   { "@IdNumber", Id },
+               };
+               return sql.LoadData("dbo.spGetHistoryByIdNumber", parameters, "GuestData");}*/
+
+        public List<VisitorInformation> GetHistoryByIdNumber(string Id)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@IdNumber", Id },
+    };
+
+            // Assuming LoadData method returns a list of VisitorInformation objects
+            return sql.LoadData<VisitorInformation,dynamic>("dbo.spGetHistoryByIdNumber", parameters, "GuestData");
+        }
         public List<CompanyNameList> GetCompanyname()
         {
-            var p = new { };
+            var p = new { }; 
             return sql.LoadData<CompanyNameList, dynamic>("dbo.spRetriveCompanyName", p, "GuestData");
         }
         public List<VisitorVisitPurpose> GetVisitorVisitPurpose()

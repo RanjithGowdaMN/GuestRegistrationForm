@@ -48,6 +48,7 @@ namespace gui
             this.lblversion = new System.Windows.Forms.Label();
             this.lblScanner = new System.Windows.Forms.Label();
             this.lblCamera = new System.Windows.Forms.Label();
+            this.btnVisitorsHistory = new System.Windows.Forms.Button();
             this.panelhome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelbuttons.SuspendLayout();
@@ -147,6 +148,7 @@ namespace gui
             // panelbuttons
             // 
             this.panelbuttons.BackColor = System.Drawing.Color.Maroon;
+            this.panelbuttons.Controls.Add(this.btnVisitorsHistory);
             this.panelbuttons.Controls.Add(this.btndoc);
             this.panelbuttons.Controls.Add(this.btnlgt);
             this.panelbuttons.Controls.Add(this.btncard);
@@ -169,7 +171,7 @@ namespace gui
             this.btndoc.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
             this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
-            this.btndoc.Location = new System.Drawing.Point(880, 1);
+            this.btndoc.Location = new System.Drawing.Point(759, 0);
             this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndoc.Name = "btndoc";
             this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -189,11 +191,11 @@ namespace gui
             this.btnlgt.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
             this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
-            this.btnlgt.Location = new System.Drawing.Point(1340, 1);
+            this.btnlgt.Location = new System.Drawing.Point(1240, 1);
             this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnlgt.Size = new System.Drawing.Size(358, 65);
+            this.btnlgt.Size = new System.Drawing.Size(318, 65);
             this.btnlgt.TabIndex = 5;
             this.btnlgt.Text = "RECOVER CARD";
             this.btnlgt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -209,7 +211,7 @@ namespace gui
             this.btncard.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
             this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
-            this.btncard.Location = new System.Drawing.Point(1109, 1);
+            this.btncard.Location = new System.Drawing.Point(1005, 1);
             this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncard.Name = "btncard";
             this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -229,7 +231,7 @@ namespace gui
             this.btnvisitor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
             this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnvisitor.Location = new System.Drawing.Point(651, 1);
+            this.btnvisitor.Location = new System.Drawing.Point(524, 2);
             this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnvisitor.Name = "btnvisitor";
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -249,11 +251,11 @@ namespace gui
             this.btncontractor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(365, 1);
+            this.btncontractor.Location = new System.Drawing.Point(227, 1);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(269, 65);
+            this.btncontractor.Size = new System.Drawing.Size(275, 65);
             this.btncontractor.TabIndex = 1;
             this.btncontractor.Text = "CONTRACTOR";
             this.btncontractor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -269,7 +271,7 @@ namespace gui
             this.btnscan.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(172, 1);
+            this.btnscan.Location = new System.Drawing.Point(0, 1);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -353,6 +355,26 @@ namespace gui
             this.lblCamera.TabIndex = 2;
             this.lblCamera.Text = "Camera";
             // 
+            // btnVisitorsHistory
+            // 
+            this.btnVisitorsHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVisitorsHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVisitorsHistory.FlatAppearance.BorderSize = 0;
+            this.btnVisitorsHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisitorsHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitorsHistory.ForeColor = System.Drawing.Color.White;
+            this.btnVisitorsHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btnVisitorsHistory.Location = new System.Drawing.Point(1548, 0);
+            this.btnVisitorsHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVisitorsHistory.Name = "btnVisitorsHistory";
+            this.btnVisitorsHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnVisitorsHistory.Size = new System.Drawing.Size(229, 65);
+            this.btnVisitorsHistory.TabIndex = 6;
+            this.btnVisitorsHistory.Text = "HISTORY";
+            this.btnVisitorsHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVisitorsHistory.UseVisualStyleBackColor = true;
+            this.btnVisitorsHistory.Click += new System.EventHandler(this.btnVisitorsHistory_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,5 +424,6 @@ namespace gui
         private System.Windows.Forms.Label lblCamera;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Label lblversion;
+        private System.Windows.Forms.Button btnVisitorsHistory;
     }
 }
