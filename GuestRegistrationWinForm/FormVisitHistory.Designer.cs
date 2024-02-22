@@ -54,12 +54,15 @@ namespace GuestRegistrationWinForm
             // 
             // dgvHistory
             // 
+            this.dgvHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvHistory.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistory.Location = new System.Drawing.Point(190, 358);
+            this.dgvHistory.Location = new System.Drawing.Point(438, 322);
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(1497, 396);
+            this.dgvHistory.Size = new System.Drawing.Size(1100, 396);
             this.dgvHistory.TabIndex = 3;
             // 
             // btnVisitHistorySearch
@@ -68,7 +71,7 @@ namespace GuestRegistrationWinForm
             this.btnVisitHistorySearch.BackColor = System.Drawing.Color.IndianRed;
             this.btnVisitHistorySearch.FlatAppearance.BorderSize = 0;
             this.btnVisitHistorySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisitHistorySearch.Location = new System.Drawing.Point(828, 192);
+            this.btnVisitHistorySearch.Location = new System.Drawing.Point(896, 180);
             this.btnVisitHistorySearch.Name = "btnVisitHistorySearch";
             this.btnVisitHistorySearch.Size = new System.Drawing.Size(138, 42);
             this.btnVisitHistorySearch.TabIndex = 2;
