@@ -42,11 +42,18 @@ namespace GuestRegistrationWinForm
         {
 
              RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-             try
+            List<VisitorInformation> visitors = null;
+            try
              {
+                if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
+                {
+                    visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
+                }
+                else if (!string.IsNullOrEmpty(txtVisitHistoryName.Text))
+                {
+                    visitors = retriveDBinfo.GetHistoryByName(txtVisitHistoryName.Text);
+                }
 
-                List<VisitorInformation> visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
-                // dgvHistory.DataSource = visitors;
                 dgvHistory.AutoGenerateColumns = false;
 
                 // Clear existing columns
@@ -56,7 +63,7 @@ namespace GuestRegistrationWinForm
                 DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
                 nameColumn.HeaderText = "Name"; // Set the column header text
                 nameColumn.DataPropertyName = "Name"; // Set the data property name
-                nameColumn.Width = 150;
+                nameColumn.Width = 200;
                 dgvHistory.Columns.Add(nameColumn);
 
                 DataGridViewTextBoxColumn companyCol = new DataGridViewTextBoxColumn();
@@ -74,7 +81,7 @@ namespace GuestRegistrationWinForm
                 DataGridViewTextBoxColumn personCol = new DataGridViewTextBoxColumn();
                 personCol.HeaderText = "Person To Visited";
                 personCol.DataPropertyName = "PersonToBeVisited";
-                personCol.Width = 150;
+                personCol.Width = 200;
                 dgvHistory.Columns.Add(personCol);
 
                 DataGridViewTextBoxColumn dateCol = new DataGridViewTextBoxColumn();
