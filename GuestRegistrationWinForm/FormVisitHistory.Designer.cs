@@ -30,12 +30,14 @@ namespace GuestRegistrationWinForm
         private void InitializeComponent()
         {
             this.panelVisitHistory = new System.Windows.Forms.Panel();
+            this.rbVisitHistoryDate = new System.Windows.Forms.RadioButton();
+            this.dtVisitHistoryDate = new System.Windows.Forms.DateTimePicker();
+            this.rbVisitHistoryName = new System.Windows.Forms.RadioButton();
+            this.rbVisitHistoryId = new System.Windows.Forms.RadioButton();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.btnVisitHistorySearch = new System.Windows.Forms.Button();
-            this.lblVisitHistoryIdNo = new System.Windows.Forms.Label();
             this.txtVisitHistoryIdNo = new System.Windows.Forms.TextBox();
-            this.lblVisitHistoryName = new System.Windows.Forms.Label();
-            this.txtVisitHistoryName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelVisitHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -43,11 +45,13 @@ namespace GuestRegistrationWinForm
             // panelVisitHistory
             // 
             this.panelVisitHistory.BackColor = System.Drawing.Color.White;
-            this.panelVisitHistory.Controls.Add(this.txtVisitHistoryName);
-            this.panelVisitHistory.Controls.Add(this.lblVisitHistoryName);
+            this.panelVisitHistory.Controls.Add(this.label1);
+            this.panelVisitHistory.Controls.Add(this.rbVisitHistoryDate);
+            this.panelVisitHistory.Controls.Add(this.dtVisitHistoryDate);
+            this.panelVisitHistory.Controls.Add(this.rbVisitHistoryName);
+            this.panelVisitHistory.Controls.Add(this.rbVisitHistoryId);
             this.panelVisitHistory.Controls.Add(this.dgvHistory);
             this.panelVisitHistory.Controls.Add(this.btnVisitHistorySearch);
-            this.panelVisitHistory.Controls.Add(this.lblVisitHistoryIdNo);
             this.panelVisitHistory.Controls.Add(this.txtVisitHistoryIdNo);
             this.panelVisitHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelVisitHistory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -55,6 +59,48 @@ namespace GuestRegistrationWinForm
             this.panelVisitHistory.Name = "panelVisitHistory";
             this.panelVisitHistory.Size = new System.Drawing.Size(1810, 823);
             this.panelVisitHistory.TabIndex = 0;
+            // 
+            // rbVisitHistoryDate
+            // 
+            this.rbVisitHistoryDate.AutoSize = true;
+            this.rbVisitHistoryDate.Location = new System.Drawing.Point(1093, 82);
+            this.rbVisitHistoryDate.Name = "rbVisitHistoryDate";
+            this.rbVisitHistoryDate.Size = new System.Drawing.Size(84, 27);
+            this.rbVisitHistoryDate.TabIndex = 9;
+            this.rbVisitHistoryDate.TabStop = true;
+            this.rbVisitHistoryDate.Text = "DATE";
+            this.rbVisitHistoryDate.UseVisualStyleBackColor = true;
+            // 
+            // dtVisitHistoryDate
+            // 
+            this.dtVisitHistoryDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtVisitHistoryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtVisitHistoryDate.Location = new System.Drawing.Point(992, 143);
+            this.dtVisitHistoryDate.Name = "dtVisitHistoryDate";
+            this.dtVisitHistoryDate.Size = new System.Drawing.Size(247, 30);
+            this.dtVisitHistoryDate.TabIndex = 8;
+            // 
+            // rbVisitHistoryName
+            // 
+            this.rbVisitHistoryName.AutoSize = true;
+            this.rbVisitHistoryName.Location = new System.Drawing.Point(894, 82);
+            this.rbVisitHistoryName.Name = "rbVisitHistoryName";
+            this.rbVisitHistoryName.Size = new System.Drawing.Size(90, 27);
+            this.rbVisitHistoryName.TabIndex = 7;
+            this.rbVisitHistoryName.TabStop = true;
+            this.rbVisitHistoryName.Text = "NAME";
+            this.rbVisitHistoryName.UseVisualStyleBackColor = true;
+            // 
+            // rbVisitHistoryId
+            // 
+            this.rbVisitHistoryId.AutoSize = true;
+            this.rbVisitHistoryId.Location = new System.Drawing.Point(705, 82);
+            this.rbVisitHistoryId.Name = "rbVisitHistoryId";
+            this.rbVisitHistoryId.Size = new System.Drawing.Size(52, 27);
+            this.rbVisitHistoryId.TabIndex = 6;
+            this.rbVisitHistoryId.TabStop = true;
+            this.rbVisitHistoryId.Text = "ID";
+            this.rbVisitHistoryId.UseVisualStyleBackColor = true;
             // 
             // dgvHistory
             // 
@@ -75,7 +121,7 @@ namespace GuestRegistrationWinForm
             this.btnVisitHistorySearch.BackColor = System.Drawing.Color.IndianRed;
             this.btnVisitHistorySearch.FlatAppearance.BorderSize = 0;
             this.btnVisitHistorySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisitHistorySearch.Location = new System.Drawing.Point(920, 231);
+            this.btnVisitHistorySearch.Location = new System.Drawing.Point(894, 238);
             this.btnVisitHistorySearch.Name = "btnVisitHistorySearch";
             this.btnVisitHistorySearch.Size = new System.Drawing.Size(138, 42);
             this.btnVisitHistorySearch.TabIndex = 2;
@@ -83,43 +129,23 @@ namespace GuestRegistrationWinForm
             this.btnVisitHistorySearch.UseVisualStyleBackColor = false;
             this.btnVisitHistorySearch.Click += new System.EventHandler(this.btnVisitHistorySearch_Click);
             // 
-            // lblVisitHistoryIdNo
-            // 
-            this.lblVisitHistoryIdNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblVisitHistoryIdNo.AutoSize = true;
-            this.lblVisitHistoryIdNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVisitHistoryIdNo.Location = new System.Drawing.Point(650, 81);
-            this.lblVisitHistoryIdNo.Name = "lblVisitHistoryIdNo";
-            this.lblVisitHistoryIdNo.Size = new System.Drawing.Size(122, 23);
-            this.lblVisitHistoryIdNo.TabIndex = 1;
-            this.lblVisitHistoryIdNo.Text = "ID NUMBER";
-            // 
             // txtVisitHistoryIdNo
             // 
             this.txtVisitHistoryIdNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVisitHistoryIdNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVisitHistoryIdNo.Location = new System.Drawing.Point(866, 74);
+            this.txtVisitHistoryIdNo.Location = new System.Drawing.Point(646, 144);
             this.txtVisitHistoryIdNo.Name = "txtVisitHistoryIdNo";
-            this.txtVisitHistoryIdNo.Size = new System.Drawing.Size(297, 30);
+            this.txtVisitHistoryIdNo.Size = new System.Drawing.Size(275, 30);
             this.txtVisitHistoryIdNo.TabIndex = 0;
             // 
-            // lblVisitHistoryName
+            // label1
             // 
-            this.lblVisitHistoryName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblVisitHistoryName.AutoSize = true;
-            this.lblVisitHistoryName.Location = new System.Drawing.Point(650, 143);
-            this.lblVisitHistoryName.Name = "lblVisitHistoryName";
-            this.lblVisitHistoryName.Size = new System.Drawing.Size(69, 23);
-            this.lblVisitHistoryName.TabIndex = 4;
-            this.lblVisitHistoryName.Text = "NAME";
-            // 
-            // txtVisitHistoryName
-            // 
-            this.txtVisitHistoryName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVisitHistoryName.Location = new System.Drawing.Point(866, 136);
-            this.txtVisitHistoryName.Name = "txtVisitHistoryName";
-            this.txtVisitHistoryName.Size = new System.Drawing.Size(297, 30);
-            this.txtVisitHistoryName.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(838, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(283, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Select The Field To Be Searched";
             // 
             // FormVisitHistory
             // 
@@ -142,9 +168,11 @@ namespace GuestRegistrationWinForm
         private System.Windows.Forms.Panel panelVisitHistory;
         private System.Windows.Forms.DataGridView dgvHistory;
         private System.Windows.Forms.Button btnVisitHistorySearch;
-        private System.Windows.Forms.Label lblVisitHistoryIdNo;
         private System.Windows.Forms.TextBox txtVisitHistoryIdNo;
-        private System.Windows.Forms.TextBox txtVisitHistoryName;
-        private System.Windows.Forms.Label lblVisitHistoryName;
+        private System.Windows.Forms.RadioButton rbVisitHistoryName;
+        private System.Windows.Forms.RadioButton rbVisitHistoryId;
+        private System.Windows.Forms.DateTimePicker dtVisitHistoryDate;
+        private System.Windows.Forms.RadioButton rbVisitHistoryDate;
+        private System.Windows.Forms.Label label1;
     }
 }

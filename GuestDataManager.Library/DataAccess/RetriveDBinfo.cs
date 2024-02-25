@@ -64,6 +64,20 @@ namespace GuestDataManager.Library.DataAccess
             };
             return sql.LoadData<VisitorInformation, dynamic>("dbo.spGetHistoryByName", parameters, "GuestData");
         }
+
+
+        public List<VisitorInformation> GetHistoryByDate(string VisitDate)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@VisitDate",VisitDate},
+            };
+            
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spGetHistoryByDate", parameters, "GuestData");
+        }
+
+
         public List<CompanyNameList> GetCompanyname()
         {
             var p = new { }; 

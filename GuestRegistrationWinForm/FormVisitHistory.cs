@@ -31,12 +31,18 @@ namespace GuestRegistrationWinForm
     {
         public string title = "VISMA";
         public ICentralHub _centralHub;
-      
+        public string date1;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         public FormVisitHistory()
         {
             InitializeComponent();
+            
+
         }
+     /*   private void dtVisitHistoryDate_ValueChanged(object sender, EventArgs e)
+        {
+            date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
+        }*/
 
         private void btnVisitHistorySearch_Click(object sender, EventArgs e)
         {
@@ -45,15 +51,31 @@ namespace GuestRegistrationWinForm
             List<VisitorInformation> visitors = null;
             try
              {
-                if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
+              /*  if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
                 {
                     visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
                 }
                 else if (!string.IsNullOrEmpty(txtVisitHistoryName.Text))
                 {
                     visitors = retriveDBinfo.GetHistoryByName(txtVisitHistoryName.Text);
-                }
+                }*/
 
+                if(rbVisitHistoryId.Checked)
+                {
+                    visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
+
+                }
+                else if(rbVisitHistoryName.Checked)
+                {
+                    visitors= retriveDBinfo.GetHistoryByName(txtVisitHistoryIdNo.Text);
+                }
+                else if (rbVisitHistoryDate.Checked)
+                {
+                    date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
+                    visitors = retriveDBinfo.GetHistoryByDate(date1);
+
+                    // visitors = retriveDBinfo.GetHistoryByDate(date1);
+                }
                 dgvHistory.AutoGenerateColumns = false;
 
                 // Clear existing columns
@@ -103,5 +125,7 @@ namespace GuestRegistrationWinForm
 
 
         }
+
+       
     }
 }

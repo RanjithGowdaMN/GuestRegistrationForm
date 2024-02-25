@@ -99,6 +99,7 @@
     <Build Include="Stored Procedures\spGetVisitorByCardNumber.sql" />
     <Build Include="Stored Procedures\spGetHistoryByIdNumber.sql" />
     <Build Include="Stored Procedures\spGetHistoryByName.sql" />
+    <Build Include="Stored Procedures\spGetHistoryByDate.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />
