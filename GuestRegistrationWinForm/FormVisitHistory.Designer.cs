@@ -62,8 +62,9 @@ namespace GuestRegistrationWinForm
             // 
             // rbVisitHistoryDate
             // 
+            this.rbVisitHistoryDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbVisitHistoryDate.AutoSize = true;
-            this.rbVisitHistoryDate.Location = new System.Drawing.Point(1093, 82);
+            this.rbVisitHistoryDate.Location = new System.Drawing.Point(1010, 80);
             this.rbVisitHistoryDate.Name = "rbVisitHistoryDate";
             this.rbVisitHistoryDate.Size = new System.Drawing.Size(84, 27);
             this.rbVisitHistoryDate.TabIndex = 9;
@@ -75,15 +76,16 @@ namespace GuestRegistrationWinForm
             // 
             this.dtVisitHistoryDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtVisitHistoryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtVisitHistoryDate.Location = new System.Drawing.Point(992, 143);
+            this.dtVisitHistoryDate.Location = new System.Drawing.Point(960, 150);
             this.dtVisitHistoryDate.Name = "dtVisitHistoryDate";
-            this.dtVisitHistoryDate.Size = new System.Drawing.Size(247, 30);
+            this.dtVisitHistoryDate.Size = new System.Drawing.Size(280, 30);
             this.dtVisitHistoryDate.TabIndex = 8;
             // 
             // rbVisitHistoryName
             // 
+            this.rbVisitHistoryName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbVisitHistoryName.AutoSize = true;
-            this.rbVisitHistoryName.Location = new System.Drawing.Point(894, 82);
+            this.rbVisitHistoryName.Location = new System.Drawing.Point(840, 80);
             this.rbVisitHistoryName.Name = "rbVisitHistoryName";
             this.rbVisitHistoryName.Size = new System.Drawing.Size(90, 27);
             this.rbVisitHistoryName.TabIndex = 7;
@@ -93,8 +95,9 @@ namespace GuestRegistrationWinForm
             // 
             // rbVisitHistoryId
             // 
+            this.rbVisitHistoryId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbVisitHistoryId.AutoSize = true;
-            this.rbVisitHistoryId.Location = new System.Drawing.Point(705, 82);
+            this.rbVisitHistoryId.Location = new System.Drawing.Point(670, 80);
             this.rbVisitHistoryId.Name = "rbVisitHistoryId";
             this.rbVisitHistoryId.Size = new System.Drawing.Size(52, 27);
             this.rbVisitHistoryId.TabIndex = 6;
@@ -119,9 +122,10 @@ namespace GuestRegistrationWinForm
             // 
             this.btnVisitHistorySearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVisitHistorySearch.BackColor = System.Drawing.Color.IndianRed;
+            this.btnVisitHistorySearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVisitHistorySearch.FlatAppearance.BorderSize = 0;
             this.btnVisitHistorySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisitHistorySearch.Location = new System.Drawing.Point(894, 238);
+            this.btnVisitHistorySearch.Location = new System.Drawing.Point(815, 233);
             this.btnVisitHistorySearch.Name = "btnVisitHistorySearch";
             this.btnVisitHistorySearch.Size = new System.Drawing.Size(138, 42);
             this.btnVisitHistorySearch.TabIndex = 2;
@@ -133,15 +137,16 @@ namespace GuestRegistrationWinForm
             // 
             this.txtVisitHistoryIdNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVisitHistoryIdNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVisitHistoryIdNo.Location = new System.Drawing.Point(646, 144);
+            this.txtVisitHistoryIdNo.Location = new System.Drawing.Point(550, 150);
             this.txtVisitHistoryIdNo.Name = "txtVisitHistoryIdNo";
             this.txtVisitHistoryIdNo.Size = new System.Drawing.Size(275, 30);
             this.txtVisitHistoryIdNo.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(838, 24);
+            this.label1.Location = new System.Drawing.Point(750, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 23);
             this.label1.TabIndex = 10;

@@ -33,17 +33,19 @@ namespace GuestRegistrationWinForm
         public ICentralHub _centralHub;
         public string date1;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+       
         public FormVisitHistory()
         {
             InitializeComponent();
-            
+        
 
         }
      /*   private void dtVisitHistoryDate_ValueChanged(object sender, EventArgs e)
         {
             date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
         }*/
-
+   
+       
         private void btnVisitHistorySearch_Click(object sender, EventArgs e)
         {
 
@@ -62,7 +64,9 @@ namespace GuestRegistrationWinForm
 
                 if(rbVisitHistoryId.Checked)
                 {
+                  
                     visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
+                    
 
                 }
                 else if(rbVisitHistoryName.Checked)
@@ -71,6 +75,7 @@ namespace GuestRegistrationWinForm
                 }
                 else if (rbVisitHistoryDate.Checked)
                 {
+                   // dtVisitHistoryDate.Visible = true;
                     date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
                     visitors = retriveDBinfo.GetHistoryByDate(date1);
 
