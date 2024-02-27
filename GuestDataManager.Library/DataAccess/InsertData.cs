@@ -90,6 +90,7 @@ namespace GuestDataManager.Library.DataAccess
                 {"@DurationEnd",            string.Empty},//[nvarchar](15)
                 {"@Duration",               string.Empty},//[nvarchar](15)
                 { "@CardNumber",             consultantApplicationForm.CardNumber??string.Empty },
+                {"@Status", consultantApplicationForm.Status??string.Empty },
 
                 //Fields specific to Visitor
                 {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)

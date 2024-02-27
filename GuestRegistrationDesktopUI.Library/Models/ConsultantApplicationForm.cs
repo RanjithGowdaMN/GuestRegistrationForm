@@ -39,6 +39,9 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string Alias { get; set; }
 
         public string CardNumber { get; set; }
+
+        public string Status { get; set; }
+
         private static ConsultantApplicationForm instance;
         private static readonly object lockObject = new object();
         private ConsultantApplicationForm()

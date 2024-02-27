@@ -33,6 +33,7 @@ namespace gui
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
         private FormScan _formScan;
+        string ContractorStatus = "A5";
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
@@ -46,6 +47,7 @@ namespace gui
 
             _scannedData = scannedData;
             _formScan = formScan;
+            
             //_apiHelper = apiHelper;
             Initialize();
 
@@ -165,7 +167,7 @@ namespace gui
             List<string> CardNo = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
             cmbCCardNo.DataSource = CardNo;
             cmbCCardNo.Text = _consultantApplicationForm.CardNumber;
-
+           
         }
         private async Task getCompanyName()
         {
@@ -290,6 +292,7 @@ namespace gui
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
+      
         public bool ErrorValidation()
         {
             bool ErrorFlag = false ;
@@ -448,6 +451,7 @@ namespace gui
                         //Insert record to DB
                         try
                         {
+                            _consultantApplicationForm.Status = ContractorStatus;
                             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                             visitorDataModel.Name = _scannedData.Name;

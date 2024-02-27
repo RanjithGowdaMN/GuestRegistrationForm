@@ -36,6 +36,7 @@ namespace gui
             this.btnWindowClsoe = new System.Windows.Forms.Button();
             this.lblhome = new System.Windows.Forms.Label();
             this.panelbuttons = new System.Windows.Forms.Panel();
+            this.btnVisitorsHistory = new System.Windows.Forms.Button();
             this.btndoc = new System.Windows.Forms.Button();
             this.btnlgt = new System.Windows.Forms.Button();
             this.btncard = new System.Windows.Forms.Button();
@@ -48,7 +49,7 @@ namespace gui
             this.lblversion = new System.Windows.Forms.Label();
             this.lblScanner = new System.Windows.Forms.Label();
             this.lblCamera = new System.Windows.Forms.Label();
-            this.btnVisitorsHistory = new System.Windows.Forms.Button();
+            this.btnContactorHistory = new System.Windows.Forms.Button();
             this.panelhome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelbuttons.SuspendLayout();
@@ -70,7 +71,7 @@ namespace gui
             this.panelhome.Location = new System.Drawing.Point(0, 0);
             this.panelhome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelhome.Name = "panelhome";
-            this.panelhome.Size = new System.Drawing.Size(1789, 68);
+            this.panelhome.Size = new System.Drawing.Size(1830, 68);
             this.panelhome.TabIndex = 0;
             this.panelhome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelhome_MouseDown);
             // 
@@ -93,7 +94,7 @@ namespace gui
             this.btnWindowMin.FlatAppearance.BorderSize = 0;
             this.btnWindowMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMin.Location = new System.Drawing.Point(1648, 0);
+            this.btnWindowMin.Location = new System.Drawing.Point(1689, 0);
             this.btnWindowMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWindowMin.Name = "btnWindowMin";
             this.btnWindowMin.Size = new System.Drawing.Size(43, 68);
@@ -108,7 +109,7 @@ namespace gui
             this.btnWindowMaxm.FlatAppearance.BorderSize = 0;
             this.btnWindowMaxm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowMaxm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowMaxm.Location = new System.Drawing.Point(1691, 0);
+            this.btnWindowMaxm.Location = new System.Drawing.Point(1732, 0);
             this.btnWindowMaxm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWindowMaxm.Name = "btnWindowMaxm";
             this.btnWindowMaxm.Size = new System.Drawing.Size(45, 68);
@@ -123,7 +124,7 @@ namespace gui
             this.btnWindowClsoe.FlatAppearance.BorderSize = 0;
             this.btnWindowClsoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWindowClsoe.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWindowClsoe.Location = new System.Drawing.Point(1736, 0);
+            this.btnWindowClsoe.Location = new System.Drawing.Point(1777, 0);
             this.btnWindowClsoe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWindowClsoe.Name = "btnWindowClsoe";
             this.btnWindowClsoe.Size = new System.Drawing.Size(53, 68);
@@ -148,6 +149,7 @@ namespace gui
             // panelbuttons
             // 
             this.panelbuttons.BackColor = System.Drawing.Color.Maroon;
+            this.panelbuttons.Controls.Add(this.btnContactorHistory);
             this.panelbuttons.Controls.Add(this.btnVisitorsHistory);
             this.panelbuttons.Controls.Add(this.btndoc);
             this.panelbuttons.Controls.Add(this.btnlgt);
@@ -159,8 +161,28 @@ namespace gui
             this.panelbuttons.Location = new System.Drawing.Point(0, 68);
             this.panelbuttons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelbuttons.Name = "panelbuttons";
-            this.panelbuttons.Size = new System.Drawing.Size(1789, 66);
+            this.panelbuttons.Size = new System.Drawing.Size(1830, 66);
             this.panelbuttons.TabIndex = 1;
+            // 
+            // btnVisitorsHistory
+            // 
+            this.btnVisitorsHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVisitorsHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVisitorsHistory.FlatAppearance.BorderSize = 0;
+            this.btnVisitorsHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisitorsHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitorsHistory.ForeColor = System.Drawing.Color.White;
+            this.btnVisitorsHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btnVisitorsHistory.Location = new System.Drawing.Point(1319, -1);
+            this.btnVisitorsHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVisitorsHistory.Name = "btnVisitorsHistory";
+            this.btnVisitorsHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnVisitorsHistory.Size = new System.Drawing.Size(253, 65);
+            this.btnVisitorsHistory.TabIndex = 6;
+            this.btnVisitorsHistory.Text = "VISITOR LOG";
+            this.btnVisitorsHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVisitorsHistory.UseVisualStyleBackColor = true;
+            this.btnVisitorsHistory.Click += new System.EventHandler(this.btnVisitorsHistory_Click);
             // 
             // btndoc
             // 
@@ -171,7 +193,7 @@ namespace gui
             this.btndoc.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
             this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
-            this.btndoc.Location = new System.Drawing.Point(759, 0);
+            this.btndoc.Location = new System.Drawing.Point(636, 0);
             this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndoc.Name = "btndoc";
             this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -191,7 +213,7 @@ namespace gui
             this.btnlgt.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
             this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
-            this.btnlgt.Location = new System.Drawing.Point(1240, 1);
+            this.btnlgt.Location = new System.Drawing.Point(1033, -1);
             this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -211,7 +233,7 @@ namespace gui
             this.btncard.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
             this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
-            this.btncard.Location = new System.Drawing.Point(1005, 1);
+            this.btncard.Location = new System.Drawing.Point(858, -1);
             this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncard.Name = "btncard";
             this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -231,7 +253,7 @@ namespace gui
             this.btnvisitor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
             this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnvisitor.Location = new System.Drawing.Point(524, 2);
+            this.btnvisitor.Location = new System.Drawing.Point(423, 0);
             this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnvisitor.Name = "btnvisitor";
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -251,7 +273,7 @@ namespace gui
             this.btncontractor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(227, 1);
+            this.btncontractor.Location = new System.Drawing.Point(172, 0);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -271,7 +293,7 @@ namespace gui
             this.btnscan.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(0, 1);
+            this.btnscan.Location = new System.Drawing.Point(0, 2);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -290,14 +312,14 @@ namespace gui
             this.panelform.Location = new System.Drawing.Point(0, 134);
             this.panelform.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelform.Name = "panelform";
-            this.panelform.Size = new System.Drawing.Size(1789, 820);
+            this.panelform.Size = new System.Drawing.Size(1830, 820);
             this.panelform.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GuestRegistrationWinForm.Properties.Resources.SPP;
-            this.pictureBox1.Location = new System.Drawing.Point(309, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(330, 56);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1059, 460);
@@ -315,7 +337,7 @@ namespace gui
             this.panelStatus.Location = new System.Drawing.Point(0, 908);
             this.panelStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelStatus.Name = "panelStatus";
-            this.panelStatus.Size = new System.Drawing.Size(1789, 46);
+            this.panelStatus.Size = new System.Drawing.Size(1830, 46);
             this.panelStatus.TabIndex = 3;
             this.panelStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panelStatus_Paint);
             // 
@@ -324,7 +346,7 @@ namespace gui
             this.lblversion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblversion.AutoSize = true;
             this.lblversion.ForeColor = System.Drawing.Color.White;
-            this.lblversion.Location = new System.Drawing.Point(1688, 29);
+            this.lblversion.Location = new System.Drawing.Point(1729, 29);
             this.lblversion.Name = "lblversion";
             this.lblversion.Size = new System.Drawing.Size(46, 17);
             this.lblversion.TabIndex = 4;
@@ -355,31 +377,31 @@ namespace gui
             this.lblCamera.TabIndex = 2;
             this.lblCamera.Text = "Camera";
             // 
-            // btnVisitorsHistory
+            // btnContactorHistory
             // 
-            this.btnVisitorsHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnVisitorsHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVisitorsHistory.FlatAppearance.BorderSize = 0;
-            this.btnVisitorsHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisitorsHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisitorsHistory.ForeColor = System.Drawing.Color.White;
-            this.btnVisitorsHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnVisitorsHistory.Location = new System.Drawing.Point(1548, 0);
-            this.btnVisitorsHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVisitorsHistory.Name = "btnVisitorsHistory";
-            this.btnVisitorsHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnVisitorsHistory.Size = new System.Drawing.Size(229, 65);
-            this.btnVisitorsHistory.TabIndex = 6;
-            this.btnVisitorsHistory.Text = "HISTORY";
-            this.btnVisitorsHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVisitorsHistory.UseVisualStyleBackColor = true;
-            this.btnVisitorsHistory.Click += new System.EventHandler(this.btnVisitorsHistory_Click);
+            this.btnContactorHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnContactorHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContactorHistory.FlatAppearance.BorderSize = 0;
+            this.btnContactorHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContactorHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactorHistory.ForeColor = System.Drawing.Color.White;
+            this.btnContactorHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btnContactorHistory.Location = new System.Drawing.Point(1548, 0);
+            this.btnContactorHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnContactorHistory.Name = "btnContactorHistory";
+            this.btnContactorHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnContactorHistory.Size = new System.Drawing.Size(294, 65);
+            this.btnContactorHistory.TabIndex = 7;
+            this.btnContactorHistory.Text = "CONTRACTOR LOG";
+            this.btnContactorHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContactorHistory.UseVisualStyleBackColor = true;
+            this.btnContactorHistory.Click += new System.EventHandler(this.btnContactorHistory_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1789, 954);
+            this.ClientSize = new System.Drawing.Size(1830, 954);
             this.Controls.Add(this.panelStatus);
             this.Controls.Add(this.panelform);
             this.Controls.Add(this.panelbuttons);
@@ -425,5 +447,6 @@ namespace gui
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Label lblversion;
         private System.Windows.Forms.Button btnVisitorsHistory;
+        private System.Windows.Forms.Button btnContactorHistory;
     }
 }

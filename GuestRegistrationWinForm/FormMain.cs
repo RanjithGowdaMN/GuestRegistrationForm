@@ -285,7 +285,10 @@ namespace gui
         {
             OpenChildForm(new FormCard(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm,FormContractor), sender);
         }
-
+        private void btnContactorHistory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormContractorHistory(), sender);
+        }
         private void panelhome_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

@@ -29,18 +29,41 @@ namespace GuestDataManager.Library.DataAccess
             return sql.LoadData("dbo.spGetVisitorByIdNumber", parameters, "GuestData");
         }
 
-        /* public VisitorInformation GetHistoryByIdNumber(string Id)
-         {
-             /* SqlDataAccess sql = new SqlDataAccess();
+      public List<VisitorInformation>GetContractorHistoryByAll(string Type)
+        {
+           
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
 
-               var p = new {IdNumber = Id  };
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spContractorHistoryByAll", parameters, "GuestData");
 
+        }
 
-              Dictionary<string, object> parameters = new Dictionary<string, object>
-               {
-                   { "@IdNumber", Id },
-               };
-               return sql.LoadData("dbo.spGetHistoryByIdNumber", parameters, "GuestData");}*/
+        public List<VisitorInformation>GetCurrentContractor(string Type)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
+
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spCurrentContractor", parameters, "GuestData");
+
+        }
+
+        public List<VisitorInformation>GetContractorByCard(string CardNumber)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@CardNumber",CardNumber },
+
+            };
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spcontractorByCard", parameters, "GuestData");
+        }
 
         public List<VisitorInformation> GetHistoryByIdNumber(string Id)
         {
@@ -60,7 +83,7 @@ namespace GuestDataManager.Library.DataAccess
             SqlDataAccess sql = new SqlDataAccess();
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                { "@Name",Name},
+               { "@Name",Name},
             };
             return sql.LoadData<VisitorInformation, dynamic>("dbo.spGetHistoryByName", parameters, "GuestData");
         }

@@ -38,7 +38,6 @@ namespace GuestRegistrationWinForm
         {
             InitializeComponent();
         
-
         }
      /*   private void dtVisitHistoryDate_ValueChanged(object sender, EventArgs e)
         {
@@ -64,10 +63,9 @@ namespace GuestRegistrationWinForm
 
                 if(rbVisitHistoryId.Checked)
                 {
-                  
+                 
                     visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
                     
-
                 }
                 else if(rbVisitHistoryName.Checked)
                 {
@@ -124,7 +122,7 @@ namespace GuestRegistrationWinForm
             }
              catch (Exception ex)
              {
-                 MessageBox.Show($"No Previous Visit Information!!");
+                MessageBox.Show($"No Previous Visit Information!!");
              }
           
 

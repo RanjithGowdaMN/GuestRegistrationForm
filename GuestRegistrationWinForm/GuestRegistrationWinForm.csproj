@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONSTANTS.cs" />
+    <Compile Include="ContractorHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractorHistory.Designer.cs">
+      <DependentUpon>ContractorHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DependencyInjectionContainer.cs" />
     <Compile Include="FormCard.cs">
       <SubType>Form</SubType>
@@ -123,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\VisitorData.cs" />
     <Compile Include="SingletonGenericClass.cs" />
+    <EmbeddedResource Include="ContractorHistory.resx">
+      <DependentUpon>ContractorHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCard.resx">
       <DependentUpon>FormCard.cs</DependentUpon>
     </EmbeddedResource>
