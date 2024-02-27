@@ -30,6 +30,7 @@ namespace GuestRegistrationWinForm
         private void InitializeComponent()
         {
             this.panelVisitHistory = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.rbVisitHistoryDate = new System.Windows.Forms.RadioButton();
             this.dtVisitHistoryDate = new System.Windows.Forms.DateTimePicker();
             this.rbVisitHistoryName = new System.Windows.Forms.RadioButton();
@@ -37,7 +38,6 @@ namespace GuestRegistrationWinForm
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.btnVisitHistorySearch = new System.Windows.Forms.Button();
             this.txtVisitHistoryIdNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelVisitHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,16 @@ namespace GuestRegistrationWinForm
             this.panelVisitHistory.Name = "panelVisitHistory";
             this.panelVisitHistory.Size = new System.Drawing.Size(1810, 823);
             this.panelVisitHistory.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(750, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(283, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Select The Field To Be Searched";
             // 
             // rbVisitHistoryDate
             // 
@@ -141,16 +151,6 @@ namespace GuestRegistrationWinForm
             this.txtVisitHistoryIdNo.Name = "txtVisitHistoryIdNo";
             this.txtVisitHistoryIdNo.Size = new System.Drawing.Size(275, 30);
             this.txtVisitHistoryIdNo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(750, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Select The Field To Be Searched";
             // 
             // FormVisitHistory
             // 

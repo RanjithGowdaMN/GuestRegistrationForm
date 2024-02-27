@@ -36,6 +36,7 @@ namespace gui
             this.btnWindowClsoe = new System.Windows.Forms.Button();
             this.lblhome = new System.Windows.Forms.Label();
             this.panelbuttons = new System.Windows.Forms.Panel();
+            this.btnContactorHistory = new System.Windows.Forms.Button();
             this.btnVisitorsHistory = new System.Windows.Forms.Button();
             this.btndoc = new System.Windows.Forms.Button();
             this.btnlgt = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace gui
             this.lblversion = new System.Windows.Forms.Label();
             this.lblScanner = new System.Windows.Forms.Label();
             this.lblCamera = new System.Windows.Forms.Label();
-            this.btnContactorHistory = new System.Windows.Forms.Button();
             this.panelhome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelbuttons.SuspendLayout();
@@ -164,6 +164,26 @@ namespace gui
             this.panelbuttons.Size = new System.Drawing.Size(1830, 66);
             this.panelbuttons.TabIndex = 1;
             // 
+            // btnContactorHistory
+            // 
+            this.btnContactorHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnContactorHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContactorHistory.FlatAppearance.BorderSize = 0;
+            this.btnContactorHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContactorHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactorHistory.ForeColor = System.Drawing.Color.White;
+            this.btnContactorHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
+            this.btnContactorHistory.Location = new System.Drawing.Point(1536, -3);
+            this.btnContactorHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnContactorHistory.Name = "btnContactorHistory";
+            this.btnContactorHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnContactorHistory.Size = new System.Drawing.Size(319, 65);
+            this.btnContactorHistory.TabIndex = 7;
+            this.btnContactorHistory.Text = "CONTRACTOR LOG";
+            this.btnContactorHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContactorHistory.UseVisualStyleBackColor = true;
+            this.btnContactorHistory.Click += new System.EventHandler(this.btnContactorHistory_Click);
+            // 
             // btnVisitorsHistory
             // 
             this.btnVisitorsHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -173,7 +193,7 @@ namespace gui
             this.btnVisitorsHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorsHistory.ForeColor = System.Drawing.Color.White;
             this.btnVisitorsHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnVisitorsHistory.Location = new System.Drawing.Point(1319, -1);
+            this.btnVisitorsHistory.Location = new System.Drawing.Point(1304, -3);
             this.btnVisitorsHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorsHistory.Name = "btnVisitorsHistory";
             this.btnVisitorsHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -213,7 +233,7 @@ namespace gui
             this.btnlgt.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlgt.ForeColor = System.Drawing.Color.White;
             this.btnlgt.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_history_30;
-            this.btnlgt.Location = new System.Drawing.Point(1033, -1);
+            this.btnlgt.Location = new System.Drawing.Point(1022, -1);
             this.btnlgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlgt.Name = "btnlgt";
             this.btnlgt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -257,7 +277,7 @@ namespace gui
             this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnvisitor.Name = "btnvisitor";
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnvisitor.Size = new System.Drawing.Size(229, 65);
+            this.btnvisitor.Size = new System.Drawing.Size(215, 65);
             this.btnvisitor.TabIndex = 2;
             this.btnvisitor.Text = "VISITOR";
             this.btnvisitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -273,11 +293,11 @@ namespace gui
             this.btncontractor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(172, 0);
+            this.btncontractor.Location = new System.Drawing.Point(153, 0);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btncontractor.Size = new System.Drawing.Size(275, 65);
+            this.btncontractor.Size = new System.Drawing.Size(264, 65);
             this.btncontractor.TabIndex = 1;
             this.btncontractor.Text = "CONTRACTOR";
             this.btncontractor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -293,11 +313,11 @@ namespace gui
             this.btnscan.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(0, 2);
+            this.btnscan.Location = new System.Drawing.Point(-14, 1);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnscan.Size = new System.Drawing.Size(221, 65);
+            this.btnscan.Size = new System.Drawing.Size(170, 65);
             this.btnscan.TabIndex = 0;
             this.btnscan.Text = "SCAN";
             this.btnscan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -376,26 +396,6 @@ namespace gui
             this.lblCamera.Size = new System.Drawing.Size(88, 25);
             this.lblCamera.TabIndex = 2;
             this.lblCamera.Text = "Camera";
-            // 
-            // btnContactorHistory
-            // 
-            this.btnContactorHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnContactorHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnContactorHistory.FlatAppearance.BorderSize = 0;
-            this.btnContactorHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContactorHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContactorHistory.ForeColor = System.Drawing.Color.White;
-            this.btnContactorHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnContactorHistory.Location = new System.Drawing.Point(1548, 0);
-            this.btnContactorHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnContactorHistory.Name = "btnContactorHistory";
-            this.btnContactorHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnContactorHistory.Size = new System.Drawing.Size(294, 65);
-            this.btnContactorHistory.TabIndex = 7;
-            this.btnContactorHistory.Text = "CONTRACTOR LOG";
-            this.btnContactorHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnContactorHistory.UseVisualStyleBackColor = true;
-            this.btnContactorHistory.Click += new System.EventHandler(this.btnContactorHistory_Click);
             // 
             // FormMain
             // 
