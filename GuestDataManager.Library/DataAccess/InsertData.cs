@@ -87,8 +87,8 @@ namespace GuestDataManager.Library.DataAccess
                 {"@AliasName",              consultantApplicationForm.Alias??string.Empty},//[nvarchar](50)
                 {"@Previous7YrResidency",   consultantApplicationForm.Previous7YrResidency??string.Empty},//[nvarchar](150)
                 {"@DurationStart",          string.Empty},//[nvarchar](15)
-                {"@DurationEnd",            string.Empty},//[nvarchar](15)
-                {"@Duration",               string.Empty},//[nvarchar](15)
+                {"@DurationEnd",            consultantApplicationForm.Duration??string.Empty},//[nvarchar](15)
+                {"@Duration",                string.Empty},//[nvarchar](15)
                 { "@CardNumber",             consultantApplicationForm.CardNumber??string.Empty },
                 {"@Status", consultantApplicationForm.Status??string.Empty },
 

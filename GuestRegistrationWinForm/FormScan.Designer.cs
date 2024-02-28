@@ -54,6 +54,7 @@ namespace gui
             this.pbfront = new System.Windows.Forms.PictureBox();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
+            this.btnReadFromChip = new System.Windows.Forms.Button();
             this.panelScan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             this.panelId.SuspendLayout();
@@ -204,6 +205,7 @@ namespace gui
             // panelScan
             // 
             this.panelScan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelScan.Controls.Add(this.btnReadFromChip);
             this.panelScan.Controls.Add(this.lblselect);
             this.panelScan.Controls.Add(this.SearchVisitor);
             this.panelScan.Controls.Add(this.lblname);
@@ -378,6 +380,22 @@ namespace gui
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
             // 
+            // btnReadFromChip
+            // 
+            this.btnReadFromChip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReadFromChip.BackColor = System.Drawing.Color.IndianRed;
+            this.btnReadFromChip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadFromChip.FlatAppearance.BorderSize = 0;
+            this.btnReadFromChip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReadFromChip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadFromChip.ForeColor = System.Drawing.Color.White;
+            this.btnReadFromChip.Location = new System.Drawing.Point(655, 520);
+            this.btnReadFromChip.Name = "btnReadFromChip";
+            this.btnReadFromChip.Size = new System.Drawing.Size(208, 50);
+            this.btnReadFromChip.TabIndex = 16;
+            this.btnReadFromChip.Text = "READ FROM CHIP";
+            this.btnReadFromChip.UseVisualStyleBackColor = false;
+            // 
             // FormScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,5 +448,6 @@ namespace gui
         private System.Windows.Forms.Label lblselect;
         public System.Windows.Forms.PictureBox pbPassportScan;
         public System.Windows.Forms.Panel panelPass;
+        private System.Windows.Forms.Button btnReadFromChip;
     }
 }
