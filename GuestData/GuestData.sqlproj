@@ -103,6 +103,7 @@
     <Build Include="Stored Procedures\spContractorHistoryByAll.sql" />
     <Build Include="Stored Procedures\spCurrentContractor.sql" />
     <Build Include="Stored Procedures\spcontractorByCard.sql" />
+    <Build Include="Stored Procedures\spUpdateContractorStatusVistorInformation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />

@@ -155,6 +155,7 @@ namespace GuestRegistrationWinForm
                 _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
                 UpdateData updateData = new UpdateData();
                 updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
+                updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
                 MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //_formScan.txtname.Clear();
             }
