@@ -102,7 +102,7 @@ namespace GuestRegistrationWinForm
             
             catch (Exception ex)
             {
-                MessageBox.Show($"No Previous Visit Information!!");
+                MessageBox.Show($"No Previous Visit Information!!", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

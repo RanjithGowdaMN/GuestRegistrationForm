@@ -88,15 +88,15 @@ namespace GuestRegistrationWinForm
             this.btnCardRecov.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCardRecov.FlatAppearance.BorderSize = 0;
             this.btnCardRecov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCardRecov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCardRecov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCardRecov.ForeColor = System.Drawing.Color.White;
             this.btnCardRecov.Image = ((System.Drawing.Image)(resources.GetObject("btnCardRecov.Image")));
             this.btnCardRecov.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardRecov.Location = new System.Drawing.Point(265, 397);
+            this.btnCardRecov.Location = new System.Drawing.Point(278, 399);
             this.btnCardRecov.Name = "btnCardRecov";
-            this.btnCardRecov.Size = new System.Drawing.Size(242, 51);
+            this.btnCardRecov.Size = new System.Drawing.Size(289, 51);
             this.btnCardRecov.TabIndex = 4;
-            this.btnCardRecov.Text = "Recover Card";
+            this.btnCardRecov.Text = "RECOVER CARD";
             this.btnCardRecov.UseVisualStyleBackColor = false;
             this.btnCardRecov.Click += new System.EventHandler(this.btnCardRecov_Click);
             // 

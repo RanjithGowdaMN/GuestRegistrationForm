@@ -82,9 +82,9 @@ namespace gui
             this.lblCardPrinter.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCardPrinter.Location = new System.Drawing.Point(50, 320);
             this.lblCardPrinter.Name = "lblCardPrinter";
-            this.lblCardPrinter.Size = new System.Drawing.Size(127, 23);
+            this.lblCardPrinter.Size = new System.Drawing.Size(179, 23);
             this.lblCardPrinter.TabIndex = 5;
-            this.lblCardPrinter.Text = "Select Printer";
+            this.lblCardPrinter.Text = "SELECT PRINTER";
             // 
             // btnCardPrint
             // 
@@ -93,15 +93,15 @@ namespace gui
             this.btnCardPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCardPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCardPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCardPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCardPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCardPrint.ForeColor = System.Drawing.Color.White;
             this.btnCardPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnCardPrint.Image")));
             this.btnCardPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardPrint.Location = new System.Drawing.Point(290, 472);
+            this.btnCardPrint.Location = new System.Drawing.Point(275, 472);
             this.btnCardPrint.Name = "btnCardPrint";
-            this.btnCardPrint.Size = new System.Drawing.Size(152, 46);
+            this.btnCardPrint.Size = new System.Drawing.Size(195, 46);
             this.btnCardPrint.TabIndex = 4;
-            this.btnCardPrint.Text = "Print";
+            this.btnCardPrint.Text = "PRINT";
             this.btnCardPrint.UseVisualStyleBackColor = false;
             this.btnCardPrint.Click += new System.EventHandler(this.btnCardPrint_Click);
             // 
