@@ -173,7 +173,7 @@ namespace gui
             this.btnContactorHistory.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContactorHistory.ForeColor = System.Drawing.Color.White;
             this.btnContactorHistory.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnContactorHistory.Location = new System.Drawing.Point(1536, 0);
+            this.btnContactorHistory.Location = new System.Drawing.Point(1550, 0);
             this.btnContactorHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnContactorHistory.Name = "btnContactorHistory";
             this.btnContactorHistory.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
