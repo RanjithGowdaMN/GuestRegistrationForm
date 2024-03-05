@@ -22,7 +22,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TesseractOCR.Library;
-
+using ReadQID.Library;
 namespace gui
 {
     public partial class FormScan : Form, INotifyPropertyChanged
@@ -377,6 +377,51 @@ namespace gui
                 panelId.Visible = true;
                 panelPass.Visible = false;
             }
+        }
+        //from chip card
+        private void btnReadFromChip_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                ReadQid readQID = new ReadQid();
+                QID IdData = new QID();
+                readQID.ConnectReader();
+                IdData = readQID.ReadQIDData();
+                readQID.Disconnect();
+
+                txtname.Text = IdData.Name_En;
+                txtid.Text = IdData.QID_En;
+                txtdob.Text = IdData.DateOfBirth;
+                txtexpiry.Text = IdData.DateOfExpiry;
+                txtnationality.Text = IdData.Nationality_En;
+             
+                if (IdData.Portrait != null)
+                {
+                    using (var ms = new MemoryStream(IdData.Portrait))
+                    {
+                        var image = Image.FromStream(ms);
+
+                        // PictureBox
+                        pbphoto.Image = image;
+                                              
+                        image.Save(_cameraStatus.ImagePath);
+                     }
+                }
+                else
+                {
+                    // Optionally set to null or a default image if Portrait is null
+                    pbphoto.Image = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
         }
     }
 }

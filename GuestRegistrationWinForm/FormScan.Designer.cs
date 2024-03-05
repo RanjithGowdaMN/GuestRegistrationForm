@@ -42,6 +42,7 @@ namespace gui
             this.rbid = new System.Windows.Forms.RadioButton();
             this.rbpass = new System.Windows.Forms.RadioButton();
             this.panelScan = new System.Windows.Forms.Panel();
+            this.btnReadFromChip = new System.Windows.Forms.Button();
             this.lblselect = new System.Windows.Forms.Label();
             this.SearchVisitor = new System.Windows.Forms.Button();
             this.btnphoto = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace gui
             this.pbfront = new System.Windows.Forms.PictureBox();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
-            this.btnReadFromChip = new System.Windows.Forms.Button();
             this.panelScan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             this.panelId.SuspendLayout();
@@ -230,6 +230,23 @@ namespace gui
             this.panelScan.Size = new System.Drawing.Size(996, 675);
             this.panelScan.TabIndex = 18;
             // 
+            // btnReadFromChip
+            // 
+            this.btnReadFromChip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReadFromChip.BackColor = System.Drawing.Color.IndianRed;
+            this.btnReadFromChip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadFromChip.FlatAppearance.BorderSize = 0;
+            this.btnReadFromChip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReadFromChip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadFromChip.ForeColor = System.Drawing.Color.White;
+            this.btnReadFromChip.Location = new System.Drawing.Point(655, 520);
+            this.btnReadFromChip.Name = "btnReadFromChip";
+            this.btnReadFromChip.Size = new System.Drawing.Size(208, 50);
+            this.btnReadFromChip.TabIndex = 16;
+            this.btnReadFromChip.Text = "READ FROM CHIP";
+            this.btnReadFromChip.UseVisualStyleBackColor = false;
+            this.btnReadFromChip.Click += new System.EventHandler(this.btnReadFromChip_Click);
+            // 
             // lblselect
             // 
             this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -379,22 +396,6 @@ namespace gui
             this.pbPassportScan.Size = new System.Drawing.Size(502, 518);
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
-            // 
-            // btnReadFromChip
-            // 
-            this.btnReadFromChip.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReadFromChip.BackColor = System.Drawing.Color.IndianRed;
-            this.btnReadFromChip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReadFromChip.FlatAppearance.BorderSize = 0;
-            this.btnReadFromChip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReadFromChip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadFromChip.ForeColor = System.Drawing.Color.White;
-            this.btnReadFromChip.Location = new System.Drawing.Point(655, 520);
-            this.btnReadFromChip.Name = "btnReadFromChip";
-            this.btnReadFromChip.Size = new System.Drawing.Size(208, 50);
-            this.btnReadFromChip.TabIndex = 16;
-            this.btnReadFromChip.Text = "READ FROM CHIP";
-            this.btnReadFromChip.UseVisualStyleBackColor = false;
             // 
             // FormScan
             // 

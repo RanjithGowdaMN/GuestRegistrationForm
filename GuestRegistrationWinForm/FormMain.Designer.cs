@@ -213,7 +213,7 @@ namespace gui
             this.btndoc.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndoc.ForeColor = System.Drawing.Color.White;
             this.btndoc.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_document_30__1_;
-            this.btndoc.Location = new System.Drawing.Point(623, 0);
+            this.btndoc.Location = new System.Drawing.Point(595, 0);
             this.btndoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndoc.Name = "btndoc";
             this.btndoc.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -253,7 +253,7 @@ namespace gui
             this.btncard.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncard.ForeColor = System.Drawing.Color.White;
             this.btncard.Image = global::GuestRegistrationWinForm.Properties.Resources.iconidcard;
-            this.btncard.Location = new System.Drawing.Point(824, 0);
+            this.btncard.Location = new System.Drawing.Point(807, 0);
             this.btncard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncard.Name = "btncard";
             this.btncard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -273,7 +273,7 @@ namespace gui
             this.btnvisitor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnvisitor.ForeColor = System.Drawing.Color.White;
             this.btnvisitor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btnvisitor.Location = new System.Drawing.Point(406, 0);
+            this.btnvisitor.Location = new System.Drawing.Point(374, -1);
             this.btnvisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnvisitor.Name = "btnvisitor";
             this.btnvisitor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -293,7 +293,7 @@ namespace gui
             this.btncontractor.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontractor.ForeColor = System.Drawing.Color.White;
             this.btncontractor.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_user_30;
-            this.btncontractor.Location = new System.Drawing.Point(153, 0);
+            this.btncontractor.Location = new System.Drawing.Point(118, 1);
             this.btncontractor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncontractor.Name = "btncontractor";
             this.btncontractor.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -313,7 +313,7 @@ namespace gui
             this.btnscan.Font = new System.Drawing.Font("Segoe UI Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnscan.ForeColor = System.Drawing.Color.White;
             this.btnscan.Image = global::GuestRegistrationWinForm.Properties.Resources.icons8_scanner_30__1_;
-            this.btnscan.Location = new System.Drawing.Point(-14, 0);
+            this.btnscan.Location = new System.Drawing.Point(-33, 1);
             this.btnscan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnscan.Name = "btnscan";
             this.btnscan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
