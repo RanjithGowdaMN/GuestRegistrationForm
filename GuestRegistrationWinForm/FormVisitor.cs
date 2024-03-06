@@ -30,6 +30,7 @@ namespace gui
         private FormScan _formScan;
         string VisitorGeneratedFile = string.Empty;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        string VisitorStatus = "A5";
         //private IAPIconnector _apiHelper;
         public FormVisitor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
@@ -123,6 +124,11 @@ namespace gui
             cmbVisitTimeFromMinutes.Text = (_visitorDataSheet.VisitTimeMinFrom != "00") ? _visitorDataSheet.VisitTimeMinFrom : "00";
             cmbVisitorVisitTimeToHr.Text = (_visitorDataSheet.VisitTimeHrTo != "00") ? _visitorDataSheet.VisitTimeHrTo : "00";
             cmbVisitorVisitTimeToMinutes.Text = (_visitorDataSheet.VisitTimeMinTo != "00") ? _visitorDataSheet.VisitTimeMinTo : "00";
+
+            //card number
+            List<string> CardNo = retriveDBinfo.GetVisitorCards().Select(x => x.CardNumber).ToList();
+            cmbVisitorCard.DataSource = CardNo;
+            cmbVisitorCard.Text = _visitorDataSheet.CardNumber;
         }
         private void TextChanged(Object sender, EventArgs e)
         {
@@ -318,6 +324,7 @@ namespace gui
                         //Insert record to DB
                         try
                         {
+                            _visitorDataSheet.Status = VisitorStatus;
                             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                             visitorDataModel.Name = _scannedData.Name;
@@ -352,6 +359,10 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtVisitorComp.Text);
                             }
+                            // card status
+                            UpdateData updateData = new UpdateData();
+                            updateData.UpdateVisitorCardStatus(_visitorDataSheet.CardNumber);
+
                             MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -510,6 +521,14 @@ namespace gui
         private void lblVtitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbVisitorCard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVisitorCard != null)
+            {
+               _visitorDataSheet.CardNumber = cmbVisitorCard.SelectedItem.ToString();
+            }
         }
     }
     

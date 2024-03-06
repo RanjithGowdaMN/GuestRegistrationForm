@@ -27,6 +27,9 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string ProductionManager { get; set; }
         public string SecurityController { get; set; }
 
+        public string CardNumber { get; set; }
+        public string Status { get; set; }
+
         private static VisitorDataSheet instance;
         private static readonly object lockObject = new object();
         private VisitorDataSheet()

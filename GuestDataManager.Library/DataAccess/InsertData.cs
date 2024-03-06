@@ -89,8 +89,8 @@ namespace GuestDataManager.Library.DataAccess
                 {"@DurationStart",          string.Empty},//[nvarchar](15)
                 {"@DurationEnd",            consultantApplicationForm.Duration??string.Empty},//[nvarchar](15)
                 {"@Duration",                string.Empty},//[nvarchar](15)
-                { "@CardNumber",             consultantApplicationForm.CardNumber??string.Empty },
-                {"@Status", consultantApplicationForm.Status??string.Empty },
+             //   { "@CardNumber",             consultantApplicationForm.CardNumber??string.Empty },
+             //   {"@Status", consultantApplicationForm.Status??string.Empty },
 
                 //Fields specific to Visitor
                 {"@PersonToBeVisited",      visitorDataSheet.PersonToBeVisited??string.Empty},//[nvarchar](150)
@@ -125,7 +125,8 @@ namespace GuestDataManager.Library.DataAccess
             parameters.Add("@Title", consultantApplicationForm.Title ?? visitorDataSheet.Title ?? string.Empty);
             parameters.Add("@PurposeOfVisit", consultantApplicationForm.PurposeOfVisit ?? visitorDataSheet.PurposeOfVisit ?? string.Empty);
             parameters.Add("@CompanyName", consultantApplicationForm.CompanyName ?? visitorDataSheet.CompanyName ?? string.Empty);
-
+            parameters.Add("@CardNumber", consultantApplicationForm.CardNumber ?? visitorDataSheet.CardNumber ?? string.Empty);
+            parameters.Add("@Status", consultantApplicationForm.Status ?? visitorDataSheet.Status ?? string.Empty);
            
             if (!string.IsNullOrEmpty(scannedFileInfo.FrontSideFileName))
             {

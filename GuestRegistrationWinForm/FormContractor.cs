@@ -107,7 +107,7 @@ namespace gui
             txtContractorCity.Text = "Doha";
             txtContractorState.Text = "Doha";
         }
-
+        //card
         private void CmbCCardNo_SelectedIndexChanged(object sender, EventArgs e)
         {
            // throw new NotImplementedException();
@@ -164,6 +164,7 @@ namespace gui
             {
                 cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
             }
+            //card number
             List<string> CardNo = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
             cmbCCardNo.DataSource = CardNo;
             cmbCCardNo.Text = _consultantApplicationForm.CardNumber;
