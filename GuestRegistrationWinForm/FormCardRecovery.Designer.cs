@@ -40,6 +40,7 @@ namespace GuestRegistrationWinForm
             this.lblCradRecovNum = new System.Windows.Forms.Label();
             this.lblCardRecovType = new System.Windows.Forms.Label();
             this.pbCardRecov = new System.Windows.Forms.PictureBox();
+            this.rbVisitorCard = new System.Windows.Forms.RadioButton();
             this.panelCardRecovery.SuspendLayout();
             this.panelCardRecovDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCardRecov)).BeginInit();
@@ -48,6 +49,7 @@ namespace GuestRegistrationWinForm
             // panelCardRecovery
             // 
             this.panelCardRecovery.BackColor = System.Drawing.Color.White;
+            this.panelCardRecovery.Controls.Add(this.rbVisitorCard);
             this.panelCardRecovery.Controls.Add(this.lblCardNum);
             this.panelCardRecovery.Controls.Add(this.cmbCardNum);
             this.panelCardRecovery.Controls.Add(this.btnCardRecov);
@@ -168,6 +170,20 @@ namespace GuestRegistrationWinForm
             this.pbCardRecov.TabIndex = 0;
             this.pbCardRecov.TabStop = false;
             // 
+            // rbVisitorCard
+            // 
+            this.rbVisitorCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbVisitorCard.AutoSize = true;
+            this.rbVisitorCard.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbVisitorCard.Location = new System.Drawing.Point(278, 157);
+            this.rbVisitorCard.Name = "rbVisitorCard";
+            this.rbVisitorCard.Size = new System.Drawing.Size(113, 27);
+            this.rbVisitorCard.TabIndex = 7;
+            this.rbVisitorCard.TabStop = true;
+            this.rbVisitorCard.Text = "VISITOR";
+            this.rbVisitorCard.UseVisualStyleBackColor = true;
+            this.rbVisitorCard.CheckedChanged += new System.EventHandler(this.rbVisitorCard_CheckedChanged);
+            // 
             // FormCardRecovery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,5 +215,6 @@ namespace GuestRegistrationWinForm
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCardNum;
         private System.Windows.Forms.ComboBox cmbCardNum;
+        private System.Windows.Forms.RadioButton rbVisitorCard;
     }
 }
