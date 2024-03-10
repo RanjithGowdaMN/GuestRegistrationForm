@@ -158,13 +158,14 @@ namespace GuestRegistrationWinForm
                 updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
                 MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //_formScan.txtname.Clear();
+               // Initialize();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Card Recovery", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Logger.Error($"Error Card Recovery{ex.Message}");
             }
-            Initialize();
+            //Initialize();
         }
 
         private void FormCardRecovery_Load(object sender, EventArgs e)
@@ -221,5 +222,6 @@ namespace GuestRegistrationWinForm
                 }
             }
         }
+        
     }
 }

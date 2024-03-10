@@ -3,8 +3,6 @@
 AS
 BEGIN
 
-SELECT TOP 1 * FROM VisitorInformation WHERE CardNumber = (SELECT MAX(CardNumber) FROM VisitorInformation WHERE CardNumber = @CardNumber)
+SELECT  * FROM VisitorInformation WHERE CardNumber = @CardNumber and  [Status]='A5'
 
 END;
-
-RETURN 0;
