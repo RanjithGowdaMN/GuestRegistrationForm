@@ -104,6 +104,9 @@
     <Build Include="Stored Procedures\spCurrentContractor.sql" />
     <Build Include="Stored Procedures\spcontractorByCard.sql" />
     <Build Include="Stored Procedures\spUpdateContractorStatusVistorInformation.sql" />
+    <Build Include="dbo\Tables\VisitorCard.sql" />
+    <Build Include="Stored Procedures\spGetVisitorCard.sql" />
+    <Build Include="Stored Procedures\spUpdateVisitorCardStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />

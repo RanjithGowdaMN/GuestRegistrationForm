@@ -20,6 +20,7 @@ namespace gui
 {
     public partial class FormVisitor : Form
     {
+        string VisitorStatus = "A5";
         public string title = "VISMA";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
@@ -99,6 +100,10 @@ namespace gui
 
             cmbVisitorSecurityController.DataSource = retriveDBinfo.GetSecurityController().Select(x => x.Name).ToList();
             cmbVisitorSecurityController.Text = _visitorDataSheet.SecurityController;
+
+            List<string> CardNo = retriveDBinfo.GetVisitorCards().Select(x => x.CardNumber).ToList();
+            cmbVisitorCardNumber.DataSource = CardNo;
+            cmbVisitorCardNumber.Text = _visitorDataSheet.CardNumber;
 
             if ((!CompanyNames.Contains(_visitorDataSheet.CompanyName) && (_visitorDataSheet.CompanyName != null)))
             {
@@ -318,6 +323,8 @@ namespace gui
                         //Insert record to DB
                         try
                         {
+
+                            _visitorDataSheet.Status = VisitorStatus;
                             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                             visitorDataModel.Name = _scannedData.Name;
@@ -352,6 +359,11 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtVisitorComp.Text);
                             }
+
+                            //card status
+                            UpdateData updateData = new UpdateData();
+                            updateData.UpdateVisitorCardStatus(_visitorDataSheet.CardNumber);
+
                             MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -510,6 +522,14 @@ namespace gui
         private void lblVtitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbVisitorCardNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVisitorCardNumber != null)
+            {
+                _visitorDataSheet.CardNumber = cmbVisitorCardNumber.SelectedItem.ToString();
+            }
         }
     }
     

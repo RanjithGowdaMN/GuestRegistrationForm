@@ -61,6 +61,8 @@ namespace gui
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbVisitorCardNumber = new System.Windows.Forms.ComboBox();
             this.panelVisitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +104,8 @@ namespace gui
             // panelVisitor
             // 
             this.panelVisitor.BackColor = System.Drawing.Color.White;
+            this.panelVisitor.Controls.Add(this.cmbVisitorCardNumber);
+            this.panelVisitor.Controls.Add(this.label2);
             this.panelVisitor.Controls.Add(this.cmbVisitorTitle);
             this.panelVisitor.Controls.Add(this.cmbVisitorSecurityController);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDuration);
@@ -442,7 +446,7 @@ namespace gui
             this.btnVisitorDocument.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
             this.btnVisitorDocument.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(675, 661);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(675, 670);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(280, 50);
@@ -635,6 +639,28 @@ namespace gui
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(351, 620);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 19);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "CARD NUMBER";
+            // 
+            // cmbVisitorCardNumber
+            // 
+            this.cmbVisitorCardNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVisitorCardNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVisitorCardNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVisitorCardNumber.FormattingEnabled = true;
+            this.cmbVisitorCardNumber.Location = new System.Drawing.Point(801, 620);
+            this.cmbVisitorCardNumber.Name = "cmbVisitorCardNumber";
+            this.cmbVisitorCardNumber.Size = new System.Drawing.Size(332, 31);
+            this.cmbVisitorCardNumber.TabIndex = 24;
+            this.cmbVisitorCardNumber.SelectedIndexChanged += new System.EventHandler(this.cmbVisitorCardNumber_SelectedIndexChanged);
+            // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -686,5 +712,7 @@ namespace gui
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cmbVisitorSecurityController;
         private System.Windows.Forms.ComboBox cmbVisitorTitle;
+        private System.Windows.Forms.ComboBox cmbVisitorCardNumber;
+        private System.Windows.Forms.Label label2;
     }
 }

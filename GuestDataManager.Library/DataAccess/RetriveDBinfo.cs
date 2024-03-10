@@ -101,6 +101,11 @@ namespace GuestDataManager.Library.DataAccess
         }
 
 
+       
+
+
+
+
         public List<CompanyNameList> GetCompanyname()
         {
             var p = new { }; 
@@ -176,6 +181,12 @@ namespace GuestDataManager.Library.DataAccess
             return sql.LoadData("dbo.spGetVisitorByCardNumber", parameters, "GuestData");
         }
 
+        public List<VisitorCard> GetVisitorCards()
+        {
+            var p = new { };
+            return sql.LoadData<VisitorCard, dynamic>("dbo.spGetVisitorCard", p, "GuestData");
 
+        }
+        
     }
 }
