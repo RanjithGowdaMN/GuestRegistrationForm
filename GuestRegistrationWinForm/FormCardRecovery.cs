@@ -29,7 +29,7 @@ namespace GuestRegistrationWinForm
 {
     public partial class FormCardRecovery : Form
     {
-        private bool previousCheckedState = false;
+
         public string title = "VISMA";
         public ICentralHub _centralHub;
         private ScannedFileModel _scannedFileInfo;
@@ -53,7 +53,7 @@ namespace GuestRegistrationWinForm
             _consultantApplicationForm = ConsultantApplicationForm.Instance;
             _visitorDataSheet = VisitorDataSheet.Instance;
             _scannedData = scannedData;
-
+            
             //  LoadComboBoxData();
 
             Initialize();
@@ -63,19 +63,19 @@ namespace GuestRegistrationWinForm
         {
             LoadComboBoxData();
         }
-        /*  private void btnCardRecovSearch_Click(object sender, EventArgs e)
-          {
-              RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-              try
-              {
-                  VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtCardRecovId.Text);
-                  ReloadDataToUi(visitor);
-              }
-              catch (Exception ex)
-              {
-                  MessageBox.Show($"No Previous Visit Information!!");
-              }
-          }*/
+      /*  private void btnCardRecovSearch_Click(object sender, EventArgs e)
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            try
+            {
+                VisitorInformation visitor = retriveDBinfo.GetVisitorByIdNumber(txtCardRecovId.Text);
+                ReloadDataToUi(visitor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No Previous Visit Information!!");
+            }
+        }*/
         public void ReloadDataToUi(VisitorInformation visitor)
         {
             if (!string.IsNullOrEmpty(visitor.IdNumber))
@@ -159,7 +159,6 @@ namespace GuestRegistrationWinForm
                     updateData.RecoverVisitorCardStatus(_visitorDataSheet.CardNumber);
                     updateData.UpdateVisitorStatus(_visitorDataSheet.CardNumber);
                     MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    rbVisitorCard.Checked = false;
                 }
 
                 else
@@ -170,7 +169,7 @@ namespace GuestRegistrationWinForm
                     updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
                     MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+               
                 //_formScan.txtname.Clear();
             }
             catch (Exception ex)
@@ -183,26 +182,26 @@ namespace GuestRegistrationWinForm
 
         private void FormCardRecovery_Load(object sender, EventArgs e)
         {
-            //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
+           //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
 
         }
 
-        private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
+       private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
         {
             //  throw new NotImplementedException();
-            /*  if (cmbCardNum != null)
-              {
-                  RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-                  try
-                  {
-                      VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.SelectedItem.ToString());
-                      ReloadDataToUi(visitor);
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show($"No Previous Visit Information!!");
-                  }
-              }*/
+          /*  if (cmbCardNum != null)
+            {
+                RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+                try
+                {
+                    VisitorInformation visitor = retriveDBinfo.GetVisitorbyCard(cmbCardNum.SelectedItem.ToString());
+                    ReloadDataToUi(visitor);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No Previous Visit Information!!");
+                }
+            }*/
         }
         public void LoadComboBoxData()
         {
@@ -210,19 +209,19 @@ namespace GuestRegistrationWinForm
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             // List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
             List<string> CardNo;
-
+            
             // Check if rbVisitorCard is checked to decide which method to call
-            /* if (rbVisitorCard.Checked)
-             {
-                 // If rbVisitorCard is checked, retrieve visitor card numbers
-                 CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
-                 cmbCardNum.DataSource = CardNo;
-             }
-             else
-             {*/
-            // If rbVisitorCard is not checked, retrieve regular card numbers
-            CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
-
+           /* if (rbVisitorCard.Checked)
+            {
+                // If rbVisitorCard is checked, retrieve visitor card numbers
+                CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
+                cmbCardNum.DataSource = CardNo;
+            }
+            else
+            {*/
+                // If rbVisitorCard is not checked, retrieve regular card numbers
+             CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
+            
             cmbCardNum.DataSource = CardNo;
 
         }
@@ -247,35 +246,24 @@ namespace GuestRegistrationWinForm
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No Previous Visit Information!!", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"No Previous Visit Information!!",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }
 
         private void rbVisitorCard_CheckedChanged(object sender, EventArgs e)
-
         {
-            // Check if the current checked state is different from the previous checked state
-            if (rbVisitorCard.Checked != previousCheckedState)
-            {
-                // Update the previous checked state to the current state
-                previousCheckedState = rbVisitorCard.Checked;
-                if (rbVisitorCard.Checked)
-                {
-                    RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-                    List<string> CardNo;
-                    CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
-                    cmbCardNum.DataSource = CardNo;
-                    // panelCardRecovDemo.Visible = false;
-                    lblCradRecovNum.Text = this.cmbCardNum.SelectedItem.ToString();
-                    lblCardRecovType.Visible = false;
-                    lblCardRecovName.Visible = false;
-                    panel1.Visible = false;
-                    pbCardRecov.Visible = false;
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            List<string> CardNo;
+            CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
+            cmbCardNum.DataSource = CardNo;
+            // panelCardRecovDemo.Visible = false;
+            lblCradRecovNum.Text = this.cmbCardNum.SelectedItem.ToString();
+            lblCardRecovType.Visible = false;
+            lblCardRecovName.Visible = false;
+            panel1.Visible = false;
+            pbCardRecov.Visible = false;
 
-                }
-              
-            }
         }
     }
 }
