@@ -56,9 +56,4 @@ namespace GuestDataManager.Library.Models
     {
         public string CardNumber { get; set; }
     }
-
-    public class VistorCard
-    {
-        public string CardNumber { get; set; }
-    }
 }

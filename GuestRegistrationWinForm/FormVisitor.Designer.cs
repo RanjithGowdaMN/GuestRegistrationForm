@@ -61,8 +61,6 @@ namespace gui
             this.cmbVisitorComp = new System.Windows.Forms.ComboBox();
             this.txtVisitorComp = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblVistorCardNo = new System.Windows.Forms.Label();
-            this.cmbVisitorCard = new System.Windows.Forms.ComboBox();
             this.panelVisitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -104,8 +102,6 @@ namespace gui
             // panelVisitor
             // 
             this.panelVisitor.BackColor = System.Drawing.Color.White;
-            this.panelVisitor.Controls.Add(this.cmbVisitorCard);
-            this.panelVisitor.Controls.Add(this.lblVistorCardNo);
             this.panelVisitor.Controls.Add(this.cmbVisitorTitle);
             this.panelVisitor.Controls.Add(this.cmbVisitorSecurityController);
             this.panelVisitor.Controls.Add(this.dtVisitorVisitDuration);
@@ -446,7 +442,7 @@ namespace gui
             this.btnVisitorDocument.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisitorDocument.ForeColor = System.Drawing.Color.White;
             this.btnVisitorDocument.Image = global::GuestRegistrationWinForm.Properties.Resources.iconsDocument;
-            this.btnVisitorDocument.Location = new System.Drawing.Point(675, 670);
+            this.btnVisitorDocument.Location = new System.Drawing.Point(675, 661);
             this.btnVisitorDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisitorDocument.Name = "btnVisitorDocument";
             this.btnVisitorDocument.Size = new System.Drawing.Size(280, 50);
@@ -639,29 +635,6 @@ namespace gui
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // lblVistorCardNo
-            // 
-            this.lblVistorCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblVistorCardNo.AutoSize = true;
-            this.lblVistorCardNo.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVistorCardNo.Location = new System.Drawing.Point(351, 614);
-            this.lblVistorCardNo.Name = "lblVistorCardNo";
-            this.lblVistorCardNo.Size = new System.Drawing.Size(135, 19);
-            this.lblVistorCardNo.TabIndex = 23;
-            this.lblVistorCardNo.Text = "CARD NUMBER";
-            // 
-            // cmbVisitorCard
-            // 
-            this.cmbVisitorCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVisitorCard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVisitorCard.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbVisitorCard.FormattingEnabled = true;
-            this.cmbVisitorCard.Location = new System.Drawing.Point(801, 614);
-            this.cmbVisitorCard.Name = "cmbVisitorCard";
-            this.cmbVisitorCard.Size = new System.Drawing.Size(334, 30);
-            this.cmbVisitorCard.TabIndex = 24;
-            this.cmbVisitorCard.SelectedIndexChanged += new System.EventHandler(this.cmbVisitorCard_SelectedIndexChanged);
-            // 
             // FormVisitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,7 +686,5 @@ namespace gui
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cmbVisitorSecurityController;
         private System.Windows.Forms.ComboBox cmbVisitorTitle;
-        private System.Windows.Forms.ComboBox cmbVisitorCard;
-        private System.Windows.Forms.Label lblVistorCardNo;
     }
 }

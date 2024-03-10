@@ -404,9 +404,8 @@ namespace gui
 
                         // PictureBox
                         pbphoto.Image = image;
-
-                        // image.Save(_cameraStatus.ImagePath);
-                        
+                                              
+                        image.Save(_cameraStatus.ImagePath);
                      }
                 }
                 else
