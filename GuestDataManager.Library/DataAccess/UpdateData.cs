@@ -49,13 +49,6 @@ namespace GuestDataManager.Library.DataAccess
             sql.SaveData("dbo.spUpdateVisitorStatusVisitorInformation", parameters, "GuestData");
         }
 
-        public void RecoverVisitorCardStatus(string CardNumber)
-        {
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@CardNumber", CardNumber);
-            sql.SaveData("dbo.spRecoverVisitorCardStatus", parameters, "GuestData");
-        }
-
         public void UpdateVisitorCardStatus(string CardNumber)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();

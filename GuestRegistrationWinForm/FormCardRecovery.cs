@@ -151,25 +151,12 @@ namespace GuestRegistrationWinForm
         {
             try
             {
-                if (rbVisitorCard.Checked)
 
-                {
-                    _visitorDataSheet.CardNumber = lblCradRecovNum.Text;
-                    UpdateData updateData = new UpdateData();
-                    updateData.RecoverVisitorCardStatus(_visitorDataSheet.CardNumber);
-                    updateData.UpdateVisitorStatus(_visitorDataSheet.CardNumber);
-                    MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                else
-                {
-                    _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
-                    UpdateData updateData = new UpdateData();
-                    updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
-                    updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
-                    MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-               
+                _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
+                UpdateData updateData = new UpdateData();
+                updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
+                updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
+                MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //_formScan.txtname.Clear();
             }
             catch (Exception ex)
@@ -183,7 +170,6 @@ namespace GuestRegistrationWinForm
         private void FormCardRecovery_Load(object sender, EventArgs e)
         {
            //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;
-
         }
 
        private void CmbCardNum_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,23 +191,8 @@ namespace GuestRegistrationWinForm
         }
         public void LoadComboBoxData()
         {
-            //cmbCardNum.DataSource = null;
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            // List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
-            List<string> CardNo;
-            
-            // Check if rbVisitorCard is checked to decide which method to call
-           /* if (rbVisitorCard.Checked)
-            {
-                // If rbVisitorCard is checked, retrieve visitor card numbers
-                CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
-                cmbCardNum.DataSource = CardNo;
-            }
-            else
-            {*/
-                // If rbVisitorCard is not checked, retrieve regular card numbers
-             CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
-            
+            List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
             cmbCardNum.DataSource = CardNo;
 
         }
@@ -249,21 +220,6 @@ namespace GuestRegistrationWinForm
                     MessageBox.Show($"No Previous Visit Information!!",title,MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void rbVisitorCard_CheckedChanged(object sender, EventArgs e)
-        {
-            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            List<string> CardNo;
-            CardNo = retriveDBinfo.GetCardsVisitor().Select(x => x.CardNumber).ToList();
-            cmbCardNum.DataSource = CardNo;
-            // panelCardRecovDemo.Visible = false;
-            lblCradRecovNum.Text = this.cmbCardNum.SelectedItem.ToString();
-            lblCardRecovType.Visible = false;
-            lblCardRecovName.Visible = false;
-            panel1.Visible = false;
-            pbCardRecov.Visible = false;
-
         }
     }
 }

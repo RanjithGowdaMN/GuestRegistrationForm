@@ -168,12 +168,6 @@ namespace GuestDataManager.Library.DataAccess
             return sql.LoadData<CardId, dynamic>("dbo.spGetAllocatedCard", p, "GuestData");
         }
 
-        public List<VistorCard>GetCardsVisitor()
-        {
-            var p = new { };
-
-            return sql.LoadData<VistorCard, dynamic>("dbo.spGetAllocatedVisitorCard", p, "GuestData");
-        }
         public VisitorInformation GetVisitorbyCard (string Id)
         {
             SqlDataAccess sql = new SqlDataAccess();
