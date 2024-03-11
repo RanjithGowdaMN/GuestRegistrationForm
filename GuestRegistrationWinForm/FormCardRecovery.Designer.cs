@@ -40,6 +40,9 @@ namespace GuestRegistrationWinForm
             this.lblCradRecovNum = new System.Windows.Forms.Label();
             this.lblCardRecovType = new System.Windows.Forms.Label();
             this.pbCardRecov = new System.Windows.Forms.PictureBox();
+            this.rbContractor = new System.Windows.Forms.RadioButton();
+            this.rbVisitor = new System.Windows.Forms.RadioButton();
+            this.lblSelect = new System.Windows.Forms.Label();
             this.panelCardRecovery.SuspendLayout();
             this.panelCardRecovDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCardRecov)).BeginInit();
@@ -48,6 +51,9 @@ namespace GuestRegistrationWinForm
             // panelCardRecovery
             // 
             this.panelCardRecovery.BackColor = System.Drawing.Color.White;
+            this.panelCardRecovery.Controls.Add(this.lblSelect);
+            this.panelCardRecovery.Controls.Add(this.rbVisitor);
+            this.panelCardRecovery.Controls.Add(this.rbContractor);
             this.panelCardRecovery.Controls.Add(this.lblCardNum);
             this.panelCardRecovery.Controls.Add(this.cmbCardNum);
             this.panelCardRecovery.Controls.Add(this.btnCardRecov);
@@ -168,6 +174,43 @@ namespace GuestRegistrationWinForm
             this.pbCardRecov.TabIndex = 0;
             this.pbCardRecov.TabStop = false;
             // 
+            // rbContractor
+            // 
+            this.rbContractor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbContractor.AutoSize = true;
+            this.rbContractor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbContractor.Location = new System.Drawing.Point(265, 171);
+            this.rbContractor.Name = "rbContractor";
+            this.rbContractor.Size = new System.Drawing.Size(173, 27);
+            this.rbContractor.TabIndex = 7;
+            this.rbContractor.TabStop = true;
+            this.rbContractor.Text = "CONTRACTOR";
+            this.rbContractor.UseVisualStyleBackColor = true;
+            // 
+            // rbVisitor
+            // 
+            this.rbVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbVisitor.AutoSize = true;
+            this.rbVisitor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbVisitor.Location = new System.Drawing.Point(478, 171);
+            this.rbVisitor.Name = "rbVisitor";
+            this.rbVisitor.Size = new System.Drawing.Size(113, 27);
+            this.rbVisitor.TabIndex = 8;
+            this.rbVisitor.TabStop = true;
+            this.rbVisitor.Text = "VISITOR";
+            this.rbVisitor.UseVisualStyleBackColor = true;
+            // 
+            // lblSelect
+            // 
+            this.lblSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSelect.AutoSize = true;
+            this.lblSelect.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelect.Location = new System.Drawing.Point(88, 171);
+            this.lblSelect.Name = "lblSelect";
+            this.lblSelect.Size = new System.Drawing.Size(87, 23);
+            this.lblSelect.TabIndex = 9;
+            this.lblSelect.Text = "SELECT";
+            // 
             // FormCardRecovery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,5 +242,8 @@ namespace GuestRegistrationWinForm
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCardNum;
         private System.Windows.Forms.ComboBox cmbCardNum;
+        private System.Windows.Forms.Label lblSelect;
+        private System.Windows.Forms.RadioButton rbVisitor;
+        private System.Windows.Forms.RadioButton rbContractor;
     }
 }

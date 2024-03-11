@@ -57,11 +57,30 @@ namespace GuestRegistrationWinForm
             //  LoadComboBoxData();
 
             Initialize();
+            this.rbContractor.CheckedChanged += RbContractor_CheckedChanged;
+            this.rbVisitor.CheckedChanged += RbVisitor_CheckedChanged; 
+
+        }
+
+        private void RbContractor_CheckedChanged(object sender, EventArgs e)
+        {
+            //  throw new NotImplementedException();
+            LoadComboBoxData();
+        }
+
+        private void RbVisitor_CheckedChanged(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+            panelCardRecovDemo.Visible = false;
+            LoadComboBoxData1();
         }
 
         public void Initialize()
         {
-            LoadComboBoxData();
+           // rbContractor.Checked = true;
+
+            //  LoadComboBoxData();
+           
         }
       /*  private void btnCardRecovSearch_Click(object sender, EventArgs e)
         {
@@ -76,6 +95,8 @@ namespace GuestRegistrationWinForm
                 MessageBox.Show($"No Previous Visit Information!!");
             }
         }*/
+    
+
         public void ReloadDataToUi(VisitorInformation visitor)
         {
             if (!string.IsNullOrEmpty(visitor.IdNumber))
@@ -151,12 +172,25 @@ namespace GuestRegistrationWinForm
         {
             try
             {
+                if (rbContractor.Checked)
+                {
+                    _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
+                    UpdateData updateData = new UpdateData();
+                    updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
+                    updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
+                    MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if(rbVisitor.Checked)
+                {
+                    
+                    _visitorDataSheet.CardNumber = lblCradRecovNum.Text;
+                    UpdateData updateData = new UpdateData();
+                    updateData.RecoverVisitorCard(_visitorDataSheet.CardNumber);
+                    updateData.UpdateVisitorStatusVisitorInformation(_visitorDataSheet.CardNumber);
+                    MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                _consultantApplicationForm.CardNumber = lblCradRecovNum.Text;
-                UpdateData updateData = new UpdateData();
-                updateData.RecoverCardStatus(_consultantApplicationForm.CardNumber);
-                updateData.UpdateContractorStatus(_consultantApplicationForm.CardNumber);
-                MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
                 //_formScan.txtname.Clear();
                // Initialize();
             }
@@ -192,11 +226,21 @@ namespace GuestRegistrationWinForm
         }
         public void LoadComboBoxData()
         {
-            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
-            List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
-            cmbCardNum.DataSource = CardNo;
-
+          
+          
+                RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+                List<string> CardNo = retriveDBinfo.GetCards().Select(x => x.CardNumber).ToList();
+                cmbCardNum.DataSource = CardNo;
+         
         }
+
+        public void LoadComboBoxData1()
+        {
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            List<string> CardNo = retriveDBinfo.GetAllocatedVisitorCard().Select(x => x.CardNumber).ToList();
+            cmbCardNum.DataSource = CardNo;
+        }
+
 
         private void Card_Load(object sender, EventArgs e)
         {

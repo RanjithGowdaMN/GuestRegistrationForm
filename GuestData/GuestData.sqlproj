@@ -107,6 +107,9 @@
     <Build Include="dbo\Tables\VisitorCard.sql" />
     <Build Include="Stored Procedures\spGetVisitorCard.sql" />
     <Build Include="Stored Procedures\spUpdateVisitorCardStatus.sql" />
+    <Build Include="Stored Procedures\spGetAllocatedVisitorCard.sql" />
+    <Build Include="Stored Procedures\spRecoverVisitorCard.sql" />
+    <Build Include="Stored Procedures\spUpdateVisitorStatusVisitorInformation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="GuestData.refactorlog" />
