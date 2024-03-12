@@ -31,6 +31,9 @@ namespace GuestRegistrationWinForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCardRecovery));
             this.panelCardRecovery = new System.Windows.Forms.Panel();
+            this.lblSelect = new System.Windows.Forms.Label();
+            this.rbVisitor = new System.Windows.Forms.RadioButton();
+            this.rbContractor = new System.Windows.Forms.RadioButton();
             this.lblCardNum = new System.Windows.Forms.Label();
             this.cmbCardNum = new System.Windows.Forms.ComboBox();
             this.btnCardRecov = new System.Windows.Forms.Button();
@@ -40,9 +43,6 @@ namespace GuestRegistrationWinForm
             this.lblCradRecovNum = new System.Windows.Forms.Label();
             this.lblCardRecovType = new System.Windows.Forms.Label();
             this.pbCardRecov = new System.Windows.Forms.PictureBox();
-            this.rbContractor = new System.Windows.Forms.RadioButton();
-            this.rbVisitor = new System.Windows.Forms.RadioButton();
-            this.lblSelect = new System.Windows.Forms.Label();
             this.panelCardRecovery.SuspendLayout();
             this.panelCardRecovDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCardRecov)).BeginInit();
@@ -63,6 +63,43 @@ namespace GuestRegistrationWinForm
             this.panelCardRecovery.Name = "panelCardRecovery";
             this.panelCardRecovery.Size = new System.Drawing.Size(1676, 730);
             this.panelCardRecovery.TabIndex = 0;
+            // 
+            // lblSelect
+            // 
+            this.lblSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSelect.AutoSize = true;
+            this.lblSelect.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelect.Location = new System.Drawing.Point(12, 171);
+            this.lblSelect.Name = "lblSelect";
+            this.lblSelect.Size = new System.Drawing.Size(87, 23);
+            this.lblSelect.TabIndex = 9;
+            this.lblSelect.Text = "SELECT";
+            // 
+            // rbVisitor
+            // 
+            this.rbVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbVisitor.AutoSize = true;
+            this.rbVisitor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbVisitor.Location = new System.Drawing.Point(478, 171);
+            this.rbVisitor.Name = "rbVisitor";
+            this.rbVisitor.Size = new System.Drawing.Size(113, 27);
+            this.rbVisitor.TabIndex = 8;
+            this.rbVisitor.TabStop = true;
+            this.rbVisitor.Text = "VISITOR";
+            this.rbVisitor.UseVisualStyleBackColor = true;
+            // 
+            // rbContractor
+            // 
+            this.rbContractor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbContractor.AutoSize = true;
+            this.rbContractor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbContractor.Location = new System.Drawing.Point(265, 171);
+            this.rbContractor.Name = "rbContractor";
+            this.rbContractor.Size = new System.Drawing.Size(173, 27);
+            this.rbContractor.TabIndex = 7;
+            this.rbContractor.TabStop = true;
+            this.rbContractor.Text = "CONTRACTOR";
+            this.rbContractor.UseVisualStyleBackColor = true;
             // 
             // lblCardNum
             // 
@@ -115,7 +152,7 @@ namespace GuestRegistrationWinForm
             this.panelCardRecovDemo.Controls.Add(this.lblCradRecovNum);
             this.panelCardRecovDemo.Controls.Add(this.lblCardRecovType);
             this.panelCardRecovDemo.Controls.Add(this.pbCardRecov);
-            this.panelCardRecovDemo.Location = new System.Drawing.Point(799, 167);
+            this.panelCardRecovDemo.Location = new System.Drawing.Point(900, 100);
             this.panelCardRecovDemo.Name = "panelCardRecovDemo";
             this.panelCardRecovDemo.Size = new System.Drawing.Size(771, 374);
             this.panelCardRecovDemo.TabIndex = 3;
@@ -173,43 +210,6 @@ namespace GuestRegistrationWinForm
             this.pbCardRecov.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbCardRecov.TabIndex = 0;
             this.pbCardRecov.TabStop = false;
-            // 
-            // rbContractor
-            // 
-            this.rbContractor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbContractor.AutoSize = true;
-            this.rbContractor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbContractor.Location = new System.Drawing.Point(265, 171);
-            this.rbContractor.Name = "rbContractor";
-            this.rbContractor.Size = new System.Drawing.Size(173, 27);
-            this.rbContractor.TabIndex = 7;
-            this.rbContractor.TabStop = true;
-            this.rbContractor.Text = "CONTRACTOR";
-            this.rbContractor.UseVisualStyleBackColor = true;
-            // 
-            // rbVisitor
-            // 
-            this.rbVisitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbVisitor.AutoSize = true;
-            this.rbVisitor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbVisitor.Location = new System.Drawing.Point(478, 171);
-            this.rbVisitor.Name = "rbVisitor";
-            this.rbVisitor.Size = new System.Drawing.Size(113, 27);
-            this.rbVisitor.TabIndex = 8;
-            this.rbVisitor.TabStop = true;
-            this.rbVisitor.Text = "VISITOR";
-            this.rbVisitor.UseVisualStyleBackColor = true;
-            // 
-            // lblSelect
-            // 
-            this.lblSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSelect.AutoSize = true;
-            this.lblSelect.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelect.Location = new System.Drawing.Point(88, 171);
-            this.lblSelect.Name = "lblSelect";
-            this.lblSelect.Size = new System.Drawing.Size(87, 23);
-            this.lblSelect.TabIndex = 9;
-            this.lblSelect.Text = "SELECT";
             // 
             // FormCardRecovery
             // 

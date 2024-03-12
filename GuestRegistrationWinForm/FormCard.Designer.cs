@@ -70,7 +70,7 @@ namespace gui
             this.cmbCardSelectPrinter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCardSelectPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCardSelectPrinter.FormattingEnabled = true;
-            this.cmbCardSelectPrinter.Location = new System.Drawing.Point(244, 320);
+            this.cmbCardSelectPrinter.Location = new System.Drawing.Point(244, 300);
             this.cmbCardSelectPrinter.Name = "cmbCardSelectPrinter";
             this.cmbCardSelectPrinter.Size = new System.Drawing.Size(316, 33);
             this.cmbCardSelectPrinter.TabIndex = 6;
@@ -80,7 +80,7 @@ namespace gui
             this.lblCardPrinter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardPrinter.AutoSize = true;
             this.lblCardPrinter.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardPrinter.Location = new System.Drawing.Point(50, 320);
+            this.lblCardPrinter.Location = new System.Drawing.Point(30, 300);
             this.lblCardPrinter.Name = "lblCardPrinter";
             this.lblCardPrinter.Size = new System.Drawing.Size(179, 23);
             this.lblCardPrinter.TabIndex = 5;
@@ -97,7 +97,7 @@ namespace gui
             this.btnCardPrint.ForeColor = System.Drawing.Color.White;
             this.btnCardPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnCardPrint.Image")));
             this.btnCardPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCardPrint.Location = new System.Drawing.Point(275, 472);
+            this.btnCardPrint.Location = new System.Drawing.Point(275, 470);
             this.btnCardPrint.Name = "btnCardPrint";
             this.btnCardPrint.Size = new System.Drawing.Size(195, 46);
             this.btnCardPrint.TabIndex = 4;
@@ -114,7 +114,7 @@ namespace gui
             this.btnCardSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCardSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCardSearch.ForeColor = System.Drawing.Color.White;
-            this.btnCardSearch.Location = new System.Drawing.Point(600, 213);
+            this.btnCardSearch.Location = new System.Drawing.Point(600, 180);
             this.btnCardSearch.Name = "btnCardSearch";
             this.btnCardSearch.Size = new System.Drawing.Size(36, 39);
             this.btnCardSearch.TabIndex = 3;
@@ -126,7 +126,7 @@ namespace gui
             this.lblCardIdno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCardIdno.AutoSize = true;
             this.lblCardIdno.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardIdno.Location = new System.Drawing.Point(50, 220);
+            this.lblCardIdno.Location = new System.Drawing.Point(30, 180);
             this.lblCardIdno.Name = "lblCardIdno";
             this.lblCardIdno.Size = new System.Drawing.Size(60, 23);
             this.lblCardIdno.TabIndex = 2;
@@ -141,7 +141,7 @@ namespace gui
             this.panelCardDemo.Controls.Add(this.lblCardName);
             this.panelCardDemo.Controls.Add(this.lblCardType);
             this.panelCardDemo.Controls.Add(this.pbCardDemo);
-            this.panelCardDemo.Location = new System.Drawing.Point(706, 162);
+            this.panelCardDemo.Location = new System.Drawing.Point(900, 100);
             this.panelCardDemo.Name = "panelCardDemo";
             this.panelCardDemo.Size = new System.Drawing.Size(733, 397);
             this.panelCardDemo.TabIndex = 1;
@@ -205,7 +205,7 @@ namespace gui
             // 
             this.txtCardId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCardId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardId.Location = new System.Drawing.Point(244, 220);
+            this.txtCardId.Location = new System.Drawing.Point(244, 180);
             this.txtCardId.Name = "txtCardId";
             this.txtCardId.Size = new System.Drawing.Size(316, 30);
             this.txtCardId.TabIndex = 0;
