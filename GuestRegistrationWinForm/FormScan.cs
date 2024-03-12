@@ -401,12 +401,17 @@ namespace gui
                     using (var ms = new MemoryStream(IdData.Portrait))
                     {
                         var image = Image.FromStream(ms);
-
                         // PictureBox
                         pbphoto.Image = image;
-                                              
-                    //    image.Save(_cameraStatus.ImagePath);
-                     }
+
+                        //sets parameter to sya photo source is from DB
+                        _scannedData.isDataFromDb[3] = true;
+                        // File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(image.ToString()));
+                        
+                        File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
+                          _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+                    }
+
                 }
                 else
                 {
@@ -418,7 +423,7 @@ namespace gui
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("Error");
             }
 
 
