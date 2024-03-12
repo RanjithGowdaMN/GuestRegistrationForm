@@ -239,7 +239,7 @@ namespace gui
             this.btnReadFromChip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReadFromChip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReadFromChip.ForeColor = System.Drawing.Color.White;
-            this.btnReadFromChip.Location = new System.Drawing.Point(655, 520);
+            this.btnReadFromChip.Location = new System.Drawing.Point(552, 520);
             this.btnReadFromChip.Name = "btnReadFromChip";
             this.btnReadFromChip.Size = new System.Drawing.Size(208, 50);
             this.btnReadFromChip.TabIndex = 16;
@@ -317,7 +317,7 @@ namespace gui
             this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.Color.White;
             this.btnback.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnback.Location = new System.Drawing.Point(400, 520);
+            this.btnback.Location = new System.Drawing.Point(291, 520);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(210, 50);
@@ -336,7 +336,7 @@ namespace gui
             this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfront.ForeColor = System.Drawing.Color.White;
             this.btnfront.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnfront.Location = new System.Drawing.Point(120, 520);
+            this.btnfront.Location = new System.Drawing.Point(32, 520);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(210, 50);
