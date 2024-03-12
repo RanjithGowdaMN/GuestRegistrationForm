@@ -42,6 +42,22 @@ namespace GuestDataManager.Library.DataAccess
 
         }
 
+
+        public List<VisitorInformation> GetVisitorHistoryByAll(string Type)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
+
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spVisitorHistoryByAll", parameters, "GuestData");
+
+        }
+
+
+
+
         public List<VisitorInformation>GetCurrentContractor(string Type)
         {
             SqlDataAccess sql = new SqlDataAccess();

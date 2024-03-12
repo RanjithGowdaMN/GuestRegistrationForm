@@ -52,6 +52,7 @@ namespace GuestRegistrationWinForm
             List<VisitorInformation> visitors = null;
             try
              {
+                string Type = "Visitor";
               /*  if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
                 {
                     visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
@@ -79,6 +80,11 @@ namespace GuestRegistrationWinForm
 
                     // visitors = retriveDBinfo.GetHistoryByDate(date1);
                 }
+                else if(rbAll.Checked)
+                {
+                    visitors = retriveDBinfo.GetVisitorHistoryByAll(Type);
+                }
+
                 dgvHistory.AutoGenerateColumns = false;
 
                 // Clear existing columns
