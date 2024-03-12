@@ -62,7 +62,7 @@ namespace GuestRegistrationWinForm
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(793, 32);
+            this.label1.Location = new System.Drawing.Point(771, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 23);
             this.label1.TabIndex = 7;
@@ -72,7 +72,7 @@ namespace GuestRegistrationWinForm
             // 
             this.txtCardNumContractHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCardNumContractHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardNumContractHistory.Location = new System.Drawing.Point(1254, 126);
+            this.txtCardNumContractHistory.Location = new System.Drawing.Point(1204, 126);
             this.txtCardNumContractHistory.Name = "txtCardNumContractHistory";
             this.txtCardNumContractHistory.Size = new System.Drawing.Size(201, 30);
             this.txtCardNumContractHistory.TabIndex = 6;
@@ -111,7 +111,7 @@ namespace GuestRegistrationWinForm
             this.rbCardNumConHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbCardNumConHistory.AutoSize = true;
             this.rbCardNumConHistory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCardNumConHistory.Location = new System.Drawing.Point(1034, 126);
+            this.rbCardNumConHistory.Location = new System.Drawing.Point(1004, 126);
             this.rbCardNumConHistory.Name = "rbCardNumConHistory";
             this.rbCardNumConHistory.Size = new System.Drawing.Size(178, 27);
             this.rbCardNumConHistory.TabIndex = 3;
@@ -124,7 +124,7 @@ namespace GuestRegistrationWinForm
             this.rbCurrentContractor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbCurrentContractor.AutoSize = true;
             this.rbCurrentContractor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCurrentContractor.Location = new System.Drawing.Point(694, 126);
+            this.rbCurrentContractor.Location = new System.Drawing.Point(608, 126);
             this.rbCurrentContractor.Name = "rbCurrentContractor";
             this.rbCurrentContractor.Size = new System.Drawing.Size(285, 27);
             this.rbCurrentContractor.TabIndex = 1;
@@ -137,7 +137,7 @@ namespace GuestRegistrationWinForm
             this.rbAllConHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbAllConHistory.AutoSize = true;
             this.rbAllConHistory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAllConHistory.Location = new System.Drawing.Point(534, 126);
+            this.rbAllConHistory.Location = new System.Drawing.Point(434, 126);
             this.rbAllConHistory.Name = "rbAllConHistory";
             this.rbAllConHistory.Size = new System.Drawing.Size(71, 27);
             this.rbAllConHistory.TabIndex = 0;
