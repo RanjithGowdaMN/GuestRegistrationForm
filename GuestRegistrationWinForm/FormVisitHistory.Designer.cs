@@ -127,7 +127,7 @@ namespace GuestRegistrationWinForm
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(1320, 396);
+            this.dgvHistory.Size = new System.Drawing.Size(1320, 316);
             this.dgvHistory.TabIndex = 3;
             // 
             // btnVisitHistorySearch
