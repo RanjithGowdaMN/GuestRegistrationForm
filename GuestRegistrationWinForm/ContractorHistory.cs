@@ -87,12 +87,19 @@ namespace GuestRegistrationWinForm
                 cardCol.Width = 200;
                 dgvContractorHistory.Columns.Add(cardCol);
 
+                DataGridViewTextBoxColumn joindate = new DataGridViewTextBoxColumn();
+                joindate.HeaderText = "Join Date";
+                joindate.DataPropertyName = "DurationStart";
+                joindate.Width = 200;
+                dgvContractorHistory.Columns.Add(joindate);
+
                 DataGridViewTextBoxColumn DurationCol = new DataGridViewTextBoxColumn();
                 DurationCol.HeaderText = "Duration End Date";
                 DurationCol.DataPropertyName = "DurationEnd";
                 DurationCol.Width = 200;
                 dgvContractorHistory.Columns.Add(DurationCol);
 
+                
               
 
                 // Set DataSource

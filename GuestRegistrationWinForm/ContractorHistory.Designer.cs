@@ -99,11 +99,11 @@ namespace GuestRegistrationWinForm
             this.dgvContractorHistory.BackgroundColor = System.Drawing.Color.White;
             this.dgvContractorHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvContractorHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContractorHistory.Location = new System.Drawing.Point(347, 360);
+            this.dgvContractorHistory.Location = new System.Drawing.Point(272, 360);
             this.dgvContractorHistory.Name = "dgvContractorHistory";
             this.dgvContractorHistory.RowHeadersWidth = 51;
             this.dgvContractorHistory.RowTemplate.Height = 24;
-            this.dgvContractorHistory.Size = new System.Drawing.Size(1140, 256);
+            this.dgvContractorHistory.Size = new System.Drawing.Size(1294, 280);
             this.dgvContractorHistory.TabIndex = 4;
             // 
             // rbCardNumConHistory

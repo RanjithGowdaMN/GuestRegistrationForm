@@ -3,6 +3,6 @@
 AS
 BEGIN
 
-SELECT  [Name],[CompanyName],[CardNumber],[DurationEnd] FROM VisitorInformation  where  RFU10= @RFU10 and [Status]='A5'
+SELECT  [Name],[CompanyName],[CardNumber],[DurationStart], [DurationEnd] FROM VisitorInformation  where  RFU10= @RFU10 and [Status]='A5'
 
 END

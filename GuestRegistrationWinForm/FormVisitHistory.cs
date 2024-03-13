@@ -94,7 +94,7 @@ namespace GuestRegistrationWinForm
                 DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
                 nameColumn.HeaderText = "Name"; // Set the column header text
                 nameColumn.DataPropertyName = "Name"; // Set the data property name
-                nameColumn.Width = 200;
+                nameColumn.Width = 300;
                 dgvHistory.Columns.Add(nameColumn);
 
                 DataGridViewTextBoxColumn companyCol = new DataGridViewTextBoxColumn();

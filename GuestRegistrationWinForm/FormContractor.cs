@@ -34,6 +34,7 @@ namespace gui
         //private IAPIconnector _apiHelper;
         private FormScan _formScan;
         string ContractorStatus = "A5";
+        //public string DurationStart = DateTime.Now.ToString("dd/MM/yyyy");
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
@@ -91,7 +92,7 @@ namespace gui
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
-
+            //DurationStart = _consultantApplicationForm.DurationStart;
             LoadComboxBoxData();
         }
 
@@ -451,6 +452,7 @@ namespace gui
                         //Insert record to DB
                         try
                         {
+                            _consultantApplicationForm.DurationStart = DateTime.Now.ToString("dd/MM/yyyy");
                             _consultantApplicationForm.Status = ContractorStatus;
                             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;

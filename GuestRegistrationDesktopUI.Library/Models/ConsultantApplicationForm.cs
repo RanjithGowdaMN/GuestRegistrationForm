@@ -42,6 +42,8 @@ namespace GuestRegistrationDesktopUI.Library.Models
 
         public string Status { get; set; }
 
+        public string DurationStart { get; set; }
+
         private static ConsultantApplicationForm instance;
         private static readonly object lockObject = new object();
         private ConsultantApplicationForm()

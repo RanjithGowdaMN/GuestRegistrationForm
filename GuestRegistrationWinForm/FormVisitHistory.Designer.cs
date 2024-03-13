@@ -30,6 +30,7 @@ namespace GuestRegistrationWinForm
         private void InitializeComponent()
         {
             this.panelVisitHistory = new System.Windows.Forms.Panel();
+            this.rbAll = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.rbVisitHistoryDate = new System.Windows.Forms.RadioButton();
             this.dtVisitHistoryDate = new System.Windows.Forms.DateTimePicker();
@@ -38,7 +39,6 @@ namespace GuestRegistrationWinForm
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.btnVisitHistorySearch = new System.Windows.Forms.Button();
             this.txtVisitHistoryIdNo = new System.Windows.Forms.TextBox();
-            this.rbAll = new System.Windows.Forms.RadioButton();
             this.panelVisitHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,18 @@ namespace GuestRegistrationWinForm
             this.panelVisitHistory.Name = "panelVisitHistory";
             this.panelVisitHistory.Size = new System.Drawing.Size(1810, 823);
             this.panelVisitHistory.TabIndex = 0;
+            // 
+            // rbAll
+            // 
+            this.rbAll.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbAll.AutoSize = true;
+            this.rbAll.Location = new System.Drawing.Point(559, 80);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(71, 27);
+            this.rbAll.TabIndex = 11;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "ALL";
+            this.rbAll.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -127,7 +139,7 @@ namespace GuestRegistrationWinForm
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(1320, 316);
+            this.dgvHistory.Size = new System.Drawing.Size(1294, 280);
             this.dgvHistory.TabIndex = 3;
             // 
             // btnVisitHistorySearch
@@ -153,18 +165,6 @@ namespace GuestRegistrationWinForm
             this.txtVisitHistoryIdNo.Name = "txtVisitHistoryIdNo";
             this.txtVisitHistoryIdNo.Size = new System.Drawing.Size(275, 30);
             this.txtVisitHistoryIdNo.TabIndex = 0;
-            // 
-            // rbAll
-            // 
-            this.rbAll.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(559, 80);
-            this.rbAll.Name = "rbAll";
-            this.rbAll.Size = new System.Drawing.Size(71, 27);
-            this.rbAll.TabIndex = 11;
-            this.rbAll.TabStop = true;
-            this.rbAll.Text = "ALL";
-            this.rbAll.UseVisualStyleBackColor = true;
             // 
             // FormVisitHistory
             // 
