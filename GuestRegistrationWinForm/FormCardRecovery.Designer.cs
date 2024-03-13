@@ -118,7 +118,7 @@ namespace GuestRegistrationWinForm
             this.cmbCardNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCardNum.FormattingEnabled = true;
-            this.cmbCardNum.Location = new System.Drawing.Point(278, 266);
+            this.cmbCardNum.Location = new System.Drawing.Point(265, 266);
             this.cmbCardNum.Name = "cmbCardNum";
             this.cmbCardNum.Size = new System.Drawing.Size(364, 33);
             this.cmbCardNum.TabIndex = 5;
