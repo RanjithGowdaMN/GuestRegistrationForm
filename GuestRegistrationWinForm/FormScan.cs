@@ -35,6 +35,7 @@ namespace gui
         private VisitorDataSheet _visitorDataSheet;
         public event PropertyChangedEventHandler PropertyChanged;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        FormProgressBar loadingForm = new FormProgressBar();
 
         //private IAPIconnector _apiHelper;
         public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
@@ -333,9 +334,7 @@ namespace gui
                 File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(visitor.Photo));
               //  _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
                 //UpdatePhotoImage(gCONSTANTS.TEMPPHOTOFILEPATH);
-            }
-
-            
+            }    
 
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
@@ -380,53 +379,98 @@ namespace gui
         }
         //from chip card
         private void btnReadFromChip_Click(object sender, EventArgs e)
-        {
-            try
+        {           
+            DisableMainFormControls();
+            loadingForm = new FormProgressBar();
+            loadingForm.Show();
+            if (!backgroundWorker1.IsBusy)
             {
-
-                ReadQid readQID = new ReadQid();
-                QID IdData = new QID();
-                readQID.ConnectReader();
-                IdData = readQID.ReadQIDData();
-                readQID.Disconnect();
+                // Start the BackgroundWorker
+                backgroundWorker1.RunWorkerAsync();
+            }          
+         }
+        private void DisableMainFormControls()
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = false;
+            }
+        }
+        private void EnableMainFormControls()
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = true;
+            }
+        }
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {         
+            if (e.Error != null)
+            {
+                MessageBox.Show("Error: " + e.Error.Message);
+            }
+            else if (!e.Cancelled)
+            {
+                // Update the UI with the data read from the chip
+                QID IdData = (QID)e.Result; // Retrieve the result
 
                 txtname.Text = IdData.Name_En;
                 txtid.Text = IdData.QID_En;
                 txtdob.Text = IdData.DateOfBirth;
                 txtexpiry.Text = IdData.DateOfExpiry;
                 txtnationality.Text = IdData.Nationality_En;
-             
+
                 if (IdData.Portrait != null)
                 {
                     using (var ms = new MemoryStream(IdData.Portrait))
                     {
-                        var image = Image.FromStream(ms);
-                        // PictureBox
-                        pbphoto.Image = image;
-
-                        //sets parameter to sya photo source is from DB
-                        _scannedData.isDataFromDb[3] = true;
-                        // File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(image.ToString()));
-                        
-                        File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
-                          _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+                        pbphoto.Image = Image.FromStream(ms);
                     }
-
+                    File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
                 }
                 else
                 {
-                    // Optionally set to null or a default image if Portrait is null
-                    pbphoto.Image = null;
+                    pbphoto.Image = null; // Or set to a default image
                 }
-
             }
-            catch (Exception ex)
+        
+            // Enable controls on the main form
+            EnableMainFormControls();
+
+            if (loadingForm != null && !loadingForm.IsDisposed)
             {
-
-                MessageBox.Show("Error");
+                loadingForm.Close();
+                loadingForm.Dispose();
             }
 
-
+        }
+ 
+           private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+            ReadQid readQID = new ReadQid();
+           
+            try
+            {
+                readQID.ConnectReader();
+                QID IdData = readQID.ReadQIDData(); // Perform the read operation
+                e.Result = IdData; // Store the result for later use in RunWorkerCompleted
+            }
+            finally
+            {
+                readQID.Disconnect();
+            }
+            for (int i = 1; i <= 10; i++)
+            {
+                // Simulate work
+                Thread.Sleep(10);
+                // Report progress to the background worker
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the progress bar in the loading form
+            loadingForm.UpdateProgressBar(e.ProgressPercentage);
         }
     }
 }
