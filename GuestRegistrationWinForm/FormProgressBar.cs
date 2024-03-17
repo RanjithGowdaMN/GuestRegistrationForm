@@ -15,6 +15,8 @@ namespace GuestRegistrationWinForm
         public FormProgressBar()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
         public void UpdateProgressBar(int progress)
         {
