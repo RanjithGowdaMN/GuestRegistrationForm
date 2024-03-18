@@ -36,7 +36,7 @@ namespace gui
         public event PropertyChangedEventHandler PropertyChanged;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         FormProgressBar loadingForm = new FormProgressBar();
-
+        string title = "Visma";
         //private IAPIconnector _apiHelper;
         public FormScan(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet)
@@ -116,14 +116,14 @@ namespace gui
                 }
                 else
                 {
-                    MessageBox.Show("Please select the ID Type");
+                    MessageBox.Show("Please select the ID Type",title,MessageBoxButtons.OK);
                 }
                 this.AutoScaleDimensions = Program.originalSize;
                 this.Size = Program.originalSize;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please check the scanner!");
+                MessageBox.Show("Please check the scanner!",title,MessageBoxButtons.OK);
                 Logger.Error("scan error", ex.Message);
             }
         }
