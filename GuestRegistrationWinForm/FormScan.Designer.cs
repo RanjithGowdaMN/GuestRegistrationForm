@@ -55,6 +55,7 @@ namespace gui
             this.pbfront = new System.Windows.Forms.PictureBox();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.panelScan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             this.panelId.SuspendLayout();
@@ -405,6 +406,13 @@ namespace gui
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
             // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.WorkerReportsProgress = true;
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
+            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            // 
             // FormScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,5 +466,6 @@ namespace gui
         public System.Windows.Forms.PictureBox pbPassportScan;
         public System.Windows.Forms.Panel panelPass;
         private System.Windows.Forms.Button btnReadFromChip;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }

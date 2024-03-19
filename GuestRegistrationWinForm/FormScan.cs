@@ -130,34 +130,117 @@ namespace gui
 
         private void updatePictures(PictureBox pictureBox, string filePath)
         {
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.Image = Image.FromFile(filePath);
+             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+             pictureBox.Image = Image.FromFile(filePath);
+            
         }
         private void btnback_Click(object sender, EventArgs e)
         {
-            try
+          /* try
+             {
+                 if (rbid.Checked)
+                 {
+                     string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
+                     _scannedFileInfo.BackSideFileName = fileName;
+                     updatePictures(pbback, fileName);
+                 }
+                 else if (rbpass.Checked)
+                 {
+                     string fileName = _centralHub.ScanBackSide(2);
+                     _scannedFileInfo.BackSideFileName = fileName;
+                     updatePictures(pbback, fileName);
+                 }
+                 else
+                 {
+                     MessageBox.Show("Please select the ID type");
+                 }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Please check the scanner!");
+                 Logger.Error("scan error", ex.Message);
+             }*/
+          loadingForm = new FormProgressBar();
+            loadingForm.Show();
+            if (!backgroundWorker2.IsBusy)
             {
+                // Start the background operation
                 if (rbid.Checked)
                 {
-                    string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
-                    _scannedFileInfo.BackSideFileName = fileName;
-                    updatePictures(pbback, fileName);
+                    string fileName = _centralHub.ScanBackSide(1);
+                    backgroundWorker2.RunWorkerAsync();
+                }
+                else if(rbpass.Checked)
+                {
+                    string fileName = _centralHub.ScanBackSide(2);
+                    backgroundWorker2.RunWorkerAsync();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Background operation is already running.");
+            }
+        }
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                string fileName;
+                //string fileName = "";
+                if (rbid.Checked)
+                {
+                    //  fileName = _centralHub.ScanBackSide(1);
+                    fileName = _scannedFileInfo.BackSideFileName;
                 }
                 else if (rbpass.Checked)
                 {
-                    string fileName = _centralHub.ScanBackSide(2);
-                    _scannedFileInfo.BackSideFileName = fileName;
-                    updatePictures(pbback, fileName);
+                    // fileName = _centralHub.ScanBackSide(2);
+                     fileName = _scannedFileInfo.BackSideFileName ;
                 }
                 else
                 {
-                    MessageBox.Show("Please select the ID type");
+                    e.Result = "Please select the ID type";
+                    return;
                 }
+              //  _scannedFileInfo.BackSideFileName = fileName;
+                e.Result = fileName;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please check the scanner!");
+                e.Result = "Please check the scanner!";
                 Logger.Error("scan error", ex.Message);
+            }
+           for (int i = 1; i <= 10; i++)
+            {
+                // Simulate work
+                Thread.Sleep(50);
+                // Report progress to the background worker
+                backgroundWorker2.ReportProgress(i);
+            }
+        }
+        private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the progress bar in the loading form
+            loadingForm.UpdateProgressBar(e.ProgressPercentage);
+        }
+        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loadingForm.Close();
+            if (e.Result != null)
+            {
+                if (e.Result is string)
+                {
+                    string result = (string)e.Result;
+
+                    if (result == "Please select the ID type")
+                    {
+                        MessageBox.Show(result);
+                    }
+                    else
+                    {
+                        updatePictures(pbback, result);
+                    }
+                }
             }
         }
         private void btnPhoto_Click(object sender, EventArgs e)
