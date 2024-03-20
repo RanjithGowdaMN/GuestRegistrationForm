@@ -247,50 +247,57 @@ namespace gui
         }
         private void btnback_Click(object sender, EventArgs e)
         {
-            /* try
-               {
-                   if (rbid.Checked)
-                   {
-                       string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
-                       _scannedFileInfo.BackSideFileName = fileName;
-                       updatePictures(pbback, fileName);
-                   }
-                   else if (rbpass.Checked)
-                   {
-                       string fileName = _centralHub.ScanBackSide(2);
-                       _scannedFileInfo.BackSideFileName = fileName;
-                       updatePictures(pbback, fileName);
-                   }
-                   else
-                   {
-                       MessageBox.Show("Please select the ID type");
-                   }
-               }
-               catch (Exception ex)
-               {
-                   MessageBox.Show("Please check the scanner!");
-                   Logger.Error("scan error", ex.Message);
-               }*/
-            DisableMainFormControls();
-            loadingForm = new FormProgressBar();
-            loadingForm.Show();
-            if (!backgroundWorker2.IsBusy)
+            try
             {
-                // Start the background operation
-                if (rbid.Checked)
+                /*     if (rbid.Checked)
+                     {
+                         string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
+                         _scannedFileInfo.BackSideFileName = fileName;
+                         updatePictures(pbback, fileName);
+                     }
+                     else if (rbpass.Checked)
+                     {
+                         string fileName = _centralHub.ScanBackSide(2);
+                         _scannedFileInfo.BackSideFileName = fileName;
+                         updatePictures(pbback, fileName);
+                     }
+                     else
+                     {
+                         MessageBox.Show("Please select the ID type");
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show("Please check the scanner!");
+                     Logger.Error("scan error", ex.Message);
+                 }*/
+                DisableMainFormControls();
+                loadingForm = new FormProgressBar();
+                loadingForm.Show();
+                if (!backgroundWorker2.IsBusy)
                 {
-                    string fileName = _centralHub.ScanBackSide(1);
-                    backgroundWorker2.RunWorkerAsync();
+                    // Start the background operation
+                    if (rbid.Checked)
+                    {
+                        string fileName = _centralHub.ScanBackSide(1);
+                        backgroundWorker2.RunWorkerAsync();
+                    }
+                    else if (rbpass.Checked)
+                    {
+                        string fileName = _centralHub.ScanBackSide(2);
+                        backgroundWorker2.RunWorkerAsync();
+                    }
                 }
-                else if(rbpass.Checked)
+                else
                 {
-                    string fileName = _centralHub.ScanBackSide(2);
-                    backgroundWorker2.RunWorkerAsync();
+                    MessageBox.Show("Background operation is already running.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Background operation is already running.");
+                MessageBox.Show("Please check the scanner!");
+                MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
+                Logger.Error("scan error", ex.Message);
             }
         }
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
@@ -316,13 +323,14 @@ namespace gui
                 }
               //  _scannedFileInfo.BackSideFileName = fileName;
                 e.Result = fileName;
+               
             }
             catch (Exception ex)
             {
                 e.Result = "Please check the scanner!";
                 Logger.Error("scan error", ex.Message);
             }
-           for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 // Simulate work
                 Thread.Sleep(50);
@@ -336,24 +344,33 @@ namespace gui
             loadingForm.UpdateProgressBar(e.ProgressPercentage);
         }
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            //loadingForm.Close();
-            if (e.Result != null)
+        {try
             {
-                if (e.Result is string)
+                //loadingForm.Close();
+                if (e.Result != null)
                 {
-                    string result = (string)e.Result;
+                    if (e.Result is string)
+                    {
+                        string result = (string)e.Result;
 
-                    if (result == "Please select the ID type")
-                    {
-                        MessageBox.Show(result);
-                    }
-                    else
-                    {
-                        updatePictures(pbback, result);
+                        if (result == "Please select the ID type")
+                        {
+                            MessageBox.Show(result);
+                        }
+                        else
+                        {
+                            updatePictures(pbback, result);
+                        }
                     }
                 }
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
+                Logger.Error("scan error", ex.Message);
+            }
+
             // Enable controls on the main form
             EnableMainFormControls();
 
