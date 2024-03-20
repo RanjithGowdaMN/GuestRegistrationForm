@@ -158,7 +158,7 @@ namespace gui
                 for (int i = 1; i <= 10; i++)
                 {
                     // Simulate work
-                    Thread.Sleep(50);
+                    Thread.Sleep(10);
                     // Report progress to the background worker
                     backgroundWorker3.ReportProgress(i);
                 }
@@ -169,7 +169,7 @@ namespace gui
                 for (int i = 1; i <= 10; i++)
                 {
                     // Simulate work
-                    Thread.Sleep(50);
+                    Thread.Sleep(10);
                     // Report progress to the background worker
                     backgroundWorker3.ReportProgress(i);
                 }   //(var result, string fileName) = _centralHub.StartScanning(2);
