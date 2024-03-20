@@ -88,9 +88,103 @@ namespace gui
             try
             {
                 _scannedData.isDataFromDb[0] = false;
+                /*    if (rbid.Checked)
+                    {
+                        //rbpass.Visible = false;
+                        (var result, string fileName) = _centralHub.StartScanning(1);
+                        txtname.Text = result.Name?.ToString();
+                        txtid.Text = result.IDno?.ToString();
+                        txtdob.Text = result.DateOfBirth?.ToString();
+                        txtexpiry.Text = result.Expiry?.ToString();
+                        txtnationality.Text = result.Nationality?.ToString();
+                        _scannedData.IdType = 1;
+                        _scannedFileInfo.FrontSideFileName = fileName;
+                        updatePictures(pbfront, fileName);
+                    }
+                    else if (rbpass.Checked)
+                    {
+
+                        (var result, string fileName) = _centralHub.StartScanning(2);
+                        txtname.Text = result.Name?.ToString();
+                        txtid.Text = result.IDno?.ToString();
+                        txtdob.Text = result.DateOfBirth?.ToString();
+                        txtexpiry.Text = result.Expiry?.ToString();
+                        txtnationality.Text = result.Nationality?.ToString();
+                        _scannedData.IdType = 2;
+                        _scannedFileInfo.FrontSideFileName = fileName;
+                        updatePictures(pbPassportScan, fileName);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select the ID Type",title,MessageBoxButtons.OK);
+                    }
+                    this.AutoScaleDimensions = Program.originalSize;
+                    this.Size = Program.originalSize;*/
+
+
+                DisableMainFormControls();
+                loadingForm = new FormProgressBar();
+                loadingForm.Show();
+                if (!backgroundWorker3.IsBusy)
+                {
+                    // Start the background operation
+                    // if (rbid.Checked)
+                    //{
+                    //  (var result, string fileName) = _centralHub.StartScanning(1);
+                    backgroundWorker3.RunWorkerAsync();
+                    /*}
+                    else if (rbpass.Checked)
+                    {
+                        (var result, string fileName) = _centralHub.StartScanning(2);
+                        backgroundWorker3.RunWorkerAsync();
+                    }*/
+                }
+                else
+                {
+                    MessageBox.Show("Background operation is already running.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
+                Logger.Error("scan error", ex.Message);
+            }
+        }
+        private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (rbid.Checked)
+             {
+                //(var result, string fileName) = _centralHub.StartScanning(1);
+                for (int i = 1; i <= 10; i++)
+                {
+                    // Simulate work
+                    Thread.Sleep(50);
+                    // Report progress to the background worker
+                    backgroundWorker3.ReportProgress(i);
+                }
+              //  backgroundWorker3.RunWorkerAsync();
+             }
+             else if (rbpass.Checked)
+             {
+                for (int i = 1; i <= 10; i++)
+                {
+                    // Simulate work
+                    Thread.Sleep(50);
+                    // Report progress to the background worker
+                    backgroundWorker3.ReportProgress(i);
+                }   //(var result, string fileName) = _centralHub.StartScanning(2);
+                //backgroundWorker3.RunWorkerAsync();
+             }
+          
+        }
+        private void backgroundWorker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
                 if (rbid.Checked)
                 {
                     //rbpass.Visible = false;
+                  
                     (var result, string fileName) = _centralHub.StartScanning(1);
                     txtname.Text = result.Name?.ToString();
                     txtid.Text = result.IDno?.ToString();
@@ -98,12 +192,12 @@ namespace gui
                     txtexpiry.Text = result.Expiry?.ToString();
                     txtnationality.Text = result.Nationality?.ToString();
                     _scannedData.IdType = 1;
-                    _scannedFileInfo.FrontSideFileName = fileName;
+                    fileName = _scannedFileInfo.FrontSideFileName;
                     updatePictures(pbfront, fileName);
                 }
                 else if (rbpass.Checked)
                 {
-                    
+
                     (var result, string fileName) = _centralHub.StartScanning(2);
                     txtname.Text = result.Name?.ToString();
                     txtid.Text = result.IDno?.ToString();
@@ -116,16 +210,33 @@ namespace gui
                 }
                 else
                 {
-                    MessageBox.Show("Please select the ID Type",title,MessageBoxButtons.OK);
+                    MessageBox.Show("Please select the ID Type", title, MessageBoxButtons.OK);
                 }
                 this.AutoScaleDimensions = Program.originalSize;
                 this.Size = Program.originalSize;
             }
+             
+
             catch (Exception ex)
             {
-                MessageBox.Show("Please check the scanner!",title,MessageBoxButtons.OK);
+                MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
                 Logger.Error("scan error", ex.Message);
             }
+
+            EnableMainFormControls();
+            if (loadingForm != null && !loadingForm.IsDisposed)
+            {
+                loadingForm.Close();
+                loadingForm.Dispose();
+            }
+
+
+        }
+
+        private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the progress bar in the loading form
+            loadingForm.UpdateProgressBar(e.ProgressPercentage);
         }
 
         private void updatePictures(PictureBox pictureBox, string filePath)
@@ -136,31 +247,32 @@ namespace gui
         }
         private void btnback_Click(object sender, EventArgs e)
         {
-          /* try
-             {
-                 if (rbid.Checked)
-                 {
-                     string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
-                     _scannedFileInfo.BackSideFileName = fileName;
-                     updatePictures(pbback, fileName);
-                 }
-                 else if (rbpass.Checked)
-                 {
-                     string fileName = _centralHub.ScanBackSide(2);
-                     _scannedFileInfo.BackSideFileName = fileName;
-                     updatePictures(pbback, fileName);
-                 }
-                 else
-                 {
-                     MessageBox.Show("Please select the ID type");
-                 }
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Please check the scanner!");
-                 Logger.Error("scan error", ex.Message);
-             }*/
-          loadingForm = new FormProgressBar();
+            /* try
+               {
+                   if (rbid.Checked)
+                   {
+                       string fileName = _centralHub.ScanBackSide(1); // (var result, string fileName) =
+                       _scannedFileInfo.BackSideFileName = fileName;
+                       updatePictures(pbback, fileName);
+                   }
+                   else if (rbpass.Checked)
+                   {
+                       string fileName = _centralHub.ScanBackSide(2);
+                       _scannedFileInfo.BackSideFileName = fileName;
+                       updatePictures(pbback, fileName);
+                   }
+                   else
+                   {
+                       MessageBox.Show("Please select the ID type");
+                   }
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show("Please check the scanner!");
+                   Logger.Error("scan error", ex.Message);
+               }*/
+            DisableMainFormControls();
+            loadingForm = new FormProgressBar();
             loadingForm.Show();
             if (!backgroundWorker2.IsBusy)
             {
@@ -225,7 +337,7 @@ namespace gui
         }
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            loadingForm.Close();
+            //loadingForm.Close();
             if (e.Result != null)
             {
                 if (e.Result is string)
@@ -242,6 +354,15 @@ namespace gui
                     }
                 }
             }
+            // Enable controls on the main form
+            EnableMainFormControls();
+
+            if (loadingForm != null && !loadingForm.IsDisposed)
+            {
+                loadingForm.Close();
+                loadingForm.Dispose();
+            }
+
         }
         private void btnPhoto_Click(object sender, EventArgs e)
         {
