@@ -33,58 +33,72 @@ namespace GuestRegistrationWinForm
         public ICentralHub _centralHub;
         public string date1;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-       
+        
         public FormVisitHistory()
         {
             InitializeComponent();
         
         }
-     /*   private void dtVisitHistoryDate_ValueChanged(object sender, EventArgs e)
-        {
-            date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
-        }*/
-   
-       
+        /*   private void dtVisitHistoryDate_ValueChanged(object sender, EventArgs e)
+           {
+               date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
+           }*/
+
+
         private void btnVisitHistorySearch_Click(object sender, EventArgs e)
         {
 
-             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
+            RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             List<VisitorInformation> visitors = null;
-            try
-             {
-                string Type = "Visitor";
-              /*  if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
-                {
-                    visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
-                }
-                else if (!string.IsNullOrEmpty(txtVisitHistoryName.Text))
-                {
-                    visitors = retriveDBinfo.GetHistoryByName(txtVisitHistoryName.Text);
-                }*/
+            //try
+            //{
+            string Type = "Visitor";
+                /*  if (!string.IsNullOrEmpty(txtVisitHistoryIdNo.Text))
+                  {
+                      visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
+                  }
+                  else if (!string.IsNullOrEmpty(txtVisitHistoryName.Text))
+                  {
+                      visitors = retriveDBinfo.GetHistoryByName(txtVisitHistoryName.Text);
+                  }*/
 
-                if(rbVisitHistoryId.Checked)
+                if (rbVisitHistoryId.Checked)
                 {
-                 
+
                     visitors = retriveDBinfo.GetHistoryByIdNumber(txtVisitHistoryIdNo.Text);
-                    
+                   loadview();
+
                 }
-                else if(rbVisitHistoryName.Checked)
+                else if (rbVisitHistoryName.Checked)
                 {
-                    visitors= retriveDBinfo.GetHistoryByName(txtVisitHistoryIdNo.Text);
+                    visitors = retriveDBinfo.GetHistoryByName(txtVisitHistoryIdNo.Text);
+                loadview();
                 }
                 else if (rbVisitHistoryDate.Checked)
                 {
-                   // dtVisitHistoryDate.Visible = true;
+                    // dtVisitHistoryDate.Visible = true;
                     date1 = dtVisitHistoryDate.Value.Date.ToString("dd/MM/yyyy");
                     visitors = retriveDBinfo.GetHistoryByDate(date1);
-
+                loadview();
                     // visitors = retriveDBinfo.GetHistoryByDate(date1);
                 }
-                else if(rbAll.Checked)
+                else if (rbAll.Checked)
                 {
                     visitors = retriveDBinfo.GetVisitorHistoryByAll(Type);
+                loadview();
                 }
 
+                else
+            {
+                MessageBox.Show("Please Select Any Option", title, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            //}
+            dgvHistory.DataSource = visitors;
+        }
+        public void loadview()
+        {
+            try
+            {
                 dgvHistory.AutoGenerateColumns = false;
 
                 // Clear existing columns
@@ -122,19 +136,19 @@ namespace GuestRegistrationWinForm
                 dgvHistory.Columns.Add(dateCol);
 
                 // Set DataSource
-                dgvHistory.DataSource = visitors;
 
 
             }
-             catch (Exception ex)
-             {
+
+            catch (Exception ex)
+            {
                 MessageBox.Show($"No Previous Visit Information!!", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-          
+            }
+        } 
 
 
-        }
-
-       
     }
+
+      
+    
 }

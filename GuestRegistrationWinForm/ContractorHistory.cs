@@ -46,26 +46,38 @@ namespace GuestRegistrationWinForm
         {
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             List<VisitorInformation> visitors = null;
+
+            string Type = "contract";
+            if (rbAllConHistory.Checked)
+            {
+                visitors = retriveDBinfo.GetContractorHistoryByAll(Type);
+                loadview();
+            }
+
+            else if (rbCurrentContractor.Checked)
+            {
+                visitors = retriveDBinfo.GetCurrentContractor(Type);
+                loadview();
+            }
+
+            else if (rbCardNumConHistory.Checked)
+            {
+                visitors = retriveDBinfo.GetContractorByCard(txtCardNumContractHistory.Text);
+                loadview();
+            }
+
+            else
+            {
+                MessageBox.Show("Please Select Any Option", title, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
+            // Set DataSource
+            dgvContractorHistory.DataSource = visitors;
+        }
+        public void loadview()
+        {
             try
             {
-                string Type = "contract";
-                if(rbAllConHistory.Checked)
-                {
-                    visitors = retriveDBinfo.GetContractorHistoryByAll(Type);
-                }
-
-                else if(rbCurrentContractor.Checked)
-                {
-                    visitors = retriveDBinfo.GetCurrentContractor(Type);
-                }
-
-                else if(rbCardNumConHistory.Checked)
-                {
-                    visitors = retriveDBinfo.GetContractorByCard(txtCardNumContractHistory.Text);
-                }
-
-                
-
                 dgvContractorHistory.AutoGenerateColumns = false;
                 dgvContractorHistory.Columns.Clear();
                 // Add column for the Name property
@@ -97,16 +109,9 @@ namespace GuestRegistrationWinForm
                 DurationCol.HeaderText = "Duration End Date";
                 DurationCol.DataPropertyName = "DurationEnd";
                 DurationCol.Width = 200;
-                dgvContractorHistory.Columns.Add(DurationCol);
-
-                
-              
-
-                // Set DataSource
-                dgvContractorHistory.DataSource = visitors;
+                dgvContractorHistory.Columns.Add(DurationCol);             
             }
 
-            
             catch (Exception ex)
             {
                 MessageBox.Show($"No Previous Visit Information!!", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
