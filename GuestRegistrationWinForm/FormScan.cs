@@ -81,8 +81,7 @@ namespace gui
             {
                 rbid.Checked = true;
             }
-        }
-        
+        }   
         private void btnScanIdFront_Click(object sender, EventArgs e)
         {
             try
@@ -120,7 +119,6 @@ namespace gui
                     }
                     this.AutoScaleDimensions = Program.originalSize;
                     this.Size = Program.originalSize;*/
-
 
                 DisableMainFormControls();
                 loadingForm = new FormProgressBar();
@@ -175,7 +173,6 @@ namespace gui
                 }   //(var result, string fileName) = _centralHub.StartScanning(2);
                 //backgroundWorker3.RunWorkerAsync();
              }
-          
         }
         private void backgroundWorker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -184,7 +181,7 @@ namespace gui
                 if (rbid.Checked)
                 {
                     //rbpass.Visible = false;
-                  
+
                     (var result, string fileName) = _centralHub.StartScanning(1);
                     txtname.Text = result.Name?.ToString();
                     txtid.Text = result.IDno?.ToString();
@@ -215,35 +212,27 @@ namespace gui
                 this.AutoScaleDimensions = Program.originalSize;
                 this.Size = Program.originalSize;
             }
-             
-
             catch (Exception ex)
             {
                 MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
                 Logger.Error("scan error", ex.Message);
             }
-
-            EnableMainFormControls();
+            EnableMainFormControls();//Enabling the control form
             if (loadingForm != null && !loadingForm.IsDisposed)
             {
                 loadingForm.Close();
                 loadingForm.Dispose();
             }
-
-
         }
-
         private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             // Update the progress bar in the loading form
             loadingForm.UpdateProgressBar(e.ProgressPercentage);
         }
-
         private void updatePictures(PictureBox pictureBox, string filePath)
         {
              pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-             pictureBox.Image = Image.FromFile(filePath);
-            
+             pictureBox.Image = Image.FromFile(filePath);    
         }
         private void btnback_Click(object sender, EventArgs e)
         {
@@ -271,7 +260,7 @@ namespace gui
                      MessageBox.Show("Please check the scanner!");
                      Logger.Error("scan error", ex.Message);
                  }*/
-                DisableMainFormControls();
+                DisableMainFormControls(); //Disabling the form
                 loadingForm = new FormProgressBar();
                 loadingForm.Show();
                 if (!backgroundWorker2.IsBusy)
@@ -322,8 +311,7 @@ namespace gui
                     return;
                 }
               //  _scannedFileInfo.BackSideFileName = fileName;
-                e.Result = fileName;
-               
+                e.Result = fileName;          
             }
             catch (Exception ex)
             {
@@ -364,22 +352,18 @@ namespace gui
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Please check the scanner!", title, MessageBoxButtons.OK);
                 Logger.Error("scan error", ex.Message);
             }
-
             // Enable controls on the main form
             EnableMainFormControls();
-
             if (loadingForm != null && !loadingForm.IsDisposed)
             {
                 loadingForm.Close();
                 loadingForm.Dispose();
             }
-
         }
         private void btnPhoto_Click(object sender, EventArgs e)
         {
@@ -402,13 +386,11 @@ namespace gui
             _cameraStatus.ImagePath = path;
             // Resize the image to fit the PictureBox
             Bitmap resizedImage = new Bitmap(pbphoto.Width, pbphoto.Height);
-
             using (Graphics g = Graphics.FromImage(resizedImage))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                 g.DrawImage(Image.FromFile(path), 0, 0, pbphoto.Width, pbphoto.Height);
             }
-
             // Set the PictureBox properties
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = resizedImage;
@@ -417,13 +399,11 @@ namespace gui
         {
             // Resize the image to fit the PictureBox
             Bitmap resizedImage = new Bitmap(pbphoto.Width, pbphoto.Height);
-
             using (Graphics g = Graphics.FromImage(resizedImage))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                 g.DrawImage(image, 0, 0, pbphoto.Width, pbphoto.Height);
             }
-
             // Set the PictureBox properties
             pbphoto.SizeMode = PictureBoxSizeMode.Zoom;
             pbphoto.Image = resizedImage;
@@ -466,7 +446,6 @@ namespace gui
                 MessageBox.Show($"No Previous Visit Information!!");
             }
              //List<List<string>> CompanyNames = 
-
         }
         public void ReloadDataToUi(VisitorInformation visitor)
         {
@@ -479,7 +458,6 @@ namespace gui
                 txtexpiry.Text = _scannedData.Expiry  = visitor.IdExpiry?.ToString();
                 txtnationality.Text = _scannedData.Nationality  =  visitor.RFU9?.ToString();
                 rbid.Checked = _scannedData.IdType == 1 ? true: rbpass.Checked = true;
-
                 _scannedData.isDataFromDb[0] = true;
                 if (visitor.RFU10 == "contract")
                 {
@@ -508,7 +486,6 @@ namespace gui
                     pbPassportScan.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
                   //  _consultantApplicationForm.CardNumber = 
-
                     UpdateImageDetails(visitor);
                     //Passport IssuedData etc...
                 }
@@ -526,7 +503,6 @@ namespace gui
                     pbback.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdBackSide));
                     pbPassportScan.Image = ConvertBinaryToImage(Convert.FromBase64String(visitor.IdFrontSide));
                     UpdatePhotoImageFromDb(ConvertBinaryToImage(Convert.FromBase64String(visitor.Photo)));
-
                     UpdateImageDetails(visitor);
                     //TBD 
                 } 
@@ -537,8 +513,7 @@ namespace gui
             }
         }
         public void UpdateImageDetails(VisitorInformation visitor)
-        {
-            
+        {    
             if (visitor.IdFrontSide.Length > 100)
             {
                 _scannedData.isDataFromDb[1] = true;
@@ -556,11 +531,9 @@ namespace gui
               //  _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
                 //UpdatePhotoImage(gCONSTANTS.TEMPPHOTOFILEPATH);
             }    
-
         }
         public Image ConvertBinaryToImage(byte[] binaryData)
         {
-            
             using (MemoryStream memoryStream = new MemoryStream(binaryData))
             {
                 // Create Image from binary data
@@ -579,7 +552,6 @@ namespace gui
             _scannedData.IdType = 2;
             
         }
-
         private void rbpass_CheckedChanged(object sender, EventArgs e)
         {
             pbPassportScan.Image= Image.FromFile(@"D:\VisitorData\temp\passport.jpg");
@@ -663,11 +635,11 @@ namespace gui
                 loadingForm.Close();
                 loadingForm.Dispose();
             }
-
         }
- 
-           private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+        private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
+            
+            
             ReadQid readQID = new ReadQid();
            
             try
