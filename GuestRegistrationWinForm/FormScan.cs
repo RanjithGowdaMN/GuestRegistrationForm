@@ -638,20 +638,33 @@ namespace gui
         }
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
-            
-            
+
             ReadQid readQID = new ReadQid();
-           
+
             try
             {
                 readQID.ConnectReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to connect to the reader: "+ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Exit the method if connection fails
+            }
+
+            try
+            {
                 QID IdData = readQID.ReadQIDData(); // Perform the read operation
                 e.Result = IdData; // Store the result for later use in RunWorkerCompleted
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading data from the reader: " + ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 readQID.Disconnect();
             }
+
             for (int i = 1; i <= 10; i++)
             {
                 // Simulate work
