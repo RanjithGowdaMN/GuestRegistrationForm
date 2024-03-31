@@ -617,9 +617,19 @@ namespace gui
                 {
                     using (var ms = new MemoryStream(IdData.Portrait))
                     {
-                        pbphoto.Image = Image.FromStream(ms);
+                        // pbphoto.Image = Image.FromStream(ms);var image = Image.FromStream(ms);
+                        // PictureBox
+                        var image = Image.FromStream(ms);
+                        pbphoto.Image = image;
+
+                        //sets parameter to sya photo source is from DB
+                        _scannedData.isDataFromDb[3] = true;
+                        // File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(image.ToString()));
+
+                        File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
+                        _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
                     }
-                    File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
+                  //  File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
                 }
                 else
                 {
@@ -647,7 +657,7 @@ namespace gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to connect to the reader: "+ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to connect to the reader: " +ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Exit the method if connection fails
             }
 
