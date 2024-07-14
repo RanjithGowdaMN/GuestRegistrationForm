@@ -65,6 +65,7 @@ namespace GuestRegistrationWinForm
         private void RbContractor_CheckedChanged(object sender, EventArgs e)
         {
             //  throw new NotImplementedException();
+            panelCardRecovDemo.Visible = true;
             LoadComboBoxData();
         }
 
