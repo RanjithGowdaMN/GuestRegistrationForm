@@ -3,6 +3,6 @@
 AS
 BEGIN
 
-SELECT  [Name],[CompanyName],[CardNumber],[DurationEnd] FROM VisitorInformation  where  RFU10=@RFU10
+SELECT  [Name],[CompanyName],[PurposeOfVisit] ,[PersonToBeVisited], [VisitDate] FROM VisitorInformation  where  RFU10=@RFU10
 
 END
