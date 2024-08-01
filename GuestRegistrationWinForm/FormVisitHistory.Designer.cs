@@ -149,6 +149,7 @@ namespace GuestRegistrationWinForm
             this.btnVisitHistorySearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVisitHistorySearch.FlatAppearance.BorderSize = 0;
             this.btnVisitHistorySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisitHistorySearch.ForeColor = System.Drawing.Color.White;
             this.btnVisitHistorySearch.Location = new System.Drawing.Point(815, 233);
             this.btnVisitHistorySearch.Name = "btnVisitHistorySearch";
             this.btnVisitHistorySearch.Size = new System.Drawing.Size(138, 42);

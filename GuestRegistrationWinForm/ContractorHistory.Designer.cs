@@ -85,6 +85,7 @@ namespace GuestRegistrationWinForm
             this.btnSearchConHistory.FlatAppearance.BorderSize = 0;
             this.btnSearchConHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchConHistory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchConHistory.ForeColor = System.Drawing.Color.White;
             this.btnSearchConHistory.Location = new System.Drawing.Point(862, 216);
             this.btnSearchConHistory.Name = "btnSearchConHistory";
             this.btnSearchConHistory.Size = new System.Drawing.Size(117, 37);
