@@ -52,6 +52,7 @@ namespace GuestRegistrationWinForm
             this.panelContractorHistory.Controls.Add(this.rbCurrentContractor);
             this.panelContractorHistory.Controls.Add(this.rbAllConHistory);
             this.panelContractorHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContractorHistory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContractorHistory.Location = new System.Drawing.Point(0, 0);
             this.panelContractorHistory.Name = "panelContractorHistory";
             this.panelContractorHistory.Size = new System.Drawing.Size(1794, 785);
