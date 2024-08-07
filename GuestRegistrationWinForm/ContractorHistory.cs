@@ -82,33 +82,33 @@ namespace GuestRegistrationWinForm
                 dgvContractorHistory.Columns.Clear();
                 // Add column for the Name property
                 DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
-                nameColumn.HeaderText = "Name"; // Set the column header text
+                nameColumn.HeaderText = "NAME"; // Set the column header text
                 nameColumn.DataPropertyName = "Name"; // Set the data property name
-                nameColumn.Width = 200;
+                nameColumn.Width = 300;
                 dgvContractorHistory.Columns.Add(nameColumn);
 
                 DataGridViewTextBoxColumn companyCol = new DataGridViewTextBoxColumn();
-                companyCol.HeaderText = "Company Name";
+                companyCol.HeaderText = "COMPANY NAME";
                 companyCol.DataPropertyName = "CompanyName";
-                companyCol.Width = 200;
+                companyCol.Width = 300;
                 dgvContractorHistory.Columns.Add(companyCol);
 
                 DataGridViewTextBoxColumn cardCol = new DataGridViewTextBoxColumn();
-                cardCol.HeaderText = "Card Number";
+                cardCol.HeaderText = "CARD NUMBER";
                 cardCol.DataPropertyName = "CardNumber";
-                cardCol.Width = 200;
+                cardCol.Width = 150;
                 dgvContractorHistory.Columns.Add(cardCol);
 
                 DataGridViewTextBoxColumn joindate = new DataGridViewTextBoxColumn();
-                joindate.HeaderText = "Join Date";
+                joindate.HeaderText = "JOIN DATE";
                 joindate.DataPropertyName = "DurationStart";
-                joindate.Width = 200;
+                joindate.Width = 150;
                 dgvContractorHistory.Columns.Add(joindate);
 
                 DataGridViewTextBoxColumn DurationCol = new DataGridViewTextBoxColumn();
-                DurationCol.HeaderText = "Duration End Date";
+                DurationCol.HeaderText = "DURATION END DATE";
                 DurationCol.DataPropertyName = "DurationEnd";
-                DurationCol.Width = 200;
+                DurationCol.Width = 150;
                 dgvContractorHistory.Columns.Add(DurationCol);             
             }
 

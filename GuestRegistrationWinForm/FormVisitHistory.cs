@@ -106,31 +106,31 @@ namespace GuestRegistrationWinForm
 
                 // Add column for the Name property
                 DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
-                nameColumn.HeaderText = "Name"; // Set the column header text
+                nameColumn.HeaderText = "NAME"; // Set the column header text
                 nameColumn.DataPropertyName = "Name"; // Set the data property name
                 nameColumn.Width = 300;
                 dgvHistory.Columns.Add(nameColumn);
 
                 DataGridViewTextBoxColumn companyCol = new DataGridViewTextBoxColumn();
-                companyCol.HeaderText = "Company Name";
+                companyCol.HeaderText = "COMPANY NAME";
                 companyCol.DataPropertyName = "CompanyName";
                 companyCol.Width = 150;
                 dgvHistory.Columns.Add(companyCol);
 
                 DataGridViewTextBoxColumn purposeCol = new DataGridViewTextBoxColumn();
-                purposeCol.HeaderText = "Purpose Of Visit";
+                purposeCol.HeaderText = "PURPOSE OF VISIT";
                 purposeCol.DataPropertyName = "PurposeOfVisit";
                 purposeCol.Width = 150;
                 dgvHistory.Columns.Add(purposeCol);
 
                 DataGridViewTextBoxColumn personCol = new DataGridViewTextBoxColumn();
-                personCol.HeaderText = "Person To Visited";
+                personCol.HeaderText = "PERSON TO VISITED";
                 personCol.DataPropertyName = "PersonToBeVisited";
                 personCol.Width = 200;
                 dgvHistory.Columns.Add(personCol);
 
                 DataGridViewTextBoxColumn dateCol = new DataGridViewTextBoxColumn();
-                dateCol.HeaderText = "Visit Date";
+                dateCol.HeaderText = "VISIT DATE";
                 dateCol.DataPropertyName = "VisitDate";
                 dateCol.Width = 150;
                 dgvHistory.Columns.Add(dateCol);

@@ -189,11 +189,11 @@ namespace GuestRegistrationWinForm
                     updateData.RecoverVisitorCard(_visitorDataSheet.CardNumber);
                     updateData.UpdateVisitorStatusVisitorInformation(_visitorDataSheet.CardNumber);
                     MessageBox.Show("Card Recovered", title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
                 }
                 //_formScan.txtname.Clear();
-               // Initialize();
+                // Initialize();
+                // Refresh ComboBox data after card recovery
+                RefreshComboBoxData();
             }
             catch (Exception ex)
             {
@@ -202,7 +202,17 @@ namespace GuestRegistrationWinForm
             }
             //Initialize();
         }
-
+        private void RefreshComboBoxData()
+        {
+            if (rbContractor.Checked)
+            {
+                LoadComboBoxData();
+            }
+            else if (rbVisitor.Checked)
+            {
+                LoadComboBoxData1();
+            }
+        }
         private void FormCardRecovery_Load(object sender, EventArgs e)
         {
            //cmbCardNum.SelectedIndexChanged += CmbCardNum_SelectedIndexChanged;

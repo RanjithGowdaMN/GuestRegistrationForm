@@ -133,13 +133,13 @@ namespace GuestRegistrationWinForm
             // 
             this.dgvHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvHistory.BackgroundColor = System.Drawing.Color.White;
-            this.dgvHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistory.Location = new System.Drawing.Point(266, 415);
+            this.dgvHistory.Location = new System.Drawing.Point(232, 415);
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(1294, 280);
+            this.dgvHistory.Size = new System.Drawing.Size(1328, 321);
             this.dgvHistory.TabIndex = 3;
             // 
             // btnVisitHistorySearch

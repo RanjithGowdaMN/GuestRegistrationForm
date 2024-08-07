@@ -29,6 +29,7 @@ namespace GuestRegistrationWinForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContractorHistory = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCardNumContractHistory = new System.Windows.Forms.TextBox();
@@ -99,13 +100,21 @@ namespace GuestRegistrationWinForm
             // 
             this.dgvContractorHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvContractorHistory.BackgroundColor = System.Drawing.Color.White;
-            this.dgvContractorHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvContractorHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContractorHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvContractorHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContractorHistory.Location = new System.Drawing.Point(272, 360);
+            this.dgvContractorHistory.Location = new System.Drawing.Point(164, 309);
             this.dgvContractorHistory.Name = "dgvContractorHistory";
             this.dgvContractorHistory.RowHeadersWidth = 51;
             this.dgvContractorHistory.RowTemplate.Height = 24;
-            this.dgvContractorHistory.Size = new System.Drawing.Size(1294, 280);
+            this.dgvContractorHistory.Size = new System.Drawing.Size(1482, 432);
             this.dgvContractorHistory.TabIndex = 4;
             // 
             // rbCardNumConHistory
