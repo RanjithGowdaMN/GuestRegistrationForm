@@ -40,6 +40,7 @@ namespace gui
         public ConsultantApplicationForm consultantApplicationForm;
         public IGeneratePDFdocument _generatePDFdocument;
         public FormScan scanForm;
+        public FormContractor FormContractor;
         public ICentralHub centralHub;
         private IAPIconnector _apiHelper;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -104,32 +105,32 @@ namespace gui
         }
         private void HardwareChangeEventArrived(object sender, EventArrivedEventArgs e)
         {
-            string DeviceName = string.Empty;
-            bool status = false;
-            try
-            {
-                PropertyData propertyData = e.NewEvent.Properties["TargetInstance"];
-                if (propertyData != null && propertyData.Value is ManagementBaseObject)
-                {
-                    ManagementBaseObject targetInstance = (ManagementBaseObject)propertyData.Value;
-                    var test = targetInstance.Properties;
+            //string DeviceName = string.Empty;
+            //bool status = false;
+            //try
+            //{
+            //    PropertyData propertyData = e.NewEvent.Properties["TargetInstance"];
+            //    if (propertyData != null && propertyData.Value is ManagementBaseObject)
+            //    {
+            //        ManagementBaseObject targetInstance = (ManagementBaseObject)propertyData.Value;
+            //        var test = targetInstance.Properties;
 
-                    foreach (var item in test)
-                    {
-                        if (item.Name == "Present") {
-                            status = (bool)item.Value;
-                        }
-                        if (item.Name == "Description") {
-                            DeviceName = item.Value.ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error handling hardware change event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            UpdateDeviceStatus(DeviceName, status);
+            //        foreach (var item in test)
+            //        {
+            //            if (item.Name == "Present") {
+            //                status = (bool)item.Value;
+            //            }
+            //            if (item.Name == "Description") {
+            //                DeviceName = item.Value.ToString();
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error handling hardware change event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //UpdateDeviceStatus(DeviceName, status);
         }
 
         private void UpdateDeviceStatus(string deviceName, bool status)
@@ -240,7 +241,7 @@ namespace gui
             //if (activeForm != null)
             //    activeForm.Close();
             
-              activeForm = childForm;
+            activeForm = childForm;
             childForm.TopLevel = false;
             //childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -277,20 +278,26 @@ namespace gui
 
         private void btnlgt_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            OpenChildForm(new FormCardRecovery(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet), sender);
         }
 
         private void btncard_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCard(), sender);
+            OpenChildForm(new FormCard(centralHub, scannedFileInfo, scannedData, cameraStatus, consultantApplicationForm, visitorDataSheet, scanForm,FormContractor), sender);
         }
-
+        private void btnContactorHistory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormContractorHistory(), sender);
+        }
         private void panelhome_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-
+        private void btnVisitorsHistory_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormVisitHistory(), sender);
+        }
         private void btnWindowClsoe_Click(object sender, EventArgs e)
         {
 
@@ -380,5 +387,6 @@ namespace gui
             this.Size = new Size(workingRectangle.Width, workingRectangle.Height);
         }
 
+      
     }
 }

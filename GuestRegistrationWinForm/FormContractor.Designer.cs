@@ -70,6 +70,8 @@ namespace gui
             this.lblCpreres = new System.Windows.Forms.Label();
             this.rtxtContractorPreResidence = new System.Windows.Forms.RichTextBox();
             this.panelcontrator = new System.Windows.Forms.Panel();
+            this.cmbCCardNo = new System.Windows.Forms.ComboBox();
+            this.lblCCardNo = new System.Windows.Forms.Label();
             this.cmbContractorTitle = new System.Windows.Forms.ComboBox();
             this.btContractorPdf = new System.Windows.Forms.Button();
             this.txtContractorState = new System.Windows.Forms.TextBox();
@@ -83,7 +85,7 @@ namespace gui
             this.lblCtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCtitle.AutoSize = true;
             this.lblCtitle.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCtitle.Location = new System.Drawing.Point(56, 40);
+            this.lblCtitle.Location = new System.Drawing.Point(56, 10);
             this.lblCtitle.Name = "lblCtitle";
             this.lblCtitle.Size = new System.Drawing.Size(57, 19);
             this.lblCtitle.TabIndex = 0;
@@ -94,7 +96,7 @@ namespace gui
             this.lblCemail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCemail.AutoSize = true;
             this.lblCemail.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCemail.Location = new System.Drawing.Point(56, 340);
+            this.lblCemail.Location = new System.Drawing.Point(56, 310);
             this.lblCemail.Name = "lblCemail";
             this.lblCemail.Size = new System.Drawing.Size(64, 19);
             this.lblCemail.TabIndex = 1;
@@ -105,7 +107,7 @@ namespace gui
             this.lblCstate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCstate.AutoSize = true;
             this.lblCstate.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCstate.Location = new System.Drawing.Point(56, 280);
+            this.lblCstate.Location = new System.Drawing.Point(56, 250);
             this.lblCstate.Name = "lblCstate";
             this.lblCstate.Size = new System.Drawing.Size(58, 19);
             this.lblCstate.TabIndex = 2;
@@ -116,7 +118,7 @@ namespace gui
             this.lblCcompname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcompname.AutoSize = true;
             this.lblCcompname.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcompname.Location = new System.Drawing.Point(925, 40);
+            this.lblCcompname.Location = new System.Drawing.Point(925, 10);
             this.lblCcompname.Name = "lblCcompname";
             this.lblCcompname.Size = new System.Drawing.Size(147, 19);
             this.lblCcompname.TabIndex = 3;
@@ -127,7 +129,7 @@ namespace gui
             this.lblChomphn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblChomphn.AutoSize = true;
             this.lblChomphn.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChomphn.Location = new System.Drawing.Point(56, 460);
+            this.lblChomphn.Location = new System.Drawing.Point(56, 430);
             this.lblChomphn.Name = "lblChomphn";
             this.lblChomphn.Size = new System.Drawing.Size(126, 19);
             this.lblChomphn.TabIndex = 4;
@@ -138,7 +140,7 @@ namespace gui
             this.lblCfelony.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCfelony.AutoSize = true;
             this.lblCfelony.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCfelony.Location = new System.Drawing.Point(925, 580);
+            this.lblCfelony.Location = new System.Drawing.Point(925, 550);
             this.lblCfelony.Name = "lblCfelony";
             this.lblCfelony.Size = new System.Drawing.Size(221, 19);
             this.lblCfelony.TabIndex = 5;
@@ -149,7 +151,7 @@ namespace gui
             this.lblCalias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCalias.AutoSize = true;
             this.lblCalias.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalias.Location = new System.Drawing.Point(56, 520);
+            this.lblCalias.Location = new System.Drawing.Point(56, 490);
             this.lblCalias.Name = "lblCalias";
             this.lblCalias.Size = new System.Drawing.Size(111, 19);
             this.lblCalias.TabIndex = 6;
@@ -160,7 +162,7 @@ namespace gui
             this.lblCpassvalid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassvalid.AutoSize = true;
             this.lblCpassvalid.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassvalid.Location = new System.Drawing.Point(925, 460);
+            this.lblCpassvalid.Location = new System.Drawing.Point(925, 430);
             this.lblCpassvalid.Name = "lblCpassvalid";
             this.lblCpassvalid.Size = new System.Drawing.Size(188, 19);
             this.lblCpassvalid.TabIndex = 7;
@@ -171,7 +173,7 @@ namespace gui
             this.lblCpassno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassno.AutoSize = true;
             this.lblCpassno.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassno.Location = new System.Drawing.Point(925, 280);
+            this.lblCpassno.Location = new System.Drawing.Point(925, 250);
             this.lblCpassno.Name = "lblCpassno";
             this.lblCpassno.Size = new System.Drawing.Size(172, 19);
             this.lblCpassno.TabIndex = 8;
@@ -182,7 +184,7 @@ namespace gui
             this.lblCadrs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadrs.AutoSize = true;
             this.lblCadrs.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadrs.Location = new System.Drawing.Point(56, 100);
+            this.lblCadrs.Location = new System.Drawing.Point(56, 70);
             this.lblCadrs.Name = "lblCadrs";
             this.lblCadrs.Size = new System.Drawing.Size(85, 19);
             this.lblCadrs.TabIndex = 9;
@@ -192,7 +194,7 @@ namespace gui
             // 
             this.txtContractorAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorAddress.Location = new System.Drawing.Point(371, 100);
+            this.txtContractorAddress.Location = new System.Drawing.Point(371, 70);
             this.txtContractorAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorAddress.Name = "txtContractorAddress";
             this.txtContractorAddress.Size = new System.Drawing.Size(350, 30);
@@ -202,7 +204,7 @@ namespace gui
             // 
             this.txtContractorEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorEmail.Location = new System.Drawing.Point(371, 340);
+            this.txtContractorEmail.Location = new System.Drawing.Point(371, 310);
             this.txtContractorEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorEmail.Name = "txtContractorEmail";
             this.txtContractorEmail.Size = new System.Drawing.Size(350, 30);
@@ -213,7 +215,7 @@ namespace gui
             // 
             this.txtContractorHomePhn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorHomePhn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorHomePhn.Location = new System.Drawing.Point(371, 460);
+            this.txtContractorHomePhn.Location = new System.Drawing.Point(371, 430);
             this.txtContractorHomePhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorHomePhn.Name = "txtContractorHomePhn";
             this.txtContractorHomePhn.Size = new System.Drawing.Size(350, 30);
@@ -225,7 +227,7 @@ namespace gui
             // 
             this.txtContractorCompName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorCompName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorCompName.Location = new System.Drawing.Point(1245, 100);
+            this.txtContractorCompName.Location = new System.Drawing.Point(1245, 70);
             this.txtContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCompName.Name = "txtContractorCompName";
             this.txtContractorCompName.Size = new System.Drawing.Size(350, 30);
@@ -236,7 +238,7 @@ namespace gui
             // 
             this.txtContractorPassportNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorPassportNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorPassportNo.Location = new System.Drawing.Point(1245, 280);
+            this.txtContractorPassportNo.Location = new System.Drawing.Point(1245, 250);
             this.txtContractorPassportNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorPassportNo.Name = "txtContractorPassportNo";
             this.txtContractorPassportNo.Size = new System.Drawing.Size(350, 30);
@@ -246,7 +248,7 @@ namespace gui
             // 
             this.txtContractorAliasName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorAliasName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorAliasName.Location = new System.Drawing.Point(371, 520);
+            this.txtContractorAliasName.Location = new System.Drawing.Point(371, 490);
             this.txtContractorAliasName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorAliasName.Name = "txtContractorAliasName";
             this.txtContractorAliasName.Size = new System.Drawing.Size(350, 30);
@@ -259,7 +261,7 @@ namespace gui
             this.cmbContractorCompName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbContractorCompName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbContractorCompName.FormattingEnabled = true;
-            this.cmbContractorCompName.Location = new System.Drawing.Point(1245, 40);
+            this.cmbContractorCompName.Location = new System.Drawing.Point(1245, 10);
             this.cmbContractorCompName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorCompName.Name = "cmbContractorCompName";
             this.cmbContractorCompName.Size = new System.Drawing.Size(350, 30);
@@ -270,7 +272,7 @@ namespace gui
             this.lblCcity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcity.AutoSize = true;
             this.lblCcity.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcity.Location = new System.Drawing.Point(56, 160);
+            this.lblCcity.Location = new System.Drawing.Point(56, 130);
             this.lblCcity.Name = "lblCcity";
             this.lblCcity.Size = new System.Drawing.Size(48, 19);
             this.lblCcity.TabIndex = 20;
@@ -281,7 +283,7 @@ namespace gui
             this.lblCzip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCzip.AutoSize = true;
             this.lblCzip.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCzip.Location = new System.Drawing.Point(56, 220);
+            this.lblCzip.Location = new System.Drawing.Point(56, 190);
             this.lblCzip.Name = "lblCzip";
             this.lblCzip.Size = new System.Drawing.Size(36, 19);
             this.lblCzip.TabIndex = 21;
@@ -292,7 +294,7 @@ namespace gui
             this.lblCcelphn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCcelphn.AutoSize = true;
             this.lblCcelphn.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCcelphn.Location = new System.Drawing.Point(56, 400);
+            this.lblCcelphn.Location = new System.Drawing.Point(56, 370);
             this.lblCcelphn.Name = "lblCcelphn";
             this.lblCcelphn.Size = new System.Drawing.Size(117, 19);
             this.lblCcelphn.TabIndex = 22;
@@ -303,7 +305,7 @@ namespace gui
             this.lblCssno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCssno.AutoSize = true;
             this.lblCssno.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCssno.Location = new System.Drawing.Point(925, 160);
+            this.lblCssno.Location = new System.Drawing.Point(925, 130);
             this.lblCssno.Name = "lblCssno";
             this.lblCssno.Size = new System.Drawing.Size(235, 19);
             this.lblCssno.TabIndex = 23;
@@ -314,7 +316,7 @@ namespace gui
             this.lblCpurpsofvisit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpurpsofvisit.AutoSize = true;
             this.lblCpurpsofvisit.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpurpsofvisit.Location = new System.Drawing.Point(56, 580);
+            this.lblCpurpsofvisit.Location = new System.Drawing.Point(56, 550);
             this.lblCpurpsofvisit.Name = "lblCpurpsofvisit";
             this.lblCpurpsofvisit.Size = new System.Drawing.Size(161, 19);
             this.lblCpurpsofvisit.TabIndex = 24;
@@ -325,7 +327,7 @@ namespace gui
             this.lblCduration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCduration.AutoSize = true;
             this.lblCduration.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCduration.Location = new System.Drawing.Point(925, 220);
+            this.lblCduration.Location = new System.Drawing.Point(925, 190);
             this.lblCduration.Name = "lblCduration";
             this.lblCduration.Size = new System.Drawing.Size(182, 19);
             this.lblCduration.TabIndex = 25;
@@ -336,7 +338,7 @@ namespace gui
             this.lblCpassplace.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassplace.AutoSize = true;
             this.lblCpassplace.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassplace.Location = new System.Drawing.Point(925, 340);
+            this.lblCpassplace.Location = new System.Drawing.Point(925, 310);
             this.lblCpassplace.Name = "lblCpassplace";
             this.lblCpassplace.Size = new System.Drawing.Size(231, 19);
             this.lblCpassplace.TabIndex = 26;
@@ -347,7 +349,7 @@ namespace gui
             this.lblCpassdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpassdate.AutoSize = true;
             this.lblCpassdate.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpassdate.Location = new System.Drawing.Point(925, 400);
+            this.lblCpassdate.Location = new System.Drawing.Point(925, 370);
             this.lblCpassdate.Name = "lblCpassdate";
             this.lblCpassdate.Size = new System.Drawing.Size(218, 19);
             this.lblCpassdate.TabIndex = 27;
@@ -358,7 +360,7 @@ namespace gui
             this.lblCemergency.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCemergency.AutoSize = true;
             this.lblCemergency.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCemergency.Location = new System.Drawing.Point(925, 520);
+            this.lblCemergency.Location = new System.Drawing.Point(925, 490);
             this.lblCemergency.Name = "lblCemergency";
             this.lblCemergency.Size = new System.Drawing.Size(236, 19);
             this.lblCemergency.TabIndex = 28;
@@ -368,7 +370,7 @@ namespace gui
             // 
             this.txtContractorCity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorCity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorCity.Location = new System.Drawing.Point(371, 160);
+            this.txtContractorCity.Location = new System.Drawing.Point(371, 130);
             this.txtContractorCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCity.Name = "txtContractorCity";
             this.txtContractorCity.Size = new System.Drawing.Size(350, 30);
@@ -378,7 +380,7 @@ namespace gui
             // 
             this.txtContractorZip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorZip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorZip.Location = new System.Drawing.Point(371, 220);
+            this.txtContractorZip.Location = new System.Drawing.Point(371, 190);
             this.txtContractorZip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorZip.Name = "txtContractorZip";
             this.txtContractorZip.Size = new System.Drawing.Size(350, 30);
@@ -388,7 +390,7 @@ namespace gui
             // 
             this.txtContractorCellPhn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorCellPhn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorCellPhn.Location = new System.Drawing.Point(371, 400);
+            this.txtContractorCellPhn.Location = new System.Drawing.Point(371, 370);
             this.txtContractorCellPhn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorCellPhn.Name = "txtContractorCellPhn";
             this.txtContractorCellPhn.Size = new System.Drawing.Size(350, 30);
@@ -400,7 +402,7 @@ namespace gui
             // 
             this.txtContractorSecurityNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorSecurityNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorSecurityNo.Location = new System.Drawing.Point(1245, 160);
+            this.txtContractorSecurityNo.Location = new System.Drawing.Point(1245, 130);
             this.txtContractorSecurityNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorSecurityNo.Name = "txtContractorSecurityNo";
             this.txtContractorSecurityNo.Size = new System.Drawing.Size(350, 30);
@@ -410,7 +412,7 @@ namespace gui
             // 
             this.txtContractorPassportPlaceOfIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorPassportPlaceOfIssue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorPassportPlaceOfIssue.Location = new System.Drawing.Point(1245, 340);
+            this.txtContractorPassportPlaceOfIssue.Location = new System.Drawing.Point(1245, 310);
             this.txtContractorPassportPlaceOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorPassportPlaceOfIssue.Name = "txtContractorPassportPlaceOfIssue";
             this.txtContractorPassportPlaceOfIssue.Size = new System.Drawing.Size(350, 30);
@@ -420,7 +422,7 @@ namespace gui
             // 
             this.txtContractorEmergencyNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorEmergencyNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorEmergencyNo.Location = new System.Drawing.Point(1245, 520);
+            this.txtContractorEmergencyNo.Location = new System.Drawing.Point(1245, 490);
             this.txtContractorEmergencyNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorEmergencyNo.Name = "txtContractorEmergencyNo";
             this.txtContractorEmergencyNo.Size = new System.Drawing.Size(350, 30);
@@ -433,7 +435,7 @@ namespace gui
             this.cmbContractorPurposeOfVisit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbContractorPurposeOfVisit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbContractorPurposeOfVisit.FormattingEnabled = true;
-            this.cmbContractorPurposeOfVisit.Location = new System.Drawing.Point(371, 580);
+            this.cmbContractorPurposeOfVisit.Location = new System.Drawing.Point(371, 550);
             this.cmbContractorPurposeOfVisit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorPurposeOfVisit.Name = "cmbContractorPurposeOfVisit";
             this.cmbContractorPurposeOfVisit.Size = new System.Drawing.Size(350, 30);
@@ -449,7 +451,7 @@ namespace gui
             this.cmbContractorFelony.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.cmbContractorFelony.Location = new System.Drawing.Point(1245, 580);
+            this.cmbContractorFelony.Location = new System.Drawing.Point(1245, 550);
             this.cmbContractorFelony.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorFelony.Name = "cmbContractorFelony";
             this.cmbContractorFelony.Size = new System.Drawing.Size(350, 30);
@@ -460,7 +462,7 @@ namespace gui
             this.dtContractorPassportValid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorPassportValid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtContractorPassportValid.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorPassportValid.Location = new System.Drawing.Point(1245, 460);
+            this.dtContractorPassportValid.Location = new System.Drawing.Point(1245, 430);
             this.dtContractorPassportValid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorPassportValid.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorPassportValid.Name = "dtContractorPassportValid";
@@ -474,7 +476,7 @@ namespace gui
             this.dtContractorDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorDuration.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtContractorDuration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorDuration.Location = new System.Drawing.Point(1245, 220);
+            this.dtContractorDuration.Location = new System.Drawing.Point(1245, 190);
             this.dtContractorDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorDuration.MinDate = new System.DateTime(2023, 12, 11, 0, 0, 0, 0);
             this.dtContractorDuration.Name = "dtContractorDuration";
@@ -487,7 +489,7 @@ namespace gui
             this.dtContractorPassportDateOfIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtContractorPassportDateOfIssue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtContractorPassportDateOfIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(1245, 400);
+            this.dtContractorPassportDateOfIssue.Location = new System.Drawing.Point(1245, 370);
             this.dtContractorPassportDateOfIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtContractorPassportDateOfIssue.Name = "dtContractorPassportDateOfIssue";
             this.dtContractorPassportDateOfIssue.Size = new System.Drawing.Size(350, 30);
@@ -500,7 +502,7 @@ namespace gui
             this.lblCpreres.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpreres.AutoSize = true;
             this.lblCpreres.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpreres.Location = new System.Drawing.Point(56, 640);
+            this.lblCpreres.Location = new System.Drawing.Point(56, 610);
             this.lblCpreres.Name = "lblCpreres";
             this.lblCpreres.Size = new System.Drawing.Size(207, 38);
             this.lblCpreres.TabIndex = 40;
@@ -511,7 +513,7 @@ namespace gui
             this.rtxtContractorPreResidence.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtxtContractorPreResidence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtContractorPreResidence.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(371, 640);
+            this.rtxtContractorPreResidence.Location = new System.Drawing.Point(371, 610);
             this.rtxtContractorPreResidence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtContractorPreResidence.Name = "rtxtContractorPreResidence";
             this.rtxtContractorPreResidence.Size = new System.Drawing.Size(350, 106);
@@ -521,6 +523,8 @@ namespace gui
             // panelcontrator
             // 
             this.panelcontrator.BackColor = System.Drawing.Color.White;
+            this.panelcontrator.Controls.Add(this.cmbCCardNo);
+            this.panelcontrator.Controls.Add(this.lblCCardNo);
             this.panelcontrator.Controls.Add(this.cmbContractorTitle);
             this.panelcontrator.Controls.Add(this.btContractorPdf);
             this.panelcontrator.Controls.Add(this.txtContractorState);
@@ -572,13 +576,34 @@ namespace gui
             this.panelcontrator.TabIndex = 42;
             this.panelcontrator.Paint += new System.Windows.Forms.PaintEventHandler(this.panelcontrator_Paint);
             // 
+            // cmbCCardNo
+            // 
+            this.cmbCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCCardNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCCardNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCCardNo.FormattingEnabled = true;
+            this.cmbCCardNo.Location = new System.Drawing.Point(1245, 610);
+            this.cmbCCardNo.Name = "cmbCCardNo";
+            this.cmbCCardNo.Size = new System.Drawing.Size(350, 31);
+            this.cmbCCardNo.TabIndex = 46;
+            // 
+            // lblCCardNo
+            // 
+            this.lblCCardNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCCardNo.AutoSize = true;
+            this.lblCCardNo.Location = new System.Drawing.Point(925, 610);
+            this.lblCCardNo.Name = "lblCCardNo";
+            this.lblCCardNo.Size = new System.Drawing.Size(135, 19);
+            this.lblCCardNo.TabIndex = 45;
+            this.lblCCardNo.Text = "CARD NUMBER";
+            // 
             // cmbContractorTitle
             // 
             this.cmbContractorTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbContractorTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbContractorTitle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbContractorTitle.FormattingEnabled = true;
-            this.cmbContractorTitle.Location = new System.Drawing.Point(368, 40);
+            this.cmbContractorTitle.Location = new System.Drawing.Point(368, 10);
             this.cmbContractorTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContractorTitle.Name = "cmbContractorTitle";
             this.cmbContractorTitle.Size = new System.Drawing.Size(350, 30);
@@ -608,7 +633,7 @@ namespace gui
             // 
             this.txtContractorState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContractorState.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContractorState.Location = new System.Drawing.Point(371, 280);
+            this.txtContractorState.Location = new System.Drawing.Point(371, 250);
             this.txtContractorState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContractorState.Name = "txtContractorState";
             this.txtContractorState.Size = new System.Drawing.Size(350, 30);
@@ -683,5 +708,7 @@ namespace gui
         private System.Windows.Forms.Button btContractorPdf;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cmbContractorTitle;
+        private System.Windows.Forms.ComboBox cmbCCardNo;
+        private System.Windows.Forms.Label lblCCardNo;
     }
 }

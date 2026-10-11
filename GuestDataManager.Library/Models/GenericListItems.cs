@@ -49,6 +49,15 @@ namespace GuestDataManager.Library.Models
     public class VisitorTitle
     {
         public string Title { get; set; }
+
     }
 
+    public class CardId
+    {
+        public string CardNumber { get; set; }
+    }
+    public class VisitorCard
+    {
+        public string CardNumber { get; set; }
+    }
 }

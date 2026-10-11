@@ -60,5 +60,7 @@ namespace GuestRegistrationDesktopUI.Library.Models
         public string RFU8 { get; set; }
         public string RFU9 { get; set; }
         public string RFU10 { get; set; }
+
+        public string CardNumber { get; set; }
     }
 }

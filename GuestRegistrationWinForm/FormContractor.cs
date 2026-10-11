@@ -33,6 +33,8 @@ namespace gui
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         //private IAPIconnector _apiHelper;
         private FormScan _formScan;
+        string ContractorStatus = "A5";
+        //public string DurationStart = DateTime.Now.ToString("dd/MM/yyyy");
         public FormContractor(ICentralHub centralHub, ScannedFileModel scannedFileInfo, ScannedData scannedData, CameraStatus cameraStatus,
                             ConsultantApplicationForm consultantApplicationForm, VisitorDataSheet visitorDataSheet, FormScan formScan)
         {
@@ -46,6 +48,7 @@ namespace gui
 
             _scannedData = scannedData;
             _formScan = formScan;
+            
             //_apiHelper = apiHelper;
             Initialize();
 
@@ -89,7 +92,7 @@ namespace gui
             //dtContractorDuration.Text.ToString() = _consultantApplicationForm.Duration;
             //dtContractorPassportDateOfIssue.Text.ToString() = _consultantApplicationForm.PDateofIssue;
             //dtContractorPassportValid.Text.ToString() = _consultantApplicationForm.PassportValidity;
-
+            //DurationStart = _consultantApplicationForm.DurationStart;
             LoadComboxBoxData();
         }
 
@@ -101,9 +104,20 @@ namespace gui
             cmbContractorPurposeOfVisit.SelectedIndexChanged += CmbContractorPurposeOfVisit_SelectedIndexChanged;
             cmbContractorFelony.SelectedIndexChanged += CmbContractorFelony_SelectedIndexChanged;
             cmbContractorTitle.SelectedIndexChanged += cmbContractorTitle_SelectedIndexChanged;
+            cmbCCardNo.SelectedIndexChanged += CmbCCardNo_SelectedIndexChanged;
             txtContractorCity.Text = "Doha";
             txtContractorState.Text = "Doha";
         }
+
+        private void CmbCCardNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // throw new NotImplementedException();
+           if(cmbCCardNo!=null)
+            {
+                _consultantApplicationForm.CardNumber = cmbCCardNo.SelectedItem.ToString();
+            }
+        }
+
         private void CmbContractorFelony_SelectedIndexChanged(object sender, EventArgs e)
         {
           if(cmbContractorFelony!=null)
@@ -130,8 +144,9 @@ namespace gui
             RetriveDBinfo retriveDBinfo = new RetriveDBinfo();
             List<string> CompanyNames = retriveDBinfo.GetCompanyname().Select(x => x.CompanyNames).ToList();
             cmbContractorCompName.DataSource = CompanyNames;
-            
-            
+
+          
+
             List<string> PurposeOfVisits = retriveDBinfo.GetVisitorVisitPurpose().Select(x => x.Purpose).ToList();
             cmbContractorPurposeOfVisit.DataSource = PurposeOfVisits;
             cmbContractorPurposeOfVisit.Text = _consultantApplicationForm.PurposeOfVisit;
@@ -150,6 +165,10 @@ namespace gui
             {
                 cmbContractorCompName.Text = _consultantApplicationForm.CompanyName;
             }
+            List<string> CardNo = retriveDBinfo.GetCardIds().Select(x => x.CardNumber).ToList();
+            cmbCCardNo.DataSource = CardNo;
+            cmbCCardNo.Text = _consultantApplicationForm.CardNumber;
+           
         }
         private async Task getCompanyName()
         {
@@ -274,6 +293,7 @@ namespace gui
             _consultantApplicationForm.Duration = dtContractorDuration.Value.Date.ToString("dd/MM/yyyy");
         }
 
+      
         public bool ErrorValidation()
         {
             bool ErrorFlag = false ;
@@ -432,6 +452,8 @@ namespace gui
                         //Insert record to DB
                         try
                         {
+                            _consultantApplicationForm.DurationStart = DateTime.Now.ToString("dd/MM/yyyy");
+                            _consultantApplicationForm.Status = ContractorStatus;
                             ConcatenatedDataBinding concatenatedDataBinding = new ConcatenatedDataBinding();
                             VisitorDataModel visitorDataModel = VisitorDataModel.Instance;
                             visitorDataModel.Name = _scannedData.Name;
@@ -458,6 +480,9 @@ namespace gui
                             {
                                 insertNewCompnayNameToList(txtContractorCompName.Text);
                             }
+                            UpdateData updateData = new UpdateData();
+                            updateData.UpdateCardStatus(_consultantApplicationForm.CardNumber);
+
                             MessageBox.Show("Data Inserted",title,MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
@@ -468,9 +493,9 @@ namespace gui
                         _scannedFileInfo = ScannedFileModel.reset();
                         _scannedData = new ScannedData();
                         _visitorDataSheet = VisitorDataSheet.reset();
-                        _consultantApplicationForm = ConsultantApplicationForm.reset();
-                        _cameraStatus = CameraStatus.reset();
-                        Initialize();
+                      //  _consultantApplicationForm = ConsultantApplicationForm.reset();
+                       // _cameraStatus = CameraStatus.reset();
+                      //  Initialize();
 
                     }
                     else if (dialogResult == DialogResult.No)
@@ -502,7 +527,7 @@ namespace gui
                     MessageBox.Show("Error: in file generation",title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Logger.Error(ex.Message, "Error in file generation");
                 }
-                _formScan.txtname.Clear();
+             //   _formScan.txtname.Clear();
                 _formScan.txtid.Clear();
                 _formScan.txtdob.Clear();
                 _formScan.txtexpiry.Clear();

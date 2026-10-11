@@ -42,6 +42,7 @@ namespace gui
             this.rbid = new System.Windows.Forms.RadioButton();
             this.rbpass = new System.Windows.Forms.RadioButton();
             this.panelScan = new System.Windows.Forms.Panel();
+            this.btnReadFromChip = new System.Windows.Forms.Button();
             this.lblselect = new System.Windows.Forms.Label();
             this.SearchVisitor = new System.Windows.Forms.Button();
             this.btnphoto = new System.Windows.Forms.Button();
@@ -54,6 +55,8 @@ namespace gui
             this.pbfront = new System.Windows.Forms.PictureBox();
             this.panelPass = new System.Windows.Forms.Panel();
             this.pbPassportScan = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.panelScan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbphoto)).BeginInit();
             this.panelId.SuspendLayout();
@@ -68,7 +71,7 @@ namespace gui
             this.lblname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblname.AutoSize = true;
             this.lblname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(20, 100);
+            this.lblname.Location = new System.Drawing.Point(5, 100);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(69, 23);
             this.lblname.TabIndex = 0;
@@ -79,7 +82,7 @@ namespace gui
             this.lblid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblid.AutoSize = true;
             this.lblid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblid.Location = new System.Drawing.Point(20, 180);
+            this.lblid.Location = new System.Drawing.Point(5, 180);
             this.lblid.Name = "lblid";
             this.lblid.Size = new System.Drawing.Size(122, 23);
             this.lblid.TabIndex = 1;
@@ -90,7 +93,7 @@ namespace gui
             this.lbldob.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldob.AutoSize = true;
             this.lbldob.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldob.Location = new System.Drawing.Point(20, 340);
+            this.lbldob.Location = new System.Drawing.Point(5, 340);
             this.lbldob.Name = "lbldob";
             this.lbldob.Size = new System.Drawing.Size(160, 23);
             this.lbldob.TabIndex = 2;
@@ -101,7 +104,7 @@ namespace gui
             this.lblexp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblexp.AutoSize = true;
             this.lblexp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblexp.Location = new System.Drawing.Point(20, 260);
+            this.lblexp.Location = new System.Drawing.Point(5, 260);
             this.lblexp.Name = "lblexp";
             this.lblexp.Size = new System.Drawing.Size(107, 23);
             this.lblexp.TabIndex = 3;
@@ -112,7 +115,7 @@ namespace gui
             this.lblnationality.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblnationality.AutoSize = true;
             this.lblnationality.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnationality.Location = new System.Drawing.Point(20, 420);
+            this.lblnationality.Location = new System.Drawing.Point(5, 420);
             this.lblnationality.Name = "lblnationality";
             this.lblnationality.Size = new System.Drawing.Size(147, 23);
             this.lblnationality.TabIndex = 4;
@@ -204,6 +207,7 @@ namespace gui
             // panelScan
             // 
             this.panelScan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelScan.Controls.Add(this.btnReadFromChip);
             this.panelScan.Controls.Add(this.lblselect);
             this.panelScan.Controls.Add(this.SearchVisitor);
             this.panelScan.Controls.Add(this.lblname);
@@ -222,18 +226,35 @@ namespace gui
             this.panelScan.Controls.Add(this.txtid);
             this.panelScan.Controls.Add(this.rbpass);
             this.panelScan.Controls.Add(this.txtname);
-            this.panelScan.Location = new System.Drawing.Point(2, -2);
+            this.panelScan.Location = new System.Drawing.Point(0, -2);
             this.panelScan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelScan.Name = "panelScan";
             this.panelScan.Size = new System.Drawing.Size(996, 675);
             this.panelScan.TabIndex = 18;
+            // 
+            // btnReadFromChip
+            // 
+            this.btnReadFromChip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReadFromChip.BackColor = System.Drawing.Color.IndianRed;
+            this.btnReadFromChip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadFromChip.FlatAppearance.BorderSize = 0;
+            this.btnReadFromChip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReadFromChip.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadFromChip.ForeColor = System.Drawing.Color.White;
+            this.btnReadFromChip.Location = new System.Drawing.Point(552, 520);
+            this.btnReadFromChip.Name = "btnReadFromChip";
+            this.btnReadFromChip.Size = new System.Drawing.Size(208, 50);
+            this.btnReadFromChip.TabIndex = 16;
+            this.btnReadFromChip.Text = "READ FROM CHIP";
+            this.btnReadFromChip.UseVisualStyleBackColor = false;
+            this.btnReadFromChip.Click += new System.EventHandler(this.btnReadFromChip_Click);
             // 
             // lblselect
             // 
             this.lblselect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblselect.AutoSize = true;
             this.lblselect.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselect.Location = new System.Drawing.Point(20, 20);
+            this.lblselect.Location = new System.Drawing.Point(5, 20);
             this.lblselect.Name = "lblselect";
             this.lblselect.Size = new System.Drawing.Size(87, 23);
             this.lblselect.TabIndex = 15;
@@ -298,7 +319,7 @@ namespace gui
             this.btnback.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.Color.White;
             this.btnback.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnback.Location = new System.Drawing.Point(400, 520);
+            this.btnback.Location = new System.Drawing.Point(291, 520);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(210, 50);
@@ -317,7 +338,7 @@ namespace gui
             this.btnfront.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfront.ForeColor = System.Drawing.Color.White;
             this.btnfront.Image = global::GuestRegistrationWinForm.Properties.Resources.iconScanner;
-            this.btnfront.Location = new System.Drawing.Point(120, 520);
+            this.btnfront.Location = new System.Drawing.Point(32, 520);
             this.btnfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfront.Name = "btnfront";
             this.btnfront.Size = new System.Drawing.Size(210, 50);
@@ -326,6 +347,13 @@ namespace gui
             this.btnfront.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnfront.UseVisualStyleBackColor = false;
             this.btnfront.Click += new System.EventHandler(this.btnScanIdFront_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork_1);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // panelId
             // 
@@ -336,11 +364,12 @@ namespace gui
             this.panelId.Name = "panelId";
             this.panelId.Size = new System.Drawing.Size(630, 677);
             this.panelId.TabIndex = 19;
+            this.panelId.Visible = false;
             // 
             // pbback
             // 
             this.pbback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbback.Location = new System.Drawing.Point(24, 326);
+            this.pbback.Location = new System.Drawing.Point(70, 326);
             this.pbback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbback.Name = "pbback";
             this.pbback.Size = new System.Drawing.Size(560, 300);
@@ -350,7 +379,7 @@ namespace gui
             // pbfront
             // 
             this.pbfront.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbfront.Location = new System.Drawing.Point(24, 2);
+            this.pbfront.Location = new System.Drawing.Point(70, 2);
             this.pbfront.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbfront.Name = "pbfront";
             this.pbfront.Size = new System.Drawing.Size(560, 300);
@@ -377,6 +406,20 @@ namespace gui
             this.pbPassportScan.Size = new System.Drawing.Size(502, 518);
             this.pbPassportScan.TabIndex = 0;
             this.pbPassportScan.TabStop = false;
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.WorkerReportsProgress = true;
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
+            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            // 
+            // backgroundWorker3
+            // 
+            this.backgroundWorker3.WorkerReportsProgress = true;
+            this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork);
+            this.backgroundWorker3.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker3_ProgressChanged);
+            this.backgroundWorker3.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker3_RunWorkerCompleted);
             // 
             // FormScan
             // 
@@ -430,5 +473,8 @@ namespace gui
         private System.Windows.Forms.Label lblselect;
         public System.Windows.Forms.PictureBox pbPassportScan;
         public System.Windows.Forms.Panel panelPass;
+        private System.Windows.Forms.Button btnReadFromChip;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker3;
     }
 }

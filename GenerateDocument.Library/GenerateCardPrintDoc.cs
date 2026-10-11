@@ -2,6 +2,11 @@
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GuestRegistrationDesktopUI.Library.Models;
 
 namespace GenerateDocument.Library
 {
@@ -11,10 +16,11 @@ namespace GenerateDocument.Library
         public float cardHeight = 153.09f; //2 inches
 
         public string printCard(string outputPath, string sppLogo, string imagePath,
-                            string visitorName, string visitorNumber, string visitorType)
+                            string visitorName, string visitorNumber, string visitorType,gConcatenatedDataBinding concatenatedDataBinding)
         {
             Document document = new Document(new Rectangle(cardWidth, cardHeight));
 
+            
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(outputPath, FileMode.Create));
             document.Open();
 
@@ -34,20 +40,22 @@ namespace GenerateDocument.Library
             // contentByte.Fill();
 
             // Load the image
-            if (String.IsNullOrEmpty(imagePath))
+          if (String.IsNullOrEmpty(imagePath))
             {
                 imagePath = "D:\\VisitorData\\Photos\\photo00001.jpg";
             }
             
-                Image image = Image.GetInstance(imagePath);
-               image.RotationDegrees = 270;
-                image.ScaleToFit(100, 80);
-          
-           
+               Image image = Image.GetInstance(imagePath);
+              // image.RotationDegrees = 270;
+               // image.ScaleToFit(120, 80);
+            image.ScaleAbsoluteWidth(80); // Set width to 120 units
+            image.ScaleAbsoluteHeight(100);
+
+
 
             //Load the Logo
 
-          //  iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
+            //  iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(sppLogo);
 
             // image1.ScaleToFit(50, 750);
             //float imageScalingFactor = .10f; // You can adjust this value as needed
@@ -55,7 +63,8 @@ namespace GenerateDocument.Library
 
             // Position the image
             image.SetAbsolutePosition(10, 40);
-           contentByte.AddImage(image);
+          
+            contentByte.AddImage(image);
             
 
             //position of Logo
@@ -71,15 +80,15 @@ namespace GenerateDocument.Library
                 BaseFont boldFont1 = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont1, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 60, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorType, 120, 120, 0);
                 contentByte.EndText();
 
                 //idnumber;
-                contentByte.BeginText();
+               contentByte.BeginText();
                 BaseFont boldFont = BaseFont.CreateFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 contentByte.SetFontAndSize(boldFont, 16);
                 contentByte.SetColorFill(BaseColor.BLACK);
-                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorNumber, 150, 100, 0);
+                contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL,concatenatedDataBinding.consultantApplicationForm.CardNumber, 150, 70, 0);
                 contentByte.EndText();
 
                 //name
@@ -168,8 +177,6 @@ namespace GenerateDocument.Library
                 contentByte.SetColorFill(BaseColor.BLACK);
                 contentByte.ShowTextAligned(Element.ALIGN_JUSTIFIED_ALL, visitorName, textX, yPosition, 0);
                 contentByte.EndText();
-
-
 
                 // Reset graphic state for full opacity
                 contentByte.SetGState(new PdfGState() { FillOpacity = 60f });

@@ -28,9 +28,103 @@ namespace GuestDataManager.Library.DataAccess
             };
             return sql.LoadData("dbo.spGetVisitorByIdNumber", parameters, "GuestData");
         }
+
+      public List<VisitorInformation>GetContractorHistoryByAll(string Type)
+        {
+           
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
+
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spContractorHistoryByAll", parameters, "GuestData");
+
+        }
+
+
+        public List<VisitorInformation> GetVisitorHistoryByAll(string Type)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
+
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spVisitorHistoryByAll", parameters, "GuestData");
+
+        }
+
+
+
+
+        public List<VisitorInformation>GetCurrentContractor(string Type)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@RFU10", Type }
+    };
+
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spCurrentContractor", parameters, "GuestData");
+
+        }
+
+        public List<VisitorInformation>GetContractorByCard(string CardNumber)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@CardNumber",CardNumber },
+
+            };
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spcontractorByCard", parameters, "GuestData");
+        }
+
+        public List<VisitorInformation> GetHistoryByIdNumber(string Id)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@IdNumber", Id },
+    };
+
+            // Assuming LoadData method returns a list of VisitorInformation objects
+            return sql.LoadData<VisitorInformation,dynamic>("dbo.spGetHistoryByIdNumber", parameters, "GuestData");
+        }
+
+        public List<VisitorInformation> GetHistoryByName(string Name)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+               { "@Name",Name},
+            };
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spGetHistoryByName", parameters, "GuestData");
+        }
+
+
+        public List<VisitorInformation> GetHistoryByDate(string VisitDate)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@VisitDate",VisitDate},
+            };
+            
+            return sql.LoadData<VisitorInformation, dynamic>("dbo.spGetHistoryByDate", parameters, "GuestData");
+        }
+
+
+       
+
+
+
+
         public List<CompanyNameList> GetCompanyname()
         {
-            var p = new { };
+            var p = new { }; 
             return sql.LoadData<CompanyNameList, dynamic>("dbo.spRetriveCompanyName", p, "GuestData");
         }
         public List<VisitorVisitPurpose> GetVisitorVisitPurpose()
@@ -74,5 +168,47 @@ namespace GuestDataManager.Library.DataAccess
             var p = new { };
             return sql.LoadData<VisitorTitle, dynamic>("dbo.spGetVisitorTitle", p, "GuestData");
         }
+
+        public List<CardId> GetCardIds()
+        {
+            var p = new { };
+            
+            return sql.LoadData<CardId, dynamic>("dbo.spGetCardIds", p, "GuestData");
+        }
+
+        public List<CardId> GetCards()
+        {
+            
+            var p = new { };
+                                   
+            return sql.LoadData<CardId, dynamic>("dbo.spGetAllocatedCard", p, "GuestData");
+        }
+
+        public List<VisitorCard> GetAllocatedVisitorCard()
+        {
+            var p = new { };
+            return sql.LoadData<VisitorCard, dynamic>("dbo.spGetAllocatedVisitorCard", p, "GuestData");
+        }
+
+        public VisitorInformation GetVisitorbyCard (string Id)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var p = new { CardNumber = Id };
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@CardNumber", Id },
+            };
+            return sql.LoadData("dbo.spGetVisitorByCardNumber", parameters, "GuestData");
+        }
+
+        public List<VisitorCard> GetVisitorCards()
+        {
+            var p = new { };
+            return sql.LoadData<VisitorCard, dynamic>("dbo.spGetVisitorCard", p, "GuestData");
+
+        }
+        
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="CONSTANTS.cs" />
     <Compile Include="DataAccess\InsertData.cs" />
     <Compile Include="DataAccess\RetriveDBinfo.cs" />
+    <Compile Include="DataAccess\UpdateData.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="Internal\DataAccess\SqlDataAccess.cs" />
     <Compile Include="Models\GenericListItems.cs" />

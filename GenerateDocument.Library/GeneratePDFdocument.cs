@@ -177,7 +177,7 @@ namespace GenerateDocument.Library
                 {
                     //image.RotationDegrees = 270;
                     image.SetAbsolutePosition(440, 662);
-                    image.ScaleToFit(120, 100);
+                    image.ScaleToFit(80, 80);
 
                 }
 
@@ -224,7 +224,7 @@ namespace GenerateDocument.Library
 
                         // Load the image of front
                         Image image1 = Image.GetInstance(gScannedFileModel.FrontSideFileName);
-
+                        image1.RotationDegrees = 90;
                         image1.SetAbsolutePosition(100, 32);
                         image1.ScaleToFit(350, 280);
 
@@ -256,7 +256,7 @@ namespace GenerateDocument.Library
 
                         // Load the image of front
                         Image image1 = Image.GetInstance(gScannedFileModel.FrontSideFileName);
-
+                        image1.RotationDegrees = 90;
                         image1.SetAbsolutePosition(100, 22);
                         image1.ScaleToFit(350, 280);
 
@@ -294,12 +294,12 @@ namespace GenerateDocument.Library
                         // Load the image of front
                         Image image = Image.GetInstance(gScannedFileModel.FrontSideFileName);
 
-                        image.SetAbsolutePosition(30, 102);
+                        image.SetAbsolutePosition(60, 102);
                         image.ScaleToFit(250, 150);
 
                         //Load the image of back
                         Image img = Image.GetInstance(gScannedFileModel.BackSideFileName);
-                        img.SetAbsolutePosition(300, 102);
+                        img.SetAbsolutePosition(320, 102);
                         img.ScaleToFit(250, 150);
 
 
@@ -330,7 +330,7 @@ namespace GenerateDocument.Library
                         // Load the image of front
                         Image image = Image.GetInstance(gScannedFileModel.FrontSideFileName);
 
-                        image.SetAbsolutePosition(10, 102);
+                        image.SetAbsolutePosition(40, 102);
                         image.ScaleToFit(250, 150);
 
                         //Load the image of back
