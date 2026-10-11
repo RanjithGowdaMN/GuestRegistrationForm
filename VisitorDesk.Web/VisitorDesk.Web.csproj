@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DefaultItemExcludes>$(DefaultItemExcludes);VisitorDesk.Scanner/**;VisitorDesk.Camera/**;VisitorDesk.Ocr/**;VisitorDesk.Chip/**;VisitorDesk.Tests/**;Dependencies/**;VisitorData/**;MigrationBackup/**;.venv-documents/**;.venv/**;App_Data/**;Lib/**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.1" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+  </ItemGroup>
+  <!-- Show local dependencies and helper source in Solution Explorer without
+       compiling x86 helper source into the web application. -->
+  <ItemGroup>
+    <None Include="Dependencies/**/*;Lib/*.dll;Lib/*.txt"
+          CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
+    <None Include="VisitorDesk.Scanner/**/*;VisitorDesk.Camera/**/*;VisitorDesk.Ocr/**/*;VisitorDesk.Chip/**/*;VisitorDesk.Tests/**/*"
+          Exclude="**/bin/**;**/obj/**"
+          CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+  <!-- The scanner is a separate x86/.NET Framework process, not web source. -->
+  <Target Name="BuildScannerBridge" BeforeTargets="PrepareForBuild"
+          Condition="'$(OS)' == 'Windows_NT' and '$(DesignTimeBuild)' != 'true'"
+          Inputs="$(MSBuildProjectDirectory)/VisitorDesk.Scanner/ScannerBridge.cs;$(MSBuildProjectDirectory)/VisitorDesk.Scanner/build.ps1;$(MSBuildProjectDirectory)/Dependencies/Scanner/AxInterop.FiScnLib.dll;$(MSBuildProjectDirectory)/Dependencies/Scanner/Interop.FiScnLib.dll"
+          Outputs="$(MSBuildProjectDirectory)/VisitorDesk.Scanner/bin/VisitorDesk.Scanner.exe;$(MSBuildProjectDirectory)/VisitorDesk.Scanner/bin/AxInterop.FiScnLib.dll;$(MSBuildProjectDirectory)/VisitorDesk.Scanner/bin/Interop.FiScnLib.dll">
+    <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)/VisitorDesk.Scanner/build.ps1&quot;" />
+  </Target>
+  <ItemGroup>
+    <Content Include="VisitorDesk.Scanner/bin/VisitorDesk.Scanner.exe;VisitorDesk.Scanner/bin/AxInterop.FiScnLib.dll;VisitorDesk.Scanner/bin/Interop.FiScnLib.dll"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="BuildCameraBridge" BeforeTargets="PrepareForBuild"
+          Condition="'$(OS)' == 'Windows_NT' and '$(DesignTimeBuild)' != 'true'"
+          Inputs="$(MSBuildProjectDirectory)/VisitorDesk.Camera/CameraBridge.cs;$(MSBuildProjectDirectory)/VisitorDesk.Camera/build.ps1;$(MSBuildProjectDirectory)/Dependencies/Canon/EDSDK.dll;$(MSBuildProjectDirectory)/Dependencies/Canon/EdsImage.dll;$(MSBuildProjectDirectory)/Dependencies/Canon/EDSDKLib.dll"
+          Outputs="$(MSBuildProjectDirectory)/VisitorDesk.Camera/bin/VisitorDesk.Camera.exe;$(MSBuildProjectDirectory)/VisitorDesk.Camera/bin/EDSDK.dll;$(MSBuildProjectDirectory)/VisitorDesk.Camera/bin/EdsImage.dll;$(MSBuildProjectDirectory)/VisitorDesk.Camera/bin/EDSDKLib.dll">
+    <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)/VisitorDesk.Camera/build.ps1&quot;" />
+  </Target>
+  <ItemGroup>
+    <Content Include="VisitorDesk.Camera/bin/VisitorDesk.Camera.exe;VisitorDesk.Camera/bin/EDSDK.dll;VisitorDesk.Camera/bin/EdsImage.dll;VisitorDesk.Camera/bin/EDSDKLib.dll"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

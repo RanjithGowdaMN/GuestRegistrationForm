@@ -1,0 +1,15 @@
+App_Data/
+.venv/
+.venv-documents/
+Lib/*.dll
+Lib/*.pdb
+appsettings.Local.json
+
+VisitorData/
+MigrationBackup/
+Dependencies/*
+!Dependencies/README.md
+**/bin/
+**/obj/
+.vs/
+*.log

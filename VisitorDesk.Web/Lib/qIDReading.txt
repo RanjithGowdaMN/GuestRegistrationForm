@@ -1,0 +1,87 @@
+   private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+   {         
+       if (e.Error != null)
+       {
+           MessageBox.Show("Error: " + e.Error.Message);
+       }
+       else if (!e.Cancelled)
+       {
+           // Update the UI with the data read from the chip
+           QID IdData = (QID)e.Result; // Retrieve the result
+
+           txtname.Text = IdData.Name_En;
+           txtid.Text = IdData.QID_En;
+           txtdob.Text = IdData.DateOfBirth;
+           txtexpiry.Text = IdData.DateOfExpiry;
+           txtnationality.Text = IdData.Nationality_En;
+
+           if (IdData.Portrait != null)
+           {
+               using (var ms = new MemoryStream(IdData.Portrait))
+               {
+                   // pbphoto.Image = Image.FromStream(ms);var image = Image.FromStream(ms);
+                   // PictureBox
+                   var image = Image.FromStream(ms);
+                   pbphoto.Image = image;
+
+                   //sets parameter to sya photo source is from DB
+                   _scannedData.isDataFromDb[3] = true;
+                   // File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, Convert.FromBase64String(image.ToString()));
+
+                   File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
+                   _cameraStatus.ImagePath = gCONSTANTS.TEMPPHOTOFILEPATH;
+               }
+             //  File.WriteAllBytes(gCONSTANTS.TEMPPHOTOFILEPATH, IdData.Portrait);
+           }
+           else
+           {
+               pbphoto.Image = null; // Or set to a default image
+           }
+       }
+   
+       // Enable controls on the main form
+       EnableMainFormControls();
+
+       if (loadingForm != null && !loadingForm.IsDisposed)
+       {
+           loadingForm.Close();
+           loadingForm.Dispose();
+       }
+   }
+   private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
+   {
+
+       ReadQid readQID = new ReadQid();
+
+       try
+       {
+           readQID.ConnectReader();
+       }
+       catch (Exception ex)
+       {
+           MessageBox.Show("Failed to connect to the reader: " +ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+           return; // Exit the method if connection fails
+       }
+
+       try
+       {
+           QID IdData = readQID.ReadQIDData(); // Perform the read operation
+           e.Result = IdData; // Store the result for later use in RunWorkerCompleted
+       }
+       catch (Exception ex)
+       {
+           MessageBox.Show("Error reading data from the reader: " + ex.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+       }
+       finally
+       {
+           readQID.Disconnect();
+       }
+
+       for (int i = 1; i <= 10; i++)
+       {
+           // Simulate work
+           Thread.Sleep(10);
+           // Report progress to the background worker
+           backgroundWorker1.ReportProgress(i);
+       }
+   }

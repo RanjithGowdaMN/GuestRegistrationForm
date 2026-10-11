@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GuestRegistrationDesktopUI.Library.TextProcessing
+{
+    public enum MrzFormat
+    {
+        TD1,
+        TD2,
+        TD3,
+        MRVA,
+        MRVB,
+        IDFRA,
+        SDL, //Swiss Driving License
+    }
+
+    public enum Gender
+    {
+        NotSpecified,
+        Male,
+        Female
+    }
+    class Document
+    {
+        public MrzFormat Format { get; set; }
+        public string Type { get; set; }
+        public string CountryCode { get; set; }
+        public string Number { get; set; }
+        public string OptionalData1 { get; set; }
+        public DateTime BirthDate { get; set; }
+        public Gender Gender { get; set; }
+        public DateTime? ExpirationDate { get; set; }
+        public string Nationality { get; set; }
+        public string OptionalData2 { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+    }
+}
